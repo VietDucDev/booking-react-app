@@ -8,6 +8,7 @@ function App() {
   console.log("aaa");
   console.log("bbb");
   console.log("test push from TUNG");
+  console.log("vai ca lz");
 
   return (
     <>
