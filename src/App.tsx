@@ -7,6 +7,7 @@ function App() {
   const [count, setCount] = useState(0);
   console.log("aaa");
   console.log("bbb");
+  console.log("test push from TUNG");
 
   return (
     <>
