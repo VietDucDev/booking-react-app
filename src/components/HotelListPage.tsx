@@ -1,4 +1,5 @@
 import React, { Fragment } from "react";
+import "../style/_hotelListPage.scss";
 
 const HotelListPage = () => {
   return (
