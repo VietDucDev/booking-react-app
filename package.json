@@ -13,12 +13,9 @@
     "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.5",
     "@mui/material": "^5.15.15",
-<<<<<<< HEAD
     "@reduxjs/toolkit": "^2.2.3",
     "axios": "^1.6.8",
     "formik": "^2.4.5",
-=======
->>>>>>> 0680e537bfa6ab342820f746c9d4f80b03c98ae2
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-redux": "^9.1.0",
