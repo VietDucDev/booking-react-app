@@ -1,3 +1,21 @@
+@import "variable";
+
+.main_container {
+  //   border: 1px solid orange;
+}
+
+.quick_option_wrapper {
+  //   border: 1px solid blue;
+}
+
+.detail_options_wrapper {
+  //   border: 1px solid blue;
+}
+
+.hotel_list_wrapper {
+  //   border: 1px solid violet;
+}
+
 .map-wrapper {
   border: 1px solid violet;
 }
@@ -8,14 +26,16 @@
 }
 
 .each_hotel_wrapper {
+  //   border: 1px solid green;
   min-height: 250px;
   border-radius: 20px;
   margin-bottom: 15px;
-  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+  box-shadow: $primary-light-shadow;
   padding: 10px;
 }
 
 .thumbnail_image {
+  //   border: 1px solid red;
   height: 230px;
   object-fit: cover;
   padding: 0;
@@ -27,5 +47,3 @@
   height: 230px;
   border-radius: 20px;
 }
-
-/*# sourceMappingURL=main.css.map */
