@@ -1,4 +1,5 @@
-import { Fragment, useState } from "react";
+import { Fragment } from "react";
+
 import "./App.css";
 import HotelListPage from "./components/HotelListPage";
 

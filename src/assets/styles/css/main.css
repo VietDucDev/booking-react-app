@@ -1,0 +1,31 @@
+.map-wrapper {
+  border: 1px solid violet;
+}
+
+.fa-solid {
+  margin-right: 5px;
+  font-size: 1rem;
+}
+
+.each_hotel_wrapper {
+  min-height: 250px;
+  border-radius: 20px;
+  margin-bottom: 15px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+  padding: 10px;
+}
+
+.thumbnail_image {
+  height: 230px;
+  object-fit: cover;
+  padding: 0;
+  border-radius: 20px;
+}
+
+.hotel_info_wrapper {
+  border: 1px solid red;
+  height: 230px;
+  border-radius: 20px;
+}
+
+/*# sourceMappingURL=main.css.map */
