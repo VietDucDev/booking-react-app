@@ -4,17 +4,21 @@ import { Link } from "react-router-dom";
 const NavBar = () => {
   return (
     <Fragment>
-      <header className="fixed-top bg-white">
-        <Link to="home" className="mr-2">
-          Home Page
-        </Link>
-        <Link to="hotelList" className="mr-2">
-          Son Tung MTP
-        </Link>
-        <Link to="login_logout" className="mr-2">
-          Viet Duc
-        </Link>
-        <Link to="hotelBooking">Duc dai ca</Link>
+      <header className="fixed-top bg-white shadow">
+        <div className="py-3 d-flex justify-content-center">
+          <Link to="home" className="mx-2 text-decoration-none">
+            Home Page
+          </Link>
+          <Link to="hotelList" className="mx-2 text-decoration-none">
+            Son Tung MTP
+          </Link>
+          <Link to="login_logout" className="mx-2 text-decoration-none">
+            Viet Duc
+          </Link>
+          <Link to="hotelBooking" className="mx-2 text-decoration-none">
+            Duc dai ca
+          </Link>
+        </div>
       </header>
     </Fragment>
   );
