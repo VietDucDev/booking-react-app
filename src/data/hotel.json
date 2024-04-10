@@ -1,0 +1,1028 @@
+{
+    "hotelList": [
+      {
+        "sn": 3647,
+        "name": "PHARAON HOTEL CỐNG QUỲNH",
+        "lat": 10.765132,
+        "lng": 106.6911805,
+        "facilityList": [
+          {
+            "sn": 811,
+            "name": "Youtube|Youtube"
+          },
+          {
+            "sn": 638,
+            "name": "netflix|netflix"
+          },
+          {
+            "sn": 97,
+            "name": "Smart TV|Smart TV"
+          },
+          {
+            "sn": 27,
+            "name": "Thang máy|Elevator"
+          },
+          {
+            "sn": 188,
+            "name": "Wi-Fi miễn phí|wifi"
+          },
+          {
+            "sn": 136,
+            "name": "Bồn tắm sục|Jacuzzi"
+          },
+          {
+            "sn": 98,
+            "name": "Ghế tình yêu|Tantra chair"
+          },
+          {
+            "sn": 825,
+            "name": "máy chiếu 120inch|máy chiếu 120inch"
+          },
+          {
+            "sn": 800,
+            "name": "Chọn kiểu phòng tại khách sạn|Chọn kiểu phòng tại khách sạn"
+          }
+        ],
+        "originPrice": 650000,
+        "discountPrice": 650000,
+        "averageMark": 4.9,
+        "totalReview": 2686,
+        "districtName": "Quận 1",
+        "bookingType": 3,
+        "firstHours": 2,
+        "isDirectDiscount": false,
+        "percentDirectDiscount": 0,
+        "isExtraFee": false,
+        "isFlashSale": false,
+        "isFavorite": false,
+        "hotelImage": "hotel/3647/405_1618026648_60712098eecee.jpg",
+        "distance": 2.8540945445672876,
+        "roomStatus": null
+      },
+      {
+        "sn": 4613,
+        "name": "PHARAON HOTEL SƯ VẠN HẠNH QUẬN 10",
+        "lat": 10.7708403,
+        "lng": 106.6718466,
+        "facilityList": [
+          {
+            "sn": 811,
+            "name": "Youtube|Youtube"
+          },
+          {
+            "sn": 638,
+            "name": "netflix|netflix"
+          },
+          {
+            "sn": 27,
+            "name": "Thang máy|Elevator"
+          },
+          {
+            "sn": 123,
+            "name": "Bồn tắm|Bathtub"
+          },
+          {
+            "sn": 801,
+            "name": "Ghế BDSM|Ghế BDSM"
+          },
+          {
+            "sn": 188,
+            "name": "Wi-Fi miễn phí|wifi"
+          },
+          {
+            "sn": 98,
+            "name": "Ghế tình yêu|Tantra chair"
+          },
+          {
+            "sn": 800,
+            "name": "Chọn kiểu phòng tại khách sạn|Chọn kiểu phòng tại khách sạn"
+          }
+        ],
+        "originPrice": 750000,
+        "discountPrice": 750000,
+        "averageMark": 4.9,
+        "totalReview": 2049,
+        "districtName": "Quận 10",
+        "bookingType": 3,
+        "firstHours": 2,
+        "isDirectDiscount": false,
+        "percentDirectDiscount": 0,
+        "isExtraFee": false,
+        "isFlashSale": false,
+        "isFavorite": false,
+        "hotelImage": "hotel/4613/4479_1639211127_61b460770ac06.jpg",
+        "distance": 0.8085344503411848,
+        "roomStatus": null
+      },
+      {
+        "sn": 3009,
+        "name": "MIMOSA HOTEL QUẬN 10",
+        "lat": 10.7778196,
+        "lng": 106.6661489,
+        "facilityList": [
+          {
+            "sn": 27,
+            "name": "Thang máy|Elevator"
+          },
+          {
+            "sn": 188,
+            "name": "Wi-Fi miễn phí|wifi"
+          },
+          {
+            "sn": 69,
+            "name": "Điều hoà|Air conditioning"
+          },
+          {
+            "sn": 33,
+            "name": "Bãi đỗ xe ô tô|Car parking"
+          },
+          {
+            "sn": 122,
+            "name": "Lễ tân 24/24|Reception [24-hour]"
+          }
+        ],
+        "originPrice": 750000,
+        "discountPrice": 750000,
+        "averageMark": 4.9,
+        "totalReview": 1807,
+        "districtName": "Quận 10",
+        "bookingType": 3,
+        "firstHours": 2,
+        "isDirectDiscount": false,
+        "percentDirectDiscount": 0,
+        "isExtraFee": false,
+        "isFlashSale": false,
+        "isFavorite": false,
+        "hotelImage": "hotel/3009_1603186471262/1a37f34e1dc7b00746d2862f04f4f3c1.jpg",
+        "distance": 1.1331607807008255,
+        "roomStatus": null
+      },
+      {
+        "sn": 17433,
+        "name": "H.A.O BOUTIQUE HOTEL",
+        "lat": 10.7748739,
+        "lng": 106.6758318,
+        "facilityList": [
+          {
+            "sn": 280,
+            "name": "Wi-Fi|Wi-Fi"
+          },
+          {
+            "sn": 638,
+            "name": "netflix|netflix"
+          },
+          {
+            "sn": 27,
+            "name": "Thang máy|Elevator"
+          },
+          {
+            "sn": 123,
+            "name": "Bồn tắm|Bathtub"
+          },
+          {
+            "sn": 188,
+            "name": "Wi-Fi miễn phí|wifi"
+          },
+          {
+            "sn": 637,
+            "name": "Máy lạnh|Máy lạnh"
+          },
+          {
+            "sn": 735,
+            "name": "Ba con sói|Ba con sói"
+          },
+          {
+            "sn": 548,
+            "name": "Tủ lạnh|Refrigerator"
+          },
+          {
+            "sn": 143,
+            "name": "Vòi hoa sen|vòi hoa sen"
+          },
+          {
+            "sn": 351,
+            "name": "Máy sấy tóc|Hair dryer"
+          },
+          {
+            "sn": 98,
+            "name": "Ghế tình yêu|Tantra chair"
+          },
+          {
+            "sn": 91,
+            "name": "Truyền hình cáp|Cable channels"
+          },
+          {
+            "sn": 122,
+            "name": "Lễ tân 24/24|Reception [24-hour]"
+          },
+          {
+            "sn": 67,
+            "name": "Dịch vụ giặt ủi|Laundry service"
+          },
+          {
+            "sn": 37,
+            "name": "Phòng không hút thuốc|Non-smoking room"
+          },
+          {
+            "sn": 127,
+            "name": "Dịch vụ dọn phòng mỗi ngày|Dọn phòng mỗi ngày"
+          }
+        ],
+        "originPrice": 850000,
+        "discountPrice": 850000,
+        "averageMark": 4.9,
+        "totalReview": 1447,
+        "districtName": "Quận 10",
+        "bookingType": 3,
+        "firstHours": 2,
+        "isDirectDiscount": false,
+        "percentDirectDiscount": 0,
+        "isExtraFee": false,
+        "isFlashSale": false,
+        "isFavorite": false,
+        "hotelImage": "hotel/17433/9043_1695008362_6507c66ab59d1.jpg",
+        "distance": 1.4121224241538377,
+        "roomStatus": null
+      },
+      {
+        "sn": 13047,
+        "name": "DAZI SIGNATURE HOTEL",
+        "lat": 10.7716029,
+        "lng": 106.6962145,
+        "facilityList": [
+          {
+            "sn": 845,
+            "name": "Loa|Loa"
+          },
+          {
+            "sn": 60,
+            "name": "Karaoke|Karaoke"
+          },
+          {
+            "sn": 638,
+            "name": "netflix|netflix"
+          },
+          {
+            "sn": 97,
+            "name": "Smart TV|Smart TV"
+          },
+          {
+            "sn": 27,
+            "name": "Thang máy|Elevator"
+          },
+          {
+            "sn": 123,
+            "name": "Bồn tắm|Bathtub"
+          },
+          {
+            "sn": 802,
+            "name": "Smart home|Smart home"
+          },
+          {
+            "sn": 806,
+            "name": "Oral Water|Oral Water"
+          },
+          {
+            "sn": 844,
+            "name": "Đèn Laser|Đèn Laser"
+          },
+          {
+            "sn": 229,
+            "name": "Máy giặt|Máy giặt"
+          },
+          {
+            "sn": 136,
+            "name": "Bồn tắm sục|Jacuzzi"
+          },
+          {
+            "sn": 180,
+            "name": "Máy chiếu|Máy chiếu"
+          },
+          {
+            "sn": 231,
+            "name": "Phòng bếp|Phòng bếp"
+          },
+          {
+            "sn": 98,
+            "name": "Ghế tình yêu|Tantra chair"
+          },
+          {
+            "sn": 805,
+            "name": "Smart TV 55inch|Smart TV 55inch"
+          },
+          {
+            "sn": 745,
+            "name": "Youtube Premium|Youtube Premium"
+          },
+          {
+            "sn": 842,
+            "name": "Bộ roi da BDSM|Bộ roi da BDSM"
+          },
+          {
+            "sn": 790,
+            "name": "Máy chiếu phim|Máy chiếu phim"
+          },
+          {
+            "sn": 841,
+            "name": "Ghế dụng cụ|Ghế dụng cụ"
+          },
+          {
+            "sn": 843,
+            "name": "Màn chiếu phim|Màn chiếu phim"
+          },
+          {
+            "sn": 763,
+            "name": "TV Xiaomi 43 inch|TV Xiaomi 43 inch"
+          },
+          {
+            "sn": 764,
+            "name": "TV Xiaomi 55 inch|TV Xiaomi 55 inch"
+          },
+          {
+            "sn": 765,
+            "name": "Phòng xông hơi|Phòng xông hơi"
+          },
+          {
+            "sn": 419,
+            "name": "TV [màn hình phẳng]|TV [flat screen]"
+          },
+          {
+            "sn": 738,
+            "name": "Hệ thống Smart room|Hệ thống Smart room"
+          },
+          {
+            "sn": 803,
+            "name": "Bồn tắm sục Jaccuzi|Bồn tắm sục Jaccuzi"
+          },
+          {
+            "sn": 171,
+            "name": "Dịch vụ phát trực tuyến như Netflix|NETFLIX"
+          },
+          {
+            "sn": 737,
+            "name": "Internet băng thông quốc tế|Internet băng thông quốc tế"
+          }
+        ],
+        "originPrice": 950000,
+        "discountPrice": 902500,
+        "averageMark": 4.9,
+        "totalReview": 1122,
+        "districtName": "Quận 1",
+        "bookingType": 3,
+        "firstHours": 2,
+        "isDirectDiscount": true,
+        "percentDirectDiscount": 5,
+        "isExtraFee": false,
+        "isFlashSale": false,
+        "isFavorite": false,
+        "hotelImage": "hotel/13047/2848_1708415022_65d4582e19bd2.png",
+        "distance": 3.417987953781262,
+        "roomStatus": null
+      },
+      {
+        "sn": 758,
+        "name": "CUPID HOTEL NAM QUỐC CANG",
+        "lat": 10.767769,
+        "lng": 106.688224,
+        "facilityList": [
+          {
+            "sn": 97,
+            "name": "Smart TV|Smart TV"
+          },
+          {
+            "sn": 27,
+            "name": "Thang máy|Elevator"
+          },
+          {
+            "sn": 188,
+            "name": "Wi-Fi miễn phí|wifi"
+          },
+          {
+            "sn": 92,
+            "name": "Nước lọc|Mineral water"
+          },
+          {
+            "sn": 69,
+            "name": "Điều hoà|Air conditioning"
+          },
+          {
+            "sn": 98,
+            "name": "Ghế tình yêu|Tantra chair"
+          },
+          {
+            "sn": 33,
+            "name": "Bãi đỗ xe ô tô|Car parking"
+          },
+          {
+            "sn": 91,
+            "name": "Truyền hình cáp|Cable channels"
+          },
+          {
+            "sn": 122,
+            "name": "Lễ tân 24/24|Reception [24-hour]"
+          }
+        ],
+        "originPrice": 900000,
+        "discountPrice": 800000,
+        "averageMark": 4.9,
+        "totalReview": 868,
+        "districtName": "Quận 1",
+        "bookingType": 3,
+        "firstHours": 1,
+        "isDirectDiscount": true,
+        "percentDirectDiscount": 12,
+        "isExtraFee": false,
+        "isFlashSale": false,
+        "isFavorite": false,
+        "hotelImage": "hotel/758/4479_1698920996_65437a24050a3.webp",
+        "distance": 2.5170659481797415,
+        "roomStatus": null
+      },
+      {
+        "sn": 726,
+        "name": "A IN HOTEL RIVERSIDE",
+        "lat": 10.7614502,
+        "lng": 106.6974974,
+        "facilityList": [
+          {
+            "sn": 97,
+            "name": "Smart TV|Smart TV"
+          },
+          {
+            "sn": 27,
+            "name": "Thang máy|Elevator"
+          },
+          {
+            "sn": 123,
+            "name": "Bồn tắm|Bathtub"
+          },
+          {
+            "sn": 188,
+            "name": "Wi-Fi miễn phí|wifi"
+          },
+          {
+            "sn": 136,
+            "name": "Bồn tắm sục|Jacuzzi"
+          },
+          {
+            "sn": 92,
+            "name": "Nước lọc|Mineral water"
+          },
+          {
+            "sn": 69,
+            "name": "Điều hoà|Air conditioning"
+          },
+          {
+            "sn": 98,
+            "name": "Ghế tình yêu|Tantra chair"
+          },
+          {
+            "sn": 33,
+            "name": "Bãi đỗ xe ô tô|Car parking"
+          },
+          {
+            "sn": 114,
+            "name": "Xe máy cho thuê|Rental motorbike"
+          },
+          {
+            "sn": 122,
+            "name": "Lễ tân 24/24|Reception [24-hour]"
+          },
+          {
+            "sn": 70,
+            "name": "Đưa đón sân bay|Airport transfer"
+          },
+          {
+            "sn": 67,
+            "name": "Dịch vụ giặt ủi|Laundry service"
+          },
+          {
+            "sn": 171,
+            "name": "Dịch vụ phát trực tuyến như Netflix|NETFLIX"
+          },
+          {
+            "sn": 26,
+            "name": "Dịch vụ lưu trữ/bảo quản hành lý|Luggage storage"
+          }
+        ],
+        "originPrice": 720000,
+        "discountPrice": 612000,
+        "averageMark": 4.8,
+        "totalReview": 3866,
+        "districtName": "Quận 4",
+        "bookingType": 3,
+        "firstHours": 2,
+        "isDirectDiscount": true,
+        "percentDirectDiscount": 15,
+        "isExtraFee": false,
+        "isFlashSale": false,
+        "isFavorite": false,
+        "hotelImage": "hotel/726/9460_1710239222_65f02df65061d.jpg",
+        "distance": 3.5974271954606523,
+        "roomStatus": null
+      },
+      {
+        "sn": 1569,
+        "name": "HAPPY HOMES TRỊNH VĂN CẤN",
+        "lat": 10.767536,
+        "lng": 106.696443,
+        "facilityList": [
+          {
+            "sn": 97,
+            "name": "Smart TV|Smart TV"
+          },
+          {
+            "sn": 27,
+            "name": "Thang máy|Elevator"
+          },
+          {
+            "sn": 123,
+            "name": "Bồn tắm|Bathtub"
+          },
+          {
+            "sn": 188,
+            "name": "Wi-Fi miễn phí|wifi"
+          },
+          {
+            "sn": 98,
+            "name": "Ghế tình yêu|Tantra chair"
+          }
+        ],
+        "originPrice": 600000,
+        "discountPrice": 480000,
+        "averageMark": 4.8,
+        "totalReview": 3391,
+        "districtName": "Quận 1",
+        "bookingType": 3,
+        "firstHours": 1,
+        "isDirectDiscount": true,
+        "percentDirectDiscount": 20,
+        "isExtraFee": false,
+        "isFlashSale": false,
+        "isFavorite": false,
+        "hotelImage": "hotel/1569/405_1696393334_651ce8761ecd9.jpg",
+        "distance": 3.414991151245798,
+        "roomStatus": null
+      },
+      {
+        "sn": 728,
+        "name": "BONITA GRAND HOTEL",
+        "lat": 10.7553364,
+        "lng": 106.6802887,
+        "facilityList": [
+          {
+            "sn": 188,
+            "name": "Wi-Fi miễn phí|wifi"
+          },
+          {
+            "sn": 637,
+            "name": "Máy lạnh|Máy lạnh"
+          },
+          {
+            "sn": 635,
+            "name": "Bồn tắm Jaccuzzi|Bồn tắm Jaccuzzi"
+          },
+          {
+            "sn": 460,
+            "name": "Bồn tắm tạo sóng|Whirlpool bathtub"
+          },
+          {
+            "sn": 636,
+            "name": "Đồ chơi tình yêu|Đồ chơi tình yêu"
+          }
+        ],
+        "originPrice": 600000,
+        "discountPrice": 600000,
+        "averageMark": 4.8,
+        "totalReview": 1672,
+        "districtName": "Quận 5",
+        "bookingType": 3,
+        "firstHours": 1,
+        "isDirectDiscount": false,
+        "percentDirectDiscount": 0,
+        "isExtraFee": false,
+        "isFlashSale": false,
+        "isFavorite": false,
+        "hotelImage": "hotel/728/6130_1672128849_63aaa95146a47.jpg",
+        "distance": 2.146058254025844,
+        "roomStatus": null
+      },
+      {
+        "sn": 1052,
+        "name": "LE JARDIN SECRET SAIGON",
+        "lat": 10.7601272,
+        "lng": 106.6965346,
+        "facilityList": [],
+        "originPrice": 970000,
+        "discountPrice": 970000,
+        "averageMark": 4.8,
+        "totalReview": 1389,
+        "districtName": "Quận 4",
+        "bookingType": 3,
+        "firstHours": 2,
+        "isDirectDiscount": false,
+        "percentDirectDiscount": 0,
+        "isExtraFee": false,
+        "isFlashSale": false,
+        "isFavorite": false,
+        "hotelImage": "hotel/1052/6130_1672112277_63aa689520013.jpg",
+        "distance": 3.5263709186122667,
+        "roomStatus": null
+      },
+      {
+        "sn": 3719,
+        "name": "THY THY VÂN",
+        "lat": 10.7911137,
+        "lng": 106.6411744,
+        "facilityList": [
+          {
+            "sn": 123,
+            "name": "Bồn tắm|Bathtub"
+          },
+          {
+            "sn": 98,
+            "name": "Ghế tình yêu|Tantra chair"
+          }
+        ],
+        "originPrice": 360000,
+        "discountPrice": 260000,
+        "averageMark": 4.8,
+        "totalReview": 1321,
+        "districtName": "Tân Bình",
+        "bookingType": 3,
+        "firstHours": 1,
+        "isDirectDiscount": true,
+        "percentDirectDiscount": 28,
+        "isExtraFee": false,
+        "isFlashSale": false,
+        "isFavorite": false,
+        "hotelImage": "hotel/3719/3232_1618824772_607d4e44d2311.jpg",
+        "distance": 3.697808200798279,
+        "roomStatus": null
+      },
+      {
+        "sn": 1523,
+        "name": "VẠN PHÁT HOTEL",
+        "lat": 10.765788,
+        "lng": 106.682669,
+        "facilityList": [],
+        "originPrice": 650000,
+        "discountPrice": 650000,
+        "averageMark": 4.8,
+        "totalReview": 1200,
+        "districtName": "Quận 1",
+        "bookingType": 3,
+        "firstHours": 2,
+        "isDirectDiscount": false,
+        "percentDirectDiscount": 0,
+        "isExtraFee": false,
+        "isFlashSale": false,
+        "isFavorite": false,
+        "hotelImage": "hotel/1523_1570611378441/191be0fc84587386ab5a971ee0278c7a.jpg",
+        "distance": 1.9216627690165753,
+        "roomStatus": null
+      },
+      {
+        "sn": 15914,
+        "name": "MIDAS HOTEL",
+        "lat": 10.7718939,
+        "lng": 106.6723622,
+        "facilityList": [
+          {
+            "sn": 638,
+            "name": "netflix|netflix"
+          },
+          {
+            "sn": 123,
+            "name": "Bồn tắm|Bathtub"
+          },
+          {
+            "sn": 98,
+            "name": "Ghế tình yêu|Tantra chair"
+          },
+          {
+            "sn": 745,
+            "name": "Youtube Premium|Youtube Premium"
+          }
+        ],
+        "originPrice": 790000,
+        "discountPrice": 790000,
+        "averageMark": 4.8,
+        "totalReview": 1143,
+        "districtName": "Quận 10",
+        "bookingType": 3,
+        "firstHours": 2,
+        "isDirectDiscount": false,
+        "percentDirectDiscount": 0,
+        "isExtraFee": false,
+        "isFlashSale": false,
+        "isFavorite": false,
+        "hotelImage": "hotel/15914/8936_1711106584_65fd6a1882a84.jpg",
+        "distance": 0.9138547565429457,
+        "roomStatus": null
+      },
+      {
+        "sn": 2765,
+        "name": "ME GUSTAS - LOVE HOTEL",
+        "lat": 10.772407,
+        "lng": 106.6943221,
+        "facilityList": [],
+        "originPrice": 1440000,
+        "discountPrice": 720000,
+        "averageMark": 4.8,
+        "totalReview": 814,
+        "districtName": "Quận 1",
+        "bookingType": 3,
+        "firstHours": 1,
+        "isDirectDiscount": true,
+        "percentDirectDiscount": 50,
+        "isExtraFee": false,
+        "isFlashSale": false,
+        "isFavorite": false,
+        "hotelImage": "hotel/2765_1596680384535/0484a98ecfeaeffb869b145cab79fcb4.jpg",
+        "distance": 3.2264218220866163,
+        "roomStatus": null
+      },
+      {
+        "sn": 4392,
+        "name": "EROS HOTEL 2",
+        "lat": 10.7797371,
+        "lng": 106.6780829,
+        "facilityList": [
+          {
+            "sn": 68,
+            "name": "Spa/Sauna|Spa/sauna"
+          },
+          {
+            "sn": 123,
+            "name": "Bồn tắm|Bathtub"
+          },
+          {
+            "sn": 780,
+            "name": "FPT Playbox|FPT Playbox"
+          },
+          {
+            "sn": 180,
+            "name": "Máy chiếu|Máy chiếu"
+          },
+          {
+            "sn": 765,
+            "name": "Phòng xông hơi|Phòng xông hơi"
+          },
+          {
+            "sn": 171,
+            "name": "Dịch vụ phát trực tuyến như Netflix|NETFLIX"
+          }
+        ],
+        "originPrice": 800000,
+        "discountPrice": 480000,
+        "averageMark": 4.8,
+        "totalReview": 699,
+        "districtName": "Quận 3",
+        "bookingType": 3,
+        "firstHours": 1,
+        "isDirectDiscount": true,
+        "percentDirectDiscount": 40,
+        "isExtraFee": false,
+        "isFlashSale": false,
+        "isFavorite": false,
+        "hotelImage": "hotel/4392/4479_1636438686_618a129ec359a.jpg",
+        "distance": 1.945540729888569,
+        "roomStatus": null
+      },
+      {
+        "sn": 3361,
+        "name": "COZRUM SMART - FIRST TARGET HOTEL",
+        "lat": 10.770963,
+        "lng": 106.688628,
+        "facilityList": [
+          {
+            "sn": 97,
+            "name": "Smart TV|Smart TV"
+          },
+          {
+            "sn": 27,
+            "name": "Thang máy|Elevator"
+          },
+          {
+            "sn": 145,
+            "name": "Tủ quần áo|Closet"
+          },
+          {
+            "sn": 188,
+            "name": "Wi-Fi miễn phí|wifi"
+          },
+          {
+            "sn": 92,
+            "name": "Nước lọc|Mineral water"
+          },
+          {
+            "sn": 69,
+            "name": "Điều hoà|Air conditioning"
+          },
+          {
+            "sn": 153,
+            "name": "Phòng tình nhân|Lover's Room"
+          },
+          {
+            "sn": 169,
+            "name": "Cửa sổ thông thoáng|Big window"
+          },
+          {
+            "sn": 37,
+            "name": "Phòng không hút thuốc|Non-smoking room"
+          },
+          {
+            "sn": 26,
+            "name": "Dịch vụ lưu trữ/bảo quản hành lý|Luggage storage"
+          }
+        ],
+        "originPrice": 1500000,
+        "discountPrice": 1401094,
+        "averageMark": 4.8,
+        "totalReview": 153,
+        "districtName": "Quận 1",
+        "bookingType": 3,
+        "firstHours": 1,
+        "isDirectDiscount": true,
+        "percentDirectDiscount": 7,
+        "isExtraFee": false,
+        "isFlashSale": false,
+        "isFavorite": false,
+        "hotelImage": "hotel/3361_1613552732350/31a0bb6b7a8e34cd687ba0b35ea873b7.jpg",
+        "distance": 2.587137713893393,
+        "roomStatus": null
+      },
+      {
+        "sn": 6535,
+        "name": "KHÁCH SẠN SAO MAI",
+        "lat": 10.799757,
+        "lng": 106.6813912,
+        "facilityList": [],
+        "originPrice": 550000,
+        "discountPrice": 500000,
+        "averageMark": 4.8,
+        "totalReview": 104,
+        "districtName": "Phú Nhuận",
+        "bookingType": 3,
+        "firstHours": 1,
+        "isDirectDiscount": true,
+        "percentDirectDiscount": 10,
+        "isExtraFee": false,
+        "isFlashSale": false,
+        "isFavorite": false,
+        "hotelImage": "hotel/6535/4479_1642041730_61df91824eacf.jpg",
+        "distance": 3.9829123825407393,
+        "roomStatus": null
+      },
+      {
+        "sn": 725,
+        "name": "BONITA TÔ HIẾN THÀNH",
+        "lat": 10.7799714,
+        "lng": 106.6683964,
+        "facilityList": [
+          {
+            "sn": 188,
+            "name": "Wi-Fi miễn phí|wifi"
+          },
+          {
+            "sn": 136,
+            "name": "Bồn tắm sục|Jacuzzi"
+          },
+          {
+            "sn": 98,
+            "name": "Ghế tình yêu|Tantra chair"
+          },
+          {
+            "sn": 91,
+            "name": "Truyền hình cáp|Cable channels"
+          },
+          {
+            "sn": 37,
+            "name": "Phòng không hút thuốc|Non-smoking room"
+          }
+        ],
+        "originPrice": 600000,
+        "discountPrice": 600000,
+        "averageMark": 4.7,
+        "totalReview": 4160,
+        "districtName": "Quận 10",
+        "bookingType": 3,
+        "firstHours": 1,
+        "isDirectDiscount": false,
+        "percentDirectDiscount": 0,
+        "isExtraFee": false,
+        "isFlashSale": false,
+        "isFavorite": false,
+        "hotelImage": "hotel/725/6130_1698814954_6541dbea0c761.webp",
+        "distance": 1.4118450577589405,
+        "roomStatus": null
+      },
+      {
+        "sn": 705,
+        "name": "BONITA SIGNATURE HOTEL",
+        "lat": 10.7703247,
+        "lng": 106.6886397,
+        "facilityList": [
+          {
+            "sn": 46,
+            "name": "Quầy bar|Bar"
+          },
+          {
+            "sn": 27,
+            "name": "Thang máy|Elevator"
+          },
+          {
+            "sn": 123,
+            "name": "Bồn tắm|Bathtub"
+          },
+          {
+            "sn": 188,
+            "name": "Wi-Fi miễn phí|wifi"
+          },
+          {
+            "sn": 33,
+            "name": "Bãi đỗ xe ô tô|Car parking"
+          },
+          {
+            "sn": 91,
+            "name": "Truyền hình cáp|Cable channels"
+          },
+          {
+            "sn": 122,
+            "name": "Lễ tân 24/24|Reception [24-hour]"
+          }
+        ],
+        "originPrice": 880000,
+        "discountPrice": 880000,
+        "averageMark": 4.7,
+        "totalReview": 2153,
+        "districtName": "Quận 1",
+        "bookingType": 3,
+        "firstHours": 1,
+        "isDirectDiscount": false,
+        "percentDirectDiscount": 0,
+        "isExtraFee": false,
+        "isFlashSale": false,
+        "isFavorite": false,
+        "hotelImage": "hotel/705_1495074618719/2_705_66_1527759340719.jpg",
+        "distance": 2.5793355933831146,
+        "roomStatus": null
+      },
+      {
+        "sn": 1262,
+        "name": "2Z HOTEL",
+        "lat": 10.7699285,
+        "lng": 106.6892515,
+        "facilityList": [
+          {
+            "sn": 97,
+            "name": "Smart TV|Smart TV"
+          },
+          {
+            "sn": 27,
+            "name": "Thang máy|Elevator"
+          },
+          {
+            "sn": 188,
+            "name": "Wi-Fi miễn phí|wifi"
+          },
+          {
+            "sn": 33,
+            "name": "Bãi đỗ xe ô tô|Car parking"
+          }
+        ],
+        "originPrice": 490000,
+        "discountPrice": 416500,
+        "averageMark": 4.7,
+        "totalReview": 462,
+        "districtName": "Quận 1",
+        "bookingType": 3,
+        "firstHours": 2,
+        "isDirectDiscount": true,
+        "percentDirectDiscount": 15,
+        "isExtraFee": false,
+        "isFlashSale": false,
+        "isFavorite": false,
+        "hotelImage": "hotel/1262_1565925222522/bc8f3626c085057df1e2e240d635e216.jpg",
+        "distance": 2.6412036700653436,
+        "roomStatus": null
+      }
+    ],
+    "additionalData": {
+      "latMin": 10.7553364,
+      "latMax": 10.799757,
+      "lngMin": 106.6411744,
+      "lngMax": 106.6974974,
+      "hotelCollectionSn": 69,
+      "hotelCollectionName": "Tình yêu | Couple Hotels"
+    },
+    "meta": {
+      "total": 149,
+      "perPage": 20,
+      "currentPage": 1,
+      "lastPage": 8,
+      "from": 1,
+      "to": 8
+    }
+  }

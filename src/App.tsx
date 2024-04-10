@@ -5,10 +5,9 @@ import "./App.css";
 
 function App() {
   const [count, setCount] = useState(0);
-  console.log("aaa");
-  console.log("bbb");
-  console.log("test push from TUNG");
-  console.log("vai ca lz");
+  fetch("https://api.go2joy.vn/api/v1/hotel/getHotelList")
+    .then((res) => res.json())
+    .then((data) => console.log(data));
 
   return (
     <>
