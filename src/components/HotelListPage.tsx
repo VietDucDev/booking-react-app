@@ -1,5 +1,5 @@
 import { Button } from "@mui/material";
-import React, { Fragment } from "react";
+import { Fragment } from "react";
 import "../style/sass/_hotelListPage.scss";
 
 const HotelListPage = () => {
