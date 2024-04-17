@@ -3,8 +3,8 @@ import HotelListPage from "./components/HotelListPage";
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import Login_Logout from "./pages/Login_Logout";
-import HotelBooking from "./pages/HotelBooking";
 import NavBar from "./components/NavBar";
+import HotelBooking from "./pages/hotel-booking/HotelBooking";
 
 function App() {
   return (
