@@ -8,14 +8,11 @@ import HotelListPage from "./components/HotelListPage";
 import HomePage from "./pages/HomePage/HomePage";
 import Login_Logout from "./pages/Login_Logout";
 import NavBar from "./components/NavBar";
-<<<<<<< HEAD
 import RoomPage from "./pages/RoomPage";
-=======
 import HotelBooking from "./pages/hotel-booking/HotelBooking";
 import PromotionList from "./pages/PromotionList";
 import Login from "./pages/Login";
 import Registration from "./pages/Registration";
->>>>>>> 2e1158f30cbf6b8365bbac6bc669e84ffc4c8fa5
 
 function App() {
   return (

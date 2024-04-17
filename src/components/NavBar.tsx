@@ -28,7 +28,6 @@ const NavBar = () => {
 
   return (
     <Fragment>
-<<<<<<< HEAD
       <header className="fixed-top bg-white shadow">
         <div className="py-3 d-flex justify-content-center">
           <Link to="home" className="mx-2 text-decoration-none">
@@ -42,7 +41,6 @@ const NavBar = () => {
           </Link>
           <Link to="hotelBooking" className="mx-2 text-decoration-none">
             Duc dai ca
-=======
       <nav className="fixed-top bg-white shadow-sm px-5 py-2 d-flex align-items-center justify-content-between">
         <div className="d-flex align-items-center">
           <Link to="home">
@@ -52,7 +50,6 @@ const NavBar = () => {
               width={70}
               className="mx-3"
             />
->>>>>>> 2e1158f30cbf6b8365bbac6bc669e84ffc4c8fa5
           </Link>
           <div className="d-flex justify-content-center align-items-center">
             <Link
