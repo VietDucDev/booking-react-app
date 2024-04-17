@@ -1,12 +1,14 @@
 import ReactDOM from "react-dom/client";
-import App from "./App.tsx";
-import "./index.css";
-// import "./assets/styles/css/main.css";
+import { BrowserRouter } from "react-router-dom";
 import { ThemeProvider } from "@emotion/react";
 import theme from "./style/theme/theme.ts";
+import App from "./App.tsx";
+// import "./assets/styles/css/main.css";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <ThemeProvider theme={theme}>
-    <App />
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
   </ThemeProvider>
 );
