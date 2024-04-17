@@ -6,30 +6,47 @@
 }
 
 .signin-signup-conatiner {
-  background: $primary-lighter-teal;
+  background-image: url("./images/Login/Login-background_mock.jpg");
+  background-size: cover; /* Hình ảnh sẽ được phủ toàn bộ khu vực */
+  background-repeat: no-repeat; /* Ngăn lặp lại hình ảnh */
+  background-position: center; /* Hiển thị hình ảnh ở giữa */
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   font-family: "Montserrat", sans-serif;
   height: 100vh;
-  margin: -20px 0 50px;
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3); /* Màu đen với độ trong suốt 50% */
+  }
 
   h1 {
+    font-weight: bold;
+    font-size: 54px;
+  }
+
+  h2 {
+    font-weight: bold;
+  }
+
+  h4 {
     font-weight: bold;
     margin: 0;
   }
 
-  h2 {
-    text-align: center;
-  }
-
   p {
-    font-size: 14px;
-    font-weight: 100;
-    line-height: 20px;
-    letter-spacing: 0.5px;
-    margin: 20px 0 30px;
+    white-space: nowrap;
+    font-size: 12px;
+    border-bottom: 1px solid white;
+    padding-bottom: 5px;
+    margin-top: 20px;
+    margin-bottom: 40px;
   }
 
   span {
@@ -66,10 +83,11 @@
 
   button.ghost {
     background-color: transparent;
+    background-color: $primary-main-teal;
     border-color: #ffffff;
   }
 
-  form {
+  .form {
     background-color: #ffffff;
     display: flex;
     align-items: center;
@@ -83,9 +101,10 @@
   input {
     background-color: #eee;
     border: none;
-    padding: 12px 15px;
-    margin: 8px 0;
+    padding: 7px 15px;
+    margin: 5px 0;
     width: 100%;
+    border-radius: 5px;
   }
 
   .container {
@@ -127,7 +146,7 @@
     transform: translateX(100%);
     opacity: 1;
     z-index: 5;
-    animation: show 0.6s;
+    animation: show 0.4s;
   }
 
   @keyframes show {
@@ -160,12 +179,14 @@
   }
 
   .overlay {
-    background: $primary-main-teal;
+    // background: $primary-main-teal;
     // background: -webkit-linear-gradient(to right, #ff4b2b, #ff416c);
     // background: linear-gradient(to right, #ff4b2b, #ff416c);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: 0 0;
+
+    background-image: url("./images/Login/Login_no-text.jpg");
+    background-size: 50%; /* Hình ảnh chiếm 50% chiều rộng và co giãn theo chiều cao */
+    background-repeat: repeat-x; /* Ngăn lặp lại hình ảnh */
+
     color: #ffffff;
     position: relative;
     left: -100%;
@@ -182,8 +203,8 @@
   .overlay-panel {
     position: absolute;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    align-items: start;
+    justify-content: end;
     flex-direction: column;
     padding: 0 40px;
     text-align: center;

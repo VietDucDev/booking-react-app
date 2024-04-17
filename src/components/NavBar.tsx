@@ -12,7 +12,7 @@ const NavBar = () => {
           <Link to="hotelList" className="mx-2 text-decoration-none">
             Son Tung MTP
           </Link>
-          <Link to="login_logout" className="mx-2 text-decoration-none">
+          <Link to="roomPage" className="mx-2 text-decoration-none">
             Viet Duc
           </Link>
           <Link to="hotelBooking" className="mx-2 text-decoration-none">
