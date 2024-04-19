@@ -1,0 +1,43 @@
+@import "variable";
+#container-roomPage {
+  margin-top: 65px;
+  a {
+    text-decoration: none;
+  }
+
+  .room-item {
+    padding: 15px 0;
+    border-bottom: 1px solid rgb(164, 164, 164);
+  }
+
+  #nonEditableBar {
+    width: 300px;
+    height: 6px;
+    background-color: #ccc;
+    position: relative;
+    border-radius: 8px;
+  }
+
+  #progressBar {
+    height: 100%;
+    border-radius: 8px;
+    background-color: #ff6400;
+    // background: linear-gradient(
+    //   to right,
+    //   $primary-light-teal,
+    //   $primary-dark-teal
+    // );
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  .rate-name {
+    width: 100px;
+  }
+
+  .btn-bookroom {
+    color: white;
+    background-color: $primary-dark-teal;
+  }
+}

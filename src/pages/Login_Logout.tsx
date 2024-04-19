@@ -34,79 +34,113 @@ const Login_Logout = () => {
             console.log("submit: ", value);
           }}
         >
-          <Form
-            className={isSignIn ? "container" : "container right-panel-active"}
-            id="container"
-          >
-            <div className="form-container sign-up-container">
-              <div className="form">
-                <h2>Sign up</h2>
-                <div className="social-container">
-                  <a href="#" className="social">
-                    <i className="fab fa-facebook-f"></i>
-                  </a>
-                  <a href="#" className="social">
-                    <i className="fab fa-google-plus-g"></i>
-                  </a>
-                  <a href="#" className="social">
-                    <i className="fab fa-linkedin-in"></i>
-                  </a>
-                </div>
-                <span>or use your email for registration</span>
-                <Field type="text" name="name" placeholder="Name" />
-                <ErrorMessage name="name" component="div" />
-                <Field type="email" name="email" placeholder="Email" />
-                <ErrorMessage name="email" component="div" />
-                <Field type="password" name="password" placeholder="Password" />
-                <ErrorMessage name="password" component="div" />
-                <button type="submit">Sign Up</button>
-                <div>
-                  Bạn đã có tài khoản?{" "}
-                  <strong onClick={toggleForm}>Đăng nhập</strong>
-                </div>
-              </div>
-            </div>
-            <div className="form-container sign-in-container">
-              <div className="form">
-                <h2>Sign in</h2>
-                <div className="social-container">
-                  <a href="#" className="social">
-                    <i className="fab fa-facebook-f"></i>
-                  </a>
-                  <a href="#" className="social">
-                    <i className="fab fa-google-plus-g"></i>
-                  </a>
-                  <a href="#" className="social">
-                    <i className="fab fa-linkedin-in"></i>
-                  </a>
-                </div>
-                <span>or use your account</span>
-                <Field type="email" name="email" placeholder="Email" />
-                <ErrorMessage name="email" component="div" />
-                <Field type="password" name="password" placeholder="Password" />
-                <ErrorMessage name="password" component="div" />
-                <a href="#">Forgot your password?</a>
-                <button type="submit">Sign In</button>
-                <div>
-                  Bạn chưa có tài khoản?{" "}
-                  <strong onClick={toggleForm}>Đăng ký</strong>
+          {({ resetForm }) => (
+            <Form
+              className={
+                isSignIn ? "container" : "container right-panel-active"
+              }
+              id="container"
+            >
+              <div className="form-container sign-up-container">
+                <div className="form">
+                  <h2>Đăng ký</h2>
+                  <div className="social-container">
+                    <a href="#" className="social facebook">
+                      <i className="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" className="social google">
+                      <i className="fab fa-google-plus-g"></i>
+                    </a>
+                    <a href="#" className="social linkedin">
+                      <i className="fab fa-linkedin-in"></i>
+                    </a>
+                  </div>
+                  <span>or use your email for registration</span>
+                  <Field type="text" name="name" placeholder="Tên" />
+                  <ErrorMessage name="name" component="div" />
+                  <Field type="email" name="email" placeholder="Email" />
+                  <ErrorMessage name="email" component="div" />
+                  <Field
+                    type="password"
+                    name="password"
+                    placeholder="Mật khẩu"
+                  />
+                  <ErrorMessage name="password" component="div" />
+                  <Field
+                    type="password"
+                    name="password"
+                    placeholder="Nhập lại mật khẩu"
+                  />
+                  <ErrorMessage name="password" component="div" />
+                  <button type="submit">Đăng ký</button>
+                  <div className="form-conversion">
+                    Bạn đã có tài khoản?{" "}
+                    <strong
+                      onClick={() => {
+                        toggleForm();
+                        resetForm();
+                      }}
+                    >
+                      Đăng nhập
+                    </strong>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div className="overlay-container">
-              <div className="overlay">
-                <div className="overlay-panel overlay-left">
-                  <h4>WELCOME TO</h4>
-                  <h1>9ROOM</h1>
-                  <p>Nền tảng đặt phòng tốt nhất cho chuyến đi của bạn! </p>
-                </div>
-                <div className="overlay-panel overlay-right">
-                  <h1>Hello, Friend!</h1>
-                  <p>Enter your personal details and start journey with us </p>
+              <div className="form-container sign-in-container">
+                <div className="form">
+                  <h2>Đăng nhập</h2>
+                  <div className="social-container">
+                    <a href="#" className="social facebook">
+                      <i className="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" className="social google">
+                      <i className="fab fa-google-plus-g"></i>
+                    </a>
+                    <a href="#" className="social linkedin">
+                      <i className="fab fa-linkedin-in"></i>
+                    </a>
+                  </div>
+                  <span>or use your account</span>
+                  <Field type="email" name="email" placeholder="Email" />
+                  <ErrorMessage name="email" component="div" />
+                  <Field
+                    type="password"
+                    name="password"
+                    placeholder="Mật khẩu"
+                  />
+                  <ErrorMessage name="password" component="div" />
+                  <a href="#">Quên mật khẩu?</a>
+                  <button type="submit">Đăng nhập</button>
+                  <div className="form-conversion">
+                    Bạn chưa có tài khoản?{" "}
+                    <strong
+                      onClick={() => {
+                        toggleForm();
+                        resetForm();
+                      }}
+                    >
+                      Đăng ký
+                    </strong>
+                  </div>
                 </div>
               </div>
-            </div>
-          </Form>
+              <div className="overlay-container">
+                <div className="overlay">
+                  <div className="overlay-panel overlay-left">
+                    <h4>WELCOME TO</h4>
+                    <h1>9ROOM</h1>
+                    <p>Nền tảng đặt phòng tốt nhất cho chuyến đi của bạn! </p>
+                  </div>
+                  <div className="overlay-panel overlay-right">
+                    <h1>Hello, Friend!</h1>
+                    <p>
+                      Enter your personal details and start journey with us{" "}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </Form>
+          )}
         </Formik>
       </div>
     </Fragment>

@@ -8,7 +8,7 @@ import HotelListPage from "./components/HotelListPage";
 import HomePage from "./pages/HomePage/HomePage";
 import Login_Logout from "./pages/Login_Logout";
 import NavBar from "./components/NavBar";
-import RoomPage from "./pages/RoomPage";
+import RoomPage from "./pages/RoomPage/RoomPage";
 import HotelBooking from "./pages/hotel-booking/HotelBooking";
 import PromotionList from "./pages/PromotionList";
 import Login from "./pages/Login";
@@ -27,7 +27,7 @@ function App() {
         <Route path="/discount" element={<PromotionList />} />
         <Route path="/hotelList" element={<HotelListPage />} />
         {/* <Route path="/login_logout" element={<Login_Logout />} /> */}
-        <Route path="roomPage" element={<RoomPage />} />
+        <Route path="/login_logout" element={<RoomPage />} />
         <Route path="/hotelBooking" element={<HotelBooking />} />
         <Route path="*" element={<Navigate to="register" />} />
       </Routes>

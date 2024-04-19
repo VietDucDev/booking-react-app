@@ -1,15 +1,10 @@
-<<<<<<< HEAD
 @import url("https://fonts.googleapis.com/css?family=Montserrat:400,800");
 @import "variable";
-=======
-// @import url("https://fonts.googleapis.com/css?family=Montserrat:400,800");
->>>>>>> 2e1158f30cbf6b8365bbac6bc669e84ffc4c8fa5
 
 // * {
 //   box-sizing: border-box;
 // }
 
-<<<<<<< HEAD
 .signin-signup-conatiner {
   background-image: url("./images/Login/Login-background_mock.jpg");
   background-size: cover; /* Hình ảnh sẽ được phủ toàn bộ khu vực */
@@ -66,13 +61,14 @@
   }
 
   button {
+    margin-top: 10px;
     border-radius: 20px;
     border: 1px solid $primary-main-teal;
     background-color: $primary-main-teal;
     color: #ffffff;
     font-size: 12px;
     font-weight: bold;
-    padding: 12px 45px;
+    padding: 12px 35px;
     letter-spacing: 1px;
     text-transform: uppercase;
     transition: transform 80ms ease-in;
@@ -238,11 +234,23 @@
   }
 
   .social-container {
-    margin: 20px 0;
+    margin: 10px 0;
+    .facebook {
+      background-color: #1877f2;
+      color: #fff;
+    }
+    .google {
+      background-color: #db4437f2;
+      color: #fff;
+    }
+    .linkedin {
+      background-color: #0077b5;
+      color: #fff;
+    }
   }
 
   .social-container a {
-    border: 1px solid #dddddd;
+    border: 0.2px solid #ffffff;
     border-radius: 50%;
     display: inline-flex;
     justify-content: center;
@@ -251,8 +259,19 @@
     height: 40px;
     width: 40px;
   }
+
+  .form-conversion {
+    font-size: small;
+    margin-top: 10px;
+
+    strong {
+      border-bottom: 1px solid black;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
 }
-=======
 // body {
 //   background: #f6f5f7;
 //   display: flex;
@@ -499,4 +518,3 @@
 //   color: #3c97bf;
 //   text-decoration: none;
 // }
->>>>>>> 2e1158f30cbf6b8365bbac6bc669e84ffc4c8fa5
