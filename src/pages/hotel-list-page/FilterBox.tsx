@@ -11,6 +11,12 @@ import {
   TextField,
 } from "@mui/material";
 import { Fragment, useState } from "react";
+import { useSelector } from "react-redux";
+import heartIcon_3_5 from "../../../public/images/icon-roompage/392108070_RAINBOW_HEART_400px.gif";
+import heartIcon_4 from "../../../public/images/icon-roompage/391902151_HEARTEYE_EMOJI_400px.gif";
+import heartIcon_4_5 from "../../../public/images/icon-roompage/391907100_HEART_400px.gif";
+import heartIcon_ALL from "../../../public/images/icon-roompage/392102760_FIRE_EMOJI_400px.gif";
+import { RootState } from "@reduxjs/toolkit/query";
 
 interface FilterBoxProps {
   onCloseFilterBox: () => void;
@@ -21,6 +27,11 @@ function valuetext(value: number) {
 }
 
 const FilterBox: React.FC<FilterBoxProps> = ({ onCloseFilterBox }) => {
+  //get data API from store
+  // const { hotelsList } = useSelector((state) => state.hotelsList);
+
+  // console.log("hotelsList from store - filter box: ", hotelsList);
+
   const [value, setValue] = useState<number[]>([20000, 10000000]);
 
   const handleChange = (event: Event, newValue: number | number[]) => {
@@ -29,7 +40,7 @@ const FilterBox: React.FC<FilterBoxProps> = ({ onCloseFilterBox }) => {
 
   //select hotel type (tat ca, giam gia, uu dai...)
   const [selectedButton, setSelectedButton] = useState<string>("Tất cả");
-  const [selectedRadio, setSelectRadio] = useState("all");
+  const [selectedRadio, setSelectRadio] = useState("All");
   const [selectedCheckboxValues, setSelectedCheckboxValues] = useState([]);
 
   const handleButtonClick = (buttonName: string) => {
@@ -57,7 +68,7 @@ const FilterBox: React.FC<FilterBoxProps> = ({ onCloseFilterBox }) => {
 
   const handleResetFilter = () => {
     setSelectedButton("Tất cả");
-    setSelectRadio("all");
+    setSelectRadio("All");
     setSelectedCheckboxValues([]);
   };
 
@@ -89,9 +100,8 @@ const FilterBox: React.FC<FilterBoxProps> = ({ onCloseFilterBox }) => {
     return parts.join(".");
   };
 
-  function formatNumber(number) {
-    return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
-  }
+  //filter function
+  // const filteredProducts
 
   return (
     <Fragment>
@@ -107,7 +117,7 @@ const FilterBox: React.FC<FilterBoxProps> = ({ onCloseFilterBox }) => {
           {/* price range */}
           <div className="price_range_wrapper ">
             <h5>Khoảng giá</h5>
-            <div className="scroll_bar">
+            <div className="slider_money">
               <Slider
                 value={value}
                 step={10000}
@@ -146,30 +156,62 @@ const FilterBox: React.FC<FilterBoxProps> = ({ onCloseFilterBox }) => {
                 name="radio-buttons-group"
               >
                 <FormControlLabel
-                  value="all"
+                  value="All"
                   control={<Radio />}
-                  label={<p className="mb-0">Tất cả</p>}
+                  label={
+                    <p className="mb-0">
+                      <img
+                        style={{ width: "30px" }}
+                        src={heartIcon_ALL}
+                        alt=""
+                      />
+                      Tất cả
+                    </p>
+                  }
                   onChange={handleRadioChange}
                   name={selectedRadio}
                 />
                 <FormControlLabel
                   value="4.5"
                   control={<Radio />}
-                  label={<p className="mb-0">💖 4.5 trở lên</p>}
+                  label={
+                    <p className="mb-0">
+                      <img
+                        style={{ width: "30px" }}
+                        src={heartIcon_4_5}
+                        alt=""
+                      />{" "}
+                      4.5 trở lên
+                    </p>
+                  }
                   onChange={handleRadioChange}
                   name={selectedRadio}
                 />
                 <FormControlLabel
                   value="4"
                   control={<Radio />}
-                  label={<p className="mb-0">😍 4 trở lên</p>}
+                  label={
+                    <p className="mb-0">
+                      <img style={{ width: "30px" }} src={heartIcon_4} alt="" />{" "}
+                      4 trở lên
+                    </p>
+                  }
                   onChange={handleRadioChange}
                   name={selectedRadio}
                 />
                 <FormControlLabel
                   value="3.5"
                   control={<Radio />}
-                  label={<p className="mb-0">💖 3.5 trở lên</p>}
+                  label={
+                    <p className="mb-0">
+                      <img
+                        style={{ width: "30px" }}
+                        src={heartIcon_3_5}
+                        alt=""
+                      />{" "}
+                      3.5 trở lên
+                    </p>
+                  }
                   onChange={handleRadioChange}
                   name={selectedRadio}
                 />
@@ -328,8 +370,8 @@ const FilterBox: React.FC<FilterBoxProps> = ({ onCloseFilterBox }) => {
             </div>
           </div>
           {/* submit area */}
-          <div className="submit_sort_wrapper d-flex justify-content-between mt-4 border-top pt-3">
-            <Button variant="text" onClick={handleResetFilter}>
+          <div className="submit_sort_wrapper">
+            <Button variant="outlined" onClick={handleResetFilter}>
               Xóa tất cả
             </Button>
             <Button variant="contained">Áp dụng</Button>

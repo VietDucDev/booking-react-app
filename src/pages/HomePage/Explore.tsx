@@ -14,7 +14,11 @@ const Explore = () => {
                   className="d-block w-100 img-fluid"
                   src="https://s3.go2joy.vn/350w/hotel/171_1656575040_62bd54401aeda.jpg"
                   alt="First slide"
-                  style={{ borderRadius: "15px", maxHeight: "600px" }}
+                  style={{
+                    borderRadius: "15px",
+                    maxHeight: "600px",
+                    objectFit: "cover",
+                  }}
                 />
                 <div
                   className="position-absolute"
@@ -28,10 +32,14 @@ const Explore = () => {
               </div>
               <div className="col position-relative">
                 <img
-                  className="d-block w-100 img-fluid"
+                  className="d-block w-100"
                   src="https://s3.go2joy.vn/350w/hotel/171_1656566391_62bd327718636.jpg"
                   alt="Second slide"
-                  style={{ borderRadius: "15px", maxHeight: "600px" }}
+                  style={{
+                    borderRadius: "15px",
+                    maxHeight: "600px",
+                    objectFit: "cover",
+                  }}
                 />
                 <div
                   className="position-absolute"
