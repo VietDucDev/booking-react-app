@@ -4,7 +4,7 @@ import { Navigate, Route, Routes } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
 
-import HotelListPage from "./components/HotelListPage";
+// import HotelListPage from "./components/HotelListPage";
 import HomePage from "./pages/HomePage/HomePage";
 import Login_Logout from "./pages/Login_Logout";
 import HotelBooking from "./pages/HotelBooking";
@@ -24,10 +24,10 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Registration />} />
         <Route path="/discount" element={<PromotionList />} />
-        <Route path="/hotelList" element={<HotelListPage />} />
+        {/* <Route path="/hotelList" element={<HotelListPage />} /> */}
         <Route path="/login_logout" element={<Login_Logout />} />
         <Route path="/hotelBooking" element={<HotelBooking />} />
-        <Route path="*" element={<Navigate to="register" />} />
+        <Route path="*" element={<Navigate to="login" />} />
       </Routes>
     </Fragment>
   );
