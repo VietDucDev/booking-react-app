@@ -16,10 +16,10 @@ const Blogs = () => {
           top: "50%",
           left: "5%",
           transform: "translateY(-50%)",
-          maxWidth: "500px",
+          maxWidth: "40%",
         }}
       >
-        <h2 className="w-100" style={{ lineHeight: "60px", fontSize: "40px" }}>
+        <h2 className="" style={{ lineHeight: "60px", fontSize: "40px" }}>
           Những điều thú vị có thể bạn chưa biết
         </h2>
         <Button

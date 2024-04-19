@@ -1,23 +1,24 @@
-const HotelList = () => {
+const HotelCollection = () => {
   return (
     <div className="mt-5">
-      <h5 className="font-weight-bold mb-4" style={{ fontSize: "25px" }}>
+      <h5 className="font-weight-bold mb-4 pl-2" style={{ fontSize: "25px" }}>
         Danh mục khách sạn
       </h5>
 
-      <div className="d-flex justify-content-between">
-        <div className="col pl-0">
+      <div className="d-flex justify-content-between flex-wrap">
+        <div className="col-md-6 col-sm-12 p-0 col-lg-3 p-2">
           <img
             src="./public/images/9ROOM Room.jpg"
             alt="Go2Joy_Room"
-            height={200}
-            style={{ width: "100%", borderRadius: "15px 15px 0 0 " }}
+            style={{ borderRadius: "15px 15px 0 0" }}
+            className="img-fluid"
           />
           <div
             className="p-3 text-white"
             style={{
               backgroundColor: "#135d66",
               borderRadius: "0 0 15px 15px",
+              height: "180px",
             }}
           >
             <h6 className="font-weight-bold mb-4" style={{ fontSize: "18px" }}>
@@ -29,18 +30,19 @@ const HotelList = () => {
           </div>
         </div>
 
-        <div className="col">
+        <div className="col-md-6 col-sm-12 p-0 col-lg-3 p-2">
           <img
             src="./public/images/Tình yêu.jpg"
             alt="Tinh yeu"
-            height={200}
-            style={{ width: "100%", borderRadius: "15px 15px 0 0 " }}
+            style={{ borderRadius: "15px 15px 0 0" }}
+            className="img-fluid"
           />
           <div
             className="p-3 text-white"
             style={{
               backgroundColor: "#135d66",
               borderRadius: "0 0 15px 15px",
+              height: "180px",
             }}
           >
             <h6 className="font-weight-bold mb-4" style={{ fontSize: "18px" }}>
@@ -51,18 +53,19 @@ const HotelList = () => {
             </p>
           </div>
         </div>
-        <div className="col">
+        <div className="col-md-6 col-sm-12 p-0 col-lg-3 p-2">
           <img
             src="./public/images/Du lịch.jpg"
             alt="Go2Joy_Room"
-            height={200}
-            style={{ width: "100%", borderRadius: "15px 15px 0 0 " }}
+            style={{ borderRadius: "15px 15px 0 0" }}
+            className="img-fluid"
           />
           <div
             className="p-3 text-white"
             style={{
               backgroundColor: "#135d66",
               borderRadius: "0 0 15px 15px",
+              height: "180px",
             }}
           >
             <h6 className="font-weight-bold mb-4" style={{ fontSize: "18px" }}>
@@ -73,18 +76,19 @@ const HotelList = () => {
             </p>
           </div>
         </div>
-        <div className="col pr-0">
+        <div className="col-md-6 col-sm-12 p-0 col-lg-3 p-2">
           <img
             src="./public/images/Sang trọng.jpg"
             alt="Go2Joy_Room"
-            height={200}
-            style={{ width: "100%", borderRadius: "15px 15px 0 0 " }}
+            style={{ borderRadius: "15px 15px 0 0" }}
+            className="img-fluid"
           />
           <div
             className="p-3 text-white"
             style={{
               backgroundColor: "#135d66",
               borderRadius: "0 0 15px 15px",
+              height: "180px",
             }}
           >
             <h6 className="font-weight-bold mb-4" style={{ fontSize: "18px" }}>
@@ -100,4 +104,4 @@ const HotelList = () => {
   );
 };
 
-export default HotelList;
+export default HotelCollection;

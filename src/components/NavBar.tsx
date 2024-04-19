@@ -1,5 +1,5 @@
 import axios from "axios";
-import { Fragment, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 interface Hotel {
@@ -25,6 +25,14 @@ const NavBar = () => {
 
     fetchData();
   }, []);
+
+  const showAllHotels = (hotelType: string) => {
+    fetch(`http://localhost:3000/hotels?hotelType=${hotelType}`)
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+      });
+  };
 
   return (
     <nav className="fixed-top bg-white shadow-sm px-5 py-2 d-flex align-items-center justify-content-between">
@@ -68,6 +76,7 @@ const NavBar = () => {
                   className="dropdown-item py-2 rounded mb-1"
                   key={hotel.sn}
                   style={{ fontSize: "14px" }}
+                  onClick={() => showAllHotels(hotel.title)}
                 >
                   {hotel.title}
                 </div>

@@ -1,15 +1,15 @@
 const Explore = () => {
   return (
     <div className="mt-5">
-      <h5 className="font-weight-bold mb-4" style={{ fontSize: "25px" }}>
+      <h5 className="font-weight-bold mb-4 pl-2" style={{ fontSize: "25px" }}>
         Trải nghiệm cùng Go2Joy
       </h5>
 
       <div id="carousel2" className="carousel slide position-relative">
         <div className="carousel-inner" style={{ borderRadius: "15px" }}>
           <div className="carousel-item active">
-            <div className="row">
-              <div className="col position-relative">
+            <div className="d-flex">
+              <div className="col position-relative px-1">
                 <img
                   className="d-block w-100 img-fluid"
                   src="https://s3.go2joy.vn/350w/hotel/171_1656575040_62bd54401aeda.jpg"
@@ -26,7 +26,7 @@ const Explore = () => {
                   </button>
                 </div>
               </div>
-              <div className="col position-relative">
+              <div className="col position-relative px-1">
                 <img
                   className="d-block w-100 img-fluid"
                   src="https://s3.go2joy.vn/350w/hotel/171_1656566391_62bd327718636.jpg"
@@ -54,8 +54,8 @@ const Explore = () => {
           </div>
 
           <div className="carousel-item">
-            <div className="row">
-              <div className="col position-relative">
+            <div className="d-flex">
+              <div className="col position-relative px-1">
                 <img
                   className="d-block w-100 img-fluid"
                   src="https://s3.go2joy.vn/350w/hotel/171_1656573947_62bd4ffb3b750.jpg"
@@ -72,7 +72,7 @@ const Explore = () => {
                   </button>
                 </div>
               </div>
-              <div className="col position-relative">
+              <div className="col position-relative px-1">
                 <img
                   className="d-block w-100 img-fluid"
                   src="https://s3.go2joy.vn/350w/hotel/171_1656575585_62bd5661d03cc.jpg"
@@ -103,15 +103,15 @@ const Explore = () => {
             height: "50px",
             borderRadius: "50%",
             top: "50%",
+            left: "-20px",
             transform: "translateY(-50%)",
             margin: 0,
           }}
         >
-          <span
-            className="carousel-control-prev-icon"
-            aria-hidden="true"
-          ></span>
-          <span className="sr-only">Previous</span>
+          <i
+            className="fa-solid fa-chevron-left"
+            style={{ fontSize: "20px" }}
+          ></i>
         </a>
         <a
           className="carousel-control-next d-flex justify-content-center align-items-center position-absolute"
@@ -124,15 +124,15 @@ const Explore = () => {
             height: "50px",
             borderRadius: "50%",
             top: "50%",
+            right: "-20px",
             transform: "translateY(-50%)",
             margin: 0,
           }}
         >
-          <span
-            className="carousel-control-next-icon"
-            aria-hidden="true"
-          ></span>
-          <span className="sr-only">Next</span>
+          <i
+            className="fa-solid fa-chevron-right"
+            style={{ fontSize: "20px" }}
+          ></i>
         </a>
       </div>
     </div>
