@@ -1,6 +1,6 @@
 import React from "react";
 import ImageGallery from "react-image-gallery";
-import "../style/sass/Gallery.scss";
+import "../../style/sass/Gallery.scss";
 import "react-image-gallery/styles/css/image-gallery.css";
 
 const images = [
@@ -29,7 +29,7 @@ const Carousel_RoomPage_Img = () => {
         autoPlay={true}
         slideInterval={10000}
         slideDuration={450}
-        thumbnailPosition="right"
+        thumbnailPosition="bottom"
       />
     </div>
   );

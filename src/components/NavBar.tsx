@@ -35,7 +35,6 @@ const NavBar = () => {
   };
 
   return (
-
     <nav className="fixed-top bg-white shadow-sm px-5 py-2 d-flex align-items-center justify-content-between">
       <div className="d-flex align-items-center">
         <Link to="home">
@@ -57,7 +56,6 @@ const NavBar = () => {
           >
             <i className="fas fa-gift mr-2"></i>
             Ưu đãi
-
           </Link>
           <div className="dropdown">
             <button
