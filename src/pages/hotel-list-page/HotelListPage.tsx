@@ -123,7 +123,7 @@ const HotelListPage: React.FC<Hotel> = () => {
     // setSearchParams({ ...seacrhParams, ...filterParams });
   };
 
-  const [formats, setFormats] = useState<>(() => []);
+  const [formats, setFormats] = useState(() => []);
   // console.log("alignment: ", alignment);
 
   const handleAlignment = (
