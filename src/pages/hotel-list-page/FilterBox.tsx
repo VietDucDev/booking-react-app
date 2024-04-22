@@ -9,14 +9,18 @@ import {
   RadioGroup,
   Slider,
   TextField,
+  ToggleButton,
+  ToggleButtonGroup,
 } from "@mui/material";
 import { Fragment, useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import heartIcon_3_5 from "../../../public/images/icon-roompage/392108070_RAINBOW_HEART_400px.gif";
 import heartIcon_4 from "../../../public/images/icon-roompage/391902151_HEARTEYE_EMOJI_400px.gif";
 import heartIcon_4_5 from "../../../public/images/icon-roompage/391907100_HEART_400px.gif";
 import heartIcon_ALL from "../../../public/images/icon-roompage/392102760_FIRE_EMOJI_400px.gif";
 import { RootState } from "@reduxjs/toolkit/query";
+import { addQueryParams } from "../../reducers/HotelsSlice";
+import { useSearchParams } from "react-router-dom";
 
 interface FilterBoxProps {
   onCloseFilterBox: () => void;
@@ -40,12 +44,66 @@ const FilterBox: React.FC<FilterBoxProps> = ({ onCloseFilterBox }) => {
 
   //select hotel type (tat ca, giam gia, uu dai...)
   const [selectedButton, setSelectedButton] = useState<string>("Tất cả");
-  const [selectedRadio, setSelectRadio] = useState("All");
+  const [selectedRadio, setSelectRadio] = useState("0");
   const [selectedCheckboxValues, setSelectedCheckboxValues] = useState([]);
+  const [filteredVotePoint, setFilteredVotePoint] = useState([]);
 
-  const handleButtonClick = (buttonName: string) => {
-    setSelectedButton(buttonName);
+  const [seacrhParams, setSearchParams] = useSearchParams();
+  const districtSearchParams = seacrhParams.get("district_name");
+  const hotelTypeSearchParams = seacrhParams.get("hotel_type");
+
+  const dispatch = useDispatch();
+
+  // filter function
+
+  const [chooseTypeHotel, setChoosTypeHotel] = useState("all");
+  console.log("chooseTypeHotel: ", chooseTypeHotel);
+
+  const handleChooseHotelType = (
+    event: React.MouseEvent<HTMLElement>,
+    newAlignment: string | null
+  ) => {
+    if (newAlignment !== null) {
+      setChoosTypeHotel(newAlignment);
+    }
   };
+
+  const handleFilterHotel = () => {
+    // dispatch(addQueryParams({ vote: selectedRadio }));
+    if (districtSearchParams) {
+      const filterParams = {
+        rate: selectedRadio,
+        filter_hotel_type: chooseTypeHotel,
+        district_name: districtSearchParams,
+        // hotel_type: currentSearchParams2,
+      };
+      setSearchParams({ ...seacrhParams, ...filterParams });
+    }
+
+    if (hotelTypeSearchParams) {
+      const filterParams = {
+        rate: selectedRadio,
+        filter_hotel_type: chooseTypeHotel,
+        // district_name: currentSearchParams,
+        hotel_type: hotelTypeSearchParams,
+      };
+      // console.log("chooseTypeHotel in filterBox: ", chooseTypeHotel);
+      setSearchParams({ ...seacrhParams, ...filterParams });
+    } else if (hotelTypeSearchParams) {
+      const filterParams = {
+        district_name: hotelTypeSearchParams,
+      };
+      setSearchParams({ ...seacrhParams, ...filterParams });
+    }
+
+    // const filteredPoint = hotelList.filter(
+    //   (hotel) => hotel.averageMark >= parseFloat(selectedRadio)
+    // );
+    // setFilteredVotePoint(filteredPoint);
+    onCloseFilterBox();
+  };
+
+  console.log("filteredVotePoint: ", filteredVotePoint);
 
   const handleRadioChange = (event) => {
     setSelectRadio(event.target.value);
@@ -64,11 +122,11 @@ const FilterBox: React.FC<FilterBoxProps> = ({ onCloseFilterBox }) => {
       );
     }
   };
-  console.log("selectedCheckboxValues :", selectedCheckboxValues);
+  console.log("selectedCheckboxValues:", selectedCheckboxValues);
 
   const handleResetFilter = () => {
     setSelectedButton("Tất cả");
-    setSelectRadio("All");
+    setSelectRadio("0");
     setSelectedCheckboxValues([]);
   };
 
@@ -99,9 +157,6 @@ const FilterBox: React.FC<FilterBoxProps> = ({ onCloseFilterBox }) => {
     parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ".");
     return parts.join(".");
   };
-
-  //filter function
-  // const filteredProducts
 
   return (
     <Fragment>
@@ -156,7 +211,7 @@ const FilterBox: React.FC<FilterBoxProps> = ({ onCloseFilterBox }) => {
                 name="radio-buttons-group"
               >
                 <FormControlLabel
-                  value="All"
+                  value="0"
                   control={<Radio />}
                   label={
                     <p className="mb-0">
@@ -166,6 +221,22 @@ const FilterBox: React.FC<FilterBoxProps> = ({ onCloseFilterBox }) => {
                         alt=""
                       />
                       Tất cả
+                    </p>
+                  }
+                  onChange={handleRadioChange}
+                  name={selectedRadio}
+                />{" "}
+                <FormControlLabel
+                  value="5"
+                  control={<Radio />}
+                  label={
+                    <p className="mb-0">
+                      <img
+                        style={{ width: "30px" }}
+                        src={heartIcon_4_5}
+                        alt=""
+                      />{" "}
+                      5 trở lên
                     </p>
                   }
                   onChange={handleRadioChange}
@@ -222,61 +293,70 @@ const FilterBox: React.FC<FilterBoxProps> = ({ onCloseFilterBox }) => {
           <div className="hotel_type_wrapper mt-4 border-top pt-3">
             <h5>Loại khách sạn</h5>
             <div className="quick_option_wrapper mt-3 gap-2 d-flex justify-content-md-start justify-content-center">
-              <Button
-                variant={selectedButton === "Tất cả" ? "contained" : "outlined"}
-                color={selectedButton === "Tất cả" ? "primary" : "secondary"}
-                size="small"
-                style={{ borderRadius: "20px", fontSize: "12px" }}
-                onClick={() => handleButtonClick("Tất cả")}
+              {/* test nút */}
+              <ToggleButtonGroup
+                value={chooseTypeHotel}
+                exclusive
+                onChange={handleChooseHotelType}
+                aria-label="text alignment"
               >
-                Tất cả
-              </Button>
-              <Button
-                variant={
-                  selectedButton === "Giảm sốc" ? "contained" : "outlined"
-                }
-                color="primary"
-                size="small"
-                style={{ borderRadius: "20px", fontSize: "12px" }}
-                onClick={() => handleButtonClick("Giảm sốc")}
-              >
-                Giảm sốc
-              </Button>
-              <Button
-                variant={
-                  selectedButton === "Ưu đãi đặc biệt"
-                    ? "contained"
-                    : "outlined"
-                }
-                color="primary"
-                size="small"
-                style={{ borderRadius: "20px", fontSize: "12px" }}
-                onClick={() => handleButtonClick("Ưu đãi đặc biệt")}
-              >
-                Ưu đãi đặc biệt
-              </Button>
-              <Button
-                variant={
-                  selectedButton === "Nổi bật" ? "contained" : "outlined"
-                }
-                color="primary"
-                size="small"
-                style={{ borderRadius: "20px", fontSize: "12px" }}
-                onClick={() => handleButtonClick("Nổi bật")}
-              >
-                Nổi bật
-              </Button>
-              <Button
-                variant={
-                  selectedButton === "9ROOM Choice" ? "contained" : "outlined"
-                }
-                color="primary"
-                size="small"
-                style={{ borderRadius: "20px", fontSize: "12px" }}
-                onClick={() => handleButtonClick("9ROOM Choice")}
-              >
-                9ROOM Choice
-              </Button>
+                {" "}
+                <ToggleButton
+                  value="all"
+                  aria-label="left aligned"
+                  style={{
+                    borderRadius: "20px",
+                    fontSize: "12px",
+                    textTransform: "unset",
+                  }}
+                >
+                  Tất cả
+                </ToggleButton>
+                <ToggleButton
+                  value="Khách sạn yêu thích nhất"
+                  aria-label="left aligned"
+                  style={{
+                    borderRadius: "20px",
+                    fontSize: "12px",
+                    textTransform: "unset",
+                  }}
+                >
+                  Khách sạn yêu thích nhất
+                </ToggleButton>
+                <ToggleButton
+                  value="Ưu đãi hấp dẫn"
+                  aria-label="centered"
+                  style={{
+                    borderRadius: "20px",
+                    fontSize: "12px",
+                    textTransform: "unset",
+                  }}
+                >
+                  Ưu đãi hấp dẫn
+                </ToggleButton>
+                <ToggleButton
+                  value="Khám phá khách sạn mới"
+                  aria-label="right aligned"
+                  style={{
+                    borderRadius: "20px",
+                    fontSize: "12px",
+                    textTransform: "unset",
+                  }}
+                >
+                  Khám phá khách sạn mới
+                </ToggleButton>
+                <ToggleButton
+                  value="Go2Joy Room"
+                  aria-label="right aligned"
+                  style={{
+                    borderRadius: "20px",
+                    fontSize: "12px",
+                    textTransform: "unset",
+                  }}
+                >
+                  9ROOm Choice
+                </ToggleButton>
+              </ToggleButtonGroup>
             </div>
           </div>
           {/* utilities */}
@@ -287,38 +367,26 @@ const FilterBox: React.FC<FilterBoxProps> = ({ onCloseFilterBox }) => {
                 <FormGroup>
                   <FormControlLabel
                     control={
-                      <Checkbox
-                        onChange={handleCheckboxChange}
-                        value="Wifi miễn phí"
-                      />
+                      <Checkbox onChange={handleCheckboxChange} value="188" />
                     }
                     label="Wifi miễn phí"
                   />
                   <FormControlLabel
                     required
                     control={
-                      <Checkbox
-                        onChange={handleCheckboxChange}
-                        value="Lễ tân 24/24"
-                      />
+                      <Checkbox onChange={handleCheckboxChange} value="122" />
                     }
                     label="Lễ tân 24/24"
                   />
                   <FormControlLabel
                     control={
-                      <Checkbox
-                        onChange={handleCheckboxChange}
-                        value="Dịch vụ dọn phòng mỗi ngày"
-                      />
+                      <Checkbox onChange={handleCheckboxChange} value="127" />
                     }
                     label="Dịch vụ dọn phòng mỗi ngày"
                   />
                   <FormControlLabel
                     control={
-                      <Checkbox
-                        onChange={handleCheckboxChange}
-                        value="Dịch vụ lưu trữ & bản quản hành lý"
-                      />
+                      <Checkbox onChange={handleCheckboxChange} value="26" />
                     }
                     label="Dịch vụ lưu trữ & bản quản hành lý"
                   />
@@ -328,40 +396,28 @@ const FilterBox: React.FC<FilterBoxProps> = ({ onCloseFilterBox }) => {
                 <FormGroup>
                   <FormControlLabel
                     control={
-                      <Checkbox
-                        onChange={handleCheckboxChange}
-                        value="Ghế tình yêu"
-                      />
+                      <Checkbox onChange={handleCheckboxChange} value="98" />
                     }
                     label="Ghế tình yêu"
                   />
                   <FormControlLabel
                     required
                     control={
-                      <Checkbox
-                        onChange={handleCheckboxChange}
-                        value="Thang máy"
-                      />
+                      <Checkbox onChange={handleCheckboxChange} value="27" />
                     }
                     label="Thang máy"
                   />
                   <FormControlLabel
                     required
                     control={
-                      <Checkbox
-                        onChange={handleCheckboxChange}
-                        value="Tiện nghi là/ủi"
-                      />
+                      <Checkbox onChange={handleCheckboxChange} value="67" />
                     }
                     label="Tiện nghi là/ủi"
                   />
                   <FormControlLabel
                     required
                     control={
-                      <Checkbox
-                        onChange={handleCheckboxChange}
-                        value="Bồn tắm"
-                      />
+                      <Checkbox onChange={handleCheckboxChange} value="123" />
                     }
                     label="Bồn tắm"
                   />
@@ -371,10 +427,20 @@ const FilterBox: React.FC<FilterBoxProps> = ({ onCloseFilterBox }) => {
           </div>
           {/* submit area */}
           <div className="submit_sort_wrapper">
-            <Button variant="outlined" onClick={handleResetFilter}>
+            <Button
+              variant="outlined"
+              onClick={handleResetFilter}
+              style={{ textTransform: "unset" }}
+            >
               Xóa tất cả
             </Button>
-            <Button variant="contained">Áp dụng</Button>
+            <Button
+              variant="contained"
+              onClick={handleFilterHotel}
+              style={{ textTransform: "unset" }}
+            >
+              Áp dụng
+            </Button>
           </div>
         </div>
       </div>

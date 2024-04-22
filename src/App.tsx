@@ -21,31 +21,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Registration />} />
         <Route path="/discount" element={<PromotionList />} />
-        <Route
-          path="/hotelList"
-          element={
-            <HotelListPage
-              handleOpenSortBox={function (): void {
-                throw new Error("Function not implemented.");
-              }}
-              handleCloseSortBox={function (): void {
-                throw new Error("Function not implemented.");
-              }}
-              handleOpenFilterBox={function (): void {
-                throw new Error("Function not implemented.");
-              }}
-              handleCloseFilterBox={function (): void {
-                throw new Error("Function not implemented.");
-              }}
-              onCloseFilterBox={function (): void {
-                throw new Error("Function not implemented.");
-              }}
-              onCloseSortBox={function (): void {
-                throw new Error("Function not implemented.");
-              }}
-            />
-          }
-        />
+        <Route path="/hotel-list/" element={<HotelListPage />} />
         <Route path="/login_logout" element={<Login_Logout />} />
         <Route path="/hotelBooking" element={<HotelBooking />} />
         <Route path="*" element={<Navigate to="register" />} />

@@ -1,28 +1,34 @@
-const HotelCollection = () => {
+const HotelList = () => {
   return (
     <div className="mt-5">
-      <h5 className="font-weight-bold mb-4 pl-2" style={{ fontSize: "25px" }}>
+      <h5 className="font-weight-bold" style={{ fontSize: "25px" }}>
         Danh mục khách sạn
       </h5>
 
-      <div className="d-flex justify-content-between flex-wrap">
-        <div className="col-md-6 col-sm-12 p-0 col-lg-3 p-2">
+      <div className="d-flex justify-content-between mt-4">
+        <div className="col pl-0" style={{ height: "300px" }}>
           <img
             src="./public/images/9ROOM Room.jpg"
             alt="Go2Joy_Room"
-            style={{ borderRadius: "15px 15px 0 0" }}
-            className="img-fluid"
+            height={200}
+            style={{
+              width: "100%",
+              height: "300px",
+              objectFit: "cover",
+              borderRadius: "15px 15px 0 0 ",
+              cursor: "pointer",
+            }}
           />
           <div
             className="p-3 text-white"
             style={{
               backgroundColor: "#135d66",
               borderRadius: "0 0 15px 15px",
-              height: "180px",
+              height: "150px",
             }}
           >
-            <h6 className="font-weight-bold mb-4" style={{ fontSize: "18px" }}>
-              Go2Joy Room
+            <h6 className="font-weight-bold" style={{ fontSize: "24px" }}>
+              9Room
             </h6>
             <p style={{ fontSize: "15px" }}>
               Những căn phòng đặc biệt nhất dành cho Joyer
@@ -30,22 +36,28 @@ const HotelCollection = () => {
           </div>
         </div>
 
-        <div className="col-md-6 col-sm-12 p-0 col-lg-3 p-2">
+        <div className="col">
           <img
             src="./public/images/Tình yêu.jpg"
             alt="Tinh yeu"
-            style={{ borderRadius: "15px 15px 0 0" }}
-            className="img-fluid"
+            height={200}
+            style={{
+              width: "100%",
+              borderRadius: "15px 15px 0 0 ",
+              height: "300px",
+              objectFit: "cover",
+              cursor: "pointer",
+            }}
           />
           <div
             className="p-3 text-white"
             style={{
               backgroundColor: "#135d66",
               borderRadius: "0 0 15px 15px",
-              height: "180px",
+              height: "150px",
             }}
           >
-            <h6 className="font-weight-bold mb-4" style={{ fontSize: "18px" }}>
+            <h6 className="font-weight-bold" style={{ fontSize: "24px" }}>
               Tình yêu
             </h6>
             <p style={{ fontSize: "15px" }}>
@@ -53,22 +65,28 @@ const HotelCollection = () => {
             </p>
           </div>
         </div>
-        <div className="col-md-6 col-sm-12 p-0 col-lg-3 p-2">
+        <div className="col">
           <img
             src="./public/images/Du lịch.jpg"
             alt="Go2Joy_Room"
-            style={{ borderRadius: "15px 15px 0 0" }}
-            className="img-fluid"
+            height={200}
+            style={{
+              width: "100%",
+              borderRadius: "15px 15px 0 0 ",
+              height: "300px",
+              objectFit: "cover",
+              cursor: "pointer",
+            }}
           />
           <div
             className="p-3 text-white"
             style={{
               backgroundColor: "#135d66",
               borderRadius: "0 0 15px 15px",
-              height: "180px",
+              height: "150px",
             }}
           >
-            <h6 className="font-weight-bold mb-4" style={{ fontSize: "18px" }}>
+            <h6 className="font-weight-bold" style={{ fontSize: "24px" }}>
               Du lịch
             </h6>
             <p style={{ fontSize: "15px" }}>
@@ -76,26 +94,32 @@ const HotelCollection = () => {
             </p>
           </div>
         </div>
-        <div className="col-md-6 col-sm-12 p-0 col-lg-3 p-2">
+        <div className="col pr-0">
           <img
             src="./public/images/Sang trọng.jpg"
             alt="Go2Joy_Room"
-            style={{ borderRadius: "15px 15px 0 0" }}
-            className="img-fluid"
+            height={200}
+            style={{
+              width: "100%",
+              borderRadius: "15px 15px 0 0 ",
+              height: "300px",
+              objectFit: "cover",
+              cursor: "pointer",
+            }}
           />
           <div
             className="p-3 text-white"
             style={{
               backgroundColor: "#135d66",
               borderRadius: "0 0 15px 15px",
-              height: "180px",
+              height: "150px",
             }}
           >
-            <h6 className="font-weight-bold mb-4" style={{ fontSize: "18px" }}>
+            <h6 className="font-weight-bold" style={{ fontSize: "24px" }}>
               Sang trọng
             </h6>
             <p style={{ fontSize: "15px" }}>
-              Trải nghiệm không gian đẳng cấp tại khách sạn 4* - 5*
+              Trải nghiệm không gian đẳng cấp tại khách sạn 5*
             </p>
           </div>
         </div>
@@ -104,4 +128,4 @@ const HotelCollection = () => {
   );
 };
 
-export default HotelCollection;
+export default HotelList;
