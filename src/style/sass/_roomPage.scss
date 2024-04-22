@@ -1,6 +1,64 @@
 @import "variable";
 #container-roomPage {
   margin-top: 65px;
+
+  .image-gallery-slides {
+    border-radius: 10px;
+    // height: 500px;
+  }
+
+  .image-gallery-image {
+    object-fit: cover;
+    height: 500px;
+  }
+  .image-gallery-left-nav {
+    background-color: #135d66;
+    opacity: 0.5;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    top: 50%;
+    left: -25px;
+    transform: translateY(-50%);
+    margin: 0;
+    padding: 0;
+    &:hover {
+      background-color: #135d66;
+      opacity: 1;
+      .fa-solid {
+        color: white;
+      }
+    }
+
+    .fa-solid {
+      font-size: 20px;
+    }
+  }
+
+  .image-gallery-right-nav {
+    background-color: #135d66;
+    opacity: 0.5;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    top: 50%;
+    right: -25px;
+    transform: translateY(-50%);
+    margin: 0;
+    padding: 0;
+    &:hover {
+      background-color: #135d66;
+      opacity: 1;
+      .fa-solid {
+        color: white;
+      }
+    }
+
+    .fa-solid {
+      font-size: 20px;
+    }
+  }
+
   a {
     text-decoration: none;
   }
@@ -39,5 +97,14 @@
   .btn-bookroom {
     color: white;
     background-color: $primary-dark-teal;
+  }
+
+  .nav-info.sticky-top {
+    top: 60px;
+    background-color: white;
+  }
+
+  #introduce {
+    // margin-top: 130px;
   }
 }

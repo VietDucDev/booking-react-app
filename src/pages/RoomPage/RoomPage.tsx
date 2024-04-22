@@ -1,17 +1,61 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import Carousel_RoomPage_Img from "./Carousel_RoomPage_Img";
 import Carousel_Bootstrap from "./Carousel_Bootstrap";
 import Avatar from "@mui/material/Avatar";
 import Rating from "@mui/material/Rating";
 import "../../style/sass/_roomPage.scss";
 import Footer from "../../components/Footer";
+import axios from "axios";
+import { Checkbox } from "@mui/material";
+import FavoriteBorder from "@mui/icons-material/FavoriteBorder";
+import Favorite from "@mui/icons-material/Favorite";
+import { useParams } from "react-router-dom";
+
+interface DataProps {
+  id: number;
+  name: string;
+  address: string;
+  avergeMark: number;
+  districtName: string;
+  discountPrice: number;
+  facilityList: [];
+  firstHours: number;
+  hotelType: string;
+  imgList: string[];
+  originPrice: number;
+  roomList: [];
+  roomStatus: string;
+  sn: number;
+  thumbnail: string;
+  totalReview: number;
+}
 
 const RoomPage = () => {
+  const [data, setData] = useState<DataProps>();
+  const id = "04";
+
+  const { params } = useParams();
+  console.log(params);
+  const label = { inputProps: { "aria-label": "Checkbox demo" } };
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(
+          `http://localhost:3000/hotels?id=${id}`
+        );
+        setData(response.data[0]);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
+  // console.log(data?.address);
   const handleClickATag = (event) => {
     // Ngăn chặn hành vi mặc định của trình duyệt
-    event.preventDefault();
-
-    // Thực hiện các hành động khác ở đây nếu cần
+    // event.preventDefault();
     console.log("Bạn đã nhấp vào liên kết");
   };
   return (
@@ -19,25 +63,27 @@ const RoomPage = () => {
       <div className="container" id="container-roomPage">
         <div className="row align-items-center">
           <div className="col">
-            <div className="row mt-4">
+            <div className="row">
               <div className="col">
                 <div className="row mb-3">
                   <div className="col-8">
                     <h2>
-                      <strong>GO2JOY - MOKA ROOM</strong>
+                      <strong>{data?.name}</strong>
                     </h2>
                   </div>
                   <div className="col-4 d-flex align-items-center">
-                    <i className="fa-regular fa-heart"></i>
+                    <Checkbox
+                      {...label}
+                      icon={<FavoriteBorder />}
+                      checkedIcon={<Favorite />}
+                    />
                     <p className="mb-0 ml-2 ">Yêu thích</p>
                   </div>
                 </div>
                 <div className="row mb-3">
                   <div className="col-8">
                     <i className="fa-solid fa-map"></i>
-                    <strong>
-                      221/19 Võ Văn Tần, Phường 5, Quận 3, Hồ Chí Minh
-                    </strong>
+                    <strong>{data?.address}</strong>
                   </div>
                   <div className="col-4">
                     <i className="fa-regular fa-star"></i> • 721 Đánh giá
@@ -48,11 +94,11 @@ const RoomPage = () => {
             {/* ------------- */}
             <div className="row">
               <div className="col">
-                <Carousel_RoomPage_Img />
+                <Carousel_RoomPage_Img imgList={data?.imgList || []} />
               </div>
             </div>
             {/* ------------- */}
-            <div className="row my-5 nav-info">
+            {/* <div className="row my-3 py-3 nav-info sticky-top">
               <div className="col">
                 <a href="#introduce" className="mr-4" onClick={handleClickATag}>
                   Tổng quan
@@ -70,7 +116,7 @@ const RoomPage = () => {
                   Chính sách khách sạn
                 </a>
               </div>
-            </div>
+            </div> */}
             {/* ------------- */}
             <div className="" id="introduce">
               <div className="row">
@@ -86,34 +132,37 @@ const RoomPage = () => {
               <div className="row mb-4" id="room-list">
                 <div className="col">
                   <h2 className="mb-4">Danh sách phòng</h2>
-                  <div className="row room-item">
-                    <div className="col-3">
-                      <Carousel_Bootstrap />
-                    </div>
-                    <div className="col-3">
-                      <p>Thông tin phòng</p>
-                      <p>Deluxe Room with Big Window</p>
-                      <div className="d-flex">
-                        <p>Cửa sổ</p>
-                        <p>Thành phố</p>
+                  {data?.roomList.map((room, index) => (
+                    <div key={index} className="row room-item">
+                      <div className="col-3">
+                        <Carousel_Bootstrap />
                       </div>
-                      <div>
-                        <a href="" onClick={handleClickATag}>
-                          Xem chi tiết phòng
-                        </a>
+                      <div className="col-3">
+                        <p>Thông tin phòng</p>
+                        <p>{room.roomName}</p>
+                        <div className="d-flex">
+                          {data.facilityList.map((facility, index) => (
+                            <p key={facility.sn}>{facility.name}</p>
+                          ))}
+                        </div>
+                        <div>
+                          <a href="" onClick={handleClickATag}>
+                            Xem chi tiết phòng
+                          </a>
+                        </div>
+                      </div>
+                      <div className="col-3">Đặc điểm nổi bật</div>
+                      <div className="col-3">
+                        <p>Giá phòng</p>
+                        <p>
+                          <strong>300.000 đ</strong>
+                        </p>
+                        <button className="btn btn-bookroom">Đặt phòng</button>
                       </div>
                     </div>
-                    <div className="col-3">Đặc điểm nổi bật</div>
-                    <div className="col-3">
-                      <p>Giá phòng</p>
-                      <p>
-                        <strong>300.000 đ</strong>
-                      </p>
-                      <button className="btn btn-bookroom">Đặt phòng</button>
-                    </div>
-                  </div>
+                  ))}
                   {/* ----------- */}
-                  <div className="row room-item">
+                  {/* <div className="row room-item">
                     <div className="col-3">
                       <Carousel_Bootstrap />
                     </div>
@@ -138,7 +187,7 @@ const RoomPage = () => {
                       </p>
                       <button className="btn btn-bookroom">Đặt phòng</button>
                     </div>
-                  </div>
+                  </div> */}
                 </div>
               </div>
               {/* ------------- */}

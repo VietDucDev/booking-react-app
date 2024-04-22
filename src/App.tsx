@@ -28,9 +28,9 @@ function App() {
 
         {/* <Route path="/hotelList" element={<HotelListPage />} /> */}
         {/* <Route path="/login_logout" element={<Login_Logout />} /> */}
-        <Route path="/login_logout" element={<RoomPage />} />
+        <Route path="/roomPage/:id" element={<RoomPage />} />
         {/* <Route path="/hotelList" element={<HotelListPage />} /> */}
-        <Route path="/login_logout" element={<Login_Logout />} />
+        {/* <Route path="/login_logout" element={<Login_Logout />} /> */}
 
         <Route path="/hotelBooking" element={<HotelBooking />} />
         <Route path="*" element={<Navigate to="login" />} />
