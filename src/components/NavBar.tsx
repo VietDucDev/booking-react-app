@@ -28,7 +28,7 @@ const NavBar = () => {
   }, []);
 
   const showAllHotels = (hotelType: string) => {
-    navigate(`/hotelList/hotelType=${hotelType}`);
+    navigate(`/hotel-list?hotel_type=${hotelType}`);
   };
 
   return (

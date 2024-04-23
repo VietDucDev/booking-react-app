@@ -1,0 +1,83 @@
+@import "../variable";
+
+@keyframes slideIn {
+  from {
+    top: 10%;
+    opacity: 0;
+  }
+  to {
+    top: 15%;
+    opacity: 1;
+  }
+}
+
+@keyframes slideOut {
+  from {
+    top: 15%;
+    opacity: 1;
+  }
+  to {
+    top: 10%;
+    opacity: 0;
+  }
+}
+
+.sort_box_container {
+  //   border: 1px solid red;
+  width: 400px;
+  height: 250px;
+  z-index: 2;
+  position: absolute;
+  background-color: white;
+  border-radius: 10px;
+  top: 15%;
+  left: 50%;
+  transform: translateX(-50%);
+  box-shadow: $primary-light-shadow;
+  padding: 10px;
+
+  .label_sort_box {
+    // border: 1px solid red;
+    border-radius: 5px;
+    text-align: center;
+    position: relative;
+    background-color: $primary-light-teal;
+    padding: 10px 0;
+    color: white;
+
+    h5 {
+      display: inline-block;
+    }
+
+    span {
+      position: absolute;
+      right: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+      cursor: pointer;
+    }
+  }
+
+  .content_sort_box {
+    margin-top: 20px;
+    p {
+      color: $primary-main-teal;
+      padding: 10px;
+      cursor: pointer;
+      margin: 3px 0;
+
+      &:hover {
+        background-color: #f3f3f3;
+        border-radius: 6px;
+        transition: all 0.2s;
+      }
+    }
+  }
+}
+.sort_box_container.hide {
+  animation: slideOut 0.5s ease forwards;
+}
+
+.sort_box_container.show {
+  animation: slideIn 0.5s ease forwards;
+}

@@ -4,6 +4,9 @@ import { ThemeProvider } from "@emotion/react";
 import theme from "./style/theme/theme.ts";
 import App from "./App.tsx";
 // import "./assets/styles/css/main.css";
+import { Provider } from "react-redux";
+import { store } from "./app/store.ts";
+// import "./assets/styles/css/main.css";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <ThemeProvider theme={theme}>
@@ -11,4 +14,11 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
       <App />
     </BrowserRouter>
   </ThemeProvider>
+  <Provider store={store}>
+    <ThemeProvider theme={theme}>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </ThemeProvider>
+  </Provider>
 );

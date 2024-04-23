@@ -56,8 +56,10 @@ const Hero = () => {
     setLocation(districtName);
   };
 
+  console.log(location);
+
   const handleShow = (location: string) => {
-    navigate(`/hotelList/districtName=${location}`);
+    navigate(`/hotel-list?district_name=${location}`);
   };
 
   return (
@@ -89,7 +91,7 @@ const Hero = () => {
             onChange={handleCityChange}
             className="pl-2"
           >
-            <option value={""}>Tỉnh/Thành phố</option>
+            <option>Tỉnh/Thành phố</option>
             {cities.map((city) => (
               <option key={city.id} value={city.id}>
                 {city.name}
@@ -117,7 +119,7 @@ const Hero = () => {
             className="pl-2"
             style={{ width: "154px" }}
           >
-            <option value={""}>Quận/Huyện</option>
+            <option>Quận/Huyện</option>
             {districts.map((district) => (
               <option key={district.districtId} value={district.districtName}>
                 {district.districtName}
