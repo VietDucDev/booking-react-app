@@ -5,9 +5,13 @@ import "react-image-gallery/styles/css/image-gallery.css";
 
 interface Props {
   imgList: string[];
+  showThumbnails: boolean;
 }
 
-const Carousel_RoomPage_Img: React.FC<Props> = ({ imgList }) => {
+const Carousel_RoomPage_Img: React.FC<Props> = ({
+  imgList,
+  showThumbnails,
+}) => {
   const images: ReactImageGalleryItem[] = imgList.map((img) => ({
     original: img,
     thumbnail: img,
@@ -52,6 +56,8 @@ const Carousel_RoomPage_Img: React.FC<Props> = ({ imgList }) => {
         autoPlay={false}
         slideInterval={0}
         slideDuration={450}
+        showThumbnails={showThumbnails}
+        showBullets={true}
         thumbnailPosition="bottom"
         renderLeftNav={renderCustomReviousButton}
         renderRightNav={renderCustomNextButton}

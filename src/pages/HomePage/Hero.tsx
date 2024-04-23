@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 interface City {
   id: number;
@@ -13,6 +14,8 @@ interface District {
 }
 
 const Hero = () => {
+  const navigate = useNavigate();
+  const [location, setLocation] = useState("");
   const [cities, setCities] = useState<City[]>([]);
   const [districts, setDistricts] = useState<District[]>([]);
   const [selectedCity, setSelectedCity] = useState<number | null>(null);
@@ -50,6 +53,11 @@ const Hero = () => {
   ) => {
     const districtName = event.target.value;
     setSelectedDistrict(districtName);
+    setLocation(districtName);
+  };
+
+  const handleShow = (location: string) => {
+    navigate(`/hotel-list?district_name=${location}`);
   };
 
   return (
@@ -81,7 +89,7 @@ const Hero = () => {
             onChange={handleCityChange}
             className="pl-2"
           >
-            <option>Tỉnh/Thành phố</option>
+            <option value={""}>Tỉnh/Thành phố</option>
             {cities.map((city) => (
               <option key={city.id} value={city.id}>
                 {city.name}
@@ -109,7 +117,7 @@ const Hero = () => {
             className="pl-2"
             style={{ width: "154px" }}
           >
-            <option>Quận/Huyện</option>
+            <option value={""}>Quận/Huyện</option>
             {districts.map((district) => (
               <option key={district.districtId} value={district.districtName}>
                 {district.districtName}
@@ -119,12 +127,14 @@ const Hero = () => {
         </div>
 
         <button
-          className="text-white px-4 rounded btn py-lg-0 py-md-2"
+          disabled={!location}
+          className="text-white px-4 rounded btn py-lg-0 py-md-2py-sm-2"
           style={{
             backgroundColor: "#003c43",
             textWrap: "nowrap",
             fontSize: "16px",
           }}
+          onClick={() => handleShow(location)}
         >
           <i className="fa-solid fa-magnifying-glass mr-2"></i>Tìm kiếm
         </button>

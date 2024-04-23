@@ -1,0 +1,93 @@
+@import "../variable";
+
+@keyframes slideIn {
+  from {
+    top: 10%;
+    opacity: 0;
+  }
+  to {
+    top: 15%;
+    opacity: 1;
+  }
+}
+
+@keyframes slideOut {
+  from {
+    top: 15%;
+    opacity: 1;
+  }
+  to {
+    top: 10%;
+    opacity: 0;
+  }
+}
+
+.filter_box_container {
+  //   border: 1px solid red;
+  max-width: 900px;
+  // height: 300px;
+  z-index: 2;
+  position: relative;
+  background-color: white;
+  border-radius: 10px;
+  top: 15%;
+  left: 50%;
+  transform: translateX(-50%);
+  box-shadow: $primary-light-shadow;
+  padding: 10px;
+  box-sizing: border-box;
+
+  .label_filter_box {
+    // border: 1px solid red;
+    border-radius: 5px;
+    text-align: center;
+    position: relative;
+    background-color: $primary-light-teal;
+    padding: 10px 0;
+    color: white;
+
+    h5 {
+      display: inline-block;
+    }
+
+    span {
+      position: absolute;
+      right: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+      cursor: pointer;
+    }
+  }
+
+  .content_filter_box {
+    padding: 20px;
+    overflow-y: scroll;
+    height: 600px;
+    margin-bottom: 30px;
+    .price_range_wrapper {
+      // border: 1px solid red;
+      width: 95%;
+      .slider_money {
+        // border: 1px solid red;
+      }
+    }
+
+    .submit_sort_wrapper {
+      position: absolute;
+      bottom: 10px;
+      background-color: white;
+      padding: 5px;
+      width: 85%;
+      display: flex;
+      justify-content: space-between;
+      padding-top: 10px;
+    }
+  }
+}
+.sort_box_container.hide {
+  animation: slideOut 0.5s ease forwards;
+}
+
+.sort_box_container.show {
+  animation: slideIn 0.5s ease forwards;
+}

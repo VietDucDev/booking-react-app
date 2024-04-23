@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 interface Hotel {
   sn: number;
@@ -9,6 +9,7 @@ interface Hotel {
 
 const NavBar = () => {
   const [hotelList, setHotelList] = useState<Hotel[]>([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -27,11 +28,7 @@ const NavBar = () => {
   }, []);
 
   const showAllHotels = (hotelType: string) => {
-    fetch(`http://localhost:3000/hotels?hotelType=${hotelType}`)
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-      });
+    navigate(`/hotel-list?hotel_type=${hotelType}`);
   };
 
   return (
@@ -83,10 +80,7 @@ const NavBar = () => {
               ))}
             </div>
           </div>
-          <Link to="hotelList" className="mx-2 text-decoration-none">
-            Son Tung MTP
-          </Link>
-          <Link to="roomPage/01" className="mx-2 text-decoration-none">
+          <Link to="login_logout" className="mx-2 text-decoration-none">
             Viet Duc
           </Link>
           <Link to="hotelBooking" className="mx-2 text-decoration-none">
