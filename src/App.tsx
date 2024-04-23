@@ -13,6 +13,7 @@ import HotelBooking from "./pages/hotel-booking/HotelBooking";
 import PromotionList from "./pages/PromotionList";
 import Login from "./pages/Login";
 import Registration from "./pages/Registration";
+import RoomDetail from "./pages/room-detail/RoomDetail";
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
         <Route path="/login_logout" element={<Login_Logout />} />
 
         <Route path="/hotelBooking" element={<HotelBooking />} />
+        <Route path="/roomDetail" element={<RoomDetail />} />
         <Route path="*" element={<Navigate to="login" />} />
       </Routes>
     </Fragment>

@@ -92,6 +92,9 @@ const NavBar = () => {
           <Link to="hotelBooking" className="mx-2 text-decoration-none">
             Duc dai ca
           </Link>
+          <Link to="roomDetail" className="mx-2 text-decoration-none">
+            Room Detail
+          </Link>
         </div>
       </div>
 
