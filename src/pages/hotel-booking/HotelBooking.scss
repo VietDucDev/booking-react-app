@@ -1,0 +1,111 @@
+#hotel-booking {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p {
+    margin: 0;
+    padding: 0;
+  }
+
+  .fz20 {
+    font-size: 20px;
+  }
+
+  #header {
+    display: flex;
+    align-items: center;
+    margin: 100px 20% 2%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+  }
+
+  #order {
+    margin: 0 20% 2%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+
+    .booking-info {
+      display: flex;
+      .hotel-selected {
+        display: flex;
+        justify-content: space-between;
+        // border-right: 1px solid #ccc;
+
+        .img {
+          width: 25%;
+        }
+
+        .img img {
+          width: 100%;
+          border-radius: 16px;
+        }
+        .content {
+          width: 70%;
+        }
+      }
+      .hotel-time {
+        display: flex;
+        justify-content: space-between;
+
+        .img {
+          width: 25%;
+        }
+
+        .img img {
+          width: 100%;
+          border-radius: 16px;
+        }
+        .content {
+          width: 70%;
+        }
+      }
+    }
+  }
+
+  #checkout {
+    margin: 0 20% 2%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+
+    .checkout-box {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+
+      .checkout-info {
+        width: 40%;
+        .info-box {
+          display: flex;
+          justify-content: space-between;
+        }
+      }
+
+      .checkout-total {
+        width: 50%;
+        .total-box {
+          display: flex;
+          justify-content: space-between;
+        }
+        .dropdown {
+          .btn {
+            padding: 0;
+          }
+        }
+        .total-submit {
+          background-color: orange;
+          color: #fff;
+          border: none;
+          padding: 8px 20px;
+          border-radius: 8px;
+          float: right;
+        }
+      }
+    }
+  }
+}

@@ -1,12 +1,18 @@
 import ReactDOM from "react-dom/client";
-import App from "./App.tsx";
-import "./index.css";
-import "./assets/styles/css/main.css";
+import { BrowserRouter } from "react-router-dom";
 import { ThemeProvider } from "@emotion/react";
-import theme from "./assets/styles/theme/theme.ts";
+import theme from "./style/theme/theme.ts";
+import App from "./App.tsx";
+import { Provider } from "react-redux";
+import { store } from "./app/store.ts";
+// import "./assets/styles/css/main.css";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
-  <ThemeProvider theme={theme}>
-    <App />
-  </ThemeProvider>
+  <Provider store={store}>
+    <ThemeProvider theme={theme}>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </ThemeProvider>
+  </Provider>
 );
