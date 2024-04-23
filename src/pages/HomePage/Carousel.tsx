@@ -4,7 +4,7 @@ const Carousel = () => {
   return (
     <div
       id="carouselExampleControls"
-      className="carousel slide position-relative"
+      className="carousel slide position-relative px-2"
       data-interval="false"
     >
       <div className="carousel-inner" style={{ borderRadius: "15px" }}>
@@ -174,7 +174,7 @@ const Carousel = () => {
           height: "50px",
           borderRadius: "50%",
           top: "50%",
-          left: "-25px",
+          left: "-15px",
           transform: "translateY(-50%)",
           margin: 0,
         }}
@@ -195,7 +195,7 @@ const Carousel = () => {
           height: "50px",
           borderRadius: "50%",
           top: "50%",
-          right: "-25px",
+          right: "-15px",
           transform: "translateY(-50%)",
           margin: 0,
         }}
