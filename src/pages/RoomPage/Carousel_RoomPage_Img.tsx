@@ -13,7 +13,6 @@ const Carousel_RoomPage_Img: React.FC<Props> = ({ imgList }) => {
     thumbnail: img,
   }));
 
-  console.log(images);
   const renderCustomNextButton = (
     onClick: React.MouseEventHandler<HTMLButtonElement> | undefined
   ) => {

@@ -9,7 +9,7 @@ const Explore = () => {
         <div className="carousel-inner" style={{ borderRadius: "15px" }}>
           <div className="carousel-item active">
             <div className="row">
-              <div className="col position-relative">
+              <div className="col position-relative pl-0">
                 <img
                   className="d-block w-100 img-fluid"
                   src="https://s3.go2joy.vn/350w/hotel/171_1656575040_62bd54401aeda.jpg"
@@ -111,15 +111,14 @@ const Explore = () => {
             height: "50px",
             borderRadius: "50%",
             top: "50%",
-            transform: "translateY(-50%)",
+            transform: "translate(-50%, -50%)",
             margin: 0,
           }}
         >
-          <span
-            className="carousel-control-prev-icon"
-            aria-hidden="true"
-          ></span>
-          <span className="sr-only">Previous</span>
+          <i
+            className="fa-solid fa-chevron-left"
+            style={{ fontSize: "20px" }}
+          ></i>
         </a>
         <a
           className="carousel-control-next d-flex justify-content-center align-items-center position-absolute"
@@ -132,15 +131,14 @@ const Explore = () => {
             height: "50px",
             borderRadius: "50%",
             top: "50%",
-            transform: "translateY(-50%)",
+            transform: "translate(50%, -50%)",
             margin: 0,
           }}
         >
-          <span
-            className="carousel-control-next-icon"
-            aria-hidden="true"
-          ></span>
-          <span className="sr-only">Next</span>
+          <i
+            className="fa-solid fa-chevron-right"
+            style={{ fontSize: "20px" }}
+          ></i>
         </a>
       </div>
     </div>

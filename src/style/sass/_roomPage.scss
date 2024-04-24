@@ -1,0 +1,100 @@
+@import "variable";
+#container-roomPage {
+  margin-top: 65px;
+
+  .image-gallery-slides {
+    border-radius: 10px;
+  }
+
+  .image-gallery-image {
+    object-fit: cover;
+    height: 500px;
+  }
+  .image-gallery-left-nav {
+    background-color: #135d66;
+    opacity: 0.5;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    top: 50%;
+    left: -25px;
+    transform: translateY(-50%);
+    margin: 0;
+    padding: 0;
+    &:hover {
+      background-color: #135d66;
+      opacity: 1;
+      .fa-solid {
+        color: white;
+      }
+    }
+
+    .fa-solid {
+      font-size: 20px;
+    }
+  }
+
+  .image-gallery-right-nav {
+    background-color: #135d66;
+    opacity: 0.5;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    top: 50%;
+    right: -25px;
+    transform: translateY(-50%);
+    margin: 0;
+    padding: 0;
+    &:hover {
+      background-color: #135d66;
+      opacity: 1;
+      .fa-solid {
+        color: white;
+      }
+    }
+
+    .fa-solid {
+      font-size: 20px;
+    }
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  .room-item {
+    padding: 15px 0;
+    border-bottom: 1px solid rgb(164, 164, 164);
+  }
+
+  #nonEditableBar {
+    width: 300px;
+    height: 6px;
+    background-color: #ccc;
+    position: relative;
+    border-radius: 8px;
+  }
+
+  #progressBar {
+    height: 100%;
+    border-radius: 8px;
+    background-color: #ff6400;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  .rate-name {
+    width: 100px;
+  }
+
+  .btn-bookroom {
+    color: white;
+    background-color: $primary-dark-teal;
+  }
+
+  .nav-info.sticky-top {
+    top: 60px;
+    background-color: white;
+  }
+}

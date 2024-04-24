@@ -56,11 +56,25 @@ const Hero = () => {
     setLocation(districtName);
   };
 
-  console.log(location);
-
   const handleShow = (location: string) => {
     navigate(`/hotel-list?district_name=${location}`);
   };
+
+  const date = new Date();
+
+  const day = date.getDate();
+  const month = date.getMonth() + 1;
+  const year = date.getFullYear();
+  const hours = date.getHours();
+  const minutes = date.getMinutes();
+
+  const formattedDate = `${hours.toString().padStart(2, "0")}h${minutes
+    .toString()
+    .padStart(2, "0")} - ${day.toString().padStart(2, "0")}/${month
+    .toString()
+    .padStart(2, "0")}/${year}`;
+
+  console.log(formattedDate);
 
   return (
     <div className="position-relative" style={{ marginTop: "65px" }}>
@@ -91,7 +105,7 @@ const Hero = () => {
             onChange={handleCityChange}
             className="pl-2"
           >
-            <option>Tỉnh/Thành phố</option>
+            <option value="">Tỉnh/Thành phố</option>
             {cities.map((city) => (
               <option key={city.id} value={city.id}>
                 {city.name}
@@ -119,7 +133,7 @@ const Hero = () => {
             className="pl-2"
             style={{ width: "154px" }}
           >
-            <option>Quận/Huyện</option>
+            <option value="">Quận/Huyện</option>
             {districts.map((district) => (
               <option key={district.districtId} value={district.districtName}>
                 {district.districtName}
@@ -129,7 +143,7 @@ const Hero = () => {
         </div>
 
         <button
-          disabled={!location}
+          disabled={!location || !selectedCity}
           className="text-white px-4 rounded btn py-lg-0 py-md-2py-sm-2"
           style={{
             backgroundColor: "#003c43",

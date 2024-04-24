@@ -1,6 +1,6 @@
 import { Fragment, useEffect, useState } from "react";
 import Carousel_RoomPage_Img from "./Carousel_RoomPage_Img";
-import Carousel_Bootstrap from "./Carousel_Bootstrap";
+import ImageSlider from "./Carousel_Small";
 import Avatar from "@mui/material/Avatar";
 import Rating from "@mui/material/Rating";
 import "../../style/sass/_roomPage.scss";
@@ -15,15 +15,23 @@ interface DataProps {
   id: number;
   name: string;
   address: string;
-  avergeMark: number;
+  averageMark: number;
+  originPrice: number;
   districtName: string;
   discountPrice: number;
-  facilityList: [];
+  facilityList: {
+    sn: number;
+    name: string;
+  }[];
   firstHours: number;
   hotelType: string;
   imgList: string[];
-  originPrice: number;
-  roomList: [];
+  roomList: {
+    roomName: string;
+    price: number;
+    area: number;
+    roomImages: [];
+  }[];
   roomStatus: string;
   sn: number;
   thumbnail: string;
@@ -50,9 +58,7 @@ const RoomPage = () => {
 
     fetchData();
   }, []);
-  const handleClickATag = (event) => {
-    console.log("Bạn đã nhấp vào liên kết");
-  };
+
   return (
     <Fragment>
       <div className="container" id="container-roomPage">
@@ -60,13 +66,11 @@ const RoomPage = () => {
           <div className="col">
             <div className="row">
               <div className="col">
-                <div className="row mb-3">
-                  <div className="col-8">
-                    <h2>
-                      <strong>{data?.name}</strong>
-                    </h2>
+                <div className="row mb-3 mt-4 d-flex justify-content-between">
+                  <div style={{ fontWeight: "600", fontSize: "30px" }}>
+                    {data?.name}
                   </div>
-                  <div className="col-4 d-flex align-items-center">
+                  <div className="d-flex align-items-center">
                     <Checkbox
                       {...label}
                       icon={<FavoriteBorder />}
@@ -77,8 +81,10 @@ const RoomPage = () => {
                 </div>
                 <div className="row mb-3">
                   <div className="col-8">
-                    <i className="fa-solid fa-map"></i>
-                    <strong>{data?.address}</strong>
+                    <i className="fa-solid fa-map mr-2"></i>
+                    <span style={{ fontWeight: "600", fontSize: "17px" }}>
+                      {data?.address}
+                    </span>
                   </div>
                   <div className="col-4">
                     <i className="fa-regular fa-star"></i> • 721 Đánh giá
@@ -86,12 +92,15 @@ const RoomPage = () => {
                 </div>
               </div>
             </div>
+
             {/* ------------- */}
             <div className="row">
               <div className="col">
                 <Carousel_RoomPage_Img imgList={data?.imgList || []} />
               </div>
             </div>
+
+            {/* ------------- */}
             <div className="" id="introduce">
               <div className="row">
                 <div className="col">
@@ -109,27 +118,29 @@ const RoomPage = () => {
                   {data?.roomList.map((room, index) => (
                     <div key={index} className="row room-item">
                       <div className="col-3">
-                        <Carousel_Bootstrap />
+                        <ImageSlider roomImages={room.roomImages} />
                       </div>
                       <div className="col-3">
-                        <p>Thông tin phòng</p>
-                        <p>{room.roomName}</p>
-                        <div className="d-flex">
-                          {data.facilityList.map((facility, index) => (
-                            <p key={facility.sn}>{facility.name}</p>
-                          ))}
-                        </div>
-                        <div>
-                          <a href="" onClick={handleClickATag}>
-                            Xem chi tiết phòng
-                          </a>
-                        </div>
+                        <p style={{ fontWeight: "600" }}>Thông tin phòng</p>
+                        <p
+                          className="font-weight-bold"
+                          style={{ fontSize: "18px" }}
+                        >
+                          {room.roomName}
+                        </p>
+                        <div className="d-flex">{room.area} m2</div>
+                        <p className="mt-3">Xem chi tiết phòng</p>
                       </div>
-                      <div className="col-3">Đặc điểm nổi bật</div>
+                      <div className="col-3" style={{ fontWeight: "600" }}>
+                        Đặc điểm nổi bật
+                      </div>
                       <div className="col-3">
-                        <p>Giá phòng</p>
-                        <p>
-                          <strong>300.000 đ</strong>
+                        <p style={{ fontWeight: "600" }}>Giá phòng</p>
+                        <p
+                          style={{ fontSize: "28px", fontWeight: "500" }}
+                          className="mb-4"
+                        >
+                          {room.price.toLocaleString("vi-VN")}đ
                         </p>
                         <button className="btn btn-bookroom">Đặt phòng</button>
                       </div>
@@ -158,9 +169,7 @@ const RoomPage = () => {
                   </div>
                   <div className="row mt-3">
                     <div className="col">
-                      <a href="" onClick={handleClickATag}>
-                        Hiển thị thêm
-                      </a>
+                      <a href="">Hiển thị thêm</a>
                     </div>
                   </div>
                 </div>
@@ -246,9 +255,7 @@ const RoomPage = () => {
                   </div>
                   <div className="row">
                     <div className="col">
-                      <a href="" onClick={handleClickATag}>
-                        Hiển thị thêm
-                      </a>
+                      <a href="">Hiển thị thêm</a>
                     </div>
                   </div>
                 </div>
