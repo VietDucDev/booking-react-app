@@ -8,9 +8,12 @@ import "../../style/sass/hotel-list-page-scss/_filterBox.scss";
 import SortBox from "./SortBox";
 import FilterBox from "./FilterBox";
 import React from "react";
-import { useNavigate, useSearchParams } from "react-router-dom";
+import { useNavigate, useParams, useSearchParams } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { RootState } from "../../app/store";
+import TestComponent from "./TestComponent";
 
-interface Hotel {
+export interface Hotel {
   sn: number;
   name: string;
   facilityList: [
@@ -38,25 +41,40 @@ type QueryParams = {
   filterHotelType?: string | null;
 };
 
+//filter function
 const getHotelsResult = (allData: Hotel[], queryParams: QueryParams) => {
-  const { rate, filterHotelType } = queryParams;
+  let hotelResult = [];
+  const rate = queryParams.rate;
+  const hotelType = queryParams.filterHotelType;
+  if (rate || hotelType) {
+    for (let i = 0; i < allData.length; i++) {
+      console.log(allData[i].averageMark, parseFloat(rate));
 
-  const hotelResult = allData.filter((hotel) => {
-    return (
-      (!rate || hotel.averageMark >= parseFloat(rate)) &&
-      (!filterHotelType || hotel.hotelType === filterHotelType)
-    );
-  });
+      if (allData[i].averageMark >= parseFloat(rate)) {
+        hotelResult.push(allData[i]);
+      }
+    }
+  } else {
+    hotelResult = allData;
+  }
 
   return hotelResult;
 };
 
 const HotelListPage: React.FC<Hotel> = () => {
+  // const filter = useParams();
   const navigate = useNavigate();
   const [hotelList, setHotelList] = useState<Hotel[]>([]);
   const [seacrhParams, setSearchParams] = useSearchParams();
   const districtSearchParams = seacrhParams.get("district_name");
   const hotelTypeSearchParams = seacrhParams.get("hotel_type");
+  // const { queryParams } = useSelector((state: RootState) => state.hotelFilter);
+
+  // console.log("currentSearchParams: ", currentSearchParams);
+
+  // console.log("seacrhParams: ", seacrhParams.toString());
+
+  // setSearchParams({ ...seacrhParams, ...filterParams });
 
   useEffect(() => {
     const districtName = seacrhParams.get("district_name");
@@ -78,17 +96,22 @@ const HotelListPage: React.FC<Hotel> = () => {
         return response.json();
       })
       .then((data) => {
+        console.log("data: ", data);
         const hotelResult = getHotelsResult(data, {
           rate: seacrhParams.get("rate"),
           filterHotelType: seacrhParams.get("filter_hotel_type"),
         });
+        console.log("hotelResult: ", hotelResult);
 
         setHotelList(hotelResult);
+        // console.log(data);
       })
       .catch((error) => {
         console.error("There was a problem with the fetch operation:", error);
       });
   }, [seacrhParams]);
+
+  // console.log(hotelList);
 
   const [openSortBox, setOpenSortBox] = useState(false);
   const [openFilterBox, setOpenFilterBox] = useState(false);
@@ -100,10 +123,11 @@ const HotelListPage: React.FC<Hotel> = () => {
     // setSearchParams({ ...seacrhParams, ...filterParams });
   };
 
-  const [formats, setFormats] = useState<string[]>(() => []);
+  const [formats, setFormats] = useState(() => []);
+  // console.log("alignment: ", alignment);
 
   const handleAlignment = (
-    _event: React.MouseEvent<HTMLElement>,
+    event: React.MouseEvent<HTMLElement>,
     newFormats: string[]
   ) => {
     setFormats(newFormats);
@@ -111,6 +135,7 @@ const HotelListPage: React.FC<Hotel> = () => {
       const filterParams = {
         facility: newFormats,
         district_name: districtSearchParams,
+        // hotel_type: currentSearchParams2,
       };
       setSearchParams({ ...seacrhParams, ...filterParams });
     }
@@ -118,12 +143,15 @@ const HotelListPage: React.FC<Hotel> = () => {
       const filterParams = {
         facility: newFormats,
         district_name: hotelTypeSearchParams,
+        // hotel_type: currentSearchParams2,
       };
       setSearchParams({ ...seacrhParams, ...filterParams });
     }
+
+    // navigate(`/hotel-list?facility=${newAlignment}`);
   };
 
-  const showRoomDetail = (id: string) => {
+  const handleShowRoomDetail = (id: string) => {
     navigate(`/roomPage/${id}`);
   };
 
@@ -149,130 +177,125 @@ const HotelListPage: React.FC<Hotel> = () => {
       </Modal>
       {/* <NavBarFake /> */}
 
-      <div className="main_container col-10">
-        <div className="filter_bar_container">
-          <div className="option_wrapper d-flex justify-content-between col-10 bg-white">
-            <div className="quick_option_wrapper col-md-8 col-sm-12">
-              <ToggleButtonGroup
-                value={formats}
-                onChange={handleAlignment}
-                aria-label="text alignment"
-              >
-                <ToggleButton
-                  size="small"
-                  style={{
-                    borderRadius: "20px",
-                    fontSize: "12px",
-                    textTransform: "unset",
-                    marginRight: "10px",
-                    border: "1px solid #ccc",
-                    padding: "6px 15px",
-                  }}
-                  color="primary"
-                  value="27"
+      <div className="background">
+        <div className="container-lg main_container">
+          <div className="filter_bar_container">
+            <div className="option_wrapper container-md row justify-content-md-between">
+              <div className="quick_option_wrapper col-md-8 col-sm-12 gap-2 d-flex justify-content-md-start justify-content-center">
+                <ToggleButtonGroup
+                  value={formats}
+                  onChange={handleAlignment}
+                  aria-label="text alignment"
                 >
-                  Thang máy
-                </ToggleButton>
+                  <ToggleButton
+                    size="small"
+                    style={{
+                      borderRadius: "20px",
+                      fontSize: "12px",
+                      textTransform: "unset",
+                    }}
+                    color="primary"
+                    value="27"
+                    // aria-label="left aligned"
+                  >
+                    Thang máy
+                  </ToggleButton>
 
-                <ToggleButton
-                  size="small"
-                  style={{
-                    borderRadius: "20px",
-                    fontSize: "12px",
-                    textTransform: "unset",
-                    marginRight: "10px",
-                    border: "1px solid #ccc",
-                    padding: "8px 15px",
-                  }}
+                  <ToggleButton
+                    size="small"
+                    style={{
+                      borderRadius: "20px",
+                      fontSize: "12px",
+                      textTransform: "unset",
+                    }}
+                    color="primary"
+                    value="123"
+                    // aria-label="left aligned"
+                  >
+                    Bồn tắm
+                  </ToggleButton>
+
+                  <ToggleButton
+                    size="small"
+                    style={{
+                      borderRadius: "20px",
+                      fontSize: "12px",
+                      textTransform: "unset",
+                    }}
+                    color="primary"
+                    value="97"
+                    // aria-label="left aligned"
+                  >
+                    Smart TV
+                  </ToggleButton>
+
+                  <ToggleButton
+                    size="small"
+                    style={{
+                      borderRadius: "20px",
+                      fontSize: "12px",
+                      textTransform: "unset",
+                    }}
+                    color="primary"
+                    value="169"
+                    // aria-label="left aligned"
+                  >
+                    Cửa sổ thông thoáng
+                  </ToggleButton>
+                </ToggleButtonGroup>
+              </div>
+
+              <div className="detail_options_wrapper col-md-4 col-sm-12 gap-2 d-flex justify-content-md-end justify-content-center mt-md-0 mt-2">
+                <Button
+                  className="mr-3"
+                  variant="contained"
                   color="primary"
-                  value="123"
-                >
-                  Bồn tắm
-                </ToggleButton>
-
-                <ToggleButton
                   size="small"
-                  style={{
-                    borderRadius: "20px",
-                    fontSize: "12px",
-                    textTransform: "unset",
-                    marginRight: "10px",
-                    border: "1px solid #ccc",
-                    padding: "6px 15px",
-                  }}
-                  color="primary"
-                  value="97"
+                  style={{ color: "white", textTransform: "unset" }}
+                  onClick={handleOpenFilterBox}
                 >
-                  Smart TV
-                </ToggleButton>
-
-                <ToggleButton
+                  <i className="fa-solid fa-sliders"></i>
+                  Bộ lọc
+                </Button>
+                <Button
+                  variant="contained"
+                  color="primary"
                   size="small"
-                  style={{
-                    borderRadius: "20px",
-                    fontSize: "12px",
-                    textTransform: "unset",
-                    border: "1px solid #ccc",
-                    padding: "6px 15px",
-                  }}
-                  color="primary"
-                  value="169"
+                  style={{ color: "white", textTransform: "unset" }}
+                  onClick={handleOpenSortBox}
                 >
-                  Cửa sổ thông thoáng
-                </ToggleButton>
-              </ToggleButtonGroup>
-            </div>
-
-            <div className="detail_options_wrapper col-md-4 col-sm-12 d-flex justify-content-md-end mt-md-0">
-              <Button
-                className="mr-3"
-                variant="contained"
-                size="small"
-                style={{ color: "white", textTransform: "unset" }}
-                onClick={handleOpenFilterBox}
-              >
-                <i className="fa-solid fa-sliders"></i>
-                Bộ lọc
-              </Button>
-              <Button
-                variant="contained"
-                size="small"
-                style={{ color: "white", textTransform: "unset" }}
-                onClick={handleOpenSortBox}
-              >
-                <i className="fa-solid fa-arrow-up-wide-short"></i> Xắp sếp
-              </Button>
+                  <i className="fa-solid fa-arrow-up-wide-short"></i> Xắp sếp
+                </Button>
+              </div>
             </div>
           </div>
-        </div>
 
-        <div className="hotel_list_map_container row mt-5">
-          <div className="hotel_list_wrapper col-lg-8 col-md-8 col-12">
-            <p className="col-12 my-3 pl-0">
-              Có <strong>{hotelList.length}</strong> khách sạn phù hợp dành cho
-              bạn
+          <div className="hotel_list_map_container row">
+            <p className="mb-2 mt-5 col-12">
+              Have <strong>{hotelList.length}</strong> hotel in our area
             </p>
-            {/* each hotel wrapper */}
-            {hotelList.map((hotel: Hotel, index: number) => (
-              <div
-                key={index}
-                className="each_hotel_wrapper row"
-                onClick={() => showRoomDetail(hotel.id)}
-                style={{ cursor: "pointer" }}
-              >
-                <img
-                  className="thumbnail_image col-md-4 col-sm-12"
-                  src={hotel.thumbnail}
-                  alt="thumbnail room image"
-                />
-                <div className="hotel_info_wrapper col-md-8 col-sm-12 d-flex flex-column justify-content-between pr-0">
-                  <div>
-                    <h5 style={{ lineHeight: "20px", fontWeight: "600" }}>
-                      {hotel.name}
-                    </h5>
+
+            {/* <TestComponent /> */}
+
+            <div className="hotel_list_wrapper col-md-8 col-12">
+              {/* each hotel wrapper */}
+              {hotelList.map((hotel: Hotel, index: number) => (
+                <div
+                  key={index}
+                  className="each_hotel_wrapper row"
+                  onClick={() => handleShowRoomDetail(hotel.id)}
+                  style={{ cursor: "pointer" }}
+                >
+                  <img
+                    className="thumbnail_image my-auto col-md-4 col-sm-12"
+                    src={hotel.thumbnail}
+                    alt="thumbnail room image"
+                  />
+                  <div className="hotel_info_wrapper my-auto col-md-8 col-sm-12 ">
+                    <h3>{hotel.name}</h3>
                     <div className="some_extension_wrapper">
                       {/* First row of facilities */}
-                      <div className="row" style={{ fontSize: "13px" }}>
+                      <div className="row">
                         <div className="col">
                           {hotel.facilityList
                             .slice(0, 3)
@@ -285,7 +308,7 @@ const HotelListPage: React.FC<Hotel> = () => {
                         </div>
                       </div>
                       {/* Second row of facilities */}
-                      <div className="row" style={{ fontSize: "13px" }}>
+                      <div className="row">
                         <div className="col">
                           {hotel.facilityList
                             .slice(3, 6)
@@ -298,60 +321,55 @@ const HotelListPage: React.FC<Hotel> = () => {
                         </div>
                       </div>
                     </div>
-                  </div>
 
-                  <div className="other_info_wrapper">
-                    <p
-                      className="mb-0"
-                      style={{ display: "flex", justifyContent: "end" }}
-                    >
-                      <strong style={{ color: "#135D66" }}>
-                        {hotel.firstHours} giờ đầu
-                      </strong>
-                    </p>
-                    <div className="m-0 d-flex justify-content-between">
-                      <span>
-                        <i
-                          className="fa-solid fa-star"
-                          style={{ color: "#135D66" }}
-                        ></i>
-                        {hotel.averageMark} ({hotel.totalReview} Đánh giá)
-                      </span>
-                      <strong>
-                        {hotel.originPrice.toLocaleString("vi-VN", {
-                          minimumFractionDigits: 0,
-                        })}
-                        đ
-                      </strong>
+                    <div className="other_info_wrapper">
+                      <p
+                        className="mb-0"
+                        style={{ display: "flex", justifyContent: "end" }}
+                      >
+                        <strong style={{ color: "#135D66" }}>
+                          {hotel.firstHours} giờ đầu
+                        </strong>
+                      </p>
+                      <p className="m-0 d-flex justify-content-between">
+                        <span style={{ color: "#135D66" }}>
+                          <i className="fa-solid fa-star">
+                            {" "}
+                            {hotel.averageMark}
+                          </i>{" "}
+                          ({hotel.totalReview} Đánh giá)
+                        </span>{" "}
+                        <strong>
+                          {hotel.originPrice.toLocaleString("vi-VN", {
+                            minimumFractionDigits: 0,
+                          })}
+                          đ
+                        </strong>
+                      </p>
+                      <p className="m-0 d-flex justify-content-between">
+                        <span>{hotel.districtName}</span>{" "}
+                        <span
+                          style={{ color: "dodgerblue", fontSize: "0.9rem" }}
+                        >
+                          {hotel.roomStatus}
+                        </span>
+                      </p>
                     </div>
-                    <p
-                      className="m-0 d-flex justify-content-between"
-                      style={{ fontSize: "14px" }}
-                    >
-                      <span>{hotel.districtName}</span>{" "}
-                      <span style={{ color: "dodgerblue", fontSize: "0.9rem" }}>
-                        {hotel.roomStatus}
-                      </span>
-                    </p>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))}
 
-            {/* each hotel wrapper */}
-          </div>
-          <div className="map-wrapper col-lg-4">
-            {/* <iframe
-              src="https://map.map4d.vn/embed/place/detail/5d13321a77c88e2798b970e7?"
-              height="100%"
-              allowFullScreen
-              style={{
-                borderRadius: "20px",
-                position: "fixed",
-                top: "130px",
-                border: "none",
-              }}
-            ></iframe> */}
+              {/* each hotel wrapper */}
+            </div>
+            <div className="map-wrapper col-md-4 col-12">
+              <iframe
+                src="https://map.map4d.vn/embed/place/detail/5d13321a77c88e2798b970e7?"
+                width="100%"
+                height="100%"
+                allowFullScreen
+                style={{ borderRadius: "20px" }}
+              ></iframe>
+            </div>
           </div>
         </div>
       </div>

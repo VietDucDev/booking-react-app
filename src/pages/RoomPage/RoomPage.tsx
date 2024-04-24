@@ -1,6 +1,6 @@
-import { Fragment, useEffect, useState } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import Carousel_RoomPage_Img from "./Carousel_RoomPage_Img";
-import ImageSlider from "./Carousel_Small";
+import Carousel_Bootstrap from "./Carousel_Bootstrap";
 import Avatar from "@mui/material/Avatar";
 import Rating from "@mui/material/Rating";
 import "../../style/sass/_roomPage.scss";
@@ -15,23 +15,15 @@ interface DataProps {
   id: number;
   name: string;
   address: string;
-  averageMark: number;
-  originPrice: number;
+  avergeMark: number;
   districtName: string;
   discountPrice: number;
-  facilityList: {
-    sn: number;
-    name: string;
-  }[];
+  facilityList: [];
   firstHours: number;
   hotelType: string;
   imgList: string[];
-  roomList: {
-    roomName: string;
-    price: number;
-    area: number;
-    roomImages: [];
-  }[];
+  originPrice: number;
+  roomList: [];
   roomStatus: string;
   sn: number;
   thumbnail: string;
@@ -58,7 +50,12 @@ const RoomPage = () => {
 
     fetchData();
   }, []);
-
+  // console.log(data?.address);
+  const handleClickATag = (event) => {
+    // Ngăn chặn hành vi mặc định của trình duyệt
+    // event.preventDefault();
+    console.log("Bạn đã nhấp vào liên kết");
+  };
   return (
     <Fragment>
       <div className="container" id="container-roomPage">
@@ -66,25 +63,73 @@ const RoomPage = () => {
           <div className="col">
             <div className="row">
               <div className="col">
-                <div className="row mb-3 mt-4 d-flex justify-content-between">
-                  <div style={{ fontWeight: "600", fontSize: "30px" }}>
-                    {data?.name}
+                <div className="row">
+                  <div className="col-8 hotel-name-wrapper">
+                    <div>{data?.name}</div>
                   </div>
-                  <div className="d-flex align-items-center">
-                    <Checkbox
+                  <div className="col-4 d-flex align-items-center">
+                    {/* <Checkbox
                       {...label}
                       icon={<FavoriteBorder />}
                       checkedIcon={<Favorite />}
-                    />
+                    /> */}
+                    <div className="con-like">
+                      <input className="like" type="checkbox" title="like" />
+                      <div className="checkmark">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="outline"
+                          viewBox="0 0 24 24"
+                        >
+                          <path d="M17.5,1.917a6.4,6.4,0,0,0-5.5,3.3,6.4,6.4,0,0,0-5.5-3.3A6.8,6.8,0,0,0,0,8.967c0,4.547,4.786,9.513,8.8,12.88a4.974,4.974,0,0,0,6.4,0C19.214,18.48,24,13.514,24,8.967A6.8,6.8,0,0,0,17.5,1.917Zm-3.585,18.4a2.973,2.973,0,0,1-3.83,0C4.947,16.006,2,11.87,2,8.967a4.8,4.8,0,0,1,4.5-5.05A4.8,4.8,0,0,1,11,8.967a1,1,0,0,0,2,0,4.8,4.8,0,0,1,4.5-5.05A4.8,4.8,0,0,1,22,8.967C22,11.87,19.053,16.006,13.915,20.313Z"></path>
+                        </svg>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          className="filled"
+                          viewBox="0 0 24 24"
+                        >
+                          <path d="M17.5,1.917a6.4,6.4,0,0,0-5.5,3.3,6.4,6.4,0,0,0-5.5-3.3A6.8,6.8,0,0,0,0,8.967c0,4.547,4.786,9.513,8.8,12.88a4.974,4.974,0,0,0,6.4,0C19.214,18.48,24,13.514,24,8.967A6.8,6.8,0,0,0,17.5,1.917Z"></path>
+                        </svg>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          height="100"
+                          width="100"
+                          className="celebrate"
+                        >
+                          <polygon
+                            className="poly"
+                            points="10,10 20,20"
+                          ></polygon>
+                          <polygon
+                            className="poly"
+                            points="10,50 20,50"
+                          ></polygon>
+                          <polygon
+                            className="poly"
+                            points="20,80 30,70"
+                          ></polygon>
+                          <polygon
+                            className="poly"
+                            points="90,10 80,20"
+                          ></polygon>
+                          <polygon
+                            className="poly"
+                            points="90,50 80,50"
+                          ></polygon>
+                          <polygon
+                            className="poly"
+                            points="80,80 70,70"
+                          ></polygon>
+                        </svg>
+                      </div>
+                    </div>
                     <p className="mb-0 ml-2 ">Yêu thích</p>
                   </div>
                 </div>
                 <div className="row mb-3">
                   <div className="col-8">
-                    <i className="fa-solid fa-map mr-2"></i>
-                    <span style={{ fontWeight: "600", fontSize: "17px" }}>
-                      {data?.address}
-                    </span>
+                    <i className="fa-solid fa-map"></i>
+                    <strong>{data?.address}</strong>
                   </div>
                   <div className="col-4">
                     <i className="fa-regular fa-star"></i> • 721 Đánh giá
@@ -92,20 +137,76 @@ const RoomPage = () => {
                 </div>
               </div>
             </div>
-
             {/* ------------- */}
             <div className="row">
-              <div className="col">
-                <Carousel_RoomPage_Img imgList={data?.imgList || []} />
+              <div className="col img-list-wrapper">
+                <Carousel_RoomPage_Img
+                  imgList={data?.imgList || []}
+                  showThumbnails={true}
+                />
               </div>
             </div>
-
+            {/* ------------- */}
+            <div className="row my-3 py-3 nav-info sticky-top">
+              <div className="col">
+                <a href="#introduce" className="mr-4" onClick={handleClickATag}>
+                  Tổng quan
+                </a>
+                <a href="#room-list" className="mr-4" onClick={handleClickATag}>
+                  Danh sách phòng
+                </a>
+                <a href="" className="mr-4" onClick={handleClickATag}>
+                  Tiện ích
+                </a>
+                <a href="" className="mr-4" onClick={handleClickATag}>
+                  Đánh giá
+                </a>
+                <a href="" className="mr-4" onClick={handleClickATag}>
+                  Chính sách khách sạn
+                </a>
+              </div>
+            </div>
             {/* ------------- */}
             <div className="" id="introduce">
               <div className="row">
                 <div className="col">
                   <h2>Giới thiệu</h2>
                   <div className="my-4">
+                    <p>
+                      Tọa lạc tại con đường&nbsp;sầm uất,&nbsp;hiện đại,{" "}
+                      <strong>GO2JOY&nbsp; - BẠN TÔI ROOM</strong> là khách
+                      sạn&nbsp;của sự{" "}
+                      <strong>thoải mái&nbsp;và tiện nghi</strong> trên cả tuyệt
+                      vời. Từ <strong>GO2JOY&nbsp; - BẠN TÔI ROOM</strong>&nbsp;
+                      Quý khách có thể dễ dàng đi chuyển đến{" "}
+                      <strong>đường Nguyễn Trãi sầm uất</strong>&nbsp;bậc nhất
+                      về đêm tại&nbsp;Quận 5, Trung tâm thương mại
+                      <strong> </strong>hay&nbsp;<strong>Chợ Bến Thành</strong>{" "}
+                      với khoảng cách không xa
+                    </p>
+                    <p>
+                      👉Phòng "<strong>Cute giường tròn</strong>" mà giá siêu
+                      hạt dẻ
+                      <br />
+                      👉Giá "<strong>Hời</strong>"&nbsp;còn ngay trung tâm&nbsp;
+                      <strong>QUẬN 5</strong>&nbsp;hiện đại và{" "}
+                      <strong>QUẬN 1</strong> sầm uất
+                      <br />
+                      👉<strong>Ghế tình yêu</strong>&nbsp;"
+                      <strong>Thư giản</strong>"&nbsp;cuối tuần
+                    </p>
+                    <p>
+                      💃&nbsp;Một bước&nbsp;<strong>#Phố Đi Bộ</strong>
+                      <br />
+                      💃 Hai bước&nbsp;<strong>#Phố Bùi Viện</strong>
+                      <br />
+                      <strong>💃&nbsp;</strong>Ba bước
+                      <strong>&nbsp;#Say men&nbsp;</strong>cùng nàng
+                    </p>
+                    <p>
+                      💋 572/4 Trần Hưng Đạo, Phường 1, Quận 5, Thành phố Hồ Chí
+                      Minh <em>( Rẽ vào hẻm chạy thẳng là tới)</em>
+                    </p>
                     <p className="m-0">Liên hệ chị chủ xinh đẹp: 0909239058</p>
                     <p>** Lưu ý: Khách book qua đêm lưu ý 10h sáng trả phòng</p>
                   </div>
@@ -118,34 +219,81 @@ const RoomPage = () => {
                   {data?.roomList.map((room, index) => (
                     <div key={index} className="row room-item">
                       <div className="col-3">
-                        <ImageSlider roomImages={room.roomImages} />
+                        <Carousel_RoomPage_Img
+                          imgList={data?.imgList || []}
+                          showThumbnails={false}
+                        />
                       </div>
                       <div className="col-3">
-                        <p style={{ fontWeight: "600" }}>Thông tin phòng</p>
-                        <p
-                          className="font-weight-bold"
-                          style={{ fontSize: "18px" }}
-                        >
-                          {room.roomName}
+                        <p>Thông tin phòng</p>
+                        <p>
+                          <strong>{room.roomName}</strong>
                         </p>
-                        <div className="d-flex">{room.area} m2</div>
-                        <p className="mt-3">Xem chi tiết phòng</p>
+                        <div className="d-flex">
+                          {/* {data.facilityList.map((facility, index) => (
+                            <p key={facility.sn}>{facility.name}</p>
+                          ))} */}
+                        </div>
+                        <div className="room-details-btn">
+                          <button>
+                            <p>Xem chi tiết phòng</p>
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              className="h-6 w-6"
+                              fill="none"
+                              viewBox="0 0 24 24"
+                              stroke="currentColor"
+                              strokeWidth="4"
+                            >
+                              <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                d="M14 5l7 7m0 0l-7 7m7-7H3"
+                              ></path>
+                            </svg>
+                          </button>
+                        </div>
                       </div>
-                      <div className="col-3" style={{ fontWeight: "600" }}>
-                        Đặc điểm nổi bật
-                      </div>
-                      <div className="col-3">
-                        <p style={{ fontWeight: "600" }}>Giá phòng</p>
-                        <p
-                          style={{ fontSize: "28px", fontWeight: "500" }}
-                          className="mb-4"
-                        >
-                          {room.price.toLocaleString("vi-VN")}đ
+                      <div className="col-3">Đặc điểm nổi bật</div>
+                      <div className="col-3 bookroom-wrapper">
+                        <p>Giá phòng</p>
+                        <p>
+                          <strong>300.000 đ</strong>
                         </p>
-                        <button className="btn btn-bookroom">Đặt phòng</button>
+                        <button className="animated-button btn-bookroom">
+                          <span className="text">Đặt phòng</span>
+                          <span className="circle"></span>
+                        </button>
                       </div>
                     </div>
                   ))}
+                  {/* ----------- */}
+                  {/* <div className="row room-item">
+                    <div className="col-3">
+                      <Carousel_Bootstrap />
+                    </div>
+                    <div className="col-3">
+                      <p>Thông tin phòng</p>
+                      <p>Deluxe Room with Big Window</p>
+                      <div className="d-flex">
+                        <p>Cửa sổ</p>
+                        <p>Thành phố</p>
+                      </div>
+                      <div>
+                        <a href="" onClick={handleClickATag}>
+                          Xem chi tiết phòng
+                        </a>
+                      </div>
+                    </div>
+                    <div className="col-3">Đặc điểm nổi bật</div>
+                    <div className="col-3">
+                      <p>Giá phòng</p>
+                      <p>
+                        <strong>300.000 đ</strong>
+                      </p>
+                      <button className="btn btn-bookroom">Đặt phòng</button>
+                    </div>
+                  </div> */}
                 </div>
               </div>
               {/* ------------- */}
@@ -169,7 +317,9 @@ const RoomPage = () => {
                   </div>
                   <div className="row mt-3">
                     <div className="col">
-                      <a href="">Hiển thị thêm</a>
+                      <a href="" onClick={handleClickATag}>
+                        Hiển thị thêm
+                      </a>
                     </div>
                   </div>
                 </div>
@@ -242,7 +392,7 @@ const RoomPage = () => {
                           </p>
                           <div className="d-flex">
                             <p>Đánh giá: </p>
-                            <Rating name="read-only" value={2} readOnly />
+                            <Rating name="read-only" value={4} readOnly />
                           </div>
                         </div>
                       </div>
@@ -255,7 +405,9 @@ const RoomPage = () => {
                   </div>
                   <div className="row">
                     <div className="col">
-                      <a href="">Hiển thị thêm</a>
+                      <a href="" onClick={handleClickATag}>
+                        Hiển thị thêm
+                      </a>
                     </div>
                   </div>
                 </div>
@@ -274,6 +426,9 @@ const RoomPage = () => {
                       style={{
                         borderRadius: "5px",
                       }}
+                      // allowFullScreen="true"
+                      // loading="lazy"
+                      // referrerpolicy="no-referrer-when-downgrade"
                     ></iframe>
                   </div>
                 </div>

@@ -21,8 +21,8 @@ const HotelCollection = () => {
               height: "180px",
             }}
           >
-            <h6 className="font-weight-bold mb-4" style={{ fontSize: "18px" }}>
-              Go2Joy Room
+            <h6 className="font-weight-bold" style={{ fontSize: "24px" }}>
+              9Room
             </h6>
             <p style={{ fontSize: "15px" }}>
               Những căn phòng đặc biệt nhất dành cho Joyer
@@ -45,7 +45,7 @@ const HotelCollection = () => {
               height: "180px",
             }}
           >
-            <h6 className="font-weight-bold mb-4" style={{ fontSize: "18px" }}>
+            <h6 className="font-weight-bold" style={{ fontSize: "24px" }}>
               Tình yêu
             </h6>
             <p style={{ fontSize: "15px" }}>
@@ -68,7 +68,7 @@ const HotelCollection = () => {
               height: "180px",
             }}
           >
-            <h6 className="font-weight-bold mb-4" style={{ fontSize: "18px" }}>
+            <h6 className="font-weight-bold" style={{ fontSize: "24px" }}>
               Du lịch
             </h6>
             <p style={{ fontSize: "15px" }}>
@@ -91,11 +91,11 @@ const HotelCollection = () => {
               height: "180px",
             }}
           >
-            <h6 className="font-weight-bold mb-4" style={{ fontSize: "18px" }}>
+            <h6 className="font-weight-bold" style={{ fontSize: "24px" }}>
               Sang trọng
             </h6>
             <p style={{ fontSize: "15px" }}>
-              Trải nghiệm không gian đẳng cấp tại khách sạn 4* - 5*
+              Trải nghiệm không gian đẳng cấp tại khách sạn 5*
             </p>
           </div>
         </div>

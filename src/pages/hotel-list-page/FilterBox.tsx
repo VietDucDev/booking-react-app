@@ -12,11 +12,14 @@ import {
   ToggleButton,
   ToggleButtonGroup,
 } from "@mui/material";
-import { Fragment, useEffect, useState } from "react";
+import { Fragment, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import heartIcon_3_5 from "../../../public/images/icon-roompage/392108070_RAINBOW_HEART_400px.gif";
 import heartIcon_4 from "../../../public/images/icon-roompage/391902151_HEARTEYE_EMOJI_400px.gif";
 import heartIcon_4_5 from "../../../public/images/icon-roompage/391907100_HEART_400px.gif";
 import heartIcon_ALL from "../../../public/images/icon-roompage/392102760_FIRE_EMOJI_400px.gif";
+import { RootState } from "@reduxjs/toolkit/query";
+import { addQueryParams } from "../../reducers/HotelsSlice";
 import { useSearchParams } from "react-router-dom";
 
 interface FilterBoxProps {
@@ -28,50 +31,36 @@ function valuetext(value: number) {
 }
 
 const FilterBox: React.FC<FilterBoxProps> = ({ onCloseFilterBox }) => {
+  //get data API from store
+  // const { hotelsList } = useSelector((state) => state.hotelsList);
+
+  // console.log("hotelsList from store - filter box: ", hotelsList);
+
   const [value, setValue] = useState<number[]>([20000, 10000000]);
 
-  const handleChange = (_event: Event, newValue: number | number[]) => {
+  const handleChange = (event: Event, newValue: number | number[]) => {
     setValue(newValue as number[]);
   };
 
-  const [selectedRadio, setSelectRadio] = useState("4.5");
-  const [selectedCheckboxValues, setSelectedCheckboxValues] = useState<
-    string[]
-  >([]);
-  const [chooseTypeHotel, setChoosTypeHotel] = useState("");
-  console.log("chooseTypeHotel: ", chooseTypeHotel);
+  //select hotel type (tat ca, giam gia, uu dai...)
+  const [selectedButton, setSelectedButton] = useState<string>("Tất cả");
+  const [selectedRadio, setSelectRadio] = useState("0");
+  const [selectedCheckboxValues, setSelectedCheckboxValues] = useState([]);
+  const [filteredVotePoint, setFilteredVotePoint] = useState([]);
 
   const [seacrhParams, setSearchParams] = useSearchParams();
   const districtSearchParams = seacrhParams.get("district_name");
   const hotelTypeSearchParams = seacrhParams.get("hotel_type");
 
-  useEffect(() => {
-    const savedSelectedRadio = localStorage.getItem("selectedRadio");
-    const savedSelectedCheckboxValues = localStorage.getItem(
-      "selectedCheckboxValues"
-    );
-    const savedChooseTypeHotel = localStorage.getItem("chooseTypeHotel");
-
-    if (savedSelectedRadio) setSelectRadio(savedSelectedRadio);
-
-    if (savedSelectedCheckboxValues)
-      setSelectedCheckboxValues(JSON.parse(savedSelectedCheckboxValues));
-    if (savedChooseTypeHotel) setChoosTypeHotel(savedChooseTypeHotel);
-  }, []);
-
-  // Save filter values to local storage when they change
-  useEffect(() => {
-    localStorage.setItem("selectedRadio", selectedRadio);
-    localStorage.setItem(
-      "selectedCheckboxValues",
-      JSON.stringify(selectedCheckboxValues)
-    );
-    localStorage.setItem("chooseTypeHotel", chooseTypeHotel);
-  }, [selectedRadio, selectedCheckboxValues, chooseTypeHotel]);
+  const dispatch = useDispatch();
 
   // filter function
+
+  const [chooseTypeHotel, setChoosTypeHotel] = useState("all");
+  console.log("chooseTypeHotel: ", chooseTypeHotel);
+
   const handleChooseHotelType = (
-    _event: React.MouseEvent<HTMLElement>,
+    event: React.MouseEvent<HTMLElement>,
     newAlignment: string | null
   ) => {
     if (newAlignment !== null) {
@@ -80,11 +69,13 @@ const FilterBox: React.FC<FilterBoxProps> = ({ onCloseFilterBox }) => {
   };
 
   const handleFilterHotel = () => {
+    // dispatch(addQueryParams({ vote: selectedRadio }));
     if (districtSearchParams) {
       const filterParams = {
         rate: selectedRadio,
         filter_hotel_type: chooseTypeHotel,
         district_name: districtSearchParams,
+        // hotel_type: currentSearchParams2,
       };
       setSearchParams({ ...seacrhParams, ...filterParams });
     }
@@ -96,6 +87,7 @@ const FilterBox: React.FC<FilterBoxProps> = ({ onCloseFilterBox }) => {
         // district_name: currentSearchParams,
         hotel_type: hotelTypeSearchParams,
       };
+      // console.log("chooseTypeHotel in filterBox: ", chooseTypeHotel);
       setSearchParams({ ...seacrhParams, ...filterParams });
     } else if (hotelTypeSearchParams) {
       const filterParams = {
@@ -104,15 +96,21 @@ const FilterBox: React.FC<FilterBoxProps> = ({ onCloseFilterBox }) => {
       setSearchParams({ ...seacrhParams, ...filterParams });
     }
 
+    // const filteredPoint = hotelList.filter(
+    //   (hotel) => hotel.averageMark >= parseFloat(selectedRadio)
+    // );
+    // setFilteredVotePoint(filteredPoint);
     onCloseFilterBox();
   };
 
-  const handleRadioChange = (event: any) => {
+  console.log("filteredVotePoint: ", filteredVotePoint);
+
+  const handleRadioChange = (event) => {
     setSelectRadio(event.target.value);
   };
   console.log("selectedRadio: ", selectedRadio);
 
-  const handleCheckboxChange = (event: any) => {
+  const handleCheckboxChange = (event) => {
     const value = event.target.value;
     const isChecked = event.target.checked;
 
@@ -127,22 +125,34 @@ const FilterBox: React.FC<FilterBoxProps> = ({ onCloseFilterBox }) => {
   console.log("selectedCheckboxValues:", selectedCheckboxValues);
 
   const handleResetFilter = () => {
-    setChoosTypeHotel("");
-    setSelectRadio("");
+    setSelectedButton("Tất cả");
+    setSelectRadio("0");
     setSelectedCheckboxValues([]);
   };
 
-  const handleMinValueChange = (event: any) => {
+  // const handleMinValueChange = (event) => {
+  //   setValue([parseInt(event.target.value.replace(/\./g, "")), value[1]]);
+  // };
+
+  // const handleMaxValueChange = (event) => {
+  //   setValue([value[0], parseInt(event.target.value.replace(/\./g, ""))]);
+  // };
+
+  const handleMinValueChange = (event) => {
+    // Remove dots from the input value before parsing
     const parsedValue = parseInt(event.target.value.replace(/\./g, ""));
     setValue([parsedValue, value[1]]);
   };
 
-  const handleMaxValueChange = (event: any) => {
+  const handleMaxValueChange = (event) => {
+    // Remove dots from the input value before parsing
     const parsedValue = parseInt(event.target.value.replace(/\./g, ""));
     setValue([value[0], parsedValue]);
   };
 
+  // Function to convert number to string with dot as thousands separator
   const numberWithDot = (number: number) => {
+    // return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
     const parts = number.toString().split(".");
     parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ".");
     return parts.join(".");
@@ -197,11 +207,11 @@ const FilterBox: React.FC<FilterBoxProps> = ({ onCloseFilterBox }) => {
               <FormLabel id="demo-radio-buttons-group-label"></FormLabel>
               <RadioGroup
                 aria-labelledby="demo-radio-buttons-group-label"
-                defaultValue=""
+                defaultValue="All"
                 name="radio-buttons-group"
               >
                 <FormControlLabel
-                  value=""
+                  value="0"
                   control={<Radio />}
                   label={
                     <p className="mb-0">
@@ -289,11 +299,10 @@ const FilterBox: React.FC<FilterBoxProps> = ({ onCloseFilterBox }) => {
                 exclusive
                 onChange={handleChooseHotelType}
                 aria-label="text alignment"
-                defaultValue=""
               >
                 {" "}
                 <ToggleButton
-                  value=""
+                  value="all"
                   aria-label="left aligned"
                   style={{
                     borderRadius: "20px",
