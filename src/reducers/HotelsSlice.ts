@@ -1,4 +1,4 @@
-import { Hotel } from "../pages/hotel-list-page/HotelListPage";
+import { QueryParams } from "../pages/hotel-list-page/HotelListPage";
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
@@ -11,6 +11,7 @@ const hotelSlice = createSlice({
   reducers: {
     addQueryParams(state, action: PayloadAction<QueryParams>) {
       state.queryParams = action.payload;
+      console.log("action from reducer: ", action);
     },
   },
 });
