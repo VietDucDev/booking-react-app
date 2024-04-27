@@ -4,7 +4,6 @@ import { Navigate, Route, Routes } from "react-router-dom";
 import HomePage from "./pages/HomePage/HomePage";
 import Login_Logout from "./pages/Login_Logout";
 import NavBar from "./components/NavBar";
-// import HotelBooking from "./pages/hotel-booking/HotelBooking";
 import { Fragment } from "react/jsx-runtime";
 import { ToastContainer } from "react-toastify";
 import Registration from "./pages/Login";
@@ -25,8 +24,7 @@ function App() {
         <Route path="/hotel-list" element={<HotelListPage />} />
         <Route path="/roomPage/:id" element={<RoomPage />} />
         <Route path="/login_logout" element={<Login_Logout />} />
-        {/* <Route path="/hotelBooking" element={<HotelBooking />} /> */}
-        <Route path="*" element={<Navigate to="register" />} />
+        <Route path="*" element={<Navigate to="home" />} />
       </Routes>
     </Fragment>
   );

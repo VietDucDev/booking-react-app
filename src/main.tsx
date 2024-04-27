@@ -5,10 +5,6 @@ import theme from "./style/theme/theme.ts";
 import App from "./App.tsx";
 import { Provider } from "react-redux";
 import { store } from "./app/store.ts";
-// import "./assets/styles/css/main.css";
-import { Provider } from "react-redux";
-import { store } from "./app/store.ts";
-// import "./assets/styles/css/main.css";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <Provider store={store}>

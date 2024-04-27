@@ -1,14 +1,10 @@
-import React, { Fragment, useEffect, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import Carousel_RoomPage_Img from "./Carousel_RoomPage_Img";
-import Carousel_Bootstrap from "./Carousel_Bootstrap";
 import Avatar from "@mui/material/Avatar";
 import Rating from "@mui/material/Rating";
 import "../../style/sass/_roomPage.scss";
 import Footer from "../../components/Footer";
 import axios from "axios";
-import { Checkbox } from "@mui/material";
-import FavoriteBorder from "@mui/icons-material/FavoriteBorder";
-import Favorite from "@mui/icons-material/Favorite";
 import { useParams } from "react-router-dom";
 
 interface DataProps {
@@ -23,7 +19,12 @@ interface DataProps {
   hotelType: string;
   imgList: string[];
   originPrice: number;
-  roomList: [];
+  roomList: {
+    roomName: string;
+    price: number;
+    area: number;
+    roomImages: string[];
+  }[];
   roomStatus: string;
   sn: number;
   thumbnail: string;
@@ -34,8 +35,6 @@ const RoomPage = () => {
   const [data, setData] = useState<DataProps>();
 
   const { id } = useParams();
-  const label = { inputProps: { "aria-label": "Checkbox demo" } };
-
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -50,10 +49,8 @@ const RoomPage = () => {
 
     fetchData();
   }, []);
-  // console.log(data?.address);
-  const handleClickATag = (event) => {
-    // Ngăn chặn hành vi mặc định của trình duyệt
-    // event.preventDefault();
+
+  const handleClickATag = (_event: any) => {
     console.log("Bạn đã nhấp vào liên kết");
   };
   return (
@@ -68,11 +65,6 @@ const RoomPage = () => {
                     <div>{data?.name}</div>
                   </div>
                   <div className="col-4 d-flex align-items-center">
-                    {/* <Checkbox
-                      {...label}
-                      icon={<FavoriteBorder />}
-                      checkedIcon={<Favorite />}
-                    /> */}
                     <div className="con-like">
                       <input className="like" type="checkbox" title="like" />
                       <div className="checkmark">
@@ -220,20 +212,25 @@ const RoomPage = () => {
                     <div key={index} className="row room-item">
                       <div className="col-3">
                         <Carousel_RoomPage_Img
-                          imgList={data?.imgList || []}
+                          imgList={room?.roomImages || []}
                           showThumbnails={false}
                         />
                       </div>
                       <div className="col-3">
-                        <p>Thông tin phòng</p>
-                        <p>
-                          <strong>{room.roomName}</strong>
+                        <p style={{ fontWeight: "500" }}>Thông tin phòng</p>
+                        <p
+                          style={{
+                            fontWeight: "700",
+                            textTransform: "uppercase",
+                            fontSize: "18px",
+                          }}
+                        >
+                          {room.roomName}
                         </p>
-                        <div className="d-flex">
-                          {/* {data.facilityList.map((facility, index) => (
-                            <p key={facility.sn}>{facility.name}</p>
-                          ))} */}
-                        </div>
+                        <span>
+                          {room.area}m<sup>2</sup>
+                        </span>
+                        <div className="d-flex"></div>
                         <div className="room-details-btn">
                           <button>
                             <p>Xem chi tiết phòng</p>
@@ -254,46 +251,27 @@ const RoomPage = () => {
                           </button>
                         </div>
                       </div>
-                      <div className="col-3">Đặc điểm nổi bật</div>
+                      <div className="col-3" style={{ fontWeight: "500" }}>
+                        Đặc điểm nổi bật
+                      </div>
                       <div className="col-3 bookroom-wrapper">
-                        <p>Giá phòng</p>
-                        <p>
-                          <strong>300.000 đ</strong>
+                        <p style={{ fontWeight: "500" }}>Giá phòng</p>
+                        <p
+                          style={{
+                            fontSize: "17px",
+                            color: "#003c43",
+                            fontWeight: "600",
+                          }}
+                        >
+                          {data.firstHours} giờ
                         </p>
-                        <button className="animated-button btn-bookroom">
-                          <span className="text">Đặt phòng</span>
-                          <span className="circle"></span>
-                        </button>
+                        <p style={{ fontSize: "28px", fontWeight: "600" }}>
+                          {room.price.toLocaleString("vi-VN")} đ
+                        </p>
+                        <button className="btn booking_btn">Đặt phòng</button>
                       </div>
                     </div>
                   ))}
-                  {/* ----------- */}
-                  {/* <div className="row room-item">
-                    <div className="col-3">
-                      <Carousel_Bootstrap />
-                    </div>
-                    <div className="col-3">
-                      <p>Thông tin phòng</p>
-                      <p>Deluxe Room with Big Window</p>
-                      <div className="d-flex">
-                        <p>Cửa sổ</p>
-                        <p>Thành phố</p>
-                      </div>
-                      <div>
-                        <a href="" onClick={handleClickATag}>
-                          Xem chi tiết phòng
-                        </a>
-                      </div>
-                    </div>
-                    <div className="col-3">Đặc điểm nổi bật</div>
-                    <div className="col-3">
-                      <p>Giá phòng</p>
-                      <p>
-                        <strong>300.000 đ</strong>
-                      </p>
-                      <button className="btn btn-bookroom">Đặt phòng</button>
-                    </div>
-                  </div> */}
                 </div>
               </div>
               {/* ------------- */}
@@ -376,6 +354,7 @@ const RoomPage = () => {
                               <Avatar
                                 alt="Remy Sharp"
                                 src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fcellphones.com.vn%2Fsforum%2Favatar-dep&psig=AOvVaw1wEE-L7LMQLY4ciVffu_p2&ust=1713522670291000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCKDiuMXHy4UDFQAAAAAdAAAAABAE"
+                                sx={{ bgcolor: "#003c43" }}
                               />
                             </div>
                             <div className="col-10 p-0">
@@ -426,9 +405,6 @@ const RoomPage = () => {
                       style={{
                         borderRadius: "5px",
                       }}
-                      // allowFullScreen="true"
-                      // loading="lazy"
-                      // referrerpolicy="no-referrer-when-downgrade"
                     ></iframe>
                   </div>
                 </div>

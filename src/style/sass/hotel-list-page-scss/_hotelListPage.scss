@@ -1,8 +1,6 @@
 @import "../variable";
 
 .background {
-  // height: 94vh;
-  // background-image: url("../../../../public/images/hotel_list_3.jpg");
   background-size: cover;
 }
 
@@ -14,23 +12,12 @@
   // height: 800px;
 
   .filter_bar_container {
-    // border: 1px solid rgb(204, 160, 129);
-
     .option_wrapper {
-      // border: 1px solid rgb(204, 160, 129);
       padding: 10px;
       background-color: #f3f3f3;
       box-shadow: $primary-light-shadow;
       position: fixed;
       z-index: 2;
-
-      .quick_option_wrapper {
-        // border: 1px solid blue;
-      }
-
-      .detail_options_wrapper {
-        //   border: 1px solid blue;
-      }
     }
   }
 

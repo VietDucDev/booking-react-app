@@ -2,18 +2,21 @@ import { Fragment } from "react";
 
 import Footer from "../../components/Footer";
 import Hero from "./Hero";
-import Carousel from "./Carousel";
 import Explore from "./Explore";
 import Blogs from "./Blogs";
 import Locations from "./Locations";
 import HotelCollection from "./HotelCollection";
+import Banner from "./Banner";
 
 const HomePage = () => {
   return (
     <Fragment>
       <Hero />
-      <main className="col-11 px-5" style={{ margin: "150px auto 60px" }}>
-        <Carousel />
+      <main
+        className="container col-sm-12 col-md-11 col-lg-11 px-5 mb-5"
+        style={{ marginTop: "120px" }}
+      >
+        <Banner />
         <HotelCollection />
         <Explore />
         <Blogs />
