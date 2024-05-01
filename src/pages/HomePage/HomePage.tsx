@@ -1,6 +1,6 @@
 import { Fragment } from "react";
 
-import Footer from "../../Components/Footer";
+import Footer from "../../components/Footer";
 import Hero from "./Hero";
 import Explore from "./Explore";
 import Blogs from "./Blogs";
