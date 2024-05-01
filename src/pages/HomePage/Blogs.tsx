@@ -1,13 +1,14 @@
 import { Button } from "@mui/material";
+import blogImage from "../../../public/images/Blog_image.jpg";
 
 const Blogs = () => {
   return (
     <div style={{ marginTop: "80px" }} className="position-relative">
       <img
-        src="https://s3.go2joy.vn/1000w/cover_photo/33_14148447441.jpg"
+        src="./public/images/Blog_image.jpg"
         alt="blogs_posts"
-        className="img-fluid"
-        style={{ width: "100%", borderRadius: "15px" }}
+        className="img-fluid w-100"
+        style={{ borderRadius: "15px", height: "600px", objectFit: "cover" }}
       />
 
       <div
@@ -24,6 +25,7 @@ const Blogs = () => {
         </h2>
         <Button
           variant="contained"
+          size="large"
           href="https://go2joy.vn/blog/"
           target="_blank"
           style={{
@@ -33,6 +35,9 @@ const Blogs = () => {
             fontWeight: "600",
             fontSize: "16px",
             letterSpacing: 0,
+            width: "200px",
+            height: "60px",
+            marginTop: "20px",
           }}
         >
           Danh sách bài blog

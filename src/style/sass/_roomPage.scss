@@ -1,6 +1,232 @@
 @import "variable";
 #container-roomPage {
   margin-top: 65px;
+
+  .hotel-name-wrapper {
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+  }
+
+  .con-like {
+    --red: rgb(255, 50, 50);
+    position: relative;
+    width: 30px;
+    height: 30px;
+  }
+
+  .con-like .like {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    z-index: 20;
+    cursor: pointer;
+  }
+
+  .con-like .checkmark {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .con-like .outline,
+  .con-like .filled {
+    fill: var(--red);
+    position: absolute;
+  }
+
+  .con-like .filled {
+    animation: kfr-filled 0.5s;
+    display: none;
+  }
+
+  .con-like .celebrate {
+    position: absolute;
+    animation: kfr-celebrate 0.5s;
+    animation-fill-mode: forwards;
+    display: none;
+  }
+
+  .con-like .poly {
+    stroke: var(--red);
+    fill: var(--red);
+  }
+
+  .con-like .like:checked ~ .checkmark .filled {
+    display: block;
+  }
+
+  .con-like .like:checked ~ .checkmark .celebrate {
+    display: block;
+  }
+
+  @keyframes kfr-filled {
+    0% {
+      opacity: 0;
+      transform: scale(0);
+    }
+
+    50% {
+      opacity: 1;
+      transform: scale(1.2);
+    }
+  }
+
+  @keyframes kfr-celebrate {
+    0% {
+      transform: scale(0);
+    }
+
+    50% {
+      opacity: 0.8;
+    }
+
+    100% {
+      transform: scale(1.2);
+      opacity: 0;
+      display: none;
+    }
+  }
+
+  .room-details-btn {
+    position: absolute;
+    bottom: 0px;
+    button {
+      padding: 0;
+      margin: 0;
+      border: none;
+      background: none;
+      cursor: pointer;
+    }
+
+    button {
+      --primary-color: #111;
+      --hovered-color: #c84747;
+      position: relative;
+      display: flex;
+      font-weight: 600;
+      font-size: 14px;
+      gap: 0.5rem;
+      align-items: center;
+    }
+
+    button p {
+      margin: 0;
+      position: relative;
+      font-size: 20px;
+      color: var(--primary-color);
+    }
+
+    button::after {
+      position: absolute;
+      content: "";
+      width: 0;
+      left: 0;
+      bottom: -7px;
+      background: var(--hovered-color);
+      height: 2px;
+      transition: 0.3s ease-out;
+    }
+
+    button p::before {
+      position: absolute;
+      /*   box-sizing: border-box; */
+      // content: "Xemchitiếtphòng";
+      width: 0%;
+      inset: 0;
+      color: var(--hovered-color);
+      overflow: hidden;
+      transition: 0.3s ease-out;
+    }
+
+    button:hover::after {
+      width: 100%;
+    }
+
+    button:hover p::before {
+      width: 100%;
+    }
+
+    button:hover svg {
+      transform: translateX(4px);
+      color: var(--hovered-color);
+    }
+
+    button svg {
+      color: var(--primary-color);
+      transition: 0.2s;
+      position: relative;
+      width: 15px;
+      transition-delay: 0.2s;
+    }
+  }
+
+  .img-list-wrapper {
+    .image-gallery-slides {
+      border-radius: 10px;
+    }
+
+    .image-gallery-image {
+      object-fit: cover;
+      height: 500px;
+    }
+    .image-gallery-left-nav {
+      background-color: #135d66;
+      opacity: 0.5;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      top: 50%;
+      left: -25px;
+      transform: translateY(-50%);
+      margin: 0;
+      padding: 0;
+      &:hover {
+        background-color: #135d66;
+        opacity: 1;
+        .fa-solid {
+          color: white;
+        }
+      }
+
+      .fa-solid {
+        font-size: 20px;
+      }
+    }
+
+    .image-gallery-right-nav {
+      background-color: #135d66;
+      opacity: 0.5;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      top: 50%;
+      right: -25px;
+      transform: translateY(-50%);
+      margin: 0;
+      padding: 0;
+      &:hover {
+        background-color: #135d66;
+        opacity: 1;
+        .fa-solid {
+          color: white;
+        }
+      }
+
+      .fa-solid {
+        font-size: 20px;
+      }
+    }
+
+    .image-gallery-thumbnail-image {
+      height: 62px;
+      object-fit: cover;
+    }
+  }
+
   a {
     text-decoration: none;
   }
@@ -8,6 +234,23 @@
   .room-item {
     padding: 15px 0;
     border-bottom: 1px solid rgb(164, 164, 164);
+
+    .custom-gallery-container {
+      width: auto;
+      height: 200px;
+    }
+
+    .image-gallery-slides {
+      border-radius: 10px;
+    }
+    .image-gallery-image {
+      object-fit: cover;
+      height: 200px;
+    }
+
+    .image-gallery-bullet {
+      padding: 2px;
+    }
   }
 
   #nonEditableBar {
@@ -22,11 +265,6 @@
     height: 100%;
     border-radius: 8px;
     background-color: #ff6400;
-    // background: linear-gradient(
-    //   to right,
-    //   $primary-light-teal,
-    //   $primary-dark-teal
-    // );
     position: absolute;
     top: 0;
     left: 0;
@@ -36,8 +274,23 @@
     width: 100px;
   }
 
-  .btn-bookroom {
-    color: white;
-    background-color: $primary-dark-teal;
+  .bookroom-wrapper {
+    .booking_btn {
+      padding: 8px 24px;
+      font-size: 16px;
+      background-color: #003c43;
+      cursor: pointer;
+      color: white;
+      opacity: 0.8;
+      transition: all 0.25s ease;
+      &:hover {
+        opacity: 1;
+      }
+    }
+  }
+
+  .nav-info.sticky-top {
+    top: 60px;
+    background-color: white;
   }
 }

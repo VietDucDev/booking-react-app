@@ -55,7 +55,7 @@ const Login_Logout = () => {
                       <i className="fab fa-linkedin-in"></i>
                     </a>
                   </div>
-                  <span>or use your email for registration</span>
+                  <span>hoặc sử dụng email để đăng ký</span>
                   <Field type="text" name="name" placeholder="Tên" />
                   <ErrorMessage name="name" component="div" />
                   <Field type="email" name="email" placeholder="Email" />
@@ -100,7 +100,7 @@ const Login_Logout = () => {
                       <i className="fab fa-linkedin-in"></i>
                     </a>
                   </div>
-                  <span>or use your account</span>
+                  <span>hoặc sử dụng tài khoản của bạn</span>
                   <Field type="email" name="email" placeholder="Email" />
                   <ErrorMessage name="email" component="div" />
                   <Field
@@ -133,9 +133,7 @@ const Login_Logout = () => {
                   </div>
                   <div className="overlay-panel overlay-right">
                     <h1>Hello, Friend!</h1>
-                    <p>
-                      Enter your personal details and start journey with us{" "}
-                    </p>
+                    <p>Nhập thông tin của bạn và bắt đầu hành trình </p>
                   </div>
                 </div>
               </div>

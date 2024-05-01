@@ -1,24 +1,50 @@
 import React from "react";
-import ImageGallery from "react-image-gallery";
+import ImageGallery, { ReactImageGalleryItem } from "react-image-gallery";
 import "../../style/sass/Gallery.scss";
 import "react-image-gallery/styles/css/image-gallery.css";
 
-const images = [
-  {
-    original: "https://picsum.photos/id/1018/1000/600/",
-    thumbnail: "https://picsum.photos/id/1018/250/150/",
-  },
-  {
-    original: "https://picsum.photos/id/1015/1000/600/",
-    thumbnail: "https://picsum.photos/id/1015/250/150/",
-  },
-  {
-    original: "https://picsum.photos/id/1019/1000/600/",
-    thumbnail: "https://picsum.photos/id/1019/250/150/",
-  },
-];
+interface Props {
+  imgList: string[];
+  showThumbnails: boolean;
+}
 
-const Carousel_RoomPage_Img = () => {
+const Carousel_RoomPage_Img: React.FC<Props> = ({
+  imgList,
+  showThumbnails,
+}) => {
+  const images: ReactImageGalleryItem[] = imgList.map((img) => ({
+    original: img,
+    thumbnail: img,
+  }));
+
+  const renderCustomNextButton = (
+    onClick: React.MouseEventHandler<HTMLButtonElement> | undefined
+  ) => {
+    return (
+      <button
+        type="button"
+        className="image-gallery-icon image-gallery-right-nav"
+        aria-label="Previous Slide"
+        onClick={onClick}
+      >
+        <i className="fa-solid fa-chevron-right"></i>
+      </button>
+    );
+  };
+  const renderCustomReviousButton = (
+    onClick: React.MouseEventHandler<HTMLButtonElement> | undefined
+  ) => {
+    return (
+      <button
+        type="button"
+        className="image-gallery-icon image-gallery-left-nav"
+        aria-label="Previous Slide"
+        onClick={onClick}
+      >
+        <i className="fa-solid fa-chevron-left"></i>
+      </button>
+    );
+  };
   return (
     <div className="custom-gallery-container mx-auto">
       <ImageGallery
@@ -26,10 +52,14 @@ const Carousel_RoomPage_Img = () => {
         infinite={true}
         showFullscreenButton={false}
         showPlayButton={false}
-        autoPlay={true}
-        slideInterval={10000}
+        autoPlay={false}
+        slideInterval={0}
         slideDuration={450}
+        showThumbnails={showThumbnails}
+        showBullets={true}
         thumbnailPosition="bottom"
+        renderLeftNav={renderCustomReviousButton}
+        renderRightNav={renderCustomNextButton}
       />
     </div>
   );
