@@ -1,10 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import Box from "@mui/material/Box";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
-import Modal from "@mui/material/Modal";
 
 interface City {
   id: number;
@@ -17,23 +13,7 @@ interface District {
   districtName: string;
 }
 
-const style = {
-  position: "absolute" as "absolute",
-  top: "50%",
-  left: "50%",
-  transform: "translate(-50%, -50%)",
-  width: 400,
-  bgcolor: "background.paper",
-  border: "1px solid #000",
-  boxShadow: 24,
-  p: 4,
-};
-
 const Hero = () => {
-  const [open, setOpen] = React.useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
-
   const navigate = useNavigate();
   const [location, setLocation] = useState("");
   const [cities, setCities] = useState<City[]>([]);
@@ -164,7 +144,7 @@ const Hero = () => {
 
         <button
           disabled={!location || !selectedCity}
-          className="text-white px-4 rounded btn py-lg-0 py-md-2py-sm-2"
+          className="text-white px-4 rounded btn"
           style={{
             backgroundColor: "#003c43",
             textWrap: "nowrap",
@@ -174,36 +154,6 @@ const Hero = () => {
         >
           <i className="fa-solid fa-magnifying-glass mr-2"></i>Tìm kiếm
         </button>
-      </div>
-
-      <div>
-        <button
-          className="btn d-sm-block d-md-none d-lg-none"
-          onClick={handleOpen}
-          style={{
-            backgroundColor: "#003c43",
-            color: "white",
-            margin: "50px auto 0",
-          }}
-        >
-          <i className="fa-solid fa-magnifying-glass mr-2"></i>Bạn muốn đi đâu
-          nào?
-        </button>
-        <Modal
-          open={open}
-          onClose={handleClose}
-          aria-labelledby="modal-modal-title"
-          aria-describedby="modal-modal-description"
-        >
-          <Box sx={style}>
-            <Typography id="modal-modal-title" variant="h6" component="h2">
-              Text in a modal
-            </Typography>
-            <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-              Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-            </Typography>
-          </Box>
-        </Modal>
       </div>
     </div>
   );
