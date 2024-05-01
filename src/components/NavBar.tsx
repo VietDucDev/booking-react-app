@@ -140,7 +140,7 @@ const NavBar = () => {
           </div>
         </div>
 
-        <div className="d-flex align-items-center">
+        <div className="d-flex align-items-center collapse">
           <div className="dropdown d-lg-block d-md-block d-sm-none">
             <button
               className="btn text-capitalize d-flex align-items-center"

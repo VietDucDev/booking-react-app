@@ -9,7 +9,7 @@ import noResultImage from "../../../public/images/No_result_img.gif";
 import SortBox from "./SortBox";
 import FilterBox from "./FilterBox";
 import React from "react";
-import { useSearchParams } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 
 export interface Hotel {
   sn: number;
@@ -43,8 +43,6 @@ export type QueryParams = {
   moreFacilitiesList?: string[];
   sort: string | null;
 };
-
-//filter function
 
 const getHotelsResult = (allData: Hotel[], queryParams: QueryParams) => {
   const {
@@ -94,6 +92,7 @@ const getHotelsResult = (allData: Hotel[], queryParams: QueryParams) => {
 };
 
 const HotelListPage: React.FC<Hotel> = () => {
+  const navigate = useNavigate();
   const [hotelList, setHotelList] = useState<Hotel[]>([]);
   const [seacrhParams, setSearchParams] = useSearchParams();
   const districtSearchParams = seacrhParams.get("district_name");
@@ -120,8 +119,6 @@ const HotelListPage: React.FC<Hotel> = () => {
         return response.json();
       })
       .then((data) => {
-        console.log("data: ", data);
-
         //filter by price
         const minPriceParam = seacrhParams.get("min_price");
         const maxPriceParam = seacrhParams.get("max_price");
@@ -145,7 +142,6 @@ const HotelListPage: React.FC<Hotel> = () => {
             quickFacilityList.push(facility);
           }
         });
-        // console.log("quickFacilityList :", quickFacilityList);
 
         //filter by checkbox factility (more facilities) (8)
         const moreFacilitiesParams = seacrhParams.get("more_facilities");
@@ -158,7 +154,6 @@ const HotelListPage: React.FC<Hotel> = () => {
             moreFacilitiesList.push(facility);
           }
         });
-        // console.log("moreFacilitiesList: ", moreFacilitiesList);
 
         //sort hotel
         const sortParams = seacrhParams.get("sort");
@@ -173,10 +168,8 @@ const HotelListPage: React.FC<Hotel> = () => {
           moreFacilitiesList: moreFacilitiesList,
           sort: sortParams,
         });
-        console.log("hotelResult: ", hotelResult);
 
         setHotelList(hotelResult);
-        // console.log(data);
       })
       .catch((error) => {
         console.error("There was a problem with the fetch operation:", error);
@@ -200,24 +193,26 @@ const HotelListPage: React.FC<Hotel> = () => {
     newFormats: string[]
   ) => {
     setFormats(newFormats);
-    console.log("newFormats", newFormats);
     if (districtSearchParams || hotelTypeSearchParams) {
       setSearchParams((prevSearchParams) => {
         prevSearchParams.delete("facility");
         for (const value of newFormats) {
-          prevSearchParams.append("facility", value); // Append each value from newFormats
+          prevSearchParams.append("facility", value);
         }
         return prevSearchParams;
       });
     }
   };
 
-  //clear local storage when component unmount (when navigate to other pages)
   useEffect(() => {
     return () => {
       localStorage.clear();
     };
   }, []);
+
+  const handleShowRoomDetail = (id: string) => {
+    navigate(`/roomPage/${id}`);
+  };
 
   return (
     <Fragment>
@@ -260,7 +255,6 @@ const HotelListPage: React.FC<Hotel> = () => {
                     }}
                     color="primary"
                     value="27"
-                    // aria-label="left aligned"
                   >
                     Thang máy
                   </ToggleButton>
@@ -274,7 +268,6 @@ const HotelListPage: React.FC<Hotel> = () => {
                     }}
                     color="primary"
                     value="123"
-                    // aria-label="left aligned"
                   >
                     Bồn tắm
                   </ToggleButton>
@@ -288,7 +281,6 @@ const HotelListPage: React.FC<Hotel> = () => {
                     }}
                     color="primary"
                     value="97"
-                    // aria-label="left aligned"
                   >
                     Smart TV
                   </ToggleButton>
@@ -302,7 +294,6 @@ const HotelListPage: React.FC<Hotel> = () => {
                     }}
                     color="primary"
                     value="169"
-                    // aria-label="left aligned"
                   >
                     Cửa sổ thông thoáng
                   </ToggleButton>
@@ -370,7 +361,11 @@ const HotelListPage: React.FC<Hotel> = () => {
                 </div>
               ) : (
                 hotelList.map((hotel: Hotel, index: number) => (
-                  <div key={index} className="each_hotel_wrapper row ">
+                  <div
+                    key={index}
+                    className="each_hotel_wrapper row"
+                    onClick={() => handleShowRoomDetail(hotel.id)}
+                  >
                     <img
                       className="thumbnail_image my-auto col-md-4 col-sm-12"
                       src={hotel.thumbnail}
