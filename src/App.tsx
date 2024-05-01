@@ -1,5 +1,5 @@
 import "./App.css";
-import { Fragment } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
@@ -14,8 +14,18 @@ import PromotionList from "./pages/PromotionList";
 import Login from "./pages/Login";
 import Registration from "./pages/Registration";
 import RoomDetail from "./pages/room-detail/RoomDetail";
+import LoginFirebase from "./pages/log-firebase/LoginFirebase";
+import RegisterFirebase from "./pages/log-firebase/RegisterFirebase";
+import Profile from "./pages/log-firebase/Profile";
+import { auth } from "./pages/log-firebase/Firebase";
 
 function App() {
+  const [user, setUser] = useState();
+  useEffect(() => {
+    auth.onAuthStateChanged((user) => {
+      setUser(user);
+    });
+  });
   return (
     <Fragment>
       <ToastContainer />
@@ -35,6 +45,12 @@ function App() {
 
         <Route path="/hotelBooking" element={<HotelBooking />} />
         <Route path="/roomDetail" element={<RoomDetail />} />
+
+        {/* login firebase */}
+        <Route path="/loginFirebase" element={<LoginFirebase />} />
+        <Route path="/registerFirebase" element={<RegisterFirebase />} />
+        <Route path="/profileFirebase" element={user ? <Navigate to="/profileFirebase" /> : <LoginFirebase />} />
+
         <Route path="*" element={<Navigate to="login" />} />
       </Routes>
     </Fragment>

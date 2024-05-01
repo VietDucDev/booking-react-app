@@ -95,6 +95,9 @@ const NavBar = () => {
           <Link to="roomDetail" className="mx-2 text-decoration-none">
             Room Detail
           </Link>
+          <Link to="loginFirebase" className="mx-2 text-decoration-none">
+            Login Logout with Firebase
+          </Link>
         </div>
       </div>
 
