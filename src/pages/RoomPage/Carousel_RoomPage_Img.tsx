@@ -1,6 +1,6 @@
 import React from "react";
 import ImageGallery, { ReactImageGalleryItem } from "react-image-gallery";
-import "../../style/sass/Gallery.scss";
+// import "../../style/sass/Gallery.scss";
 import "react-image-gallery/styles/css/image-gallery.css";
 
 interface Props {
@@ -17,6 +17,7 @@ const Carousel_RoomPage_Img: React.FC<Props> = ({
     thumbnail: img,
   }));
 
+  console.log(images);
   const renderCustomNextButton = (
     onClick: React.MouseEventHandler<HTMLButtonElement> | undefined
   ) => {

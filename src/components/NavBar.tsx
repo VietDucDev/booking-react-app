@@ -7,6 +7,8 @@ import Drawer from "@mui/material/Drawer";
 import List from "@mui/material/List";
 import Divider from "@mui/material/Divider";
 import ListItem from "@mui/material/ListItem";
+import Typography from "@mui/material/Typography";
+import Modal from "@mui/material/Modal";
 import { auth } from "../pages/log-firebase/Firebase";
 
 interface Hotel {
@@ -14,7 +16,23 @@ interface Hotel {
   title: string;
 }
 
+const style = {
+  position: "absolute" as "absolute",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
+  width: 400,
+  bgcolor: "background.paper",
+  border: "1px solid #000",
+  boxShadow: 24,
+  p: 4,
+};
+
 const NavBar = () => {
+  const [openModal, setOpenModal] = React.useState(false);
+  const handleClose = () => setOpenModal(false);
+  const navigate = useNavigate();
+  const [hotelList, setHotelList] = useState<Hotel[]>([]);
   const [user, setUser] = useState(null);
   useEffect(() => {
     auth.onAuthStateChanged((user) => {
@@ -35,12 +53,13 @@ const NavBar = () => {
 
   const [open, setOpen] = React.useState(false);
 
+  const handleOpen = () => setOpenModal(true);
   const toggleDrawer = (newOpen: boolean) => () => {
     setOpen(newOpen);
   };
 
   const DrawerList = (
-    <Box sx={{ width: 300 }} role="presentation" onClick={toggleDrawer(false)}>
+    <Box sx={{ width: 350 }} role="presentation" onClick={toggleDrawer(false)}>
       <List sx={{ marginLeft: "5px" }}>
         <ListItem>
           <div
@@ -73,18 +92,52 @@ const NavBar = () => {
         </ListItem>
 
         <Link to="/login">
-          <ListItem sx={{ color: "#003c43" }}>
+          <ListItem sx={{ color: "#003c43", fontWeight: "bold" }}>
             <i className="fa-solid fa-arrow-right-from-bracket mr-2"></i>
             <span>Đăng xuất</span>
           </ListItem>
         </Link>
       </List>
       <Divider />
+      <List sx={{ marginLeft: "5px" }}>
+        <ListItem
+          sx={{
+            bgcolor: "whitesmoke",
+            borderRadius: "8px",
+          }}
+        >
+          <Link
+            to="discount"
+            className="text-dark text-decoration-none d-flex align-items-center"
+            style={{
+              fontSize: "16px",
+              cursor: "pointer",
+            }}
+          >
+            <i className="fas fa-gift mr-2"></i>
+            Ưu đãi
+          </Link>
+        </ListItem>
+      </List>
+
+      <List sx={{ marginLeft: "5px" }}>
+        <ListItem sx={{ fontWeight: "bold" }}>Danh mục khách sạn</ListItem>
+        {hotelList.map((hotel) => (
+          <ListItem
+            className="dropdown-item py-2 rounded mb-1"
+            key={hotel.sn}
+            style={{
+              fontSize: "14px",
+              cursor: "pointer",
+            }}
+            onClick={() => showAllHotels(hotel.title)}
+          >
+            {hotel.title}
+          </ListItem>
+        ))}
+      </List>
     </Box>
   );
-
-  const [hotelList, setHotelList] = useState<Hotel[]>([]);
-  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -106,9 +159,14 @@ const NavBar = () => {
     navigate(`/hotel-list?hotel_type=${hotelType}`);
   };
 
+  console.log("navbar-rerender");
+
   return (
-    <nav className="fixed-top bg-white shadow-sm py-2">
-      <div className="container col-11 px-lg-5 d-flex justify-content-between align-items-center">
+    <nav className="fixed-top bg-white shadow">
+      <div
+        className="container col-11 px-md-5 px-sm-4 d-flex justify-content-between align-items-center"
+        style={{ height: "65px" }}
+      >
         <div className="d-flex align-items-center">
           <Link to="home">
             <img
@@ -118,7 +176,7 @@ const NavBar = () => {
               className="mr-3"
             />
           </Link>
-          <div className="d-flex">
+          <div className="d-lg-flex d-md-none d-sm-none">
             <Link
               to="discount"
               className="mx-2 text-dark text-decoration-none d-flex align-items-center"
@@ -255,75 +313,38 @@ const NavBar = () => {
           </div>
         </div>
 
-        <div className="d-sm-flex align-items-center d-lg-none d-md-none d-sm-block">
-          <div className="dropdown d-lg-none d-md-none d-sm-block">
-            <button
-              className="btn text-capitalize d-flex align-items-center"
-              type="button"
-              data-toggle="dropdown"
-              aria-expanded="false"
-              style={{ fontSize: "14px", letterSpacing: "0" }}
-            >
-              <img
-                src="https://go2joy.vn/_nuxt/vn-flag.98e62614.svg"
-                alt="vietnam_flag"
-                style={{ marginRight: "6px" }}
-              />
-              VN
-            </button>
-            <div className="dropdown-menu mt-2">
-              <a
-                className="dropdown-item py-2 my-1 d-inline-flex align-items-center"
-                href=""
-              >
-                <img
-                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Flag_of_the_United_Kingdom_%283-5%29.svg/1920px-Flag_of_the_United_Kingdom_%283-5%29.svg.png"
-                  alt="UK"
-                  width={20}
-                  className="mr-2"
-                />
-                EN
-              </a>
-              <a
-                className="dropdown-item py-2 my-1 d-inline-flex align-items-center"
-                href=""
-              >
-                <img
-                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Flag_of_the_People%27s_Republic_of_China.svg/1280px-Flag_of_the_People%27s_Republic_of_China.svg.png"
-                  alt="UK"
-                  width={20}
-                  className="mr-2"
-                />
-                CN
-              </a>
-              <a
-                className="dropdown-item py-2 my-1 d-inline-flex align-items-center"
-                href=""
-              >
-                <img
-                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Bandera_de_Espa%C3%B1a.svg/1280px-Bandera_de_Espa%C3%B1a.svg.png"
-                  alt="UK"
-                  width={20}
-                  className="mr-2"
-                />
-                ES
-              </a>
-            </div>
-          </div>
-          <button
-            className="btn"
-            style={{
-              outline: "1px solid #003c43",
-              fontSize: "18px",
-            }}
-            onClick={toggleDrawer(true)}
-          >
-            <i className="fa-solid fa-bars"></i>
-          </button>
-        </div>
+        <button
+          className="btn px-2 d-lg-none d-md-block d-sm-block"
+          style={{
+            fontSize: "25px",
+            color: "#003c43",
+          }}
+          onClick={toggleDrawer(true)}
+        >
+          <i className="fa-solid fa-bars"></i>
+        </button>
+
         <Drawer open={open} onClose={toggleDrawer(false)} anchor="right">
           {DrawerList}
         </Drawer>
+      </div>
+
+      <div>
+        <Modal
+          open={openModal}
+          onClose={handleClose}
+          aria-labelledby="modal-modal-title"
+          aria-describedby="modal-modal-description"
+        >
+          <Box sx={style}>
+            <Typography id="modal-modal-title" variant="h6" component="h2">
+              Text in a modal
+            </Typography>
+            <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+              Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
+            </Typography>
+          </Box>
+        </Modal>
       </div>
     </nav>
   );

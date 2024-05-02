@@ -2,10 +2,10 @@
 #container-roomPage {
   margin-top: 65px;
 
-  .hotel-name-wrapper {
-    height: 100%;
+  .hotel-name {
+    font-size: 30px;
+    font-weight: bold;
     overflow: hidden;
-    display: flex;
   }
 
   .con-like {
@@ -292,5 +292,47 @@
   .nav-info.sticky-top {
     top: 60px;
     background-color: white;
+  }
+  .fa-map {
+    color: #003c43;
+  }
+
+  .fa-star {
+    color: #faaf00;
+    font-size: large;
+  }
+
+  .custom-review {
+    font-size: 40px;
+  }
+}
+.room-details {
+  .custom-gallery-container {
+    width: auto;
+    height: 450px;
+  }
+
+  .image-gallery-slides {
+    border-radius: 10px;
+  }
+  .image-gallery-image {
+    object-fit: cover;
+    height: 450px;
+  }
+
+  .image-gallery-bullet {
+    padding: 2px;
+  }
+  .booking_btn {
+    padding: 8px 24px;
+    font-size: 16px;
+    background-color: #003c43;
+    cursor: pointer;
+    color: white;
+    opacity: 0.8;
+    transition: all 0.25s ease;
+    &:hover {
+      opacity: 1;
+    }
   }
 }
