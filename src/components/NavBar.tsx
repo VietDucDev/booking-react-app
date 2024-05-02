@@ -7,6 +7,7 @@ import Drawer from "@mui/material/Drawer";
 import List from "@mui/material/List";
 import Divider from "@mui/material/Divider";
 import ListItem from "@mui/material/ListItem";
+import { auth } from "../pages/log-firebase/Firebase";
 
 interface Hotel {
   sn: number;
@@ -14,6 +15,24 @@ interface Hotel {
 }
 
 const NavBar = () => {
+  const [user, setUser] = useState(null);
+  useEffect(() => {
+    auth.onAuthStateChanged((user) => {
+      setUser(user);
+    });
+  });
+  console.log(user);
+
+  async function handleLogout() {
+    try {
+      await auth.signOut();
+      window.location.href = "/";
+      console.log("User logged out successfully!");
+    } catch (error) {
+      console.error("Error logging out:", error.message);
+    }
+  }
+
   const [open, setOpen] = React.useState(false);
 
   const toggleDrawer = (newOpen: boolean) => () => {
@@ -138,12 +157,12 @@ const NavBar = () => {
               </div>
             </div>
             <Link to="roomDetail" className="mx-2 text-decoration-none">
-            Room Detail
-          </Link>
-          <Link to="loginFirebase" className="mx-2 text-decoration-none">
-            Login Logout with Firebase
-          </Link>
-        </div>
+              Room Detail
+            </Link>
+            <Link to="loginFirebase" className="mx-2 text-decoration-none">
+              Login Logout with Firebase
+            </Link>
+          </div>
         </div>
 
         <div className="d-flex align-items-center collapse">
@@ -175,25 +194,30 @@ const NavBar = () => {
             </div>
           </div>
           <div className="dropdown dropstart d-lg-block d-md-block d-sm-none">
-            <button
-              className="btn text-capitalize"
-              type="button"
-              data-toggle="dropdown"
-              aria-expanded="false"
-              style={{ fontSize: "14px", letterSpacing: "0" }}
-            >
-              <div
-                className="rounded-circle text-white d-flex align-items-center justify-content-center"
-                style={{
-                  width: "35px",
-                  height: "35px",
-                  backgroundColor: "#003c43",
-                }}
-              >
-                N
-              </div>
-            </button>
-            <ul className="dropdown-menu mt-2">
+            {user ? (
+              // <button
+              //   className="btn text-capitalize"
+              //   type="button"
+              //   data-toggle="dropdown"
+              //   aria-expanded="false"
+              //   style={{ fontSize: "14px", letterSpacing: "0" }}
+              // >
+              //   <div
+              //     className="rounded-circle text-white d-flex align-items-center justify-content-center"
+              //     style={{
+              //       width: "35px",
+              //       height: "35px",
+              //       backgroundColor: "#003c43",
+              //     }}
+              //   >
+              //     N
+              //   </div>
+              // </button>
+              <button onClick={handleLogout}>Logout</button>
+            ) : (
+              <a href="/loginFirebase">Login</a>
+            )}
+            {/* <ul className="dropdown-menu mt-2">
               <li
                 className="dropdown-item"
                 style={{ borderBottom: "1px solid gray" }}
@@ -227,7 +251,7 @@ const NavBar = () => {
                   Đăng xuất
                 </li>
               </Link>
-            </ul>
+            </ul> */}
           </div>
         </div>
 
