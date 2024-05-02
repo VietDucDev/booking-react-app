@@ -251,66 +251,68 @@ const NavBar = () => {
               </a>
             </div>
           </div>
-          <div className="dropdown dropstart d-lg-block d-md-block d-sm-none">
-            {user ? (
-              // <button
-              //   className="btn text-capitalize"
-              //   type="button"
-              //   data-toggle="dropdown"
-              //   aria-expanded="false"
-              //   style={{ fontSize: "14px", letterSpacing: "0" }}
-              // >
-              //   <div
-              //     className="rounded-circle text-white d-flex align-items-center justify-content-center"
-              //     style={{
-              //       width: "35px",
-              //       height: "35px",
-              //       backgroundColor: "#003c43",
-              //     }}
-              //   >
-              //     N
-              //   </div>
-              // </button>
-              <button onClick={handleLogout}>Logout</button>
-            ) : (
-              <a href="/loginFirebase">Login</a>
-            )}
-            {/* <ul className="dropdown-menu mt-2">
-              <li
-                className="dropdown-item"
-                style={{ borderBottom: "1px solid gray" }}
+
+          {user ? (
+            <div className="dropdown dropstart d-lg-block d-md-block d-sm-none">
+              <button
+                className="btn text-capitalize"
+                type="button"
+                data-toggle="dropdown"
+                aria-expanded="false"
+                style={{ fontSize: "14px", letterSpacing: "0" }}
               >
-                <h6>Nguyễn Văn A</h6>
-                <i className="fa-solid fa-phone"></i>(+84) 818512944
-              </li>
-              <li>
-                <a className="dropdown-item py-2 my-2" href="">
-                  <i className="fa-regular fa-circle-user mr-2"></i> Tài khoản
-                </a>
-              </li>
-              <li>
-                <a className="dropdown-item py-2 my-2" href="">
-                  <i className="fa-solid fa-clock-rotate-left mr-2"></i> Đặt
-                  phòng của tôi
-                </a>
-              </li>
-              <li>
-                <a className="dropdown-item py-2 my-2" href="">
-                  <i className="fa-regular fa-heart mr-2"></i>Danh sách yêu
-                  thích
-                </a>
-              </li>
-              <Link to="/login" className="text-decoration-none">
-                <li
-                  className="dropdown-item py-2 my-2"
-                  style={{ color: "#003c43", fontWeight: "600" }}
+                <div
+                  className="rounded-circle text-white d-flex align-items-center justify-content-center"
+                  style={{
+                    width: "35px",
+                    height: "35px",
+                    backgroundColor: "#003c43",
+                  }}
                 >
-                  <i className="fa-solid fa-arrow-right-from-bracket mr-2"></i>
-                  Đăng xuất
+                  N
+                </div>
+              </button>
+
+              <ul className="dropdown-menu mt-2">
+                <li
+                  className="dropdown-item"
+                  style={{ borderBottom: "1px solid gray" }}
+                >
+                  <h6>Nguyễn Văn A</h6>
+                  <i className="fa-solid fa-phone"></i>(+84) 818512944
                 </li>
-              </Link>
-            </ul> */}
-          </div>
+                <li>
+                  <a className="dropdown-item py-2 my-2" href="">
+                    <i className="fa-regular fa-circle-user mr-2"></i> Tài khoản
+                  </a>
+                </li>
+                <li>
+                  <a className="dropdown-item py-2 my-2" href="">
+                    <i className="fa-solid fa-clock-rotate-left mr-2"></i> Đặt
+                    phòng của tôi
+                  </a>
+                </li>
+                <li>
+                  <a className="dropdown-item py-2 my-2" href="">
+                    <i className="fa-regular fa-heart mr-2"></i>Danh sách yêu
+                    thích
+                  </a>
+                </li>
+                <Link to="/login" className="text-decoration-none">
+                  <li
+                    className="dropdown-item py-2 my-2"
+                    style={{ color: "#003c43", fontWeight: "600" }}
+                    onClick={handleLogout}
+                  >
+                    <i className="fa-solid fa-arrow-right-from-bracket mr-2"></i>
+                    Đăng xuất
+                  </li>
+                </Link>
+              </ul>
+            </div>
+          ) : (
+            <a href="/loginFirebase">Login</a>
+          )}
         </div>
 
         <button

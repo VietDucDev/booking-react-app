@@ -3,7 +3,7 @@ import Carousel_RoomPage_Img from "./Carousel_RoomPage_Img";
 import Avatar from "@mui/material/Avatar";
 import Rating from "@mui/material/Rating";
 import "../../style/sass/_roomPage.scss";
-import Footer from "../../Components/Footer";
+import Footer from "../../components/Footer";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import Modal from "@mui/material/Modal";
