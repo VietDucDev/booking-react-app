@@ -1,6 +1,8 @@
 @import "../variable";
 
 .background {
+  height: 100vh;
+  background-image: url("../../../../public/images/crs_2.jpg");
   background-size: cover;
 }
 
@@ -9,31 +11,45 @@
   margin-top: 65px;
   background-color: #f3f3f3;
   position: relative;
-  // height: 800px;
+  box-sizing: border-box;
 
   .filter_bar_container {
+    // border: 1px solid rgb(204, 160, 129);
+  }
+
+  @media screen and (min-width: 768px) {
     .option_wrapper {
+      // border: 1px solid rgb(204, 160, 129);
       padding: 10px;
       background-color: #f3f3f3;
       box-shadow: $primary-light-shadow;
       position: fixed;
       z-index: 2;
+      margin-top: 15px;
+      border-radius: 10px;
+
+      .quick_option_wrapper {
+        // border: 1px solid blue;
+        padding: 0;
+      }
+
+      .detail_options_wrapper {
+        //   border: 1px solid blue;
+      }
     }
-  }
 
-  .hotel_list_map_container {
-    // border: 1px solid blue;
-    background-color: #f3f3f3;
-    // overflow-y: scroll;
-    // height: 93vh;
-    padding: 10px;
-
-    position: absolute;
-    width: 100%;
-    // height: 1700px;
-    padding-bottom: 50px;
-
-    border-radius: 20px;
+    .hotel_list_map_container {
+      // border: 1px solid blue;
+      background-color: #f3f3f3;
+      // overflow-y: scroll;
+      // height: 93vh;
+      padding: 10px;
+      position: absolute;
+      width: 100%;
+      padding-bottom: 30px;
+      border-radius: 10px;
+      margin-top: 80px;
+    }
   }
 
   .hotel_list_wrapper {
@@ -42,12 +58,10 @@
     overflow-y: scroll;
     z-index: 1;
     border-radius: 20px;
-    // margin-bottom: 20px;
-    padding: 20px;
   }
 
   .map-wrapper {
-    // padding: 20px;
+    padding: 0 10px;
     iframe {
       min-height: 400px;
       box-shadow: $primary-light-shadow;
@@ -60,7 +74,7 @@
   }
 
   .each_hotel_wrapper {
-    cursor: pointer;
+    // border: 1px solid green;
     background-color: white;
     min-height: 250px;
     border-radius: 20px;
@@ -79,11 +93,13 @@
     .hotel_info_wrapper {
       // border: 1px solid red;
       min-height: 180px;
-      border-radius: 20px;
+      // border-radius: 20px;
+      margin-top: 0;
+      margin-bottom: 0;
 
       .other_info_wrapper {
         // border: 1px solid red;
-        margin-top: 70px;
+        margin-top: 80px;
       }
 
       @media (max-width: 768px) {
@@ -96,6 +112,42 @@
           margin-top: 10px;
         }
       }
+    }
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .map-wrapper {
+    margin-top: 30px;
+  }
+
+  .hotel_list_map_container {
+    background-color: #f3f3f3;
+    padding: 10px;
+    position: absolute;
+    width: 100%;
+    padding-bottom: 30px;
+    border-radius: 10px;
+    margin-top: 140px;
+  }
+
+  .option_wrapper {
+    // border: 1px solid rgb(204, 160, 129);
+    padding: 10px;
+    background-color: #f3f3f3;
+    box-shadow: $primary-light-shadow;
+    position: fixed;
+    z-index: 2;
+    margin-top: 35px;
+    border-radius: 10px;
+
+    .quick_option_wrapper {
+      // border: 1px solid blue;
+      padding: 0;
+    }
+
+    .detail_options_wrapper {
+      //   border: 1px solid blue;
     }
   }
 }

@@ -31,7 +31,6 @@ function App() {
       <NavBar />
       <Routes>
         <Route path="/home" element={<HomePage />} />
-        <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Registration />} />
         <Route path="/discount" element={<PromotionList />} />
         {/* <Route path="/hotel-list" element={<HotelListPage />} /> */}
