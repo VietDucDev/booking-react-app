@@ -81,7 +81,7 @@ const Hero = () => {
       <img src="./public/images/hero.jpg" alt="hero" className="w-100" />
 
       <div
-        className="d-lg-flex d-md-flex justify-content-between bg-white shadow position-absolute py-3 px-3 rounded flex-lg-row flex-md-column d-sm-none"
+        className="d-lg-flex d-md-flex justify-content-between bg-white shadow position-absolute py-3 px-3 rounded flex-lg-row flex-md-column d-sm-none d-none"
         style={{
           left: "50%",
           transform: "translate(-50%, 50%)",

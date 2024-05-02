@@ -157,7 +157,7 @@ const NavBar = () => {
               className="mr-3"
             />
           </Link>
-          <div className="d-lg-flex d-md-none d-sm-none">
+          <div className="d-lg-flex d-md-none d-sm-none d-none">
             <Link
               to="discount"
               className="mx-2 text-dark text-decoration-none d-flex align-items-center"
@@ -199,7 +199,7 @@ const NavBar = () => {
         </div>
 
         <div
-          className="align-items-center d-sm-flex d-md-none d-lg-none border rounded-pill p-2 pl-3"
+          className="align-items-center d-flex d-sm-flex d-md-none d-lg-none border rounded-pill p-2 pl-3"
           onClick={handleOpen}
         >
           Bạn muốn đi đâu nào?
@@ -216,7 +216,7 @@ const NavBar = () => {
           </div>
         </div>
 
-        <div className="align-items-center d-sm-none d-md-none d-lg-flex">
+        <div className="align-items-center d-none d-sm-none d-md-none d-lg-flex">
           <div className="dropdown">
             <button
               className="btn text-capitalize d-flex align-items-center"
