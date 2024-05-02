@@ -9,7 +9,7 @@ import noResultImage from "../../../public/images/No_result_img.gif";
 import SortBox from "./SortBox";
 import FilterBox from "./FilterBox";
 import React from "react";
-import { useSearchParams } from "react-router-dom";
+import { Navigate, useNavigate, useSearchParams } from "react-router-dom";
 // import HotelServices from "../server-interaction/hotelService";
 // import { useSelector } from "react-redux";
 // import { RootState } from "../../app/store";
@@ -223,6 +223,12 @@ const HotelListPage: React.FC<Hotel> = () => {
     };
   }, []);
 
+  const navigate = useNavigate();
+
+  const handleShowRoomDetail = (id: string) => {
+    navigate(`/roomPage/${id}`);
+  };
+
   return (
     <Fragment>
       {/* Filter */}
@@ -377,7 +383,12 @@ const HotelListPage: React.FC<Hotel> = () => {
                 </div>
               ) : (
                 hotelList.map((hotel: Hotel, index: number) => (
-                  <div key={index} className="each_hotel_wrapper row ">
+                  <div
+                    key={index}
+                    className="each_hotel_wrapper row"
+                    onClick={() => handleShowRoomDetail(hotel.id)}
+                    style={{ cursor: "pointer" }}
+                  >
                     <img
                       className="thumbnail_image my-auto col-md-4 col-sm-6"
                       src={hotel.thumbnail}

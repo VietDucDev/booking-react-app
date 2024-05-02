@@ -1,6 +1,14 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import * as React from "react";
+import Box from "@mui/material/Box";
+import Drawer from "@mui/material/Drawer";
+import List from "@mui/material/List";
+import Divider from "@mui/material/Divider";
+import ListItem from "@mui/material/ListItem";
+import Typography from "@mui/material/Typography";
+import Modal from "@mui/material/Modal";
 import { auth } from "../pages/log-firebase/Firebase";
 
 interface Hotel {
@@ -8,9 +16,24 @@ interface Hotel {
   title: string;
 }
 
+const style = {
+  position: "absolute" as "absolute",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
+  width: 400,
+  bgcolor: "background.paper",
+  border: "1px solid #000",
+  boxShadow: 24,
+  p: 4,
+};
+
 const NavBar = () => {
-  const [hotelList, setHotelList] = useState<Hotel[]>([]);
+  const [openModal, setOpenModal] = React.useState(false);
+  const handleClose = () => setOpenModal(false);
   const navigate = useNavigate();
+  const [hotelList, setHotelList] = useState<Hotel[]>([]);
+  const [open, setOpen] = React.useState(false);
   const [user, setUser] = useState(null);
 
   useEffect(() => {
@@ -23,12 +46,98 @@ const NavBar = () => {
   async function handleLogout() {
     try {
       await auth.signOut();
-      window.location.href = "/";
+      window.location.href = "/home";
       console.log("User logged out successfully!");
     } catch (error) {
       console.error("Error logging out:", error.message);
     }
   }
+
+  const handleOpen = () => setOpenModal(true);
+  const toggleDrawer = (newOpen: boolean) => () => {
+    setOpen(newOpen);
+  };
+
+  const DrawerList = (
+    <Box sx={{ width: 350 }} role="presentation" onClick={toggleDrawer(false)}>
+      <List sx={{ marginLeft: "5px" }}>
+        <ListItem>
+          <div
+            className="rounded-circle text-white d-flex align-items-center justify-content-center mr-2"
+            style={{
+              width: "35px",
+              height: "35px",
+              backgroundColor: "#003c43",
+            }}
+          >
+            N
+          </div>
+        </ListItem>
+
+        <ListItem sx={{ marginTop: "10px", color: "#003c43" }}>
+          <i className="fa-solid fa-circle-user mr-2"></i>
+          <span>Tài khoản</span>
+        </ListItem>
+
+        <Link to="/home">
+          <ListItem sx={{ color: "#003c43" }}>
+            <i className="fa-solid fa-hotel mr-2"></i>
+            <span>Đặt phòng của tôi</span>
+          </ListItem>
+        </Link>
+
+        <ListItem sx={{ color: "#003c43" }}>
+          <i className="fa-solid fa-heart mr-2"></i>
+          <span>Danh sách yêu thích</span>
+        </ListItem>
+
+        <Link to="/login">
+          <ListItem sx={{ color: "#003c43", fontWeight: "bold" }}>
+            <i className="fa-solid fa-arrow-right-from-bracket mr-2"></i>
+            <span>Đăng xuất</span>
+          </ListItem>
+        </Link>
+      </List>
+      <Divider />
+      <List sx={{ marginLeft: "5px" }}>
+        <ListItem
+          sx={{
+            bgcolor: "whitesmoke",
+            borderRadius: "8px",
+          }}
+        >
+          <Link
+            to="discount"
+            className="text-dark text-decoration-none d-flex align-items-center"
+            style={{
+              fontSize: "16px",
+              cursor: "pointer",
+            }}
+          >
+            <i className="fas fa-gift mr-2"></i>
+            Ưu đãi
+          </Link>
+        </ListItem>
+      </List>
+
+      <List sx={{ marginLeft: "5px" }}>
+        <ListItem sx={{ fontWeight: "bold" }}>Danh mục khách sạn</ListItem>
+        {hotelList.map((hotel) => (
+          <ListItem
+            className="dropdown-item py-2 rounded mb-1"
+            key={hotel.sn}
+            style={{
+              fontSize: "14px",
+              cursor: "pointer",
+            }}
+            onClick={() => showAllHotels(hotel.title)}
+          >
+            {hotel.title}
+          </ListItem>
+        ))}
+      </List>
+    </Box>
+  );
 
   useEffect(() => {
     const fetchData = async () => {
@@ -50,100 +159,118 @@ const NavBar = () => {
     navigate(`/hotel-list?hotel_type=${hotelType}`);
   };
 
+  console.log("navbar-rerender");
+
   return (
-    <nav className="fixed-top bg-white shadow-sm px-5 py-2 d-flex align-items-center justify-content-between">
-      <div className="d-flex align-items-center">
-        <Link to="home">
-          <img
-            src="./public/images/logo.png"
-            alt="logo"
-            width={70}
-            className="mx-3"
-          />
-        </Link>
-        <div className="d-flex justify-content-center align-items-center">
-          <Link
-            to="discount"
-            className="mx-2 text-dark text-decoration-none d-flex align-items-center"
+    <nav className="fixed-top bg-white shadow">
+      <div
+        className="container col-11 px-md-5 px-sm-4 d-flex justify-content-between align-items-center"
+        style={{ height: "65px" }}
+      >
+        <div className="d-flex align-items-center">
+          <Link to="home">
+            <img
+              src="./public/images/logo.png"
+              alt="logo"
+              width={70}
+              className="mr-0 mr-lg-3"
+            />
+          </Link>
+          <div className="d-lg-flex d-md-none d-sm-none d-none">
+            <Link
+              to="discount"
+              className="mx-2 text-dark text-decoration-none d-flex align-items-center"
+              style={{
+                fontSize: "14px",
+                cursor: "pointer",
+              }}
+            >
+              <i className="fas fa-gift mr-2"></i>
+              Ưu đãi
+            </Link>
+            <div className="dropdown">
+              <button
+                className="btn dropdown-toggle"
+                type="button"
+                data-toggle="dropdown"
+                aria-expanded="false"
+                style={{
+                  fontSize: "14px",
+                  letterSpacing: "0",
+                }}
+              >
+                Danh mục khách sạn
+              </button>
+              <div className="dropdown-menu shadow px-2">
+                {hotelList.map((hotel) => (
+                  <div
+                    className="dropdown-item py-2 rounded mb-1"
+                    key={hotel.sn}
+                    style={{ fontSize: "14px" }}
+                    onClick={() => showAllHotels(hotel.title)}
+                  >
+                    {hotel.title}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div
+          className="align-items-center d-flex d-sm-flex d-md-none d-lg-none border rounded-pill p-2 pl-3"
+          onClick={handleOpen}
+        >
+          Bạn muốn đi đâu nào?
+          <div
+            className="text-white rounded-circle d-flex align-items-center justify-content-center ml-3"
             style={{
-              fontSize: "14px",
+              backgroundColor: "#003c43",
+              width: "35px",
+              height: "35px",
               cursor: "pointer",
             }}
           >
-            <i className="fas fa-gift mr-2"></i>
-            Ưu đãi
-          </Link>
+            <i className="fa-solid fa-magnifying-glass"></i>
+          </div>
+        </div>
+
+        <div className="align-items-center d-none d-sm-none d-md-none d-lg-flex">
           <div className="dropdown">
             <button
-              className="btn dropdown-toggle"
-              type="button"
-              data-toggle="dropdown"
-              aria-expanded="false"
-              style={{
-                fontSize: "14px",
-                letterSpacing: "0",
-              }}
-            >
-              Danh mục khách sạn
-            </button>
-            <div className="dropdown-menu shadow px-2">
-              {hotelList.map((hotel) => (
-                <div
-                  className="dropdown-item py-2 rounded mb-1"
-                  key={hotel.sn}
-                  style={{ fontSize: "14px" }}
-                  onClick={() => showAllHotels(hotel.title)}
-                >
-                  {hotel.title}
-                </div>
-              ))}
-            </div>
-          </div>
-          <Link to="login_logout" className="mx-2 text-decoration-none">
-            Viet Duc
-          </Link>
-          <Link to="hotelBooking" className="mx-2 text-decoration-none">
-            Duc dai ca
-          </Link>
-        </div>
-      </div>
-
-      <div className="d-flex align-items-center">
-        <div className="dropdown">
-          <button
-            className="btn text-capitalize d-flex align-items-center"
-            type="button"
-            data-toggle="dropdown"
-            aria-expanded="false"
-            style={{ fontSize: "14px", letterSpacing: "0" }}
-          >
-            <img
-              src="https://go2joy.vn/_nuxt/vn-flag.98e62614.svg"
-              alt="vietnam_flag"
-              style={{ marginRight: "6px" }}
-            />
-            Tiếng việt
-          </button>
-          <div className="dropdown-menu mt-2">
-            <a className="dropdown-item py-2 my-1" href="#">
-              English
-            </a>
-            <a className="dropdown-item py-2 my-1" href="#">
-              中文
-            </a>
-            <a className="dropdown-item py-2 my-1" href="#">
-              Español
-            </a>
-          </div>
-        </div>
-        {user ? (
-          <div className="dropdown dropstart">
-            <button
-              className="btn text-capitalize"
+              className="btn text-capitalize d-flex align-items-center"
               type="button"
               data-toggle="dropdown"
               aria-expanded="false"
               style={{ fontSize: "14px", letterSpacing: "0" }}
+            >
+              <img
+                src="https://go2joy.vn/_nuxt/vn-flag.98e62614.svg"
+                alt="vietnam_flag"
+                style={{ marginRight: "6px" }}
+              />
+              Tiếng việt
+            </button>
+            <div className="dropdown-menu mt-2">
+              <a className="dropdown-item py-2 my-1" href="#">
+                English
+              </a>
+              <a className="dropdown-item py-2 my-1" href="#">
+                中文
+              </a>
+              <a className="dropdown-item py-2 my-1" href="#">
+                Español
+              </a>
+            </div>
+          </div>
+          {user? (
+            <div className="dropdown dropstart">
+            <button
+              className="btn px-2"
+              type="button"
+              data-toggle="dropdown"
+              aria-expanded="false"
+              style={{ fontSize: "14px" }}
             >
               <div
                 className="rounded-circle text-white d-flex align-items-center justify-content-center"
@@ -153,7 +280,7 @@ const NavBar = () => {
                   backgroundColor: "#003c43",
                 }}
               >
-                U
+                N
               </div>
             </button>
             <ul className="dropdown-menu mt-2">
@@ -161,7 +288,7 @@ const NavBar = () => {
                 className="dropdown-item"
                 style={{ borderBottom: "1px solid gray" }}
               >
-                <h6>Doan Hoang</h6>
+                <h6>Nguyễn Văn A</h6>
                 <i className="fa-solid fa-phone"></i>(+84) 818512944
               </li>
               <li>
@@ -181,10 +308,10 @@ const NavBar = () => {
                   thích
                 </a>
               </li>
-              <Link to="/login" className="text-decoration-none">
+              <Link to="/home" className="text-decoration-none">
                 <li
                   className="dropdown-item py-2 my-2"
-                  style={{ color: "#ff6400" }}
+                  style={{ color: "#003c43", fontWeight: "600" }}
                   onClick={handleLogout}
                 >
                   <i className="fa-solid fa-arrow-right-from-bracket mr-2"></i>
@@ -193,9 +320,43 @@ const NavBar = () => {
               </Link>
             </ul>
           </div>
-        ) : (
-          <a href="/loginFirebase">Login</a>
-        )}
+          ): (
+            <a href="/loginFirebase">Login</a>
+          )}
+        </div>
+
+        <button
+          className="btn px-2 d-lg-none d-md-block d-sm-block"
+          style={{
+            fontSize: "25px",
+            color: "#003c43",
+          }}
+          onClick={toggleDrawer(true)}
+        >
+          <i className="fa-solid fa-bars"></i>
+        </button>
+
+        <Drawer open={open} onClose={toggleDrawer(false)} anchor="right">
+          {DrawerList}
+        </Drawer>
+      </div>
+
+      <div>
+        <Modal
+          open={openModal}
+          onClose={handleClose}
+          aria-labelledby="modal-modal-title"
+          aria-describedby="modal-modal-description"
+        >
+          <Box sx={style}>
+            <Typography id="modal-modal-title" variant="h6" component="h2">
+              Text in a modal
+            </Typography>
+            <Typography id="modal-modal-description" sx={{ mt: 2 }}>
+              Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
+            </Typography>
+          </Box>
+        </Modal>
       </div>
     </nav>
   );
