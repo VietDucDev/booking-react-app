@@ -1,19 +1,13 @@
 import { Button } from "@mui/material";
-import blogImage from "../../../public/images/Blog_image.jpg";
 
 const Blogs = () => {
   return (
     <div style={{ marginTop: "80px" }} className="position-relative">
       <img
-        src={blogImage}
+        src="./public/images/Blog_image.jpg"
         alt="blogs_posts"
-        className="img"
-        style={{
-          width: "100%",
-          height: "700px",
-          borderRadius: "15px",
-          objectFit: "cover",
-        }}
+        className="img-fluid w-100 px-2"
+        style={{ borderRadius: "25px", height: "600px", objectFit: "cover" }}
       />
 
       <div
@@ -22,17 +16,10 @@ const Blogs = () => {
           top: "50%",
           left: "5%",
           transform: "translateY(-50%)",
-          maxWidth: "500px",
+          maxWidth: "40%",
         }}
       >
-        <h2
-          className="w-100"
-          style={{
-            lineHeight: "60px",
-            fontSize: "40px",
-            fontWeight: "bold",
-          }}
-        >
+        <h2 style={{ lineHeight: "60px", fontSize: "40px" }}>
           Những điều thú vị có thể bạn chưa biết
         </h2>
         <Button
@@ -48,7 +35,7 @@ const Blogs = () => {
             fontSize: "16px",
             letterSpacing: 0,
             width: "200px",
-            height: "60px",
+            height: "40px",
             marginTop: "20px",
           }}
         >

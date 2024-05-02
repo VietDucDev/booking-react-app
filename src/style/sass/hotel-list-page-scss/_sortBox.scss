@@ -24,8 +24,8 @@
 
 .sort_box_container {
   //   border: 1px solid red;
-  width: 400px;
-  height: 250px;
+  max-width: 400px;
+
   z-index: 2;
   position: absolute;
   background-color: white;
@@ -60,18 +60,9 @@
 
   .content_sort_box {
     margin-top: 20px;
-    p {
-      color: $primary-main-teal;
-      padding: 10px;
-      cursor: pointer;
-      margin: 3px 0;
-
-      &:hover {
-        background-color: #f3f3f3;
-        border-radius: 6px;
-        transition: all 0.2s;
-      }
-    }
+    margin-bottom: 20px;
+    text-align: center;
+    transition: all 0.2s;
   }
 }
 .sort_box_container.hide {

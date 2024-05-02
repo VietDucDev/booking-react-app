@@ -56,18 +56,32 @@ const Hero = () => {
     setLocation(districtName);
   };
 
-  console.log(location);
-
   const handleShow = (location: string) => {
     navigate(`/hotel-list?district_name=${location}`);
   };
 
+  const date = new Date();
+
+  const day = date.getDate();
+  const month = date.getMonth() + 1;
+  const year = date.getFullYear();
+  const hours = date.getHours();
+  const minutes = date.getMinutes();
+
+  const formattedDate = `${hours.toString().padStart(2, "0")}h${minutes
+    .toString()
+    .padStart(2, "0")} - ${day.toString().padStart(2, "0")}/${month
+    .toString()
+    .padStart(2, "0")}/${year}`;
+
+  console.log(formattedDate);
+
   return (
     <div className="position-relative" style={{ marginTop: "65px" }}>
-      <img src="./public/images/hero.jpg" alt="hero" className="img-fluid" />
+      <img src="./public/images/hero.jpg" alt="hero" className="w-100" />
 
       <div
-        className="d-flex justify-content-between bg-white shadow position-absolute py-3 px-3 rounded flex-lg-row flex-md-column flex-sm-column"
+        className="d-lg-flex d-md-flex justify-content-between bg-white shadow position-absolute py-3 px-3 rounded flex-lg-row flex-md-column d-sm-none d-none"
         style={{
           left: "50%",
           transform: "translate(-50%, 50%)",
@@ -76,7 +90,7 @@ const Hero = () => {
       >
         <div className="d-flex p-lg-0 mb-lg-0 mb-md-3 mb-sm-3 mr-lg-3">
           <div
-            className="d-flex align-items-center p-3 justify-content-center text-white rounded-left"
+            className="d-flex align-items-center px-3 py-lg-3 py-md-2 justify-content-center text-white rounded-left"
             style={{ backgroundColor: "#003c43", textWrap: "nowrap" }}
           >
             <i
@@ -91,7 +105,7 @@ const Hero = () => {
             onChange={handleCityChange}
             className="pl-2"
           >
-            <option>Tỉnh/Thành phố</option>
+            <option value="">Tỉnh/Thành phố</option>
             {cities.map((city) => (
               <option key={city.id} value={city.id}>
                 {city.name}
@@ -102,7 +116,7 @@ const Hero = () => {
 
         <div className="d-flex mb-lg-0 mb-md-3 mb-sm-3 mr-lg-3">
           <div
-            className="d-flex align-items-center py-3 px-lg-3 px-md-5 px-sm-5 justify-content-center text-white rounded-left"
+            className="d-flex align-items-center py-lg-3 py-sm-2 px-lg-3 px-md-5 text-white rounded-left"
             style={{ backgroundColor: "#003c43", textWrap: "nowrap" }}
           >
             <i
@@ -119,7 +133,7 @@ const Hero = () => {
             className="pl-2"
             style={{ width: "154px" }}
           >
-            <option>Quận/Huyện</option>
+            <option value="">Quận/Huyện</option>
             {districts.map((district) => (
               <option key={district.districtId} value={district.districtName}>
                 {district.districtName}
@@ -129,8 +143,8 @@ const Hero = () => {
         </div>
 
         <button
-          disabled={!location}
-          className="text-white px-4 rounded btn py-lg-0 py-md-2py-sm-2"
+          disabled={!location || !selectedCity}
+          className="text-white px-4 rounded btn"
           style={{
             backgroundColor: "#003c43",
             textWrap: "nowrap",
