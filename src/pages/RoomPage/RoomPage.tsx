@@ -6,33 +6,53 @@ import "../../style/sass/_roomPage.scss";
 import Footer from "../../Components/Footer";
 import axios from "axios";
 import { useParams } from "react-router-dom";
+import Modal from "@mui/material/Modal";
+import { Backdrop, Box, Fade } from "@mui/material";
+
+interface Room {
+  roomName: string;
+  price: number;
+  area: number;
+  roomImages: string[];
+}
 
 interface DataProps {
   id: number;
   name: string;
   address: string;
-  avergeMark: number;
+  averageMark: number;
   districtName: string;
   discountPrice: number;
-  facilityList: [];
+  facilityList: string[];
   firstHours: number;
   hotelType: string;
   imgList: string[];
   originPrice: number;
-  roomList: {
-    roomName: string;
-    price: number;
-    area: number;
-    roomImages: string[];
-  }[];
+  roomList: Room[];
   roomStatus: string;
   sn: number;
   thumbnail: string;
   totalReview: number;
 }
+const style = {
+  position: "absolute" as "absolute",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
+  width: 900,
+  height: 550,
+  bgcolor: "background.paper",
+  boxShadow: 24,
+  p: 1,
+};
 
 const RoomPage = () => {
   const [data, setData] = useState<DataProps>();
+  const [isLoggin, setIsLoggin] = useState<boolean>(true);
+  const [dataRoomItem, setDataRoomItem] = useState<Room>();
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
 
   const { id } = useParams();
   useEffect(() => {
@@ -62,11 +82,18 @@ const RoomPage = () => {
               <div className="col">
                 <div className="row">
                   <div className="col-8 hotel-name-wrapper">
-                    <div>{data?.name}</div>
+                    <div>
+                      <p className="hotel-name m-0">{data?.name}</p>
+                    </div>
                   </div>
                   <div className="col-4 d-flex align-items-center">
                     <div className="con-like">
-                      <input className="like" type="checkbox" title="like" />
+                      <input
+                        className="like"
+                        type="checkbox"
+                        title="like"
+                        disabled={!isLoggin}
+                      />
                       <div className="checkmark">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
@@ -120,11 +147,18 @@ const RoomPage = () => {
                 </div>
                 <div className="row mb-3">
                   <div className="col-8">
-                    <i className="fa-solid fa-map"></i>
+                    <i className="fa-solid fa-map mr-2"></i>
                     <strong>{data?.address}</strong>
                   </div>
-                  <div className="col-4">
-                    <i className="fa-regular fa-star"></i> • 721 Đánh giá
+                  <div className="col-4 ">
+                    <div className="d-flex align-items-center">
+                      <div className="d-flex align-items-center ">
+                        <i className="fa-solid fa-star mr-1"></i>
+                        <p className="m-0">4.8</p>
+                        <p className="m-0">/5</p>
+                      </div>
+                      <p className="m-0 ml-1"> • 722 đánh giá</p>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -139,7 +173,7 @@ const RoomPage = () => {
               </div>
             </div>
             {/* ------------- */}
-            <div className="row my-3 py-3 nav-info sticky-top">
+            {/* <div className="row my-3 py-3 nav-info sticky-top">
               <div className="col">
                 <a href="#introduce" className="mr-4" onClick={handleClickATag}>
                   Tổng quan
@@ -157,7 +191,7 @@ const RoomPage = () => {
                   Chính sách khách sạn
                 </a>
               </div>
-            </div>
+            </div> */}
             {/* ------------- */}
             <div className="" id="introduce">
               <div className="row">
@@ -233,7 +267,14 @@ const RoomPage = () => {
                         <div className="d-flex"></div>
                         <div className="room-details-btn">
                           <button>
-                            <p>Xem chi tiết phòng</p>
+                            <p
+                              onClick={() => {
+                                setDataRoomItem(room);
+                                handleOpen();
+                              }}
+                            >
+                              Xem chi tiết phòng
+                            </p>
                             <svg
                               xmlns="http://www.w3.org/2000/svg"
                               className="h-6 w-6"
@@ -286,12 +327,23 @@ const RoomPage = () => {
                     <div className="col-3">
                       <i className="fa-solid fa-wifi"></i> wifi
                     </div>
-                    <div className="col-3">Quầy bar</div>
-                    <div className="col-3">Truyền hình cáp</div>
-                    <div className="col-3">Bếp</div>
-                    <div className="col-3">Sàn gỗ</div>
-                    <div className="col-3">Vòi hoa sen</div>
-                    <div className="col-3">Tủ quần áo</div>
+                    {/* <div className="col-3">Quầy bar</div> */}
+                    <div className="col-3">
+                      <i className="fa-solid fa-tv"></i> Truyền hình cáp
+                    </div>
+                    <div className="col-3">
+                      <i className="fa-solid fa-kitchen-set"></i> Bếp
+                    </div>
+                    {/* <div className="col-3">Sàn gỗ</div> */}
+                    <div className="col-3">
+                      <i className="fa-solid fa-shower"></i> Vòi hoa sen
+                    </div>
+                    <div className="col-3">
+                      <i className="fa-solid fa-smoking"></i> Được hút thuốc
+                    </div>
+                    <div className="col-3">
+                      <i className="fa-solid fa-bath"></i> Bồn tắm
+                    </div>
                   </div>
                   <div className="row mt-3">
                     <div className="col">
@@ -308,13 +360,15 @@ const RoomPage = () => {
                   <div className="row">
                     <div className="col-6 mb-4">
                       <h2 className="mb-1">Đánh giá</h2>
-                      <div className="d-flex align-items-center">
+                      <div className="d-flex">
                         <div className="d-flex align-items-center">
-                          <i className="fa-regular fa-star"></i>
-                          <p className="m-0">4.8</p>
-                          <p className="m-0">/5</p>
+                          <i className="fa-solid fa-star mr-1 custom-review"></i>
+                          <p className="m-0 custom-review">4.8</p>
                         </div>
-                        <p className="m-0"> • 722 đánh giá</p>
+                        <div className="d-flex align-items-end pb-2">
+                          <p className="m-0">/5</p>
+                          <p className="m-0 ml-1"> • 722 đánh giá</p>
+                        </div>
                       </div>
                     </div>
                     <div className="col-6">
@@ -343,34 +397,52 @@ const RoomPage = () => {
                           <div>4.8/5</div>
                         </div>
                       </div>
+                      {/* ------------ */}
+                      <div className="row">
+                        <div className="col d-flex align-items-center">
+                          <div className="rate-name">Dịch vụ: </div>
+                          <div id="nonEditableBar" className="mr-3">
+                            <div
+                              id="progressBar"
+                              style={{ width: "82%" }}
+                            ></div>
+                          </div>
+                          <div>4.8/5</div>
+                        </div>
+                      </div>
                     </div>
                   </div>
                   <div className="row">
-                    <div className="col">
+                    {/* comment */}
+                    <div className="col-6">
                       <div className="row">
                         <div className="col-6">
                           <div className="row">
-                            <div className="col-2 pt-1">
+                            <div className="pl-3">
                               <Avatar
                                 alt="Remy Sharp"
-                                src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fcellphones.com.vn%2Fsforum%2Favatar-dep&psig=AOvVaw1wEE-L7LMQLY4ciVffu_p2&ust=1713522670291000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCKDiuMXHy4UDFQAAAAAdAAAAABAE"
-                                sx={{ bgcolor: "#003c43" }}
+                                src="https://khoinguonsangtao.vn/wp-content/uploads/2022/07/avatar-cute-2.jpg"
+                                sx={{
+                                  bgcolor: "#003c43",
+                                  width: "60px",
+                                  height: "60px",
+                                }}
                               />
                             </div>
-                            <div className="col-10 p-0">
+                            <div className="px-0 my-auto">
                               <p className="m-0">5:37 14/02/2024</p>
-                              <p>
-                                Khách hàng: <strong>abc123</strong>
+                              <p className="m-0">
+                                Khách hàng: <strong>Đoàn Hoàng</strong>
                               </p>
                             </div>
                           </div>
                         </div>
-                        <div className="col-6">
+                        <div className="col-6 my-auto">
                           <p className="m-0">
                             Phòng: <strong>Deluxe Room</strong>
                           </p>
                           <div className="d-flex">
-                            <p>Đánh giá: </p>
+                            <p className="m-0">Đánh giá: </p>
                             <Rating name="read-only" value={4} readOnly />
                           </div>
                         </div>
@@ -378,6 +450,126 @@ const RoomPage = () => {
                       <div className="row">
                         <div className="col">
                           <p>Nhân viên thân thiện, phòng giống hình</p>
+                        </div>
+                      </div>
+                    </div>
+                    {/* comment */}
+                    <div className="col-6">
+                      <div className="row">
+                        <div className="col-6">
+                          <div className="row">
+                            <div className="pl-3">
+                              <Avatar
+                                alt="Remy Sharp"
+                                src="https://img6.thuthuatphanmem.vn/uploads/2022/11/18/anh-avatar-don-gian-de-thuong_081757778.jpg"
+                                sx={{
+                                  bgcolor: "#003c43",
+                                  width: "60px",
+                                  height: "60px",
+                                }}
+                              />
+                            </div>
+                            <div className="px-0 my-auto">
+                              <p className="m-0">5:37 14/02/2024</p>
+                              <p className="m-0">
+                                Khách hàng: <strong>Việt Đức</strong>
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="col-6 my-auto">
+                          <p className="m-0">
+                            Phòng: <strong>Deluxe Room</strong>
+                          </p>
+                          <div className="d-flex">
+                            <p className="m-0">Đánh giá: </p>
+                            <Rating name="read-only" value={5} readOnly />
+                          </div>
+                        </div>
+                      </div>
+                      <div className="row">
+                        <div className="col">
+                          <p>Nhân viên thân thiện, phòng giống hình</p>
+                        </div>
+                      </div>
+                    </div>
+                    {/* comment */}
+                    <div className="col-6">
+                      <div className="row">
+                        <div className="col-6">
+                          <div className="row">
+                            <div className="pl-3">
+                              <Avatar
+                                alt="Remy Sharp"
+                                src="https://i.pinimg.com/564x/e8/48/4d/e8484d6b06aa3f16206627c023a159fd.jpg"
+                                sx={{
+                                  bgcolor: "#003c43",
+                                  width: "60px",
+                                  height: "60px",
+                                }}
+                              />
+                            </div>
+                            <div className="px-0 my-auto">
+                              <p className="m-0">5:37 14/02/2024</p>
+                              <p className="m-0">
+                                Khách hàng: <strong>Sơn Tùng</strong>
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="col-6 my-auto">
+                          <p className="m-0">
+                            Phòng: <strong>Deluxe Room</strong>
+                          </p>
+                          <div className="d-flex">
+                            <p className="m-0">Đánh giá: </p>
+                            <Rating name="read-only" value={4} readOnly />
+                          </div>
+                        </div>
+                      </div>
+                      <div className="row">
+                        <div className="col">
+                          <p>Nhân viên thân thiện, phòng giống hình</p>
+                        </div>
+                      </div>
+                    </div>
+                    {/* comment */}
+                    <div className="col-6">
+                      <div className="row">
+                        <div className="col-6">
+                          <div className="row">
+                            <div className="pl-3">
+                              <Avatar
+                                alt="Remy Sharp"
+                                src="https://toigingiuvedep.vn/wp-content/uploads/2022/01/avatar-cute-meo-chibi-600x600.jpg"
+                                sx={{
+                                  bgcolor: "white",
+                                  width: "60px",
+                                  height: "60px",
+                                }}
+                              />
+                            </div>
+                            <div className="px-0 my-auto">
+                              <p className="m-0">5:37 14/02/2024</p>
+                              <p className="m-0">
+                                Khách hàng: <strong>Đức ĐạiK</strong>
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="col-6 my-auto">
+                          <p className="m-0">
+                            Phòng: <strong>Deluxe Room</strong>
+                          </p>
+                          <div className="d-flex">
+                            <p className="m-0">Đánh giá: </p>
+                            <Rating name="read-only" value={2} readOnly />
+                          </div>
+                        </div>
+                      </div>
+                      <div className="row">
+                        <div className="col">
+                          <p>Phòng xấu, nhưng chị lễ tân xinh nên cho 2 sao</p>
                         </div>
                       </div>
                     </div>
@@ -454,6 +646,73 @@ const RoomPage = () => {
         </div>
       </div>
       <Footer />
+
+      {/* modal room detail */}
+      <Modal
+        aria-labelledby="transition-modal-title"
+        aria-describedby="transition-modal-description"
+        open={open}
+        onClose={handleClose}
+        closeAfterTransition
+        slots={{ backdrop: Backdrop }}
+        slotProps={{
+          backdrop: {
+            timeout: 500,
+          },
+        }}
+      >
+        <Fade in={open}>
+          <Box sx={style}>
+            <div className="row room-details">
+              <div className="col-8">
+                <Carousel_RoomPage_Img
+                  imgList={dataRoomItem?.roomImages || []}
+                  showThumbnails={true}
+                />
+              </div>
+              <div className="col-4 p-0">
+                <div className="d-flex">
+                  <p
+                    className="mt-2"
+                    style={{
+                      fontWeight: "700",
+                      textTransform: "uppercase",
+                      fontSize: "18px",
+                    }}
+                  >
+                    {dataRoomItem?.roomName}
+                  </p>
+                  <button className="btn pt-0 ml-4" onClick={handleClose}>
+                    <i className="fa-solid fa-xmark"></i>
+                  </button>
+                </div>
+                <div
+                  style={{
+                    width: "100%",
+                    position: "absolute",
+                    bottom: "0px",
+                  }}
+                >
+                  <p style={{ fontWeight: "500" }}>Giá phòng</p>
+                  <p
+                    style={{
+                      fontSize: "17px",
+                      color: "#003c43",
+                      fontWeight: "600",
+                    }}
+                  >
+                    {data?.firstHours} giờ
+                  </p>
+                  <p style={{ fontSize: "28px", fontWeight: "600" }}>
+                    {dataRoomItem?.price.toLocaleString("vi-VN")} đ
+                  </p>
+                  <button className="btn booking_btn">Đặt phòng</button>
+                </div>
+              </div>
+            </div>
+          </Box>
+        </Fade>
+      </Modal>
     </Fragment>
   );
 };
