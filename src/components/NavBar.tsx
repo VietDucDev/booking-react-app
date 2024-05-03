@@ -8,6 +8,7 @@ import List from "@mui/material/List";
 import Divider from "@mui/material/Divider";
 import ListItem from "@mui/material/ListItem";
 import Modal from "@mui/material/Modal";
+import "../style/sass/home-page-scss/_search-bar-on-nav.scss";
 import { auth } from "../pages/log-firebase/Firebase";
 
 interface Hotel {
@@ -53,7 +54,7 @@ const NavBar = () => {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    auth.onAuthStateChanged((user) => {
+    auth.onAuthStateChanged((user: any) => {
       setUser(user);
     });
   });
@@ -174,6 +175,84 @@ const NavBar = () => {
     navigate(`/hotel-list?hotel_type=${hotelType}`);
   };
 
+  const [location, setLocation] = useState("");
+  const [cities, setCities] = useState<City[]>([]);
+  const [districts, setDistricts] = useState<District[]>([]);
+  const [selectedCity, setSelectedCity] = useState<number | null>(null);
+  const [selectedDistrict, setSelectedDistrict] = useState<string | null>(null);
+
+  useEffect(() => {
+    axios
+      .get("http://localhost:3000/cities")
+      .then((response) => {
+        const citiesData: City[] = response.data;
+        setCities(citiesData);
+      })
+      .catch((error) => {
+        console.error("Error fetching cities:", error);
+      });
+  }, []);
+
+  const handleCityChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    const cityId = parseInt(event.target.value);
+    setSelectedCity(cityId);
+    setDistricts([]);
+    axios
+      .get(`http://localhost:3000/districts?cityId=${cityId}`)
+      .then((response) => {
+        const districtsData: District[] = response.data;
+        setDistricts(districtsData);
+      })
+      .catch((error) => {
+        console.error("Error fetching districts:", error);
+      });
+  };
+
+  const handleDistrictChange = (
+    event: React.ChangeEvent<HTMLSelectElement>
+  ) => {
+    const districtName = event.target.value;
+    setSelectedDistrict(districtName);
+    setLocation(districtName);
+  };
+
+  const handleShow = (location: string) => {
+    navigate(`/hotel-list?district_name=${location}`);
+  };
+
+  const handleScroll = () => {
+    const searchBar = document.querySelector(".search_on_navbar");
+    if (searchBar) {
+      let scrollPosition;
+      if (window.innerWidth >= 992) {
+        scrollPosition = document.documentElement.scrollTop;
+        if (scrollPosition > 300) {
+          searchBar.classList.add("fade-in-nav");
+          searchBar.classList.remove("fade-out-nav");
+        } else {
+          searchBar.classList.remove("fade-in-nav");
+          searchBar.classList.add("fade-out-nav");
+        }
+      } else {
+        scrollPosition =
+          document.documentElement.scrollTop || document.body.scrollTop;
+        if (scrollPosition > 100) {
+          searchBar.classList.add("fade-in-nav");
+          searchBar.classList.remove("fade-out-nav");
+        } else {
+          searchBar.classList.remove("fade-in-nav");
+          searchBar.classList.add("fade-out-nav");
+        }
+      }
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
   useEffect(() => {
     axios
       .get("http://localhost:3000/cities")
@@ -258,7 +337,7 @@ const NavBar = () => {
                   <div
                     className="dropdown-item py-2 rounded mb-1"
                     key={hotel.sn}
-                    style={{ fontSize: "14px" }}
+                    style={{ fontSize: "14px", cursor: "pointer" }}
                     onClick={() => showAllHotels(hotel.title)}
                   >
                     {hotel.title}
@@ -270,7 +349,7 @@ const NavBar = () => {
         </div>
 
         <div
-          className="align-items-center d-flex d-sm-flex d-md-none d-lg-none border rounded-pill p-2 pl-3"
+          className="search_on_navbar align-items-center d-flex d-sm-flex border rounded-pill p-2 pl-3"
           onClick={handleOpen}
         >
           Bạn muốn đi đâu?

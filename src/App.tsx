@@ -1,6 +1,6 @@
 import "react-toastify/dist/ReactToastify.css";
 import "./App.css";
-import { Fragment } from "react";
+import HotelListPage from "./pages/hotel-list-page/HotelListPage";
 import { Navigate, Route, Routes } from "react-router-dom";
 import HomePage from "./pages/HomePage/HomePage";
 import Login_Logout from "./pages/Login_Logout";
@@ -13,13 +13,12 @@ import LoginFirebase from "./pages/log-firebase/LoginFirebase";
 import RegisterFirebase from "./pages/log-firebase/RegisterFirebase";
 import RoomPage from "./pages/RoomPage/RoomPage";
 import { useEffect, useState } from "react";
-import HotelListPage from "./pages/hotel-list-page/HotelListPage";
 import MyReservation from "./pages/MyReservation";
 
 function App() {
   const [user, setUser] = useState();
   useEffect(() => {
-    auth.onAuthStateChanged((user) => {
+    auth.onAuthStateChanged((user: any) => {
       setUser(user);
     });
     console.log("userEffet", user);
