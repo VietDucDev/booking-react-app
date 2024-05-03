@@ -36,7 +36,7 @@ function App() {
         <Route path="/hotel-list" element={<HotelListPage />} />
         <Route path="/roomPage/:id" element={<RoomPage />} />
         <Route path="/login_logout" element={<Login_Logout />} />
-        <Route path="/hotelBooking" element={<HotelBooking />} />
+        <Route path="/hotelBooking" element={user? <HotelBooking />: <Navigate to="login_logout" />} />
         
         <Route path="*" element={<Navigate to="login_logout" />} />
       </Routes>

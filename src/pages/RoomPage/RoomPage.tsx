@@ -5,7 +5,7 @@ import Rating from "@mui/material/Rating";
 import "../../style/sass/_roomPage.scss";
 import Footer from "../../components/Footer";
 import axios from "axios";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import Modal from "@mui/material/Modal";
 import { Backdrop, Box, Fade } from "@mui/material";
 import { auth } from "../log-firebase/Firebase";
@@ -54,6 +54,7 @@ const RoomPage = () => {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+  const navigate = useNavigate();
 
   const [user, setUser] = useState();
   useEffect(() => {
@@ -62,9 +63,9 @@ const RoomPage = () => {
     });
   });
 
-  const handleBooking = () => {
-
-  }
+  // const handleBooking = () => {
+  //   user? navigate("/hotelBooking"): navigate("/login_logout");
+  // };
 
   const { id } = useParams();
   useEffect(() => {
@@ -104,7 +105,7 @@ const RoomPage = () => {
                         className="like"
                         type="checkbox"
                         title="like"
-                        disabled={!isLoggin}
+                        disabled={!user}
                       />
                       <div className="checkmark">
                         <svg
@@ -322,7 +323,7 @@ const RoomPage = () => {
                           {room.price.toLocaleString("vi-VN")} đ
                         </p>
                         <button
-                          onClick={handleBooking}
+                          // onClick={handleBooking}
                           className="btn booking_btn"
                         >
                           Đặt phòng
