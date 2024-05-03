@@ -13,7 +13,7 @@ const HomePage = () => {
     <Fragment>
       <Hero />
       <main
-        className="container col-sm-12 col-md-11 col-lg-11 px-5 mb-5"
+        className="container col-sm-12 col-md-11 px-4 px-sm-5 mb-5"
         style={{ marginTop: "120px" }}
       >
         <Banner />

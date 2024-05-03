@@ -1,5 +1,6 @@
+import "react-toastify/dist/ReactToastify.css";
 import "./App.css";
-import HotelListPage from "./pages/hotel-list-page/HotelListPage";
+import { Fragment } from "react/jsx-runtime";
 import { Navigate, Route, Routes } from "react-router-dom";
 import HomePage from "./pages/HomePage/HomePage";
 import Login_Logout from "./pages/Login_Logout";
@@ -32,6 +33,7 @@ function App() {
         <Route path="/discount" element={<PromotionList />} />
         <Route path="/hotel-list" element={<HotelListPage />} />
         <Route path="/roomPage/:id" element={<RoomPage />} />
+        <Route path="/myReservation" element={<MyReservation />} />
         <Route path="/login_logout" element={<Login_Logout />} />
         <Route
           path="/hotelBooking"

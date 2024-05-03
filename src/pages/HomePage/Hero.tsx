@@ -60,22 +60,6 @@ const Hero = () => {
     navigate(`/hotel-list?district_name=${location}`);
   };
 
-  const date = new Date();
-
-  const day = date.getDate();
-  const month = date.getMonth() + 1;
-  const year = date.getFullYear();
-  const hours = date.getHours();
-  const minutes = date.getMinutes();
-
-  const formattedDate = `${hours.toString().padStart(2, "0")}h${minutes
-    .toString()
-    .padStart(2, "0")} - ${day.toString().padStart(2, "0")}/${month
-    .toString()
-    .padStart(2, "0")}/${year}`;
-
-  console.log(formattedDate);
-
   return (
     <div className="position-relative" style={{ marginTop: "65px" }}>
       <img src="./public/images/hero.jpg" alt="hero" className="w-100" />
@@ -88,7 +72,7 @@ const Hero = () => {
           bottom: "0px",
         }}
       >
-        <div className="d-flex p-lg-0 mb-lg-0 mb-md-3 mb-sm-3 mr-lg-3">
+        <div className="d-flex p-lg-0 mb-lg-0 mb-sm-3 mr-lg-3">
           <div
             className="d-flex align-items-center px-3 py-lg-3 py-md-2 justify-content-center text-white rounded-left"
             style={{ backgroundColor: "#003c43", textWrap: "nowrap" }}
