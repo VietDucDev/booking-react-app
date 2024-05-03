@@ -9,6 +9,7 @@ import Divider from "@mui/material/Divider";
 import ListItem from "@mui/material/ListItem";
 import Modal from "@mui/material/Modal";
 import "../style/sass/home-page-scss/_search-bar-on-nav.scss";
+import { auth } from "../pages/log-firebase/Firebase";
 
 interface Hotel {
   sn: number;
@@ -48,7 +49,7 @@ const NavBar = () => {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
-    auth.onAuthStateChanged((user) => {
+    auth.onAuthStateChanged((user: any) => {
       setUser(user);
     });
   });
@@ -293,7 +294,7 @@ const NavBar = () => {
                   <div
                     className="dropdown-item py-2 rounded mb-1"
                     key={hotel.sn}
-                    style={{ fontSize: "14px" }}
+                    style={{ fontSize: "14px", cursor: "pointer" }}
                     onClick={() => showAllHotels(hotel.title)}
                   >
                     {hotel.title}

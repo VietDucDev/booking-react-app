@@ -9,6 +9,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import Modal from "@mui/material/Modal";
 import { Backdrop, Box, Fade } from "@mui/material";
 import { auth } from "../log-firebase/Firebase";
+import { useDispatch } from "react-redux";
 
 interface Room {
   roomName: string;

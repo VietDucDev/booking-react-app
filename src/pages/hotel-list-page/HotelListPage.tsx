@@ -50,8 +50,6 @@ export type QueryParams = {
 
 //filter function
 
-//filter function
-
 const getHotelsResult = (allData: Hotel[], queryParams: QueryParams) => {
   const {
     rate,
@@ -104,14 +102,9 @@ const HotelListPage: React.FC<Hotel> = () => {
   const [searchParams, setSearchParams] = useSearchParams();
   const districtSearchParams = searchParams.get("district_name");
   const hotelTypeSearchParams = searchParams.get("hotel_type");
-  const [searchParams, setSearchParams] = useSearchParams();
-  const districtSearchParams = searchParams.get("district_name");
-  const hotelTypeSearchParams = searchParams.get("hotel_type");
   // const { queryParams } = useSelector((state: RootState) => state.hotelFilter);
 
   useEffect(() => {
-    const districtName = searchParams.get("district_name");
-    const hotelType = searchParams.get("hotel_type");
     const districtName = searchParams.get("district_name");
     const hotelType = searchParams.get("hotel_type");
 
@@ -133,11 +126,7 @@ const HotelListPage: React.FC<Hotel> = () => {
       .then((data) => {
         console.log("data: ", data);
 
-        console.log("data: ", data);
-
         //filter by price
-        const minPriceParam = searchParams.get("min_price");
-        const maxPriceParam = searchParams.get("max_price");
         const minPriceParam = searchParams.get("min_price");
         const maxPriceParam = searchParams.get("max_price");
         let minPriceInt = undefined;
@@ -151,11 +140,9 @@ const HotelListPage: React.FC<Hotel> = () => {
 
         //filter by quick facitlity (4)
         const quickFacilityListParam = searchParams.get("facility");
-        const quickFacilityListParam = searchParams.get("facility");
         const quickFacilityList = quickFacilityListParam
           ? quickFacilityListParam.split(",")
           : [];
-        const additionalQuickFacilities = searchParams.getAll("facility");
         const additionalQuickFacilities = searchParams.getAll("facility");
         additionalQuickFacilities.forEach((facility) => {
           if (!quickFacilityList.includes(facility)) {
@@ -163,15 +150,12 @@ const HotelListPage: React.FC<Hotel> = () => {
           }
         });
         // console.log("quickFacilityList :", quickFacilityList);
-        // console.log("quickFacilityList :", quickFacilityList);
 
         //filter by checkbox factility (more facilities) (8)
-        const moreFacilitiesParams = searchParams.get("more_facilities");
         const moreFacilitiesParams = searchParams.get("more_facilities");
         const moreFacilitiesList = moreFacilitiesParams
           ? moreFacilitiesParams.split(",")
           : [];
-        const additionalMoreFacilities = searchParams.getAll("more_facilities");
         const additionalMoreFacilities = searchParams.getAll("more_facilities");
         additionalMoreFacilities.forEach((facility) => {
           if (!moreFacilitiesList.includes(facility)) {
@@ -179,24 +163,12 @@ const HotelListPage: React.FC<Hotel> = () => {
           }
         });
         // console.log("moreFacilitiesList: ", moreFacilitiesList);
-        // console.log("moreFacilitiesList: ", moreFacilitiesList);
 
         //sort hotel
         const sortParams = searchParams.get("sort");
 
         //hotelResult array after filter
-        //filter by price
-        if (minPriceParam) {
-          minPriceInt = parseInt(minPriceParam);
-        }
-        if (maxPriceParam) {
-          maxPriceInt = parseInt(maxPriceParam);
-        }
-
-        //hotelResult array after filter
         const hotelResult = getHotelsResult(data, {
-          rate: searchParams.get("rate"),
-          filterHotelType: searchParams.get("filter_hotel_type"),
           rate: searchParams.get("rate"),
           filterHotelType: searchParams.get("filter_hotel_type"),
           minPrice: minPriceInt,
@@ -213,7 +185,6 @@ const HotelListPage: React.FC<Hotel> = () => {
       .catch((error) => {
         console.error("There was a problem with the fetch operation:", error);
       });
-  }, [searchParams]);
   }, [searchParams]);
 
   //handle open/close modal
@@ -283,10 +254,8 @@ const HotelListPage: React.FC<Hotel> = () => {
 
       <div className="background">
         <div className="container main_container">
-        <div className="container main_container">
           <div className="filter_bar_container">
             <div className="option_wrapper container-md row justify-content-md-between">
-              <div className="quick_option_wrapper col-md-8  d-flex justify-content-md-start justify-content-center">
               <div className="quick_option_wrapper col-md-8  d-flex justify-content-md-start justify-content-center">
                 <ToggleButtonGroup
                   value={formats}
@@ -377,23 +346,6 @@ const HotelListPage: React.FC<Hotel> = () => {
           </div>
 
           <div className="hotel_list_map_container row">
-            {hotelList.length === 0 ? (
-              <p
-                className="hotel_quantity_available mb-1 col-12"
-                style={{ marginTop: "70px", color: "transparent" }}
-              >
-                Có <strong>{hotelList.length}</strong> khách sạn phù hợp với bạn
-              </p>
-            ) : (
-              <p
-                className="hotel_quantity_available mb-1 col-12"
-                style={{ marginTop: "5px" }}
-              >
-                Có <strong>{hotelList.length}</strong> khách sạn phù hợp với bạn
-              </p>
-            )}
-
-            {/* <TestComponent /> */}
             {hotelList.length === 0 ? (
               <p
                 className="hotel_quantity_available mb-1 col-12"
