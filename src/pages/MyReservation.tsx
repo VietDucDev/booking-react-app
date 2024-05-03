@@ -8,7 +8,7 @@ const MyReservation = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { bookedHotels } = useSelector((state: RootState) => state.bookedRooms);
-
+  console.log(bookedHotels);
   const handleShowRoomDetail = (id: string) => {
     navigate(`/roomPage/${id}`);
   };
@@ -64,6 +64,7 @@ const MyReservation = () => {
               <div>
                 {bookedHotels.map((hotel) => (
                   <div
+                    className="mb-4"
                     key={hotel.sn}
                     style={{ border: "1px solid gray", borderRadius: "7px" }}
                   >

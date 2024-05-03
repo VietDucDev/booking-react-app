@@ -1,18 +1,17 @@
 import "react-toastify/dist/ReactToastify.css";
 import "./App.css";
-import { Fragment } from "react/jsx-runtime";
+import HotelListPage from "./pages/hotel-list-page/HotelListPage";
 import { Navigate, Route, Routes } from "react-router-dom";
 import HomePage from "./pages/HomePage/HomePage";
 import Login_Logout from "./pages/Login_Logout";
 import NavBar from "./components/NavBar";
-import HotelBooking from "./pages/hotel-booking/HotelBooking";
-import { Fragment } from "react/jsx-runtime";
 import { ToastContainer } from "react-toastify";
 import Registration from "./pages/Login";
 import PromotionList from "./pages/PromotionList";
 import { auth } from "./pages/log-firebase/Firebase";
 import RoomPage from "./pages/RoomPage/RoomPage";
-import { useEffect, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
+import MyReservation from "./pages/MyReservation";
 
 function App() {
   const [user, setUser] = useState<any>({});
@@ -20,7 +19,9 @@ function App() {
     auth.onAuthStateChanged((user: any) => {
       setUser(user);
     });
+    console.log("userEffet", user);
   });
+  console.log(user);
 
   return (
     <Fragment>
@@ -34,10 +35,9 @@ function App() {
         <Route path="/hotel-list" element={<HotelListPage />} />
         <Route path="/roomPage/:id" element={<RoomPage />} />
         <Route path="/myReservation" element={<MyReservation />} />
-        <Route path="/login_logout" element={<Login_Logout />} />
         <Route
-          path="/hotelBooking"
-          element={user ? <HotelBooking /> : <Navigate to="login_logout" />}
+          path="/login_logout"
+          element={user ? <Navigate to="/home" /> : <Login_Logout />}
         />
 
         <Route path="*" element={<Navigate to="login_logout" />} />

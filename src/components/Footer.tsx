@@ -38,11 +38,8 @@ const Footer = () => {
             </p>
           </div>
         </div>
-        <div className="col-6 d-flex flex-lg-row flex-md-column flex-sm-column ml-5">
-          <div
-            className="col-lg-6 col-md-12 col-sm-12"
-            style={{ maxHeight: "100px" }}
-          >
+        <div className="col-6 d-flex">
+          <div className="col-6">
             <h6 style={{ marginBottom: "20px", fontSize: "18px" }}>
               Đối tác thanh toán
             </h6>
@@ -78,11 +75,7 @@ const Footer = () => {
               />
             </div>
           </div>
-
-          <div
-            className="col-lg-6 col-md-12 col-sm-12"
-            style={{ maxHeight: "100px" }}
-          >
+          <div className="col-6">
             <h6 style={{ marginBottom: "20px", fontSize: "18px" }}>
               Mạng xã hội
             </h6>

@@ -1,4 +1,5 @@
-import React, { Fragment, useState } from "react";
+import "react-toastify/dist/ReactToastify.css";
+import { Fragment, useState } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import "../style/sass/_signup_sign_in.scss";
 import { signInWithEmailAndPassword } from "firebase/auth";
@@ -62,9 +63,11 @@ const Login_Logout = () => {
           lastName: value.lname,
         });
       }
-      alert("User Registered Successfully!!")
+      toast.success("Đăng ký tài khoản thành công", {
+        autoClose: 2000,
+      });
     } catch (error: any) {
-      alert(error.message)
+      toast.error(error.message);
     }
   };
   // end log with firebase
@@ -192,6 +195,23 @@ const Login_Logout = () => {
           )}
         </Formik>
       </div>
+
+      <footer>
+        <p>
+          Created with <i className="fa fa-heart"></i> by
+          <a target="_blank" href="https://florin-pop.com">
+            Florin Pop
+          </a>
+          - Read how I created this and how you can join the challenge
+          <a
+            target="_blank"
+            href="https://www.florin-pop.com/blog/2019/03/double-slider-sign-in-up-form/"
+          >
+            here
+          </a>
+          .
+        </p>
+      </footer>
     </Fragment>
   );
 };
