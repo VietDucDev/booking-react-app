@@ -40,6 +40,11 @@ const style = {
 
 const NavBar = () => {
   const navigate = useNavigate();
+  const [location, setLocation] = useState("");
+  const [cities, setCities] = useState<City[]>([]);
+  const [districts, setDistricts] = useState<District[]>([]);
+  const [selectedCity, setSelectedCity] = useState<number | null>(null);
+  const [selectedDistrict, setSelectedDistrict] = useState<string | null>(null);
   const [openModal, setOpenModal] = React.useState(false);
   const handleClose = () => setOpenModal(false);
   const [hotelList, setHotelList] = useState<Hotel[]>([]);
@@ -89,7 +94,7 @@ const NavBar = () => {
           <span>Tài khoản</span>
         </ListItem>
 
-        <Link to="/home">
+        <Link to="/myReservation">
           <ListItem sx={{ color: "#003c43" }}>
             <i className="fa-solid fa-hotel mr-2"></i>
             <span>Đặt phòng của tôi</span>
@@ -169,7 +174,44 @@ const NavBar = () => {
     navigate(`/hotel-list?hotel_type=${hotelType}`);
   };
 
-  // console.log("navbar-rerender");
+  useEffect(() => {
+    axios
+      .get("http://localhost:3000/cities")
+      .then((response) => {
+        const citiesData: City[] = response.data;
+        setCities(citiesData);
+      })
+      .catch((error) => {
+        console.error("Error fetching cities:", error);
+      });
+  }, []);
+
+  const handleCityChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    const cityId = parseInt(event.target.value);
+    setSelectedCity(cityId);
+    setDistricts([]);
+    axios
+      .get(`http://localhost:3000/districts?cityId=${cityId}`)
+      .then((response) => {
+        const districtsData: District[] = response.data;
+        setDistricts(districtsData);
+      })
+      .catch((error) => {
+        console.error("Error fetching districts:", error);
+      });
+  };
+
+  const handleDistrictChange = (
+    event: React.ChangeEvent<HTMLSelectElement>
+  ) => {
+    const districtName = event.target.value;
+    setSelectedDistrict(districtName);
+    setLocation(districtName);
+  };
+
+  const handleShow = (location: string) => {
+    navigate(`/hotel-list?district_name=${location}`);
+  };
 
   return (
     <nav className="fixed-top bg-white shadow">

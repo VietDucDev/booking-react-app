@@ -9,6 +9,8 @@ import { useNavigate, useParams } from "react-router-dom";
 import Modal from "@mui/material/Modal";
 import { Backdrop, Box, Fade } from "@mui/material";
 import { auth } from "../log-firebase/Firebase";
+import { useDispatch } from "react-redux";
+import { bookRoom } from "../../reducers/HotelsSlice";
 
 interface Room {
   roomName: string;
@@ -35,6 +37,7 @@ export interface DataProps {
   thumbnail: string;
   totalReview: number;
 }
+
 const style = {
   position: "absolute" as "absolute",
   top: "50%",
@@ -66,10 +69,6 @@ const RoomPage = () => {
     });
   });
 
-  // const handleBooking = () => {
-  //   user? navigate("/hotelBooking"): navigate("/login_logout");
-  // };
-
   const { id } = useParams();
 
   useEffect(() => {
@@ -95,6 +94,10 @@ const RoomPage = () => {
     if (hotel) {
       dispatch(bookRoom(hotel));
     }
+  };
+
+  const handleBookRoomFail = () => {
+    navigate("/login_logout");
   };
 
   return (
@@ -196,26 +199,6 @@ const RoomPage = () => {
                 />
               </div>
             </div>
-            {/* ------------- */}
-            {/* <div className="row my-3 py-3 nav-info sticky-top">
-              <div className="col">
-                <a href="#introduce" className="mr-4" onClick={handleClickATag}>
-                  Tổng quan
-                </a>
-                <a href="#room-list" className="mr-4" onClick={handleClickATag}>
-                  Danh sách phòng
-                </a>
-                <a href="" className="mr-4" onClick={handleClickATag}>
-                  Tiện ích
-                </a>
-                <a href="" className="mr-4" onClick={handleClickATag}>
-                  Đánh giá
-                </a>
-                <a href="" className="mr-4" onClick={handleClickATag}>
-                  Chính sách khách sạn
-                </a>
-              </div>
-            </div> */}
             {/* ------------- */}
             <div className="" id="introduce">
               <div className="row">
@@ -334,7 +317,11 @@ const RoomPage = () => {
                           {room.price.toLocaleString("vi-VN")} đ
                         </p>
                         <button
-                          // onClick={handleBooking}
+                          onClick={
+                            user
+                              ? () => handleBookRoom(data)
+                              : handleBookRoomFail
+                          }
                           className="btn booking_btn"
                         >
                           Đặt phòng

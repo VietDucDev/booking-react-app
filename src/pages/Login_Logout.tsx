@@ -1,4 +1,5 @@
-import React, { Fragment, useState } from "react";
+import "react-toastify/dist/ReactToastify.css";
+import { Fragment, useState } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import "../style/sass/_signup_sign_in.scss";
 import { signInWithEmailAndPassword } from "firebase/auth";
@@ -62,9 +63,11 @@ const Login_Logout = () => {
           lastName: value.lname,
         });
       }
-      alert("User Registered Successfully!!")
+      toast.success("Đăng ký tài khoản thành công", {
+        autoClose: 2000,
+      });
     } catch (error: any) {
-      alert(error.message)
+      toast.error(error.message);
     }
   };
   // end log with firebase
