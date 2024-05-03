@@ -9,17 +9,14 @@ import { Fragment } from "react/jsx-runtime";
 import { ToastContainer } from "react-toastify";
 import Registration from "./pages/Login";
 import PromotionList from "./pages/PromotionList";
-import Login from "./pages/Login";
 import { auth } from "./pages/log-firebase/Firebase";
-import LoginFirebase from "./pages/log-firebase/LoginFirebase";
-import RegisterFirebase from "./pages/log-firebase/RegisterFirebase";
 import RoomPage from "./pages/RoomPage/RoomPage";
 import { useEffect, useState } from "react";
 
 function App() {
-  const [user, setUser] = useState();
+  const [user, setUser] = useState<any>({});
   useEffect(() => {
-    auth.onAuthStateChanged((user) => {
+    auth.onAuthStateChanged((user: any) => {
       setUser(user);
     });
   });
@@ -36,8 +33,11 @@ function App() {
         <Route path="/hotel-list" element={<HotelListPage />} />
         <Route path="/roomPage/:id" element={<RoomPage />} />
         <Route path="/login_logout" element={<Login_Logout />} />
-        <Route path="/hotelBooking" element={user? <HotelBooking />: <Navigate to="login_logout" />} />
-        
+        <Route
+          path="/hotelBooking"
+          element={user ? <HotelBooking /> : <Navigate to="login_logout" />}
+        />
+
         <Route path="*" element={<Navigate to="login_logout" />} />
       </Routes>
     </Fragment>
