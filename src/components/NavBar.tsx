@@ -175,12 +175,6 @@ const NavBar = () => {
     navigate(`/hotel-list?hotel_type=${hotelType}`);
   };
 
-  const [location, setLocation] = useState("");
-  const [cities, setCities] = useState<City[]>([]);
-  const [districts, setDistricts] = useState<District[]>([]);
-  const [selectedCity, setSelectedCity] = useState<number | null>(null);
-  const [selectedDistrict, setSelectedDistrict] = useState<string | null>(null);
-
   useEffect(() => {
     axios
       .get("http://localhost:3000/cities")
@@ -253,44 +247,6 @@ const NavBar = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
-  useEffect(() => {
-    axios
-      .get("http://localhost:3000/cities")
-      .then((response) => {
-        const citiesData: City[] = response.data;
-        setCities(citiesData);
-      })
-      .catch((error) => {
-        console.error("Error fetching cities:", error);
-      });
-  }, []);
-
-  const handleCityChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    const cityId = parseInt(event.target.value);
-    setSelectedCity(cityId);
-    setDistricts([]);
-    axios
-      .get(`http://localhost:3000/districts?cityId=${cityId}`)
-      .then((response) => {
-        const districtsData: District[] = response.data;
-        setDistricts(districtsData);
-      })
-      .catch((error) => {
-        console.error("Error fetching districts:", error);
-      });
-  };
-
-  const handleDistrictChange = (
-    event: React.ChangeEvent<HTMLSelectElement>
-  ) => {
-    const districtName = event.target.value;
-    setSelectedDistrict(districtName);
-    setLocation(districtName);
-  };
-
-  const handleShow = (location: string) => {
-    navigate(`/hotel-list?district_name=${location}`);
-  };
 
   return (
     <nav className="fixed-top bg-white shadow">
