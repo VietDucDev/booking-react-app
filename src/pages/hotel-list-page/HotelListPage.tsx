@@ -10,10 +10,6 @@ import SortBox from "./SortBox";
 import FilterBox from "./FilterBox";
 import React from "react";
 import { Navigate, useNavigate, useSearchParams } from "react-router-dom";
-// import HotelServices from "../server-interaction/hotelService";
-// import { useSelector } from "react-redux";
-// import { RootState } from "../../app/store";
-// import TestComponent from "./TestComponent";
 
 export interface Hotel {
   sn: number;
@@ -97,7 +93,7 @@ const getHotelsResult = (allData: Hotel[], queryParams: QueryParams) => {
   return hotelResult;
 };
 
-const HotelListPage: React.FC<Hotel> = () => {
+const HotelListPage: React.FC<Hotel | {}> = () => {
   const [hotelList, setHotelList] = useState<Hotel[]>([]);
   const [searchParams, setSearchParams] = useSearchParams();
   const districtSearchParams = searchParams.get("district_name");
