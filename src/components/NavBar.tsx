@@ -34,6 +34,7 @@ const NavBar = () => {
   const navigate = useNavigate();
   const [hotelList, setHotelList] = useState<Hotel[]>([]);
   const [open, setOpen] = React.useState(false);
+  
   const [user, setUser] = useState(null);
 
   useEffect(() => {

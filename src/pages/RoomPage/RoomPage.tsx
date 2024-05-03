@@ -8,6 +8,7 @@ import axios from "axios";
 import { useParams } from "react-router-dom";
 import Modal from "@mui/material/Modal";
 import { Backdrop, Box, Fade } from "@mui/material";
+// import { auth } from "./pages/log-firebase/Firebase";
 
 interface Room {
   roomName: string;
@@ -53,6 +54,17 @@ const RoomPage = () => {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+
+  // const [user, setUser] = useState();
+  // useEffect(() => {
+  //   auth.onAuthStateChanged((user) => {
+  //     setUser(user);
+  //   });
+  // });
+
+  const handleBooking = () => {
+
+  }
 
   const { id } = useParams();
   useEffect(() => {
@@ -309,7 +321,12 @@ const RoomPage = () => {
                         <p style={{ fontSize: "28px", fontWeight: "600" }}>
                           {room.price.toLocaleString("vi-VN")} đ
                         </p>
-                        <button className="btn booking_btn">Đặt phòng</button>
+                        <button
+                          onClick={handleBooking}
+                          className="btn booking_btn"
+                        >
+                          Đặt phòng
+                        </button>
                       </div>
                     </div>
                   ))}
