@@ -12,7 +12,7 @@ import { auth } from "./pages/log-firebase/Firebase";
 import LoginFirebase from "./pages/log-firebase/LoginFirebase";
 import RegisterFirebase from "./pages/log-firebase/RegisterFirebase";
 import RoomPage from "./pages/RoomPage/RoomPage";
-import { useEffect, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import MyReservation from "./pages/MyReservation";
 
 function App() {
