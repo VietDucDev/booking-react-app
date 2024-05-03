@@ -7,7 +7,6 @@ import Drawer from "@mui/material/Drawer";
 import List from "@mui/material/List";
 import Divider from "@mui/material/Divider";
 import ListItem from "@mui/material/ListItem";
-import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 
 interface Hotel {
@@ -15,22 +14,33 @@ interface Hotel {
   title: string;
 }
 
+interface City {
+  id: number;
+  name: string;
+}
+
+interface District {
+  cityId: number;
+  districtId: number;
+  districtName: string;
+}
+
 const style = {
   position: "absolute" as "absolute",
-  top: "50%",
+  top: "40%",
   left: "50%",
   transform: "translate(-50%, -50%)",
   width: 400,
   bgcolor: "background.paper",
-  border: "1px solid #000",
+  border: "1px solid #ccc",
   boxShadow: 24,
-  p: 4,
+  p: 3,
 };
 
 const NavBar = () => {
+  const navigate = useNavigate();
   const [openModal, setOpenModal] = React.useState(false);
   const handleClose = () => setOpenModal(false);
-  const navigate = useNavigate();
   const [hotelList, setHotelList] = useState<Hotel[]>([]);
   const [open, setOpen] = React.useState(false);
 
@@ -140,12 +150,55 @@ const NavBar = () => {
     navigate(`/hotel-list?hotel_type=${hotelType}`);
   };
 
-  console.log("navbar-rerender");
+  const [location, setLocation] = useState("");
+  const [cities, setCities] = useState<City[]>([]);
+  const [districts, setDistricts] = useState<District[]>([]);
+  const [selectedCity, setSelectedCity] = useState<number | null>(null);
+  const [selectedDistrict, setSelectedDistrict] = useState<string | null>(null);
+
+  useEffect(() => {
+    axios
+      .get("http://localhost:3000/cities")
+      .then((response) => {
+        const citiesData: City[] = response.data;
+        setCities(citiesData);
+      })
+      .catch((error) => {
+        console.error("Error fetching cities:", error);
+      });
+  }, []);
+
+  const handleCityChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    const cityId = parseInt(event.target.value);
+    setSelectedCity(cityId);
+    setDistricts([]);
+    axios
+      .get(`http://localhost:3000/districts?cityId=${cityId}`)
+      .then((response) => {
+        const districtsData: District[] = response.data;
+        setDistricts(districtsData);
+      })
+      .catch((error) => {
+        console.error("Error fetching districts:", error);
+      });
+  };
+
+  const handleDistrictChange = (
+    event: React.ChangeEvent<HTMLSelectElement>
+  ) => {
+    const districtName = event.target.value;
+    setSelectedDistrict(districtName);
+    setLocation(districtName);
+  };
+
+  const handleShow = (location: string) => {
+    navigate(`/hotel-list?district_name=${location}`);
+  };
 
   return (
     <nav className="fixed-top bg-white shadow">
       <div
-        className="container col-11 px-md-5 px-sm-4 d-flex justify-content-between align-items-center"
+        className="container col-11 px-md-5 px-sm-4 px-0 d-flex justify-content-between align-items-center"
         style={{ height: "65px" }}
       >
         <div className="d-flex align-items-center">
@@ -154,7 +207,7 @@ const NavBar = () => {
               src="./public/images/logo.png"
               alt="logo"
               width={70}
-              className="mr-3"
+              className="mr-0 mr-lg-3"
             />
           </Link>
           <div className="d-lg-flex d-md-none d-sm-none d-none">
@@ -202,7 +255,7 @@ const NavBar = () => {
           className="align-items-center d-flex d-sm-flex d-md-none d-lg-none border rounded-pill p-2 pl-3"
           onClick={handleOpen}
         >
-          Bạn muốn đi đâu nào?
+          Bạn muốn đi đâu?
           <div
             className="text-white rounded-circle d-flex align-items-center justify-content-center ml-3"
             style={{
@@ -277,10 +330,10 @@ const NavBar = () => {
                 </a>
               </li>
               <li>
-                <a className="dropdown-item py-2 my-2" href="">
+                <Link to="/myReservation" className="dropdown-item py-2 my-2">
                   <i className="fa-solid fa-clock-rotate-left mr-2"></i> Đặt
                   phòng của tôi
-                </a>
+                </Link>
               </li>
               <li>
                 <a className="dropdown-item py-2 my-2" href="">
@@ -325,12 +378,77 @@ const NavBar = () => {
           aria-describedby="modal-modal-description"
         >
           <Box sx={style}>
-            <Typography id="modal-modal-title" variant="h6" component="h2">
-              Text in a modal
-            </Typography>
-            <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-              Duis mollis, est non commodo luctus, nisi erat porttitor ligula.
-            </Typography>
+            <div className="d-flex flex-column d-sm-flex d-md-none bg-white rounded">
+              <div className="d-flex p-lg-0 mb-3 mr-lg-3">
+                <div
+                  className="d-flex align-items-center px-1 py-2 justify-content-center text-white rounded-left w-100"
+                  style={{ backgroundColor: "#003c43", textWrap: "nowrap" }}
+                >
+                  <i
+                    className="fa-solid fa-location-dot mr-3"
+                    style={{ color: "#F4C622" }}
+                  ></i>
+                  Bạn muốn đi đâu?
+                </div>
+                <select
+                  id="city"
+                  value={selectedCity !== null ? selectedCity : ""}
+                  onChange={handleCityChange}
+                  className="pl-2"
+                >
+                  <option value="">Tỉnh/Thành phố</option>
+                  {cities.map((city) => (
+                    <option key={city.id} value={city.id}>
+                      {city.name}
+                    </option>
+                  ))}
+                </select>
+              </div>
+
+              <div className="d-flex mb-3 mr-lg-3">
+                <div
+                  className="d-flex align-items-center py-2 px-5 text-white rounded-left"
+                  style={{ backgroundColor: "#003c43", textWrap: "nowrap" }}
+                >
+                  <i
+                    className="fa-solid fa-location-crosshairs mr-3"
+                    style={{ color: "#F4C622" }}
+                  ></i>
+                  Khu vực:
+                </div>
+                <select
+                  id="district"
+                  value={selectedDistrict !== null ? selectedDistrict : ""}
+                  onChange={handleDistrictChange}
+                  disabled={!selectedCity}
+                  className="pl-2"
+                  style={{ width: "170px" }}
+                >
+                  <option value="">Quận/Huyện</option>
+                  {districts.map((district) => (
+                    <option
+                      key={district.districtId}
+                      value={district.districtName}
+                    >
+                      {district.districtName}
+                    </option>
+                  ))}
+                </select>
+              </div>
+
+              <button
+                disabled={!location || !selectedCity}
+                className="text-white px-4 rounded btn"
+                style={{
+                  backgroundColor: "#003c43",
+                  textWrap: "nowrap",
+                  fontSize: "16px",
+                }}
+                onClick={() => handleShow(location)}
+              >
+                <i className="fa-solid fa-magnifying-glass mr-2"></i>Tìm kiếm
+              </button>
+            </div>
           </Box>
         </Modal>
       </div>

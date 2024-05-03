@@ -1,5 +1,5 @@
 import Button from "@mui/material/Button";
-import Footer from "../Components/Footer";
+import Footer from "../components/Footer";
 import { Fragment } from "react";
 
 const PromotionList = () => {

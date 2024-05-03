@@ -112,7 +112,7 @@ const Footer = () => {
         </div>
       </div>
       <div
-        className="py-4 px-4 d-flex justify-content-between align-items-center"
+        className="py-4 px-4 d-flex flex-column flex-md-row justify-content-between align-items-center text-center"
         style={{
           borderTop: "1px solid gray",
           fontSize: "13px",
@@ -120,7 +120,7 @@ const Footer = () => {
         }}
       >
         Copyright © 2024 FPT Software Academy. All rights reserved.
-        <div>
+        <div className="mt-3 mt-md-0">
           <span className="mr-4">Privacy Policy</span>
           <span>Terms of use</span>
         </div>

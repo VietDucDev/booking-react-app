@@ -3,11 +3,13 @@ import Carousel_RoomPage_Img from "./Carousel_RoomPage_Img";
 import Avatar from "@mui/material/Avatar";
 import Rating from "@mui/material/Rating";
 import "../../style/sass/_roomPage.scss";
-import Footer from "../../Components/Footer";
+import Footer from "../../components/Footer";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import Modal from "@mui/material/Modal";
 import { Backdrop, Box, Fade } from "@mui/material";
+import { useDispatch } from "react-redux";
+import { bookRoom } from "../../reducers/HotelsSlice";
 
 interface Room {
   roomName: string;
@@ -16,8 +18,8 @@ interface Room {
   roomImages: string[];
 }
 
-interface DataProps {
-  id: number;
+export interface DataProps {
+  id: string;
   name: string;
   address: string;
   averageMark: number;
@@ -47,14 +49,18 @@ const style = {
 };
 
 const RoomPage = () => {
-  const [data, setData] = useState<DataProps>();
+  const dispatch = useDispatch();
   const [isLoggin, setIsLoggin] = useState<boolean>(true);
+
+  const [data, setData] = useState<DataProps>();
   const [dataRoomItem, setDataRoomItem] = useState<Room>();
+
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
   const { id } = useParams();
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -73,6 +79,13 @@ const RoomPage = () => {
   const handleClickATag = (_event: any) => {
     console.log("Bạn đã nhấp vào liên kết");
   };
+
+  const handleBookRoom = (hotel: DataProps | undefined) => {
+    if (hotel) {
+      dispatch(bookRoom(hotel));
+    }
+  };
+
   return (
     <Fragment>
       <div className="container" id="container-roomPage">
@@ -309,7 +322,12 @@ const RoomPage = () => {
                         <p style={{ fontSize: "28px", fontWeight: "600" }}>
                           {room.price.toLocaleString("vi-VN")} đ
                         </p>
-                        <button className="btn booking_btn">Đặt phòng</button>
+                        <button
+                          className="btn booking_btn"
+                          onClick={() => handleBookRoom(data)}
+                        >
+                          Đặt phòng
+                        </button>
                       </div>
                     </div>
                   ))}
@@ -706,7 +724,12 @@ const RoomPage = () => {
                   <p style={{ fontSize: "28px", fontWeight: "600" }}>
                     {dataRoomItem?.price.toLocaleString("vi-VN")} đ
                   </p>
-                  <button className="btn booking_btn">Đặt phòng</button>
+                  <button
+                    className="btn booking_btn"
+                    onClick={() => handleBookRoom(data)}
+                  >
+                    Đặt phòng
+                  </button>
                 </div>
               </div>
             </div>
