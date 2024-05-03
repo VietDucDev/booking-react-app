@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import "../../style/sass/home-page-scss/_searchBar.scss";
 
 interface City {
   id: number;
@@ -81,7 +82,7 @@ const Hero = () => {
       <img src="./public/images/hero.jpg" alt="hero" className="w-100" />
 
       <div
-        className="d-lg-flex d-md-flex justify-content-between bg-white shadow position-absolute py-3 px-3 rounded flex-lg-row flex-md-column d-sm-none d-none"
+        className="d-lg-flex d-md-flex justify-content-between bg-white shadow position-absolute py-3 px-3 rounded flex-lg-row flex-md-column d-sm-none"
         style={{
           left: "50%",
           transform: "translate(-50%, 50%)",
@@ -133,7 +134,9 @@ const Hero = () => {
             className="pl-2"
             style={{ width: "154px" }}
           >
-            <option value="">Quận/Huyện</option>
+            <option value="" value="">
+              Quận/Huyện
+            </option>
             {districts.map((district) => (
               <option key={district.districtId} value={district.districtName}>
                 {district.districtName}

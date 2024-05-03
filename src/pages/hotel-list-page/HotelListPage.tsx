@@ -9,11 +9,7 @@ import noResultImage from "../../../public/images/No_result_img.gif";
 import SortBox from "./SortBox";
 import FilterBox from "./FilterBox";
 import React from "react";
-import { useSearchParams } from "react-router-dom";
-// import HotelServices from "../server-interaction/hotelService";
-// import { useSelector } from "react-redux";
-// import { RootState } from "../../app/store";
-// import TestComponent from "./TestComponent";
+import { useNavigate, useSearchParams } from "react-router-dom";
 
 export interface Hotel {
   sn: number;
@@ -98,6 +94,7 @@ const getHotelsResult = (allData: Hotel[], queryParams: QueryParams) => {
 };
 
 const HotelListPage: React.FC<Hotel> = () => {
+  const navigate = useNavigate();
   const [hotelList, setHotelList] = useState<Hotel[]>([]);
   const [searchParams, setSearchParams] = useSearchParams();
   const districtSearchParams = searchParams.get("district_name");
@@ -168,6 +165,15 @@ const HotelListPage: React.FC<Hotel> = () => {
         const sortParams = searchParams.get("sort");
 
         //hotelResult array after filter
+        //filter by price
+        if (minPriceParam) {
+          minPriceInt = parseInt(minPriceParam);
+        }
+        if (maxPriceParam) {
+          maxPriceInt = parseInt(maxPriceParam);
+        }
+
+        //hotelResult array after filter
         const hotelResult = getHotelsResult(data, {
           rate: searchParams.get("rate"),
           filterHotelType: searchParams.get("filter_hotel_type"),
@@ -177,10 +183,8 @@ const HotelListPage: React.FC<Hotel> = () => {
           moreFacilitiesList: moreFacilitiesList,
           sort: sortParams,
         });
-        console.log("hotelResult: ", hotelResult);
 
         setHotelList(hotelResult);
-        // console.log(data);
       })
       .catch((error) => {
         console.error("There was a problem with the fetch operation:", error);
@@ -204,28 +208,31 @@ const HotelListPage: React.FC<Hotel> = () => {
     newFormats: string[]
   ) => {
     setFormats(newFormats);
-    console.log("newFormats", newFormats);
     if (districtSearchParams || hotelTypeSearchParams) {
       setSearchParams((prevSearchParams) => {
         prevSearchParams.delete("facility");
         for (const value of newFormats) {
-          prevSearchParams.append("facility", value); // Append each value from newFormats
+          prevSearchParams.append("facility", value);
         }
         return prevSearchParams;
       });
     }
   };
 
-  //clear local storage when component unmount (when navigate to other pages)
   useEffect(() => {
     return () => {
       localStorage.clear();
     };
   }, []);
 
+  const handleShowRoomDetail = (id: string) => {
+    navigate(`/roomPage/${id}`);
+  };
+
   return (
     <Fragment>
       {/* Filter */}
+
       <Modal
         open={openFilterBox}
         onClose={handleCloseFilterBox}
@@ -264,7 +271,6 @@ const HotelListPage: React.FC<Hotel> = () => {
                     }}
                     color="primary"
                     value="27"
-                    // aria-label="left aligned"
                   >
                     Thang máy
                   </ToggleButton>
@@ -278,7 +284,6 @@ const HotelListPage: React.FC<Hotel> = () => {
                     }}
                     color="primary"
                     value="123"
-                    // aria-label="left aligned"
                   >
                     Bồn tắm
                   </ToggleButton>
@@ -292,7 +297,6 @@ const HotelListPage: React.FC<Hotel> = () => {
                     }}
                     color="primary"
                     value="97"
-                    // aria-label="left aligned"
                   >
                     Smart TV
                   </ToggleButton>
@@ -306,7 +310,6 @@ const HotelListPage: React.FC<Hotel> = () => {
                     }}
                     color="primary"
                     value="169"
-                    // aria-label="left aligned"
                   >
                     Cửa sổ thông thoáng
                   </ToggleButton>
@@ -356,6 +359,20 @@ const HotelListPage: React.FC<Hotel> = () => {
             )}
 
             {/* <TestComponent /> */}
+            {hotelList.length === 0 ? (
+              <p
+                className="mb-1 col-12"
+                style={{ marginTop: "70px", color: "transparent" }}
+              >
+                Có <strong>{hotelList.length}</strong> khách sạn phù hợp với bạn
+              </p>
+            ) : (
+              <p className="mb-1 col-12" style={{ marginTop: "70px" }}>
+                Có <strong>{hotelList.length}</strong> khách sạn phù hợp với bạn
+              </p>
+            )}
+
+            {/* <TestComponent /> */}
 
             <div className="hotel_list_wrapper col-md-8 col-12">
               {hotelList.length === 0 ? (
@@ -377,13 +394,17 @@ const HotelListPage: React.FC<Hotel> = () => {
                 </div>
               ) : (
                 hotelList.map((hotel: Hotel, index: number) => (
-                  <div key={index} className="each_hotel_wrapper row ">
+                  <div
+                    key={index}
+                    className="each_hotel_wrapper row"
+                    onClick={() => handleShowRoomDetail(hotel.id)}
+                  >
                     <img
-                      className="thumbnail_image my-auto col-md-4 col-sm-6"
+                      className="thumbnail_image my-auto col-md-4 col-sm-12"
                       src={hotel.thumbnail}
                       alt="thumbnail room image"
                     />
-                    <div className="hotel_info_wrapper my-auto col-md-8 col-sm-6 ">
+                    <div className="hotel_info_wrapper my-auto col-md-8 col-sm-12 ">
                       <h3>{hotel.name}</h3>
                       <div className="some_extension_wrapper">
                         {/* First row of facilities */}
