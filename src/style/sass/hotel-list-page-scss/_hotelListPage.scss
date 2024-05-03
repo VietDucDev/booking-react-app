@@ -93,11 +93,13 @@
     .hotel_info_wrapper {
       // border: 1px solid red;
       min-height: 180px;
-      border-radius: 20px;
+      // border-radius: 20px;
+      margin-top: 0;
+      margin-bottom: 0;
 
       .other_info_wrapper {
         // border: 1px solid red;
-        margin-top: 70px;
+        margin-top: 80px;
       }
 
       @media (max-width: 768px) {

@@ -9,7 +9,7 @@ import noResultImage from "../../../public/images/No_result_img.gif";
 import SortBox from "./SortBox";
 import FilterBox from "./FilterBox";
 import React from "react";
-import { useNavigate, useSearchParams } from "react-router-dom";
+import { Navigate, useNavigate, useSearchParams } from "react-router-dom";
 // import HotelServices from "../server-interaction/hotelService";
 // import { useSelector } from "react-redux";
 // import { RootState } from "../../app/store";
@@ -98,7 +98,6 @@ const getHotelsResult = (allData: Hotel[], queryParams: QueryParams) => {
 };
 
 const HotelListPage: React.FC<Hotel> = () => {
-  const navigate = useNavigate();
   const [hotelList, setHotelList] = useState<Hotel[]>([]);
   const [searchParams, setSearchParams] = useSearchParams();
   const districtSearchParams = searchParams.get("district_name");
@@ -125,6 +124,8 @@ const HotelListPage: React.FC<Hotel> = () => {
         return response.json();
       })
       .then((data) => {
+        console.log("data: ", data);
+
         //filter by price
         const minPriceParam = searchParams.get("min_price");
         const maxPriceParam = searchParams.get("max_price");
@@ -176,8 +177,10 @@ const HotelListPage: React.FC<Hotel> = () => {
           moreFacilitiesList: moreFacilitiesList,
           sort: sortParams,
         });
+        console.log("hotelResult: ", hotelResult);
 
         setHotelList(hotelResult);
+        // console.log(data);
       })
       .catch((error) => {
         console.error("There was a problem with the fetch operation:", error);
@@ -219,6 +222,8 @@ const HotelListPage: React.FC<Hotel> = () => {
       localStorage.clear();
     };
   }, []);
+
+  const navigate = useNavigate();
 
   const handleShowRoomDetail = (id: string) => {
     navigate(`/roomPage/${id}`);

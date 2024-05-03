@@ -5,11 +5,10 @@ import Rating from "@mui/material/Rating";
 import "../../style/sass/_roomPage.scss";
 import Footer from "../../components/Footer";
 import axios from "axios";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import Modal from "@mui/material/Modal";
 import { Backdrop, Box, Fade } from "@mui/material";
-import { useDispatch } from "react-redux";
-import { bookRoom } from "../../reducers/HotelsSlice";
+import { auth } from "../log-firebase/Firebase";
 
 interface Room {
   roomName: string;
@@ -58,6 +57,18 @@ const RoomPage = () => {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+  const navigate = useNavigate();
+
+  const [user, setUser] = useState();
+  useEffect(() => {
+    auth.onAuthStateChanged((user) => {
+      setUser(user);
+    });
+  });
+
+  // const handleBooking = () => {
+  //   user? navigate("/hotelBooking"): navigate("/login_logout");
+  // };
 
   const { id } = useParams();
 
@@ -105,7 +116,7 @@ const RoomPage = () => {
                         className="like"
                         type="checkbox"
                         title="like"
-                        disabled={!isLoggin}
+                        disabled={!user}
                       />
                       <div className="checkmark">
                         <svg
@@ -323,8 +334,8 @@ const RoomPage = () => {
                           {room.price.toLocaleString("vi-VN")} đ
                         </p>
                         <button
+                          // onClick={handleBooking}
                           className="btn booking_btn"
-                          onClick={() => handleBookRoom(data)}
                         >
                           Đặt phòng
                         </button>

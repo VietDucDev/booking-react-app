@@ -18,6 +18,7 @@
     "@mui/x-date-pickers": "^7.2.0",
     "@reduxjs/toolkit": "^2.2.3",
     "axios": "^1.6.8",
+    "firebase": "^10.11.0",
     "dayjs": "^1.11.10",
     "formik": "^2.4.5",
     "json-server": "^1.0.0-alpha.23",

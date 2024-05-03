@@ -8,6 +8,7 @@ import List from "@mui/material/List";
 import Divider from "@mui/material/Divider";
 import ListItem from "@mui/material/ListItem";
 import Modal from "@mui/material/Modal";
+import { auth } from "../pages/log-firebase/Firebase";
 
 interface Hotel {
   sn: number;
@@ -43,6 +44,24 @@ const NavBar = () => {
   const handleClose = () => setOpenModal(false);
   const [hotelList, setHotelList] = useState<Hotel[]>([]);
   const [open, setOpen] = React.useState(false);
+
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    auth.onAuthStateChanged((user) => {
+      setUser(user);
+    });
+  });
+
+  async function handleLogout() {
+    try {
+      await auth.signOut();
+      window.location.href = "/home";
+      console.log("User logged out successfully!");
+    } catch (error) {
+      console.error("Error logging out:", error.message);
+    }
+  }
 
   const handleOpen = () => setOpenModal(true);
   const toggleDrawer = (newOpen: boolean) => () => {
@@ -150,50 +169,7 @@ const NavBar = () => {
     navigate(`/hotel-list?hotel_type=${hotelType}`);
   };
 
-  const [location, setLocation] = useState("");
-  const [cities, setCities] = useState<City[]>([]);
-  const [districts, setDistricts] = useState<District[]>([]);
-  const [selectedCity, setSelectedCity] = useState<number | null>(null);
-  const [selectedDistrict, setSelectedDistrict] = useState<string | null>(null);
-
-  useEffect(() => {
-    axios
-      .get("http://localhost:3000/cities")
-      .then((response) => {
-        const citiesData: City[] = response.data;
-        setCities(citiesData);
-      })
-      .catch((error) => {
-        console.error("Error fetching cities:", error);
-      });
-  }, []);
-
-  const handleCityChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    const cityId = parseInt(event.target.value);
-    setSelectedCity(cityId);
-    setDistricts([]);
-    axios
-      .get(`http://localhost:3000/districts?cityId=${cityId}`)
-      .then((response) => {
-        const districtsData: District[] = response.data;
-        setDistricts(districtsData);
-      })
-      .catch((error) => {
-        console.error("Error fetching districts:", error);
-      });
-  };
-
-  const handleDistrictChange = (
-    event: React.ChangeEvent<HTMLSelectElement>
-  ) => {
-    const districtName = event.target.value;
-    setSelectedDistrict(districtName);
-    setLocation(districtName);
-  };
-
-  const handleShow = (location: string) => {
-    navigate(`/hotel-list?district_name=${location}`);
-  };
+  // console.log("navbar-rerender");
 
   return (
     <nav className="fixed-top bg-white shadow">
@@ -297,61 +273,66 @@ const NavBar = () => {
               </a>
             </div>
           </div>
-          <div className="dropdown dropstart">
-            <button
-              className="btn px-2"
-              type="button"
-              data-toggle="dropdown"
-              aria-expanded="false"
-              style={{ fontSize: "14px" }}
-            >
-              <div
-                className="rounded-circle text-white d-flex align-items-center justify-content-center"
-                style={{
-                  width: "35px",
-                  height: "35px",
-                  backgroundColor: "#003c43",
-                }}
+          {user ? (
+            <div className="dropdown dropstart">
+              <button
+                className="btn px-2"
+                type="button"
+                data-toggle="dropdown"
+                aria-expanded="false"
+                style={{ fontSize: "14px" }}
               >
-                N
-              </div>
-            </button>
-            <ul className="dropdown-menu mt-2">
-              <li
-                className="dropdown-item"
-                style={{ borderBottom: "1px solid gray" }}
-              >
-                <h6>Nguyễn Văn A</h6>
-                <i className="fa-solid fa-phone"></i>(+84) 818512944
-              </li>
-              <li>
-                <a className="dropdown-item py-2 my-2" href="">
-                  <i className="fa-regular fa-circle-user mr-2"></i> Tài khoản
-                </a>
-              </li>
-              <li>
-                <Link to="/myReservation" className="dropdown-item py-2 my-2">
-                  <i className="fa-solid fa-clock-rotate-left mr-2"></i> Đặt
-                  phòng của tôi
-                </Link>
-              </li>
-              <li>
-                <a className="dropdown-item py-2 my-2" href="">
-                  <i className="fa-regular fa-heart mr-2"></i>Danh sách yêu
-                  thích
-                </a>
-              </li>
-              <Link to="/login" className="text-decoration-none">
-                <li
-                  className="dropdown-item py-2 my-2"
-                  style={{ color: "#003c43", fontWeight: "600" }}
+                <div
+                  className="rounded-circle text-white d-flex align-items-center justify-content-center"
+                  style={{
+                    width: "35px",
+                    height: "35px",
+                    backgroundColor: "#003c43",
+                  }}
                 >
-                  <i className="fa-solid fa-arrow-right-from-bracket mr-2"></i>
-                  Đăng xuất
+                  N
+                </div>
+              </button>
+              <ul className="dropdown-menu mt-2">
+                <li
+                  className="dropdown-item"
+                  style={{ borderBottom: "1px solid gray" }}
+                >
+                  <h6>Nguyễn Văn A</h6>
+                  <i className="fa-solid fa-phone"></i>(+84) 818512944
                 </li>
-              </Link>
-            </ul>
-          </div>
+                <li>
+                  <a className="dropdown-item py-2 my-2" href="">
+                    <i className="fa-regular fa-circle-user mr-2"></i> Tài khoản
+                  </a>
+                </li>
+                <li>
+                  <Link to="/myReservation" className="dropdown-item py-2 my-2">
+                    <i className="fa-solid fa-clock-rotate-left mr-2"></i> Đặt
+                    phòng của tôi
+                  </Link>
+                </li>
+                <li>
+                  <a className="dropdown-item py-2 my-2" href="">
+                    <i className="fa-regular fa-heart mr-2"></i>Danh sách yêu
+                    thích
+                  </a>
+                </li>
+                <Link to="/home" className="text-decoration-none">
+                  <li
+                    className="dropdown-item py-2 my-2"
+                    style={{ color: "#003c43", fontWeight: "600" }}
+                    onClick={handleLogout}
+                  >
+                    <i className="fa-solid fa-arrow-right-from-bracket mr-2"></i>
+                    Đăng xuất
+                  </li>
+                </Link>
+              </ul>
+            </div>
+          ) : (
+            <a href="/login_logout">Đăng nhập</a>
+          )}
         </div>
 
         <button
