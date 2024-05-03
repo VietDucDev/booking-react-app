@@ -1,72 +1,196 @@
-import React, { Fragment } from "react";
-// import "../style/sass/_signup_sign_in.scss";
+import React, { Fragment, useState } from "react";
+import { Formik, Form, Field, ErrorMessage } from "formik";
+import "../style/sass/_signup_sign_in.scss";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { auth, db } from "./log-firebase/Firebase";
+import { setDoc, doc } from "firebase/firestore";
+import { toast } from "react-toastify";
+
+interface FormValues {
+  fname?: string;
+  lname?: string;
+  email: string;
+  password: string;
+}
+
+interface FormErrors {
+  email: string;
+  password: string;
+}
 
 const Login_Logout = () => {
+  const [isSignIn, setIsSignIn] = useState(true);
+
+  const toggleForm = () => {
+    setIsSignIn(!isSignIn);
+  };
+  const initialValues: FormValues = {
+    fname: "",
+    lname: "",
+    email: "",
+    password: "",
+  };
+
+  // log with firebase
+  // const [email, setEmail] = useState("");
+  // const [password, setPassword] = useState("");
+
+  const handleSubmit = async (value: FormValues) => {
+    console.log(value);
+
+    try {
+      await signInWithEmailAndPassword(auth, value.email, value.password);
+      console.log("User logged in Successfully");
+      window.location.href = "/home";
+    } catch (error: any) {
+      alert(error.message);
+    }
+  };
+
+  const handleRegister = async (value: FormValues) => {
+    console.log(value);
+
+    try {
+      await createUserWithEmailAndPassword(auth, value.email, value.password);
+      const user = auth.currentUser;
+      console.log(user);
+      if (user) {
+        await setDoc(doc(db, "Users", user.uid), {
+          email: user.email,
+          firstName: value.fname,
+          lastName: value.lname,
+        });
+      }
+      alert("User Registered Successfully!!");
+    } catch (error: any) {
+      alert(error.message);
+    }
+  };
+  // end log with firebase
   return (
     <Fragment>
-      <div className="container" id="container">
-        <div className="form-container sign-up-container">
-          <form action="#">
-            <h1>Create Account</h1>
-            <div className="social-container">
-              <a href="#" className="social">
-                <i className="fab fa-facebook-f"></i>
-              </a>
-              <a href="#" className="social">
-                <i className="fab fa-google-plus-g"></i>
-              </a>
-              <a href="#" className="social">
-                <i className="fab fa-linkedin-in"></i>
-              </a>
-            </div>
-            <span>or use your email for registration</span>
-            <input type="text" placeholder="Name" />
-            <input type="email" placeholder="Email" />
-            <input type="password" placeholder="Password" />
-            <button>Sign Up</button>
-          </form>
-        </div>
-        <div className="form-container sign-in-container">
-          <form action="#">
-            <h1>Sign in</h1>
-            <div className="social-container">
-              <a href="#" className="social">
-                <i className="fab fa-facebook-f"></i>
-              </a>
-              <a href="#" className="social">
-                <i className="fab fa-google-plus-g"></i>
-              </a>
-              <a href="#" className="social">
-                <i className="fab fa-linkedin-in"></i>
-              </a>
-            </div>
-            <span>or use your account</span>
-            <input type="email" placeholder="Email" />
-            <input type="password" placeholder="Password" />
-            <a href="#">Forgot your password?</a>
-            <button>Sign In</button>
-          </form>
-        </div>
-        <div className="overlay-container">
-          <div className="overlay">
-            <div className="overlay-panel overlay-left">
-              <h1>Welcome Back!</h1>
-              <p>
-                To keep connected with us please login with your personal info
-              </p>
-              <button className="ghost" id="signIn">
-                Sign In
-              </button>
-            </div>
-            <div className="overlay-panel overlay-right">
-              <h1>Hello, Friend!</h1>
-              <p>Enter your personal details and start journey with us</p>
-              <button className="ghost" id="signUp">
-                Sign Up
-              </button>
-            </div>
-          </div>
-        </div>
+      <div className="signin-signup-conatiner">
+        <Formik
+          initialValues={initialValues}
+          // validate={}
+          onSubmit={
+            isSignIn
+              ? (value: FormValues) => handleSubmit(value)
+              : (value: FormValues) => handleRegister(value)
+          }
+        >
+          {({ resetForm }) => (
+            <Form
+              className={
+                isSignIn ? "container" : "container right-panel-active"
+              }
+              id="container"
+            >
+              {/* đăng ký */}
+              <div className="form-container sign-up-container">
+                <div className="form">
+                  <h2>Đăng ký</h2>
+                  <div className="social-container">
+                    <a href="#" className="social facebook">
+                      <i className="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" className="social google">
+                      <i className="fab fa-google-plus-g"></i>
+                    </a>
+                    <a href="#" className="social linkedin">
+                      <i className="fab fa-linkedin-in"></i>
+                    </a>
+                  </div>
+                  <span>hoặc sử dụng email để đăng ký</span>
+                  <Field type="text" name="fname" placeholder="Tên" />
+                  <ErrorMessage name="fname" component="div" />
+                  <Field type="text" name="lname" placeholder="Họ" />
+                  <ErrorMessage name="lname" component="div" />
+                  <Field type="email" name="email" placeholder="Email" />
+                  <ErrorMessage name="email" component="div" />
+                  <Field
+                    type="password"
+                    name="password"
+                    placeholder="Mật khẩu"
+                  />
+                  <ErrorMessage name="password" component="div" />
+                  <Field
+                    type="password"
+                    name="password"
+                    placeholder="Nhập lại mật khẩu"
+                  />
+                  <ErrorMessage name="password" component="div" />
+                  <button type="submit">Đăng ký</button>
+                  <div className="form-conversion">
+                    Bạn đã có tài khoản?{" "}
+                    <strong
+                      onClick={() => {
+                        toggleForm();
+                        resetForm();
+                      }}
+                    >
+                      Đăng nhập
+                    </strong>
+                  </div>
+                </div>
+              </div>
+
+              {/* đăng nhập */}
+              <div className="form-container sign-in-container">
+                <div className="form">
+                  <h2>Đăng nhập</h2>
+                  <div className="social-container">
+                    <a href="#" className="social facebook">
+                      <i className="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" className="social google">
+                      <i className="fab fa-google-plus-g"></i>
+                    </a>
+                    <a href="#" className="social linkedin">
+                      <i className="fab fa-linkedin-in"></i>
+                    </a>
+                  </div>
+                  <span>hoặc sử dụng tài khoản của bạn</span>
+                  <Field type="email" name="email" placeholder="Email" />
+                  <ErrorMessage name="email" component="div" />
+                  <Field
+                    type="password"
+                    name="password"
+                    placeholder="Mật khẩu"
+                  />
+                  <ErrorMessage name="password" component="div" />
+                  <a href="#">Quên mật khẩu?</a>
+                  <button type="submit">Đăng nhập</button>
+                  <div className="form-conversion">
+                    Bạn chưa có tài khoản?{" "}
+                    <strong
+                      onClick={() => {
+                        toggleForm();
+                        resetForm();
+                      }}
+                    >
+                      Đăng ký
+                    </strong>
+                  </div>
+                </div>
+              </div>
+              <div className="overlay-container">
+                <div className="overlay">
+                  <div className="overlay-panel overlay-left">
+                    <h4>WELCOME TO</h4>
+                    <h1>9ROOM</h1>
+                    <p>Nền tảng đặt phòng tốt nhất cho chuyến đi của bạn! </p>
+                  </div>
+                  <div className="overlay-panel overlay-right">
+                    <h1>Hello, Friend!</h1>
+                    <p>Nhập thông tin của bạn và bắt đầu hành trình </p>
+                  </div>
+                </div>
+              </div>
+            </Form>
+          )}
+        </Formik>
       </div>
 
       <footer>

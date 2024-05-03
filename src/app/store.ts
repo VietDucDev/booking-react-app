@@ -3,7 +3,7 @@ import hotelsReducer from "../reducers/HotelsSlice";
 
 export const store = configureStore({
   reducer: {
-    hotelFilter: hotelsReducer,
+    bookedRooms: hotelsReducer,
   },
 });
 

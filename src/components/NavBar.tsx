@@ -45,6 +45,24 @@ const NavBar = () => {
   const [hotelList, setHotelList] = useState<Hotel[]>([]);
   const [open, setOpen] = React.useState(false);
 
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    auth.onAuthStateChanged((user) => {
+      setUser(user);
+    });
+  });
+
+  async function handleLogout() {
+    try {
+      await auth.signOut();
+      window.location.href = "/home";
+      console.log("User logged out successfully!");
+    } catch (error) {
+      console.error("Error logging out:", error.message);
+    }
+  }
+
   const handleOpen = () => setOpenModal(true);
   const toggleDrawer = (newOpen: boolean) => () => {
     setOpen(newOpen);
@@ -332,61 +350,66 @@ const NavBar = () => {
               </a>
             </div>
           </div>
-          <div className="dropdown dropstart">
-            <button
-              className="btn px-2"
-              type="button"
-              data-toggle="dropdown"
-              aria-expanded="false"
-              style={{ fontSize: "14px" }}
-            >
-              <div
-                className="rounded-circle text-white d-flex align-items-center justify-content-center"
-                style={{
-                  width: "35px",
-                  height: "35px",
-                  backgroundColor: "#003c43",
-                }}
+          {user ? (
+            <div className="dropdown dropstart">
+              <button
+                className="btn px-2"
+                type="button"
+                data-toggle="dropdown"
+                aria-expanded="false"
+                style={{ fontSize: "14px" }}
               >
-                N
-              </div>
-            </button>
-            <ul className="dropdown-menu mt-2">
-              <li
-                className="dropdown-item"
-                style={{ borderBottom: "1px solid gray" }}
-              >
-                <h6>Nguyễn Văn A</h6>
-                <i className="fa-solid fa-phone"></i>(+84) 818512944
-              </li>
-              <li>
-                <a className="dropdown-item py-2 my-2" href="">
-                  <i className="fa-regular fa-circle-user mr-2"></i> Tài khoản
-                </a>
-              </li>
-              <li>
-                <Link to="/myReservation" className="dropdown-item py-2 my-2">
-                  <i className="fa-solid fa-clock-rotate-left mr-2"></i> Đặt
-                  phòng của tôi
-                </Link>
-              </li>
-              <li>
-                <a className="dropdown-item py-2 my-2" href="">
-                  <i className="fa-regular fa-heart mr-2"></i>Danh sách yêu
-                  thích
-                </a>
-              </li>
-              <Link to="/login" className="text-decoration-none">
-                <li
-                  className="dropdown-item py-2 my-2"
-                  style={{ color: "#003c43", fontWeight: "600" }}
+                <div
+                  className="rounded-circle text-white d-flex align-items-center justify-content-center"
+                  style={{
+                    width: "35px",
+                    height: "35px",
+                    backgroundColor: "#003c43",
+                  }}
                 >
-                  <i className="fa-solid fa-arrow-right-from-bracket mr-2"></i>
-                  Đăng xuất
+                  N
+                </div>
+              </button>
+              <ul className="dropdown-menu mt-2">
+                <li
+                  className="dropdown-item"
+                  style={{ borderBottom: "1px solid gray" }}
+                >
+                  <h6>Nguyễn Văn A</h6>
+                  <i className="fa-solid fa-phone"></i>(+84) 818512944
                 </li>
-              </Link>
-            </ul>
-          </div>
+                <li>
+                  <a className="dropdown-item py-2 my-2" href="">
+                    <i className="fa-regular fa-circle-user mr-2"></i> Tài khoản
+                  </a>
+                </li>
+                <li>
+                  <Link to="/myReservation" className="dropdown-item py-2 my-2">
+                    <i className="fa-solid fa-clock-rotate-left mr-2"></i> Đặt
+                    phòng của tôi
+                  </Link>
+                </li>
+                <li>
+                  <a className="dropdown-item py-2 my-2" href="">
+                    <i className="fa-regular fa-heart mr-2"></i>Danh sách yêu
+                    thích
+                  </a>
+                </li>
+                <Link to="/home" className="text-decoration-none">
+                  <li
+                    className="dropdown-item py-2 my-2"
+                    style={{ color: "#003c43", fontWeight: "600" }}
+                    onClick={handleLogout}
+                  >
+                    <i className="fa-solid fa-arrow-right-from-bracket mr-2"></i>
+                    Đăng xuất
+                  </li>
+                </Link>
+              </ul>
+            </div>
+          ) : (
+            <a href="/login_logout">Đăng nhập</a>
+          )}
         </div>
 
         <button
@@ -413,10 +436,10 @@ const NavBar = () => {
           aria-describedby="modal-modal-description"
         >
           <Box sx={style}>
-            <div className="d-flex flex-column d-sm-flex bg-white rounded">
+            <div className="d-flex flex-column d-sm-flex d-md-none bg-white rounded">
               <div className="d-flex p-lg-0 mb-3 mr-lg-3">
                 <div
-                  className="d-flex align-items-center px-3 py-2 justify-content-center text-white rounded-left w-100"
+                  className="d-flex align-items-center px-1 py-2 justify-content-center text-white rounded-left w-100"
                   style={{ backgroundColor: "#003c43", textWrap: "nowrap" }}
                 >
                   <i
