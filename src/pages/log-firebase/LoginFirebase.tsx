@@ -6,6 +6,8 @@ import { toast } from "react-toastify";
 const LoginFirebase = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [fname, setFname] = useState("");
+  const [lname, setLname] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();

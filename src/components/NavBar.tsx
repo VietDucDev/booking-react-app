@@ -34,7 +34,7 @@ const NavBar = () => {
   const navigate = useNavigate();
   const [hotelList, setHotelList] = useState<Hotel[]>([]);
   const [open, setOpen] = React.useState(false);
-  
+
   const [user, setUser] = useState(null);
 
   useEffect(() => {
@@ -42,7 +42,6 @@ const NavBar = () => {
       setUser(user);
     });
   });
-  console.log(user);
 
   async function handleLogout() {
     try {
@@ -160,7 +159,7 @@ const NavBar = () => {
     navigate(`/hotel-list?hotel_type=${hotelType}`);
   };
 
-  console.log("navbar-rerender");
+  // console.log("navbar-rerender");
 
   return (
     <nav className="fixed-top bg-white shadow">
@@ -322,7 +321,7 @@ const NavBar = () => {
             </ul>
           </div>
           ): (
-            <a href="/loginFirebase">Login</a>
+            <a href="/login_logout">Đăng nhập</a>
           )}
         </div>
 

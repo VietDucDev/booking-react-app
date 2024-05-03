@@ -37,16 +37,8 @@ function App() {
         <Route path="/roomPage/:id" element={<RoomPage />} />
         <Route path="/login_logout" element={<Login_Logout />} />
         <Route path="/hotelBooking" element={<HotelBooking />} />
-        {/* login firebase */}
-        <Route path="/loginFirebase" element={<LoginFirebase />} />
-        <Route path="/registerFirebase" element={<RegisterFirebase />} />
-        <Route
-          path="/profileFirebase"
-          element={
-            user ? <Navigate to="/profileFirebase" /> : <LoginFirebase />
-          }
-        />
-        <Route path="*" element={<Navigate to="register" />} />
+        
+        <Route path="*" element={<Navigate to="login_logout" />} />
       </Routes>
     </Fragment>
   );

@@ -8,7 +8,7 @@ import axios from "axios";
 import { useParams } from "react-router-dom";
 import Modal from "@mui/material/Modal";
 import { Backdrop, Box, Fade } from "@mui/material";
-// import { auth } from "./pages/log-firebase/Firebase";
+import { auth } from "../log-firebase/Firebase";
 
 interface Room {
   roomName: string;
@@ -55,12 +55,12 @@ const RoomPage = () => {
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
-  // const [user, setUser] = useState();
-  // useEffect(() => {
-  //   auth.onAuthStateChanged((user) => {
-  //     setUser(user);
-  //   });
-  // });
+  const [user, setUser] = useState();
+  useEffect(() => {
+    auth.onAuthStateChanged((user) => {
+      setUser(user);
+    });
+  });
 
   const handleBooking = () => {
 
