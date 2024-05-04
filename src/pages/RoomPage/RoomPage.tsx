@@ -4,13 +4,15 @@ import Avatar from "@mui/material/Avatar";
 import Rating from "@mui/material/Rating";
 import "../../style/sass/_roomPage.scss";
 import Footer from "../../components/Footer";
-import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 import Modal from "@mui/material/Modal";
 import { Backdrop, Box, Fade } from "@mui/material";
 import { auth } from "../log-firebase/Firebase";
 import { useDispatch } from "react-redux";
 import { bookRoom } from "../../reducers/HotelsSlice";
+import axios from "axios";
+import { API_URL } from "../../AppAPI";
+import HotelsServices from "../../sever-interaction/HotelsServices";
 
 interface Room {
   roomName: string;
@@ -60,7 +62,7 @@ const style = {
 
 const RoomPage = () => {
   const dispatch = useDispatch();
-  const [isLoggin, setIsLoggin] = useState<boolean>(true);
+  // const [isLoggin, setIsLoggin] = useState<boolean>(true);
 
   const [data, setData] = useState<DataProps>();
   const [dataRoomItem, setDataRoomItem] = useState<Room>();
@@ -80,18 +82,15 @@ const RoomPage = () => {
   const { id } = useParams();
 
   useEffect(() => {
-    const fetchData = async () => {
+    const getHotelData = async () => {
       try {
-        const response = await axios.get(
-          `http://localhost:3000/hotels?id=${id}`
-        );
-        setData(response.data[0]);
+        const response = await HotelsServices.getHotel(id!);
+        setData(response[0]);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
     };
-
-    fetchData();
+    getHotelData();
   }, []);
 
   const handleClickATag = (_event: any) => {
