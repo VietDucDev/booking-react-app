@@ -1,20 +1,63 @@
-import { QueryParams } from "../pages/hotel-list-page/HotelListPage";
-import { PayloadAction, createSlice } from "@reduxjs/toolkit";
+import { toast, ToastOptions } from "react-toastify";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { BookRoomProps } from "../pages/RoomPage/RoomPage";
 
-const initialState = {
-  queryParams: {} as QueryParams,
+interface HotelState {
+  bookedHotels: BookRoomProps[];
+}
+
+const initialState: HotelState = {
+  bookedHotels: localStorage.getItem("bookedHotels")
+    ? JSON.parse(localStorage.getItem("bookedHotels")!)
+    : [],
 };
 
 const hotelSlice = createSlice({
   name: "hotelList",
   initialState,
   reducers: {
-    addQueryParams(state, action: PayloadAction<QueryParams>) {
-      state.queryParams = action.payload;
-      console.log("action from reducer: ", action);
+    bookRoom(state, action: PayloadAction<BookRoomProps>) {
+      const isAlreadyBooked = state.bookedHotels.some(
+        (hotel) =>
+          hotel.roomId === action.payload.roomId &&
+          hotel.hotelId === action.payload.hotelId
+      );
+
+      if (!isAlreadyBooked) {
+        state.bookedHotels.push({ ...action.payload });
+        const toastOptions: ToastOptions = {
+          autoClose: 2500,
+          pauseOnHover: false,
+        };
+        toast.success("Đặt phòng thành công!!", toastOptions);
+
+        localStorage.setItem(
+          "bookedHotels",
+          JSON.stringify(state.bookedHotels)
+        );
+      } else {
+        toast.error("Bạn đã đặt phòng này trước đó rồi!", {
+          autoClose: 2500,
+          pauseOnHover: false,
+        });
+      }
+    },
+
+    cancelRoom(state, action: PayloadAction<BookRoomProps>) {
+      const updatedBookedHotels = state.bookedHotels.filter(
+        (hotel) =>
+          hotel.roomId !== action.payload.roomId ||
+          hotel.hotelId !== action.payload.hotelId
+      );
+      state.bookedHotels = updatedBookedHotels;
+      localStorage.setItem("bookedHotels", JSON.stringify(updatedBookedHotels));
+      toast.info("Đã hủy đặt phòng!", {
+        autoClose: 2500,
+        pauseOnHover: false,
+      });
     },
   },
 });
 
-export const { addQueryParams } = hotelSlice.actions;
+export const { bookRoom, cancelRoom } = hotelSlice.actions;
 export default hotelSlice.reducer;

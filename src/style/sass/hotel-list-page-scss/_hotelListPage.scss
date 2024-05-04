@@ -27,6 +27,7 @@
       z-index: 2;
       margin-top: 15px;
       border-radius: 10px;
+      animation: option_wrapper 0.3s ease-out forwards;
 
       .quick_option_wrapper {
         // border: 1px solid blue;
@@ -93,11 +94,13 @@
     .hotel_info_wrapper {
       // border: 1px solid red;
       min-height: 180px;
-      border-radius: 20px;
+      // border-radius: 20px;
+      margin-top: 0;
+      margin-bottom: 0;
 
       .other_info_wrapper {
         // border: 1px solid red;
-        margin-top: 70px;
+        margin-top: 80px;
       }
 
       @media (max-width: 768px) {
@@ -126,7 +129,7 @@
     width: 100%;
     padding-bottom: 30px;
     border-radius: 10px;
-    margin-top: 140px;
+    margin-top: 120px;
   }
 
   .option_wrapper {
@@ -136,7 +139,7 @@
     box-shadow: $primary-light-shadow;
     position: fixed;
     z-index: 2;
-    margin-top: 35px;
+    margin-top: 10px;
     border-radius: 10px;
 
     .quick_option_wrapper {
@@ -147,5 +150,14 @@
     .detail_options_wrapper {
       //   border: 1px solid blue;
     }
+  }
+}
+
+@keyframes option_wrapper {
+  from {
+    margin-top: 0px;
+  }
+  to {
+    margin-top: 15px;
   }
 }

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import "../../style/sass/home-page-scss/_searchBar.scss";
 
 interface City {
   id: number;
@@ -56,27 +57,61 @@ const Hero = () => {
     setLocation(districtName);
   };
 
-  console.log(location);
-
   const handleShow = (location: string) => {
     navigate(`/hotel-list?district_name=${location}`);
   };
 
+  const handleScroll = () => {
+    const searchBar = document.querySelector(".search_bar");
+    if (searchBar) {
+      let scrollPosition;
+      if (window.innerWidth >= 992) {
+        // Màn hình lớn (large), sử dụng điều kiện scrollPosition > 300
+        scrollPosition = document.documentElement.scrollTop;
+        if (scrollPosition > 300) {
+          searchBar.classList.add("fade-out");
+          searchBar.classList.remove("fade-in");
+        } else {
+          searchBar.classList.remove("fade-out");
+          searchBar.classList.add("fade-in");
+        }
+      } else {
+        // Màn hình nhỏ (small), sử dụng điều kiện scrollPosition > 200
+        scrollPosition =
+          document.documentElement.scrollTop || document.body.scrollTop;
+        if (scrollPosition > 100) {
+          searchBar.classList.add("fade-out");
+          searchBar.classList.remove("fade-in");
+        } else {
+          searchBar.classList.remove("fade-out");
+          searchBar.classList.add("fade-in");
+        }
+      }
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
     <div className="position-relative" style={{ marginTop: "65px" }}>
-      <img src="./public/images/hero.jpg" alt="hero" className="img-fluid" />
+      <img src="./public/images/hero.jpg" alt="hero" className="w-100" />
 
       <div
-        className="d-flex justify-content-between bg-white shadow position-absolute py-3 px-3 rounded flex-lg-row flex-md-column flex-sm-column"
-        style={{
-          left: "50%",
-          transform: "translate(-50%, 50%)",
-          bottom: "0px",
-        }}
+        className={`search_bar d-lg-flex d-md-flex justify-content-between bg-white shadow  py-3 px-3 rounded flex-lg-row flex-md-column d-sm-none d-none`}
+        // style={{
+        //   left: "50%",
+        //   transform: "translate(-50%, 50%)",
+        //   bottom: "0px",
+        // }}
       >
         <div className="d-flex p-lg-0 mb-lg-0 mb-md-3 mb-sm-3 mr-lg-3">
           <div
-            className="d-flex align-items-center p-3 justify-content-center text-white rounded-left"
+            className="d-flex align-items-center px-3 py-lg-3 py-md-2 justify-content-center text-white rounded-left"
             style={{ backgroundColor: "#003c43", textWrap: "nowrap" }}
           >
             <i
@@ -91,7 +126,7 @@ const Hero = () => {
             onChange={handleCityChange}
             className="pl-2"
           >
-            <option>Tỉnh/Thành phố</option>
+            <option value="">Tỉnh/Thành phố</option>
             {cities.map((city) => (
               <option key={city.id} value={city.id}>
                 {city.name}
@@ -102,7 +137,7 @@ const Hero = () => {
 
         <div className="d-flex mb-lg-0 mb-md-3 mb-sm-3 mr-lg-3">
           <div
-            className="d-flex align-items-center py-3 px-lg-3 px-md-5 px-sm-5 justify-content-center text-white rounded-left"
+            className="d-flex align-items-center py-lg-3 py-sm-2 px-lg-3 px-md-5 text-white rounded-left"
             style={{ backgroundColor: "#003c43", textWrap: "nowrap" }}
           >
             <i
@@ -119,7 +154,7 @@ const Hero = () => {
             className="pl-2"
             style={{ width: "154px" }}
           >
-            <option>Quận/Huyện</option>
+            <option value="">Quận/Huyện</option>
             {districts.map((district) => (
               <option key={district.districtId} value={district.districtName}>
                 {district.districtName}
@@ -129,8 +164,8 @@ const Hero = () => {
         </div>
 
         <button
-          disabled={!location}
-          className="text-white px-4 rounded btn py-lg-0 py-md-2py-sm-2"
+          disabled={!location || !selectedCity}
+          className="text-white px-4 rounded btn"
           style={{
             backgroundColor: "#003c43",
             textWrap: "nowrap",

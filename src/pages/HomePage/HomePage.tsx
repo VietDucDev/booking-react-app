@@ -1,28 +1,23 @@
-import { Fragment, useEffect } from "react";
+import { Fragment } from "react";
 
 import Footer from "../../components/Footer";
 import Hero from "./Hero";
-import Carousel from "./Carousel";
-import HotelList from "./HotelList";
 import Explore from "./Explore";
 import Blogs from "./Blogs";
 import Locations from "./Locations";
+import HotelCollection from "./HotelCollection";
+import Banner from "./Banner";
 
 const HomePage = () => {
-  useEffect(() => {
-    fetch("http://localhost:3000/users")
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-      });
-  });
-
   return (
     <Fragment>
       <Hero />
-      <main className="col-11 px-5" style={{ margin: "200px auto 60px" }}>
-        <Carousel />
-        <HotelList />
+      <main
+        className="container col-sm-12 col-md-11 px-4 px-sm-5 mb-5"
+        style={{ marginTop: "120px" }}
+      >
+        <Banner />
+        <HotelCollection />
         <Explore />
         <Blogs />
         <Locations />

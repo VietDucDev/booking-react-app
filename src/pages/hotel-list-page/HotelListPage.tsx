@@ -9,11 +9,7 @@ import noResultImage from "../../../public/images/No_result_img.gif";
 import SortBox from "./SortBox";
 import FilterBox from "./FilterBox";
 import React from "react";
-import { useSearchParams } from "react-router-dom";
-// import HotelServices from "../server-interaction/hotelService";
-// import { useSelector } from "react-redux";
-// import { RootState } from "../../app/store";
-// import TestComponent from "./TestComponent";
+import { Navigate, useNavigate, useSearchParams } from "react-router-dom";
 
 export interface Hotel {
   sn: number;
@@ -97,7 +93,7 @@ const getHotelsResult = (allData: Hotel[], queryParams: QueryParams) => {
   return hotelResult;
 };
 
-const HotelListPage: React.FC<Hotel> = () => {
+const HotelListPage: React.FC<Hotel | {}> = () => {
   const [hotelList, setHotelList] = useState<Hotel[]>([]);
   const [searchParams, setSearchParams] = useSearchParams();
   const districtSearchParams = searchParams.get("district_name");
@@ -223,9 +219,16 @@ const HotelListPage: React.FC<Hotel> = () => {
     };
   }, []);
 
+  const navigate = useNavigate();
+
+  const handleShowRoomDetail = (id: string) => {
+    navigate(`/roomPage/${id}`);
+  };
+
   return (
     <Fragment>
       {/* Filter */}
+
       <Modal
         open={openFilterBox}
         onClose={handleCloseFilterBox}
@@ -377,7 +380,12 @@ const HotelListPage: React.FC<Hotel> = () => {
                 </div>
               ) : (
                 hotelList.map((hotel: Hotel, index: number) => (
-                  <div key={index} className="each_hotel_wrapper row ">
+                  <div
+                    key={index}
+                    className="each_hotel_wrapper row"
+                    onClick={() => handleShowRoomDetail(hotel.id)}
+                    style={{ cursor: "pointer" }}
+                  >
                     <img
                       className="thumbnail_image my-auto col-md-4 col-sm-6"
                       src={hotel.thumbnail}
