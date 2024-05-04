@@ -1,12 +1,13 @@
+import "../style/sass/_footer.scss"
 const Footer = () => {
   return (
     <div
-      className="mx-5 pt-5 px-3"
+      className="footer-container mx-5 pt-5 px-3"
       style={{ backgroundColor: "#003C43", color: "white" }}
     >
-      <div className="d-flex">
-        <div className="d-flex col-6">
-          <div className="col-6 mr-5">
+      <div className="d-flex col-12">
+        <div className="d-flex col-12 col-md-6">
+          <div className="col-12 col-md-6">
             <h6 style={{ marginBottom: "20px", fontSize: "18px" }}>Hỗ trợ</h6>
             <p style={{ fontSize: "14px", color: "#BEBEBE" }}>
               <i className="fa-solid fa-phone"></i> Hotline: 0931 836 836
@@ -21,7 +22,7 @@ const Footer = () => {
               Cơ chế giải quyết tranh chấp, khiếu nại
             </p>
           </div>
-          <div className="col-6">
+          <div className="col-12 col-md-6">
             <h6 style={{ marginBottom: "20px", fontSize: "18px" }}>
               Giới thiệu
             </h6>
@@ -38,8 +39,9 @@ const Footer = () => {
             </p>
           </div>
         </div>
-        <div className="col-6 d-flex">
-          <div className="col-6">
+        {/* //sadsa */}
+        <div className="col-12 col-md-6 d-flex">
+          <div className="col-12 col-md-6">
             <h6 style={{ marginBottom: "20px", fontSize: "18px" }}>
               Đối tác thanh toán
             </h6>
@@ -75,7 +77,7 @@ const Footer = () => {
               />
             </div>
           </div>
-          <div className="col-6">
+          <div className="col-12 col-md-6">
             <h6 style={{ marginBottom: "20px", fontSize: "18px" }}>
               Mạng xã hội
             </h6>

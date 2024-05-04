@@ -10,11 +10,12 @@ import { Backdrop, Box, Fade } from "@mui/material";
 import { auth } from "../log-firebase/Firebase";
 import { useDispatch } from "react-redux";
 import { bookRoom } from "../../reducers/HotelsSlice";
+import SimpleDialog from "../room-detail/RoomDetail";
 import axios from "axios";
 import { API_URL } from "../../AppAPI";
 import HotelsServices from "../../sever-interaction/HotelsServices";
 
-interface Room {
+export interface Room {
   roomName: string;
   price: number;
   area: number;
@@ -256,28 +257,32 @@ const RoomPage = () => {
                 <div className="col">
                   <h2 className="mb-4">Danh sách phòng</h2>
                   {data?.roomList.map((room, index) => (
-                    <div key={index} className="row room-item">
-                      <div className="col-3">
+                    <div
+                      key={index}
+                      className="row room-item text-right text-md-left"
+                    >
+                      <div className="col-12 col-md-3">
                         <Carousel_RoomPage_Img
                           imgList={room?.roomImages || []}
                           showThumbnails={false}
                         />
                       </div>
-                      <div className="col-3">
-                        <p style={{ fontWeight: "500" }}>Thông tin phòng</p>
-                        <p
-                          style={{
-                            fontWeight: "700",
-                            textTransform: "uppercase",
-                            fontSize: "18px",
-                          }}
-                        >
-                          {room.roomName}
-                        </p>
-                        <span>
-                          {room.area}m<sup>2</sup>
-                        </span>
-                        <div className="d-flex"></div>
+                      <div className="room-info-box col-12 col-md-3">
+                        <div className="room-info">
+                          <p style={{ fontWeight: "500" }}>Thông tin phòng</p>
+                          <p
+                            style={{
+                              fontWeight: "700",
+                              textTransform: "uppercase",
+                              fontSize: "18px",
+                            }}
+                          >
+                            {room.roomName}
+                          </p>
+                          <span>
+                            {room.area}m<sup>2</sup>
+                          </span>
+                        </div>
                         <div className="room-details-btn">
                           <button>
                             <p
@@ -305,10 +310,13 @@ const RoomPage = () => {
                           </button>
                         </div>
                       </div>
-                      <div className="col-3" style={{ fontWeight: "500" }}>
+                      <div
+                        className="col-12 col-md-3"
+                        style={{ fontWeight: "500" }}
+                      >
                         Đặc điểm nổi bật
                       </div>
-                      <div className="col-3 bookroom-wrapper">
+                      <div className="col-12 col-md-3 bookroom-wrapper">
                         <p style={{ fontWeight: "500" }}>Giá phòng</p>
                         <p
                           style={{
@@ -353,24 +361,24 @@ const RoomPage = () => {
                     </div>
                   </div>
                   <div className="row">
-                    <div className="col-3">
+                    <div className="col-3 py-2">
                       <i className="fa-solid fa-wifi"></i> wifi
                     </div>
                     {/* <div className="col-3">Quầy bar</div> */}
-                    <div className="col-3">
+                    <div className="col-3 py-2">
                       <i className="fa-solid fa-tv"></i> Truyền hình cáp
                     </div>
-                    <div className="col-3">
+                    <div className="col-3 py-2">
                       <i className="fa-solid fa-kitchen-set"></i> Bếp
                     </div>
                     {/* <div className="col-3">Sàn gỗ</div> */}
-                    <div className="col-3">
+                    <div className="col-3 py-2">
                       <i className="fa-solid fa-shower"></i> Vòi hoa sen
                     </div>
-                    <div className="col-3">
+                    <div className="col-3 py-2">
                       <i className="fa-solid fa-smoking"></i> Được hút thuốc
                     </div>
-                    <div className="col-3">
+                    <div className="col-3 py-2">
                       <i className="fa-solid fa-bath"></i> Bồn tắm
                     </div>
                   </div>
@@ -443,7 +451,7 @@ const RoomPage = () => {
                   </div>
                   <div className="row">
                     {/* comment */}
-                    <div className="col-6">
+                    <div className="col-12 col-md-6">
                       <div className="row">
                         <div className="col-6">
                           <div className="row">
@@ -483,7 +491,7 @@ const RoomPage = () => {
                       </div>
                     </div>
                     {/* comment */}
-                    <div className="col-6">
+                    <div className="col-12 col-md-6">
                       <div className="row">
                         <div className="col-6">
                           <div className="row">
@@ -523,7 +531,7 @@ const RoomPage = () => {
                       </div>
                     </div>
                     {/* comment */}
-                    <div className="col-6">
+                    <div className="col-12 col-md-6">
                       <div className="row">
                         <div className="col-6">
                           <div className="row">
@@ -563,7 +571,7 @@ const RoomPage = () => {
                       </div>
                     </div>
                     {/* comment */}
-                    <div className="col-6">
+                    <div className="col-12 col-md-6">
                       <div className="row">
                         <div className="col-6">
                           <div className="row">
@@ -677,7 +685,7 @@ const RoomPage = () => {
       <Footer />
 
       {/* modal room detail */}
-      <Modal
+      {/* <Modal
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"
         open={open}
@@ -692,14 +700,14 @@ const RoomPage = () => {
       >
         <Fade in={open}>
           <Box sx={style}>
-            <div className="row room-details">
-              <div className="col-8">
+            <div className="row room-details justify-content-between m-0">
+              <div className="col-md-8 col-12 p-0">
                 <Carousel_RoomPage_Img
                   imgList={dataRoomItem?.roomImages || []}
                   showThumbnails={true}
                 />
               </div>
-              <div className="col-4 p-0">
+              <div className="col-md-4 col-12 text-center p-0">
                 <div className="d-flex">
                   <p
                     className="mt-2"
@@ -746,7 +754,13 @@ const RoomPage = () => {
             </div>
           </Box>
         </Fade>
-      </Modal>
+      </Modal> */}
+      <SimpleDialog
+        open={open}
+        dataRoomItem={dataRoomItem}
+        data={data}
+        onClose={handleClose}
+      />
     </Fragment>
   );
 };

@@ -21,7 +21,6 @@ function App() {
     });
     console.log("userEffet", user);
   });
-  console.log(user);
 
   return (
     <Fragment>
