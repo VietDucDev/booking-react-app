@@ -1,9 +1,9 @@
 import { toast, ToastOptions } from "react-toastify";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { DataProps } from "../pages/RoomPage/RoomPage";
+import { BookRoomProps } from "../pages/RoomPage/RoomPage";
 
 interface HotelState {
-  bookedHotels: DataProps[];
+  bookedHotels: BookRoomProps[];
 }
 
 const initialState: HotelState = {
@@ -16,9 +16,11 @@ const hotelSlice = createSlice({
   name: "hotelList",
   initialState,
   reducers: {
-    bookRoom(state, action: PayloadAction<DataProps>) {
+    bookRoom(state, action: PayloadAction<BookRoomProps>) {
       const isAlreadyBooked = state.bookedHotels.some(
-        (hotel) => hotel.id === action.payload.id
+        (hotel) =>
+          hotel.roomId === action.payload.roomId &&
+          hotel.hotelId === action.payload.hotelId
       );
 
       if (!isAlreadyBooked) {
@@ -41,9 +43,11 @@ const hotelSlice = createSlice({
       }
     },
 
-    cancelRoom(state, action: PayloadAction<DataProps>) {
+    cancelRoom(state, action: PayloadAction<BookRoomProps>) {
       const updatedBookedHotels = state.bookedHotels.filter(
-        (hotel) => hotel.id !== action.payload.id
+        (hotel) =>
+          hotel.roomId !== action.payload.roomId ||
+          hotel.hotelId !== action.payload.hotelId
       );
       state.bookedHotels = updatedBookedHotels;
       localStorage.setItem("bookedHotels", JSON.stringify(updatedBookedHotels));

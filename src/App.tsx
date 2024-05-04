@@ -14,7 +14,7 @@ import { Fragment, useEffect, useState } from "react";
 import MyReservation from "./pages/MyReservation";
 
 function App() {
-  const [user, setUser] = useState<any>({});
+  const [user, setUser] = useState<any>();
   useEffect(() => {
     auth.onAuthStateChanged((user: any) => {
       setUser(user);

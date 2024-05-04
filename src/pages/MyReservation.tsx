@@ -2,18 +2,18 @@ import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../app/store";
 import { useNavigate } from "react-router-dom";
 import { cancelRoom } from "../reducers/HotelsSlice";
-import { DataProps } from "./RoomPage/RoomPage";
+import { BookRoomProps } from "./RoomPage/RoomPage";
 
 const MyReservation = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { bookedHotels } = useSelector((state: RootState) => state.bookedRooms);
-  console.log(bookedHotels);
+  console.table(bookedHotels);
   const handleShowRoomDetail = (id: string) => {
     navigate(`/roomPage/${id}`);
   };
 
-  const handleCancleBooking = (hotel: DataProps) => {
+  const handleCancleBooking = (hotel: BookRoomProps) => {
     const confirmation = window.confirm("Bạn có chắc chắn muốn hủy đặt phòng?");
 
     if (confirmation) {
@@ -24,6 +24,15 @@ const MyReservation = () => {
   const handleBackToHomePage = () => {
     navigate("/home");
   };
+
+  // ------
+
+  bookedHotels.map((hotel) => {
+    console.log("Hotel: ", hotel);
+  });
+  //-------
+
+  // return <div>aaaa</div>;
 
   return (
     <>
@@ -62,10 +71,10 @@ const MyReservation = () => {
               </div>
             ) : (
               <div>
-                {bookedHotels.map((hotel) => (
+                {bookedHotels.map((hotel, index) => (
                   <div
                     className="mb-4"
-                    key={hotel.sn}
+                    key={index}
                     style={{ border: "1px solid gray", borderRadius: "7px" }}
                   >
                     <div className="d-flex justify-content-between p-3 align-items-center">
@@ -73,12 +82,12 @@ const MyReservation = () => {
                         className="m-0 font-weight-bold"
                         style={{ fontSize: "20px", color: "#003c43" }}
                       >
-                        {hotel.name}
+                        {hotel.hotelName}
                       </p>
                       <p
                         className="m-0 text-primary"
                         style={{ cursor: "pointer" }}
-                        onClick={() => handleShowRoomDetail(hotel.id)}
+                        onClick={() => handleShowRoomDetail(hotel.hotelId)}
                       >
                         Chi tiết
                       </p>
@@ -94,8 +103,8 @@ const MyReservation = () => {
                       <div className="d-flex flex-column flex-md-row">
                         <div className="col-12 col-md-6 px-0 mb-3 mb-md-0 mr-0 mr-md-3 mr-lg-4">
                           <img
-                            src={hotel.thumbnail}
-                            alt={hotel.name}
+                            src={hotel.roomData?.roomImages[0]}
+                            // alt={hotel.name}
                             className="img-fluid h-100"
                             style={{ borderRadius: "5px" }}
                           />
@@ -106,15 +115,16 @@ const MyReservation = () => {
                           style={{ fontSize: "20px" }}
                         >
                           <p className="m-0 mb-3">
-                            <strong>{hotel.firstHours}</strong> giờ đầu
+                            <strong>2</strong> giờ đầu
                           </p>
                           <p className="m-0 mb-3">
-                            Phòng VIP1 - Nhận phòng: <strong>19h30</strong>
+                            Phòng: <strong>{hotel.roomData?.roomName}</strong> -
+                            Nhận phòng: <strong>19h30</strong>
                           </p>
                           <p className="m-0">
                             Giá:{" "}
                             <span className="font-weight-bold">
-                              {hotel.originPrice.toLocaleString()} đ
+                              {hotel.roomData?.price.toLocaleString()} đ
                             </span>{" "}
                             - Thanh toán sau tại khách sạn
                           </p>
@@ -129,7 +139,7 @@ const MyReservation = () => {
                     </div>
 
                     <div className="p-3">
-                      <strong>Địa chỉ:</strong> {hotel.address}
+                      <strong>Địa chỉ:</strong> {hotel.hotelAddress}
                     </div>
                   </div>
                 ))}

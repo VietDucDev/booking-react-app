@@ -38,6 +38,14 @@ export interface DataProps {
   totalReview: number;
 }
 
+export interface BookRoomProps {
+  hotelId: string;
+  hotelName: string;
+  hotelAddress: string;
+  roomId: number;
+  roomData: Room;
+}
+
 const style = {
   position: "absolute" as "absolute",
   top: "50%",
@@ -90,10 +98,9 @@ const RoomPage = () => {
     console.log("Bạn đã nhấp vào liên kết");
   };
 
-  const handleBookRoom = (hotel: DataProps | undefined) => {
-    if (hotel) {
-      dispatch(bookRoom(hotel));
-    }
+  const handleBookRoom = (dataBookRoom: BookRoomProps) => {
+    dispatch(bookRoom(dataBookRoom));
+    console.log("Đã đặt phòng: ", dataBookRoom);
   };
 
   const handleBookRoomFail = () => {
@@ -319,7 +326,14 @@ const RoomPage = () => {
                         <button
                           onClick={
                             user
-                              ? () => handleBookRoom(data)
+                              ? () =>
+                                  handleBookRoom({
+                                    hotelId: data.id,
+                                    hotelName: data.name,
+                                    hotelAddress: data.address,
+                                    roomId: index,
+                                    roomData: room,
+                                  })
                               : handleBookRoomFail
                           }
                           className="btn booking_btn"
@@ -724,7 +738,7 @@ const RoomPage = () => {
                   </p>
                   <button
                     className="btn booking_btn"
-                    onClick={() => handleBookRoom(data)}
+                    // onClick={() => handleBookRoom(data)}
                   >
                     Đặt phòng
                   </button>
