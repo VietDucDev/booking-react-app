@@ -11,8 +11,9 @@ import { Backdrop, Box, Fade } from "@mui/material";
 import { auth } from "../log-firebase/Firebase";
 import { useDispatch } from "react-redux";
 import { bookRoom } from "../../reducers/HotelsSlice";
+import SimpleDialog from "../room-detail/RoomDetail";
 
-interface Room {
+export interface Room {
   roomName: string;
   price: number;
   area: number;
@@ -64,6 +65,8 @@ const RoomPage = () => {
 
   const [data, setData] = useState<DataProps>();
   const [dataRoomItem, setDataRoomItem] = useState<Room>();
+  
+  
 
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
@@ -685,7 +688,7 @@ const RoomPage = () => {
       <Footer />
 
       {/* modal room detail */}
-      <Modal
+      {/* <Modal
         aria-labelledby="transition-modal-title"
         aria-describedby="transition-modal-description"
         open={open}
@@ -754,7 +757,8 @@ const RoomPage = () => {
             </div>
           </Box>
         </Fade>
-      </Modal>
+      </Modal> */}
+      <SimpleDialog open={open} dataRoomItem={dataRoomItem} data={data} onClose={handleClose} />
     </Fragment>
   );
 };
