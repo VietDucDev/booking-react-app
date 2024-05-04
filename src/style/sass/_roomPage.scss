@@ -91,8 +91,17 @@
     }
   }
 
+  .room-info-box {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  .room-info {
+    width: 100%;
+  }
+
   .room-details-btn {
-    position: absolute;
+    width: 100%;
     bottom: 0px;
     button {
       padding: 0;
@@ -105,8 +114,8 @@
     button {
       --primary-color: #111;
       --hovered-color: #c84747;
-      position: relative;
       display: flex;
+      width: 100%;
       font-weight: 600;
       font-size: 14px;
       gap: 0.5rem;
@@ -115,7 +124,6 @@
 
     button p {
       margin: 0;
-      position: relative;
       font-size: 20px;
       color: var(--primary-color);
     }
@@ -304,6 +312,14 @@
 
   .custom-review {
     font-size: 40px;
+  }
+
+  @media (max-width: 700px) {
+    .room-details-btn {
+      button {
+        justify-content: end;
+      }
+    }
   }
 }
 .room-details {
