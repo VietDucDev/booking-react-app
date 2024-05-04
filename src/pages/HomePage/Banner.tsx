@@ -1,4 +1,4 @@
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 
@@ -20,80 +20,96 @@ const Banner = () => {
 
   return (
     <Carousel responsive={responsive}>
-      <div className="card border-0">
-        <img
-          src="./public/images/banner_pic_1.jpg"
-          alt="banner_1"
-          className="mx-2"
-          style={{ borderRadius: "15px" }}
-        />
-      </div>
-      <div className="card border-0">
-        <img
-          src="./public/images/banner_pic_2.jpg"
-          alt="banner_2"
-          className="mx-2"
-          style={{ borderRadius: "15px" }}
-        />
-      </div>
-      <div className="card border-0">
-        <img
-          src="./public/images/banner_pic_3.gif"
-          alt="banner_3"
-          className="mx-2"
-          style={{ borderRadius: "15px" }}
-        />
-      </div>
-
-      <div className="card border-0">
-        <img
-          src="./public/images/banner_pic_1.jpg"
-          alt="banner_1"
-          className="mx-2"
-          style={{ borderRadius: "15px" }}
-        />
-      </div>
-      <div className="card border-0">
-        <img
-          src="./public/images/banner_pic_2.jpg"
-          alt="banner_2"
-          className="mx-2"
-          style={{ borderRadius: "15px" }}
-        />
-      </div>
-      <div className="card border-0">
-        <img
-          src="./public/images/banner_pic_3.gif"
-          alt="banner_3"
-          className="mx-2"
-          style={{ borderRadius: "15px" }}
-        />
-      </div>
-
-      <div className="card border-0">
-        <img
-          src="./public/images/banner_pic_1.jpg"
-          alt="banner_1"
-          className="mx-2"
-          style={{ borderRadius: "15px" }}
-        />
-      </div>
-      <div className="card border-0">
-        <img
-          src="./public/images/banner_pic_2.jpg"
-          alt="banner_2"
-          className="mx-2"
-          style={{ borderRadius: "15px" }}
-        />
-      </div>
-      <div className="card border-0">
-        <img
-          src="./public/images/banner_pic_3.gif"
-          alt="banner_3"
-          className="mx-2"
-          style={{ borderRadius: "15px" }}
-        />
-      </div>
+      <Link to="/discount">
+        <div className="card border-0">
+          <img
+            src="./public/images/banner_pic_1.jpg"
+            alt="banner_1"
+            className="mx-2"
+            style={{ borderRadius: "15px" }}
+          />
+        </div>
+      </Link>
+      <Link to="/discount">
+        <div className="card border-0">
+          <img
+            src="./public/images/banner_pic_2.jpg"
+            alt="banner_2"
+            className="mx-2"
+            style={{ borderRadius: "15px" }}
+          />
+        </div>
+      </Link>
+      <Link to="/discount">
+        <div className="card border-0">
+          <img
+            src="./public/images/banner_pic_3.gif"
+            alt="banner_3"
+            className="mx-2"
+            style={{ borderRadius: "15px" }}
+          />
+        </div>
+      </Link>
+      <Link to="/discount">
+        <div className="card border-0">
+          <img
+            src="./public/images/banner_pic_1.jpg"
+            alt="banner_1"
+            className="mx-2"
+            style={{ borderRadius: "15px" }}
+          />
+        </div>
+      </Link>
+      <Link to="/discount">
+        <div className="card border-0">
+          <img
+            src="./public/images/banner_pic_2.jpg"
+            alt="banner_2"
+            className="mx-2"
+            style={{ borderRadius: "15px" }}
+          />
+        </div>
+      </Link>
+      <Link to="/discount">
+        <div className="card border-0">
+          <img
+            src="./public/images/banner_pic_3.gif"
+            alt="banner_3"
+            className="mx-2"
+            style={{ borderRadius: "15px" }}
+          />
+        </div>
+      </Link>
+      <Link to="/discount">
+        <div className="card border-0">
+          <img
+            src="./public/images/banner_pic_1.jpg"
+            alt="banner_1"
+            className="mx-2"
+            style={{ borderRadius: "15px" }}
+          />
+        </div>
+      </Link>
+      <Link to="/discount">
+        <div className="card border-0">
+          <img
+            src="./public/images/banner_pic_2.jpg"
+            alt="banner_2"
+            className="mx-2"
+            style={{ borderRadius: "15px" }}
+          />
+        </div>
+      </Link>
+      <Link to="/discount">
+        <div className="card border-0">
+          <img
+            src="./public/images/banner_pic_3.gif"
+            alt="banner_3"
+            className="mx-2"
+            style={{ borderRadius: "15px" }}
+          />
+        </div>
+      </Link>
     </Carousel>
   );
 };

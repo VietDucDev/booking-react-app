@@ -1,9 +1,16 @@
-import React, { Fragment, useState } from "react";
+import "react-toastify/dist/ReactToastify.css";
+import { Fragment, useState } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import "../style/sass/_signup_sign_in.scss";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { auth, db } from "./log-firebase/Firebase";
+import { setDoc, doc } from "firebase/firestore";
+import { toast } from "react-toastify";
 
 interface FormValues {
-  name?: string;
+  fname?: string;
+  lname?: string;
   email: string;
   password: string;
 }
@@ -20,19 +27,61 @@ const Login_Logout = () => {
     setIsSignIn(!isSignIn);
   };
   const initialValues: FormValues = {
-    name: "",
+    fname: "",
+    lname: "",
     email: "",
     password: "",
   };
+
+  // log with firebase
+  // const [email, setEmail] = useState("");
+  // const [password, setPassword] = useState("");
+
+  const handleSubmit = async (value: FormValues) => {
+    console.log(value);
+
+    try {
+      await signInWithEmailAndPassword(auth, value.email, value.password);
+      console.log("User logged in Successfully");
+      window.location.href = "/home";
+    } catch (error: any) {
+      alert(error.message);
+    }
+  };
+
+  const handleRegister = async (value: FormValues) => {
+    console.log(value);
+
+    try {
+      await createUserWithEmailAndPassword(auth, value.email, value.password);
+      const user = auth.currentUser;
+      console.log(user);
+      if (user) {
+        await setDoc(doc(db, "Users", user.uid), {
+          email: user.email,
+          firstName: value.fname,
+          lastName: value.lname,
+        });
+      }
+      toast.success("Đăng ký tài khoản thành công", {
+        autoClose: 2000,
+      });
+    } catch (error: any) {
+      toast.error(error.message);
+    }
+  };
+  // end log with firebase
   return (
     <Fragment>
       <div className="signin-signup-conatiner">
         <Formik
           initialValues={initialValues}
           // validate={}
-          onSubmit={(value: FormValues) => {
-            console.log("submit: ", value);
-          }}
+          onSubmit={
+            isSignIn
+              ? (value: FormValues) => handleSubmit(value)
+              : (value: FormValues) => handleRegister(value)
+          }
         >
           {({ resetForm }) => (
             <Form
@@ -41,6 +90,7 @@ const Login_Logout = () => {
               }
               id="container"
             >
+              {/* đăng ký */}
               <div className="form-container sign-up-container">
                 <div className="form">
                   <h2>Đăng ký</h2>
@@ -56,8 +106,10 @@ const Login_Logout = () => {
                     </a>
                   </div>
                   <span>hoặc sử dụng email để đăng ký</span>
-                  <Field type="text" name="name" placeholder="Tên" />
-                  <ErrorMessage name="name" component="div" />
+                  <Field type="text" name="fname" placeholder="Tên" />
+                  <ErrorMessage name="fname" component="div" />
+                  <Field type="text" name="lname" placeholder="Họ" />
+                  <ErrorMessage name="lname" component="div" />
                   <Field type="email" name="email" placeholder="Email" />
                   <ErrorMessage name="email" component="div" />
                   <Field
@@ -86,6 +138,8 @@ const Login_Logout = () => {
                   </div>
                 </div>
               </div>
+
+              {/* đăng nhập */}
               <div className="form-container sign-in-container">
                 <div className="form">
                   <h2>Đăng nhập</h2>
@@ -141,6 +195,23 @@ const Login_Logout = () => {
           )}
         </Formik>
       </div>
+
+      <footer>
+        <p>
+          Created with <i className="fa fa-heart"></i> by
+          <a target="_blank" href="https://florin-pop.com">
+            Florin Pop
+          </a>
+          - Read how I created this and how you can join the challenge
+          <a
+            target="_blank"
+            href="https://www.florin-pop.com/blog/2019/03/double-slider-sign-in-up-form/"
+          >
+            here
+          </a>
+          .
+        </p>
+      </footer>
     </Fragment>
   );
 };

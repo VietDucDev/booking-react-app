@@ -1,0 +1,40 @@
+.search_on_navbar {
+  position: fixed;
+  left: 50%;
+  top: 0;
+  transform: translate(-50%);
+}
+
+.fade-out-nav {
+  animation: fade-out-nav 0.2s ease-in-out forwards;
+}
+
+.fade-in-nav {
+  animation: fade-in-nav 0.3s ease-in-out forwards;
+}
+
+.search_on_navbar.hidden {
+  display: none;
+}
+
+@keyframes fade-out-nav {
+  from {
+    opacity: 1;
+    transform: translate(-50%, 10%) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translate(-50%, 110%) scale(1.8);
+  }
+}
+
+@keyframes fade-in-nav {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 180%) scale(1.8);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 10%) scale(1);
+  }
+}

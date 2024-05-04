@@ -1,5 +1,4 @@
 import { Button } from "@mui/material";
-import blogImage from "../../../public/images/Blog_image.jpg";
 
 const Blogs = () => {
   return (
@@ -7,8 +6,8 @@ const Blogs = () => {
       <img
         src="./public/images/Blog_image.jpg"
         alt="blogs_posts"
-        className="img-fluid w-100"
-        style={{ borderRadius: "15px", height: "600px", objectFit: "cover" }}
+        className="img-fluid w-100 px-2"
+        style={{ borderRadius: "25px", height: "600px", objectFit: "cover" }}
       />
 
       <div
@@ -20,7 +19,7 @@ const Blogs = () => {
           maxWidth: "40%",
         }}
       >
-        <h2 className="" style={{ lineHeight: "60px", fontSize: "40px" }}>
+        <h2 style={{ lineHeight: "60px", fontSize: "40px" }}>
           Những điều thú vị có thể bạn chưa biết
         </h2>
         <Button
@@ -36,7 +35,7 @@ const Blogs = () => {
             fontSize: "16px",
             letterSpacing: 0,
             width: "200px",
-            height: "60px",
+            height: "40px",
             marginTop: "20px",
           }}
         >

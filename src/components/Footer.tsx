@@ -38,11 +38,8 @@ const Footer = () => {
             </p>
           </div>
         </div>
-        <div className="col-6 d-flex flex-lg-row flex-md-column flex-sm-column ml-5">
-          <div
-            className="col-lg-6 col-md-12 col-sm-12"
-            style={{ maxHeight: "100px" }}
-          >
+        <div className="col-6 d-flex">
+          <div className="col-6">
             <h6 style={{ marginBottom: "20px", fontSize: "18px" }}>
               Đối tác thanh toán
             </h6>
@@ -78,11 +75,7 @@ const Footer = () => {
               />
             </div>
           </div>
-
-          <div
-            className="col-lg-6 col-md-12 col-sm-12"
-            style={{ maxHeight: "100px" }}
-          >
+          <div className="col-6">
             <h6 style={{ marginBottom: "20px", fontSize: "18px" }}>
               Mạng xã hội
             </h6>
@@ -112,7 +105,7 @@ const Footer = () => {
         </div>
       </div>
       <div
-        className="py-4 px-4 d-flex justify-content-between align-items-center"
+        className="py-4 px-4 d-flex flex-column flex-md-row justify-content-between align-items-center text-center"
         style={{
           borderTop: "1px solid gray",
           fontSize: "13px",
@@ -120,7 +113,7 @@ const Footer = () => {
         }}
       >
         Copyright © 2024 FPT Software Academy. All rights reserved.
-        <div>
+        <div className="mt-3 mt-md-0">
           <span className="mr-4">Privacy Policy</span>
           <span>Terms of use</span>
         </div>

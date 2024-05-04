@@ -7,21 +7,75 @@ import Drawer from "@mui/material/Drawer";
 import List from "@mui/material/List";
 import Divider from "@mui/material/Divider";
 import ListItem from "@mui/material/ListItem";
+import Modal from "@mui/material/Modal";
+import "../style/sass/home-page-scss/_search-bar-on-nav.scss";
+import { auth } from "../pages/log-firebase/Firebase";
 
 interface Hotel {
   sn: number;
   title: string;
 }
 
+interface City {
+  id: number;
+  name: string;
+}
+
+interface District {
+  cityId: number;
+  districtId: number;
+  districtName: string;
+}
+
+const style = {
+  position: "absolute" as "absolute",
+  top: "40%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
+  width: 400,
+  bgcolor: "background.paper",
+  border: "1px solid #ccc",
+  boxShadow: 24,
+  p: 3,
+};
+
 const NavBar = () => {
+  const navigate = useNavigate();
+  const [location, setLocation] = useState("");
+  const [cities, setCities] = useState<City[]>([]);
+  const [districts, setDistricts] = useState<District[]>([]);
+  const [selectedCity, setSelectedCity] = useState<number | null>(null);
+  const [selectedDistrict, setSelectedDistrict] = useState<string | null>(null);
+  const [openModal, setOpenModal] = React.useState(false);
+  const handleClose = () => setOpenModal(false);
+  const [hotelList, setHotelList] = useState<Hotel[]>([]);
   const [open, setOpen] = React.useState(false);
 
+  const [user, setUser] = useState<any>({});
+
+  useEffect(() => {
+    auth.onAuthStateChanged((user: any) => {
+      setUser(user);
+    });
+  });
+
+  async function handleLogout() {
+    try {
+      await auth.signOut();
+      window.location.href = "/home";
+      console.log("User logged out successfully!");
+    } catch (error: any) {
+      console.error("Error logging out:", error.message);
+    }
+  }
+
+  const handleOpen = () => setOpenModal(true);
   const toggleDrawer = (newOpen: boolean) => () => {
     setOpen(newOpen);
   };
 
   const DrawerList = (
-    <Box sx={{ width: 300 }} role="presentation" onClick={toggleDrawer(false)}>
+    <Box sx={{ width: 350 }} role="presentation" onClick={toggleDrawer(false)}>
       <List sx={{ marginLeft: "5px" }}>
         <ListItem>
           <div
@@ -41,7 +95,7 @@ const NavBar = () => {
           <span>Tài khoản</span>
         </ListItem>
 
-        <Link to="/home">
+        <Link to="/myReservation">
           <ListItem sx={{ color: "#003c43" }}>
             <i className="fa-solid fa-hotel mr-2"></i>
             <span>Đặt phòng của tôi</span>
@@ -54,18 +108,52 @@ const NavBar = () => {
         </ListItem>
 
         <Link to="/login">
-          <ListItem sx={{ color: "#003c43" }}>
+          <ListItem sx={{ color: "#003c43", fontWeight: "bold" }}>
             <i className="fa-solid fa-arrow-right-from-bracket mr-2"></i>
             <span>Đăng xuất</span>
           </ListItem>
         </Link>
       </List>
       <Divider />
+      <List sx={{ marginLeft: "5px" }}>
+        <ListItem
+          sx={{
+            bgcolor: "whitesmoke",
+            borderRadius: "8px",
+          }}
+        >
+          <Link
+            to="discount"
+            className="text-dark text-decoration-none d-flex align-items-center"
+            style={{
+              fontSize: "16px",
+              cursor: "pointer",
+            }}
+          >
+            <i className="fas fa-gift mr-2"></i>
+            Ưu đãi
+          </Link>
+        </ListItem>
+      </List>
+
+      <List sx={{ marginLeft: "5px" }}>
+        <ListItem sx={{ fontWeight: "bold" }}>Danh mục khách sạn</ListItem>
+        {hotelList.map((hotel) => (
+          <ListItem
+            className="dropdown-item py-2 rounded mb-1"
+            key={hotel.sn}
+            style={{
+              fontSize: "14px",
+              cursor: "pointer",
+            }}
+            onClick={() => showAllHotels(hotel.title)}
+          >
+            {hotel.title}
+          </ListItem>
+        ))}
+      </List>
     </Box>
   );
-
-  const [hotelList, setHotelList] = useState<Hotel[]>([]);
-  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -87,19 +175,95 @@ const NavBar = () => {
     navigate(`/hotel-list?hotel_type=${hotelType}`);
   };
 
+  useEffect(() => {
+    axios
+      .get("http://localhost:3000/cities")
+      .then((response) => {
+        const citiesData: City[] = response.data;
+        setCities(citiesData);
+      })
+      .catch((error) => {
+        console.error("Error fetching cities:", error);
+      });
+  }, []);
+
+  const handleCityChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    const cityId = parseInt(event.target.value);
+    setSelectedCity(cityId);
+    setDistricts([]);
+    axios
+      .get(`http://localhost:3000/districts?cityId=${cityId}`)
+      .then((response) => {
+        const districtsData: District[] = response.data;
+        setDistricts(districtsData);
+      })
+      .catch((error) => {
+        console.error("Error fetching districts:", error);
+      });
+  };
+
+  const handleDistrictChange = (
+    event: React.ChangeEvent<HTMLSelectElement>
+  ) => {
+    const districtName = event.target.value;
+    setSelectedDistrict(districtName);
+    setLocation(districtName);
+  };
+
+  const handleShow = (location: string) => {
+    navigate(`/hotel-list?district_name=${location}`);
+  };
+
+  const handleScroll = () => {
+    const searchBar = document.querySelector(".search_on_navbar");
+    if (searchBar) {
+      let scrollPosition;
+      if (window.innerWidth >= 992) {
+        scrollPosition = document.documentElement.scrollTop;
+        if (scrollPosition > 300) {
+          searchBar.classList.add("fade-in-nav");
+          searchBar.classList.remove("fade-out-nav");
+        } else {
+          searchBar.classList.remove("fade-in-nav");
+          searchBar.classList.add("fade-out-nav");
+        }
+      } else {
+        scrollPosition =
+          document.documentElement.scrollTop || document.body.scrollTop;
+        if (scrollPosition > 100) {
+          searchBar.classList.add("fade-in-nav");
+          searchBar.classList.remove("fade-out-nav");
+        } else {
+          searchBar.classList.remove("fade-in-nav");
+          searchBar.classList.add("fade-out-nav");
+        }
+      }
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
-    <nav className="fixed-top bg-white shadow-sm py-2">
-      <div className="container col-11 px-lg-5 d-flex justify-content-between align-items-center">
+    <nav className="fixed-top bg-white shadow">
+      <div
+        className="container col-11 px-md-5 px-sm-4 px-0 d-flex justify-content-between align-items-center"
+        style={{ height: "65px" }}
+      >
         <div className="d-flex align-items-center">
           <Link to="home">
             <img
               src="./public/images/logo.png"
               alt="logo"
               width={70}
-              className="mr-3"
+              className="mr-0 mr-lg-3"
             />
           </Link>
-          <div className="d-flex">
+          <div className="d-lg-flex d-md-none d-sm-none d-none">
             <Link
               to="discount"
               className="mx-2 text-dark text-decoration-none d-flex align-items-center"
@@ -129,7 +293,7 @@ const NavBar = () => {
                   <div
                     className="dropdown-item py-2 rounded mb-1"
                     key={hotel.sn}
-                    style={{ fontSize: "14px" }}
+                    style={{ fontSize: "14px", cursor: "pointer" }}
                     onClick={() => showAllHotels(hotel.title)}
                   >
                     {hotel.title}
@@ -137,17 +301,29 @@ const NavBar = () => {
                 ))}
               </div>
             </div>
-            <Link to="roomDetail" className="mx-2 text-decoration-none">
-            Room Detail
-          </Link>
-          <Link to="loginFirebase" className="mx-2 text-decoration-none">
-            Login Logout with Firebase
-          </Link>
-        </div>
+          </div>
         </div>
 
-        <div className="d-flex align-items-center collapse">
-          <div className="dropdown d-lg-block d-md-block d-sm-none">
+        <div
+          className="search_on_navbar align-items-center d-flex d-sm-flex border rounded-pill p-2 pl-3"
+          onClick={handleOpen}
+        >
+          Bạn muốn đi đâu?
+          <div
+            className="text-white rounded-circle d-flex align-items-center justify-content-center ml-3"
+            style={{
+              backgroundColor: "#003c43",
+              width: "35px",
+              height: "35px",
+              cursor: "pointer",
+            }}
+          >
+            <i className="fa-solid fa-magnifying-glass"></i>
+          </div>
+        </div>
+
+        <div className="align-items-center d-none d-sm-none d-md-none d-lg-flex">
+          <div className="dropdown">
             <button
               className="btn text-capitalize d-flex align-items-center"
               type="button"
@@ -174,132 +350,165 @@ const NavBar = () => {
               </a>
             </div>
           </div>
-          <div className="dropdown dropstart d-lg-block d-md-block d-sm-none">
-            <button
-              className="btn text-capitalize"
-              type="button"
-              data-toggle="dropdown"
-              aria-expanded="false"
-              style={{ fontSize: "14px", letterSpacing: "0" }}
-            >
-              <div
-                className="rounded-circle text-white d-flex align-items-center justify-content-center"
-                style={{
-                  width: "35px",
-                  height: "35px",
-                  backgroundColor: "#003c43",
-                }}
+          {user ? (
+            <div className="dropdown dropstart">
+              <button
+                className="btn px-2"
+                type="button"
+                data-toggle="dropdown"
+                aria-expanded="false"
+                style={{ fontSize: "14px" }}
               >
-                N
-              </div>
-            </button>
-            <ul className="dropdown-menu mt-2">
-              <li
-                className="dropdown-item"
-                style={{ borderBottom: "1px solid gray" }}
-              >
-                <h6>Nguyễn Văn A</h6>
-                <i className="fa-solid fa-phone"></i>(+84) 818512944
-              </li>
-              <li>
-                <a className="dropdown-item py-2 my-2" href="">
-                  <i className="fa-regular fa-circle-user mr-2"></i> Tài khoản
-                </a>
-              </li>
-              <li>
-                <a className="dropdown-item py-2 my-2" href="">
-                  <i className="fa-solid fa-clock-rotate-left mr-2"></i> Đặt
-                  phòng của tôi
-                </a>
-              </li>
-              <li>
-                <a className="dropdown-item py-2 my-2" href="">
-                  <i className="fa-regular fa-heart mr-2"></i>Danh sách yêu
-                  thích
-                </a>
-              </li>
-              <Link to="/login" className="text-decoration-none">
-                <li
-                  className="dropdown-item py-2 my-2"
-                  style={{ color: "#003c43", fontWeight: "600" }}
+                <div
+                  className="rounded-circle text-white d-flex align-items-center justify-content-center"
+                  style={{
+                    width: "35px",
+                    height: "35px",
+                    backgroundColor: "#003c43",
+                  }}
                 >
-                  <i className="fa-solid fa-arrow-right-from-bracket mr-2"></i>
-                  Đăng xuất
+                  N
+                </div>
+              </button>
+              <ul className="dropdown-menu mt-2">
+                <li
+                  className="dropdown-item"
+                  style={{ borderBottom: "1px solid gray" }}
+                >
+                  <h6>Nguyễn Văn A</h6>
+                  <i className="fa-solid fa-phone"></i>(+84) 818512944
                 </li>
-              </Link>
-            </ul>
-          </div>
+                <li>
+                  <a className="dropdown-item py-2 my-2" href="">
+                    <i className="fa-regular fa-circle-user mr-2"></i> Tài khoản
+                  </a>
+                </li>
+                <li>
+                  <Link to="/myReservation" className="dropdown-item py-2 my-2">
+                    <i className="fa-solid fa-clock-rotate-left mr-2"></i> Đặt
+                    phòng của tôi
+                  </Link>
+                </li>
+                <li>
+                  <a className="dropdown-item py-2 my-2" href="">
+                    <i className="fa-regular fa-heart mr-2"></i>Danh sách yêu
+                    thích
+                  </a>
+                </li>
+                <Link to="/home" className="text-decoration-none">
+                  <li
+                    className="dropdown-item py-2 my-2"
+                    style={{ color: "#003c43", fontWeight: "600" }}
+                    onClick={handleLogout}
+                  >
+                    <i className="fa-solid fa-arrow-right-from-bracket mr-2"></i>
+                    Đăng xuất
+                  </li>
+                </Link>
+              </ul>
+            </div>
+          ) : (
+            <a href="/login_logout">Đăng nhập</a>
+          )}
         </div>
 
-        <div className="d-sm-flex align-items-center d-lg-none d-md-none d-sm-block">
-          <div className="dropdown d-lg-none d-md-none d-sm-block">
-            <button
-              className="btn text-capitalize d-flex align-items-center"
-              type="button"
-              data-toggle="dropdown"
-              aria-expanded="false"
-              style={{ fontSize: "14px", letterSpacing: "0" }}
-            >
-              <img
-                src="https://go2joy.vn/_nuxt/vn-flag.98e62614.svg"
-                alt="vietnam_flag"
-                style={{ marginRight: "6px" }}
-              />
-              VN
-            </button>
-            <div className="dropdown-menu mt-2">
-              <a
-                className="dropdown-item py-2 my-1 d-inline-flex align-items-center"
-                href=""
-              >
-                <img
-                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Flag_of_the_United_Kingdom_%283-5%29.svg/1920px-Flag_of_the_United_Kingdom_%283-5%29.svg.png"
-                  alt="UK"
-                  width={20}
-                  className="mr-2"
-                />
-                EN
-              </a>
-              <a
-                className="dropdown-item py-2 my-1 d-inline-flex align-items-center"
-                href=""
-              >
-                <img
-                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Flag_of_the_People%27s_Republic_of_China.svg/1280px-Flag_of_the_People%27s_Republic_of_China.svg.png"
-                  alt="UK"
-                  width={20}
-                  className="mr-2"
-                />
-                CN
-              </a>
-              <a
-                className="dropdown-item py-2 my-1 d-inline-flex align-items-center"
-                href=""
-              >
-                <img
-                  src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Bandera_de_Espa%C3%B1a.svg/1280px-Bandera_de_Espa%C3%B1a.svg.png"
-                  alt="UK"
-                  width={20}
-                  className="mr-2"
-                />
-                ES
-              </a>
-            </div>
-          </div>
-          <button
-            className="btn"
-            style={{
-              outline: "1px solid #003c43",
-              fontSize: "18px",
-            }}
-            onClick={toggleDrawer(true)}
-          >
-            <i className="fa-solid fa-bars"></i>
-          </button>
-        </div>
+        <button
+          className="btn px-2 d-lg-none d-md-block d-sm-block"
+          style={{
+            fontSize: "25px",
+            color: "#003c43",
+          }}
+          onClick={toggleDrawer(true)}
+        >
+          <i className="fa-solid fa-bars"></i>
+        </button>
+
         <Drawer open={open} onClose={toggleDrawer(false)} anchor="right">
           {DrawerList}
         </Drawer>
+      </div>
+
+      <div>
+        <Modal
+          open={openModal}
+          onClose={handleClose}
+          aria-labelledby="modal-modal-title"
+          aria-describedby="modal-modal-description"
+        >
+          <Box sx={style}>
+            <div className="d-flex flex-column d-sm-flex d-md-none bg-white rounded">
+              <div className="d-flex p-lg-0 mb-3 mr-lg-3">
+                <div
+                  className="d-flex align-items-center px-1 py-2 justify-content-center text-white rounded-left w-100"
+                  style={{ backgroundColor: "#003c43", textWrap: "nowrap" }}
+                >
+                  <i
+                    className="fa-solid fa-location-dot mr-3"
+                    style={{ color: "#F4C622" }}
+                  ></i>
+                  Bạn muốn đi đâu?
+                </div>
+                <select
+                  id="city"
+                  value={selectedCity !== null ? selectedCity : ""}
+                  onChange={handleCityChange}
+                  className="pl-2"
+                >
+                  <option value="">Tỉnh/Thành phố</option>
+                  {cities.map((city) => (
+                    <option key={city.id} value={city.id}>
+                      {city.name}
+                    </option>
+                  ))}
+                </select>
+              </div>
+
+              <div className="d-flex mb-3 mr-lg-3">
+                <div
+                  className="d-flex align-items-center py-2 px-5 text-white rounded-left"
+                  style={{ backgroundColor: "#003c43", textWrap: "nowrap" }}
+                >
+                  <i
+                    className="fa-solid fa-location-crosshairs mr-3"
+                    style={{ color: "#F4C622" }}
+                  ></i>
+                  Khu vực:
+                </div>
+                <select
+                  id="district"
+                  value={selectedDistrict !== null ? selectedDistrict : ""}
+                  onChange={handleDistrictChange}
+                  disabled={!selectedCity}
+                  className="pl-2"
+                  style={{ width: "170px" }}
+                >
+                  <option value="">Quận/Huyện</option>
+                  {districts.map((district) => (
+                    <option
+                      key={district.districtId}
+                      value={district.districtName}
+                    >
+                      {district.districtName}
+                    </option>
+                  ))}
+                </select>
+              </div>
+
+              <button
+                disabled={!location || !selectedCity}
+                className="text-white px-4 rounded btn"
+                style={{
+                  backgroundColor: "#003c43",
+                  textWrap: "nowrap",
+                  fontSize: "16px",
+                }}
+                onClick={() => handleShow(location)}
+              >
+                <i className="fa-solid fa-magnifying-glass mr-2"></i>Tìm kiếm
+              </button>
+            </div>
+          </Box>
+        </Modal>
       </div>
     </nav>
   );

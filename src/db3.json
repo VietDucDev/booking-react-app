@@ -5627,11 +5627,26 @@
       "sn": 733,
       "name": "BIN BIN 5 HOTEL",
       "facilityList": [
-        { "sn": 27, "name": "Thang máy" },
-        { "sn": 188, "name": "Wi-Fi miễn phí" },
-        { "sn": 69, "name": "Điều hoà" },
-        { "sn": 33, "name": "Bãi đỗ xe ô tô" },
-        { "sn": 91, "name": "Truyền hình cáp" }
+        {
+          "sn": 27,
+          "name": "Thang máy"
+        },
+        {
+          "sn": 188,
+          "name": "Wi-Fi miễn phí"
+        },
+        {
+          "sn": 69,
+          "name": "Điều hoà"
+        },
+        {
+          "sn": 33,
+          "name": "Bãi đỗ xe ô tô"
+        },
+        {
+          "sn": 91,
+          "name": "Truyền hình cáp"
+        }
       ],
       "originPrice": 150000,
       "discountPrice": 150000,
@@ -5694,9 +5709,18 @@
       "sn": 716,
       "name": "BIN BIN 1 HOTEL",
       "facilityList": [
-        { "sn": 27, "name": "Thang máy" },
-        { "sn": 188, "name": "Wi-Fi miễn phí" },
-        { "sn": 33, "name": "Bãi đỗ xe ô tô" }
+        {
+          "sn": 27,
+          "name": "Thang máy"
+        },
+        {
+          "sn": 188,
+          "name": "Wi-Fi miễn phí"
+        },
+        {
+          "sn": 33,
+          "name": "Bãi đỗ xe ô tô"
+        }
       ],
       "originPrice": 150000,
       "discountPrice": 150000,
@@ -5748,8 +5772,14 @@
       "sn": 718,
       "name": "BIN BIN 3 HOTEL",
       "facilityList": [
-        { "sn": 188, "name": "Wi-Fi miễn phí" },
-        { "sn": 33, "name": "Bãi đỗ xe ô tô" }
+        {
+          "sn": 188,
+          "name": "Wi-Fi miễn phí"
+        },
+        {
+          "sn": 33,
+          "name": "Bãi đỗ xe ô tô"
+        }
       ],
       "originPrice": 250000,
       "discountPrice": 250000,
@@ -5872,7 +5902,12 @@
     {
       "sn": 2601,
       "name": "PARK HILL HOTEL",
-      "facilityList": [{ "sn": 188, "name": "Wi-Fi miễn phí" }],
+      "facilityList": [
+        {
+          "sn": 188,
+          "name": "Wi-Fi miễn phí"
+        }
+      ],
       "originPrice": 260000,
       "discountPrice": 260000,
       "averageMark": 4.9,
@@ -5932,18 +5967,54 @@
       "sn": 12766,
       "name": "LA BONITA HOTEL & APARTMENT",
       "facilityList": [
-        { "sn": 198, "name": "TV" },
-        { "sn": 230, "name": "Ghế sofa" },
-        { "sn": 27, "name": "Thang máy" },
-        { "sn": 188, "name": "Wi-Fi miễn phí" },
-        { "sn": 548, "name": "Tủ lạnh" },
-        { "sn": 351, "name": "Máy sấy tóc" },
-        { "sn": 69, "name": "Điều hoà" },
-        { "sn": 141, "name": "Bàn là" },
-        { "sn": 199, "name": "Ấm siêu tốc" },
-        { "sn": 122, "name": "Lễ tân 24/24" },
-        { "sn": 275, "name": "Tủ lạnh nhỏ trong phòng" },
-        { "sn": 267, "name": "Bãi đỗ xe [tại chỗ]" }
+        {
+          "sn": 198,
+          "name": "TV"
+        },
+        {
+          "sn": 230,
+          "name": "Ghế sofa"
+        },
+        {
+          "sn": 27,
+          "name": "Thang máy"
+        },
+        {
+          "sn": 188,
+          "name": "Wi-Fi miễn phí"
+        },
+        {
+          "sn": 548,
+          "name": "Tủ lạnh"
+        },
+        {
+          "sn": 351,
+          "name": "Máy sấy tóc"
+        },
+        {
+          "sn": 69,
+          "name": "Điều hoà"
+        },
+        {
+          "sn": 141,
+          "name": "Bàn là"
+        },
+        {
+          "sn": 199,
+          "name": "Ấm siêu tốc"
+        },
+        {
+          "sn": 122,
+          "name": "Lễ tân 24/24"
+        },
+        {
+          "sn": 275,
+          "name": "Tủ lạnh nhỏ trong phòng"
+        },
+        {
+          "sn": 267,
+          "name": "Bãi đỗ xe [tại chỗ]"
+        }
       ],
       "originPrice": 350000,
       "discountPrice": 300000,
@@ -6126,12 +6197,30 @@
       "sn": 13009,
       "name": "CHILL HOTEL",
       "facilityList": [
-        { "sn": 97, "name": "Smart TV" },
-        { "sn": 123, "name": "Bồn tắm" },
-        { "sn": 777, "name": "Giường King" },
-        { "sn": 778, "name": "Gương trần" },
-        { "sn": 98, "name": "Ghế tình yêu" },
-        { "sn": 684, "name": "Phòng tắm đứng" }
+        {
+          "sn": 97,
+          "name": "Smart TV"
+        },
+        {
+          "sn": 123,
+          "name": "Bồn tắm"
+        },
+        {
+          "sn": 777,
+          "name": "Giường King"
+        },
+        {
+          "sn": 778,
+          "name": "Gương trần"
+        },
+        {
+          "sn": 98,
+          "name": "Ghế tình yêu"
+        },
+        {
+          "sn": 684,
+          "name": "Phòng tắm đứng"
+        }
       ],
       "originPrice": 79000,
       "discountPrice": 79000,
@@ -6251,8 +6340,14 @@
       "sn": 1103,
       "name": "NHÀ SAIGON HOMESTAY & COFFEE",
       "facilityList": [
-        { "sn": 350, "name": "Bếp đầy đủ" },
-        { "sn": 329, "name": "Ban công/sân hiên" }
+        {
+          "sn": 350,
+          "name": "Bếp đầy đủ"
+        },
+        {
+          "sn": 329,
+          "name": "Ban công/sân hiên"
+        }
       ],
       "originPrice": 195000,
       "discountPrice": 195000,
@@ -6426,13 +6521,34 @@
       "sn": 804,
       "name": "EDEN ROC HOTEL",
       "facilityList": [
-        { "sn": 27, "name": "Thang máy" },
-        { "sn": 188, "name": "Wi-Fi miễn phí" },
-        { "sn": 33, "name": "Bãi đỗ xe ô tô" },
-        { "sn": 91, "name": "Truyền hình cáp" },
-        { "sn": 122, "name": "Lễ tân 24/24" },
-        { "sn": 37, "name": "Phòng không hút thuốc" },
-        { "sn": 771, "name": "NHÀ VỆ SINH NGOÀI PHÒNG" }
+        {
+          "sn": 27,
+          "name": "Thang máy"
+        },
+        {
+          "sn": 188,
+          "name": "Wi-Fi miễn phí"
+        },
+        {
+          "sn": 33,
+          "name": "Bãi đỗ xe ô tô"
+        },
+        {
+          "sn": 91,
+          "name": "Truyền hình cáp"
+        },
+        {
+          "sn": 122,
+          "name": "Lễ tân 24/24"
+        },
+        {
+          "sn": 37,
+          "name": "Phòng không hút thuốc"
+        },
+        {
+          "sn": 771,
+          "name": "NHÀ VỆ SINH NGOÀI PHÒNG"
+        }
       ],
       "originPrice": 150000,
       "discountPrice": 150000,
@@ -6492,8 +6608,14 @@
       "sn": 3938,
       "name": "EDEN HOTEL BÌNH THẠNH",
       "facilityList": [
-        { "sn": 27, "name": "Thang máy" },
-        { "sn": 188, "name": "Wi-Fi miễn phí" }
+        {
+          "sn": 27,
+          "name": "Thang máy"
+        },
+        {
+          "sn": 188,
+          "name": "Wi-Fi miễn phí"
+        }
       ],
       "originPrice": 130000,
       "discountPrice": 130000,
@@ -6727,9 +6849,18 @@
       "sn": 17026,
       "name": "PHƯƠNG LINH 2 HOTEL",
       "facilityList": [
-        { "sn": 638, "name": "netflix" },
-        { "sn": 135, "name": "Phòng xông hơi khô" },
-        { "sn": 458, "name": "Phòng xông hơi ướt" }
+        {
+          "sn": 638,
+          "name": "netflix"
+        },
+        {
+          "sn": 135,
+          "name": "Phòng xông hơi khô"
+        },
+        {
+          "sn": 458,
+          "name": "Phòng xông hơi ướt"
+        }
       ],
       "originPrice": 90000,
       "discountPrice": 90000,
@@ -6789,7 +6920,12 @@
     {
       "sn": 4772,
       "name": "HAI HOTEL",
-      "facilityList": [{ "sn": 214, "name": "Cửa sổ" }],
+      "facilityList": [
+        {
+          "sn": 214,
+          "name": "Cửa sổ"
+        }
+      ],
       "originPrice": 100000,
       "discountPrice": 100000,
       "averageMark": 4.7,
@@ -6840,12 +6976,30 @@
       "sn": 2407,
       "name": "TRÀNG AN HOTEL",
       "facilityList": [
-        { "sn": 27, "name": "Thang máy" },
-        { "sn": 188, "name": "Wi-Fi miễn phí" },
-        { "sn": 36, "name": "Phòng gia đình" },
-        { "sn": 69, "name": "Điều hoà" },
-        { "sn": 122, "name": "Lễ tân 24/24" },
-        { "sn": 37, "name": "Phòng không hút thuốc" }
+        {
+          "sn": 27,
+          "name": "Thang máy"
+        },
+        {
+          "sn": 188,
+          "name": "Wi-Fi miễn phí"
+        },
+        {
+          "sn": 36,
+          "name": "Phòng gia đình"
+        },
+        {
+          "sn": 69,
+          "name": "Điều hoà"
+        },
+        {
+          "sn": 122,
+          "name": "Lễ tân 24/24"
+        },
+        {
+          "sn": 37,
+          "name": "Phòng không hút thuốc"
+        }
       ],
       "originPrice": 180000,
       "discountPrice": 180000,
@@ -6969,9 +7123,18 @@
       "sn": 12606,
       "name": "LÁ RIVERSIDE THANH ĐA",
       "facilityList": [
-        { "sn": 97, "name": "Smart TV" },
-        { "sn": 123, "name": "Bồn tắm" },
-        { "sn": 188, "name": "Wi-Fi miễn phí" }
+        {
+          "sn": 97,
+          "name": "Smart TV"
+        },
+        {
+          "sn": 123,
+          "name": "Bồn tắm"
+        },
+        {
+          "sn": 188,
+          "name": "Wi-Fi miễn phí"
+        }
       ],
       "originPrice": 150000,
       "discountPrice": 150000,
@@ -7095,10 +7258,22 @@
       "sn": 4517,
       "name": "BÌNH HƯNG HOTEL",
       "facilityList": [
-        { "sn": 123, "name": "Bồn tắm" },
-        { "sn": 31, "name": "Két sắt" },
-        { "sn": 188, "name": "Wi-Fi miễn phí" },
-        { "sn": 98, "name": "Ghế tình yêu" }
+        {
+          "sn": 123,
+          "name": "Bồn tắm"
+        },
+        {
+          "sn": 31,
+          "name": "Két sắt"
+        },
+        {
+          "sn": 188,
+          "name": "Wi-Fi miễn phí"
+        },
+        {
+          "sn": 98,
+          "name": "Ghế tình yêu"
+        }
       ],
       "originPrice": 100000,
       "discountPrice": 100000,
@@ -7161,8 +7336,14 @@
       "sn": 3719,
       "name": "THY THY VÂN",
       "facilityList": [
-        { "sn": 123, "name": "Bồn tắm" },
-        { "sn": 98, "name": "Ghế tình yêu" }
+        {
+          "sn": 123,
+          "name": "Bồn tắm"
+        },
+        {
+          "sn": 98,
+          "name": "Ghế tình yêu"
+        }
       ],
       "originPrice": 120000,
       "discountPrice": 60000,
@@ -7214,10 +7395,22 @@
       "sn": 3043,
       "name": "NGỌC HOA MAI HOTEL",
       "facilityList": [
-        { "sn": 187, "name": "Ban công/sân hiên" },
-        { "sn": 773, "name": "Phòng lớn" },
-        { "sn": 772, "name": "Tivi internet" },
-        { "sn": 199, "name": "Ấm siêu tốc" }
+        {
+          "sn": 187,
+          "name": "Ban công/sân hiên"
+        },
+        {
+          "sn": 773,
+          "name": "Phòng lớn"
+        },
+        {
+          "sn": 772,
+          "name": "Tivi internet"
+        },
+        {
+          "sn": 199,
+          "name": "Ấm siêu tốc"
+        }
       ],
       "originPrice": 140000,
       "discountPrice": 65000,
@@ -7280,12 +7473,30 @@
       "sn": 720,
       "name": "CỰU KIM SƠN HOTEL",
       "facilityList": [
-        { "sn": 97, "name": "Smart TV" },
-        { "sn": 188, "name": "Wi-Fi miễn phí" },
-        { "sn": 33, "name": "Bãi đỗ xe ô tô" },
-        { "sn": 91, "name": "Truyền hình cáp" },
-        { "sn": 122, "name": "Lễ tân 24/24" },
-        { "sn": 152, "name": "Dịch vụ trông trẻ|Look after kids" }
+        {
+          "sn": 97,
+          "name": "Smart TV"
+        },
+        {
+          "sn": 188,
+          "name": "Wi-Fi miễn phí"
+        },
+        {
+          "sn": 33,
+          "name": "Bãi đỗ xe ô tô"
+        },
+        {
+          "sn": 91,
+          "name": "Truyền hình cáp"
+        },
+        {
+          "sn": 122,
+          "name": "Lễ tân 24/24"
+        },
+        {
+          "sn": 152,
+          "name": "Dịch vụ trông trẻ|Look after kids"
+        }
       ],
       "originPrice": 200000,
       "discountPrice": 200000,
@@ -7403,13 +7614,34 @@
       "sn": 169,
       "name": "HƯNG HƯƠNG HOTEL",
       "facilityList": [
-        { "sn": 27, "name": "Thang máy" },
-        { "sn": 59, "name": "Ăn sáng" },
-        { "sn": 30, "name": "Nhà hàng" },
-        { "sn": 36, "name": "Phòng gia đình" },
-        { "sn": 33, "name": "Bãi đỗ xe ô tô" },
-        { "sn": 37, "name": "Phòng không hút thuốc" },
-        { "sn": 26, "name": "Dịch vụ lưu trữ/bảo quản hành lý" },
+        {
+          "sn": 27,
+          "name": "Thang máy"
+        },
+        {
+          "sn": 59,
+          "name": "Ăn sáng"
+        },
+        {
+          "sn": 30,
+          "name": "Nhà hàng"
+        },
+        {
+          "sn": 36,
+          "name": "Phòng gia đình"
+        },
+        {
+          "sn": 33,
+          "name": "Bãi đỗ xe ô tô"
+        },
+        {
+          "sn": 37,
+          "name": "Phòng không hút thuốc"
+        },
+        {
+          "sn": 26,
+          "name": "Dịch vụ lưu trữ/bảo quản hành lý"
+        },
         {
           "sn": 789,
           "name": "Miễn phí ăn sáng cho khách book Overnight và Daily"
@@ -7515,13 +7747,34 @@
       "sn": 3060,
       "name": "SPRING HÙNG ANH HOTEL",
       "facilityList": [
-        { "sn": 97, "name": "Smart TV" },
-        { "sn": 27, "name": "Thang máy" },
-        { "sn": 188, "name": "Wi-Fi miễn phí" },
-        { "sn": 69, "name": "Điều hoà" },
-        { "sn": 98, "name": "Ghế tình yêu" },
-        { "sn": 33, "name": "Bãi đỗ xe ô tô" },
-        { "sn": 122, "name": "Lễ tân 24/24" }
+        {
+          "sn": 97,
+          "name": "Smart TV"
+        },
+        {
+          "sn": 27,
+          "name": "Thang máy"
+        },
+        {
+          "sn": 188,
+          "name": "Wi-Fi miễn phí"
+        },
+        {
+          "sn": 69,
+          "name": "Điều hoà"
+        },
+        {
+          "sn": 98,
+          "name": "Ghế tình yêu"
+        },
+        {
+          "sn": 33,
+          "name": "Bãi đỗ xe ô tô"
+        },
+        {
+          "sn": 122,
+          "name": "Lễ tân 24/24"
+        }
       ],
       "originPrice": 100000,
       "discountPrice": 100000,
@@ -7680,12 +7933,30 @@
       "sn": 621,
       "name": "NHẬT MINH ANH HOTEL",
       "facilityList": [
-        { "sn": 27, "name": "Thang máy" },
-        { "sn": 188, "name": "Wi-Fi miễn phí" },
-        { "sn": 69, "name": "Điều hoà" },
-        { "sn": 33, "name": "Bãi đỗ xe ô tô" },
-        { "sn": 91, "name": "Truyền hình cáp" },
-        { "sn": 122, "name": "Lễ tân 24/24" }
+        {
+          "sn": 27,
+          "name": "Thang máy"
+        },
+        {
+          "sn": 188,
+          "name": "Wi-Fi miễn phí"
+        },
+        {
+          "sn": 69,
+          "name": "Điều hoà"
+        },
+        {
+          "sn": 33,
+          "name": "Bãi đỗ xe ô tô"
+        },
+        {
+          "sn": 91,
+          "name": "Truyền hình cáp"
+        },
+        {
+          "sn": 122,
+          "name": "Lễ tân 24/24"
+        }
       ],
       "originPrice": 100000,
       "discountPrice": 100000,
@@ -7736,11 +8007,26 @@
       "sn": 1960,
       "name": "HÙNG ANH HOTEL",
       "facilityList": [
-        { "sn": 27, "name": "Thang máy" },
-        { "sn": 188, "name": "Wi-Fi miễn phí" },
-        { "sn": 69, "name": "Điều hoà" },
-        { "sn": 33, "name": "Bãi đỗ xe ô tô" },
-        { "sn": 122, "name": "Lễ tân 24/24" }
+        {
+          "sn": 27,
+          "name": "Thang máy"
+        },
+        {
+          "sn": 188,
+          "name": "Wi-Fi miễn phí"
+        },
+        {
+          "sn": 69,
+          "name": "Điều hoà"
+        },
+        {
+          "sn": 33,
+          "name": "Bãi đỗ xe ô tô"
+        },
+        {
+          "sn": 122,
+          "name": "Lễ tân 24/24"
+        }
       ],
       "originPrice": 70000,
       "discountPrice": 70000,
@@ -7781,11 +8067,26 @@
       "sn": 664,
       "name": "THANH HỒNG HOTEL",
       "facilityList": [
-        { "sn": 27, "name": "Thang máy" },
-        { "sn": 188, "name": "Wi-Fi miễn phí" },
-        { "sn": 33, "name": "Bãi đỗ xe ô tô" },
-        { "sn": 91, "name": "Truyền hình cáp" },
-        { "sn": 122, "name": "Lễ tân 24/24" }
+        {
+          "sn": 27,
+          "name": "Thang máy"
+        },
+        {
+          "sn": 188,
+          "name": "Wi-Fi miễn phí"
+        },
+        {
+          "sn": 33,
+          "name": "Bãi đỗ xe ô tô"
+        },
+        {
+          "sn": 91,
+          "name": "Truyền hình cáp"
+        },
+        {
+          "sn": 122,
+          "name": "Lễ tân 24/24"
+        }
       ],
       "originPrice": 120000,
       "discountPrice": 120000,
@@ -7909,12 +8210,30 @@
       "sn": 2264,
       "name": "NARCISSUS HOTEL & APARTMENT",
       "facilityList": [
-        { "sn": 97, "name": "Smart TV" },
-        { "sn": 27, "name": "Thang máy" },
-        { "sn": 188, "name": "Wi-Fi miễn phí" },
-        { "sn": 360, "name": "Đồ dùng làm bếp" },
-        { "sn": 130, "name": "Đồ dùng làm bếp" },
-        { "sn": 171, "name": "Dịch vụ phát trực tuyến như Netflix" }
+        {
+          "sn": 97,
+          "name": "Smart TV"
+        },
+        {
+          "sn": 27,
+          "name": "Thang máy"
+        },
+        {
+          "sn": 188,
+          "name": "Wi-Fi miễn phí"
+        },
+        {
+          "sn": 360,
+          "name": "Đồ dùng làm bếp"
+        },
+        {
+          "sn": 130,
+          "name": "Đồ dùng làm bếp"
+        },
+        {
+          "sn": 171,
+          "name": "Dịch vụ phát trực tuyến như Netflix"
+        }
       ],
       "originPrice": 505000,
       "discountPrice": 505000,
@@ -7966,11 +8285,26 @@
       "sn": 544,
       "name": "A25 HOTEL - 12 PHỐ HUẾ",
       "facilityList": [
-        { "sn": 27, "name": "Thang máy" },
-        { "sn": 123, "name": "Bồn tắm" },
-        { "sn": 188, "name": "Wi-Fi miễn phí" },
-        { "sn": 69, "name": "Điều hoà" },
-        { "sn": 122, "name": "Lễ tân 24/24" }
+        {
+          "sn": 27,
+          "name": "Thang máy"
+        },
+        {
+          "sn": 123,
+          "name": "Bồn tắm"
+        },
+        {
+          "sn": 188,
+          "name": "Wi-Fi miễn phí"
+        },
+        {
+          "sn": 69,
+          "name": "Điều hoà"
+        },
+        {
+          "sn": 122,
+          "name": "Lễ tân 24/24"
+        }
       ],
       "originPrice": 220000,
       "discountPrice": 220000,
@@ -8022,9 +8356,18 @@
       "sn": 3066,
       "name": "A25 HOTEL - 15 TRẦN QUỐC TOẢN",
       "facilityList": [
-        { "sn": 97, "name": "Smart TV" },
-        { "sn": 188, "name": "Wi-Fi miễn phí" },
-        { "sn": 122, "name": "Lễ tân 24/24" }
+        {
+          "sn": 97,
+          "name": "Smart TV"
+        },
+        {
+          "sn": 188,
+          "name": "Wi-Fi miễn phí"
+        },
+        {
+          "sn": 122,
+          "name": "Lễ tân 24/24"
+        }
       ],
       "originPrice": 250000,
       "discountPrice": 250000,
@@ -8082,10 +8425,22 @@
       "sn": 1360,
       "name": "SERENITY DIAMOND HOTEL",
       "facilityList": [
-        { "sn": 97, "name": "Smart TV" },
-        { "sn": 188, "name": "Wi-Fi miễn phí" },
-        { "sn": 122, "name": "Lễ tân 24/24" },
-        { "sn": 824, "name": "TV sử dụng cable" }
+        {
+          "sn": 97,
+          "name": "Smart TV"
+        },
+        {
+          "sn": 188,
+          "name": "Wi-Fi miễn phí"
+        },
+        {
+          "sn": 122,
+          "name": "Lễ tân 24/24"
+        },
+        {
+          "sn": 824,
+          "name": "TV sử dụng cable"
+        }
       ],
       "originPrice": 250000,
       "discountPrice": 250000,
@@ -8148,14 +8503,38 @@
       "sn": 1671,
       "name": "A25 HOTEL - 19 Chả Cá",
       "facilityList": [
-        { "sn": 97, "name": "Smart TV" },
-        { "sn": 189, "name": "Mini bar" },
-        { "sn": 27, "name": "Thang máy" },
-        { "sn": 188, "name": "Wi-Fi miễn phí" },
-        { "sn": 69, "name": "Điều hoà" },
-        { "sn": 122, "name": "Lễ tân 24/24" },
-        { "sn": 134, "name": "Bình nóng lạnh" },
-        { "sn": 275, "name": "Tủ lạnh nhỏ trong phòng" }
+        {
+          "sn": 97,
+          "name": "Smart TV"
+        },
+        {
+          "sn": 189,
+          "name": "Mini bar"
+        },
+        {
+          "sn": 27,
+          "name": "Thang máy"
+        },
+        {
+          "sn": 188,
+          "name": "Wi-Fi miễn phí"
+        },
+        {
+          "sn": 69,
+          "name": "Điều hoà"
+        },
+        {
+          "sn": 122,
+          "name": "Lễ tân 24/24"
+        },
+        {
+          "sn": 134,
+          "name": "Bình nóng lạnh"
+        },
+        {
+          "sn": 275,
+          "name": "Tủ lạnh nhỏ trong phòng"
+        }
       ],
       "originPrice": 200000,
       "discountPrice": 200000,
@@ -8200,16 +8579,46 @@
       "sn": 17196,
       "name": "THE COSY INN HANOI HOTEL",
       "facilityList": [
-        { "sn": 198, "name": "TV" },
-        { "sn": 634, "name": "Wifi" },
-        { "sn": 97, "name": "Smart TV" },
-        { "sn": 59, "name": "Ăn sáng" },
-        { "sn": 214, "name": "Cửa sổ" },
-        { "sn": 188, "name": "Wi-Fi miễn phí" },
-        { "sn": 69, "name": "Điều hoà" },
-        { "sn": 213, "name": "Bàn trang điểm" },
-        { "sn": 134, "name": "Bình nóng lạnh" },
-        { "sn": 275, "name": "Tủ lạnh nhỏ trong phòng" },
+        {
+          "sn": 198,
+          "name": "TV"
+        },
+        {
+          "sn": 634,
+          "name": "Wifi"
+        },
+        {
+          "sn": 97,
+          "name": "Smart TV"
+        },
+        {
+          "sn": 59,
+          "name": "Ăn sáng"
+        },
+        {
+          "sn": 214,
+          "name": "Cửa sổ"
+        },
+        {
+          "sn": 188,
+          "name": "Wi-Fi miễn phí"
+        },
+        {
+          "sn": 69,
+          "name": "Điều hoà"
+        },
+        {
+          "sn": 213,
+          "name": "Bàn trang điểm"
+        },
+        {
+          "sn": 134,
+          "name": "Bình nóng lạnh"
+        },
+        {
+          "sn": 275,
+          "name": "Tủ lạnh nhỏ trong phòng"
+        },
         {
           "sn": 789,
           "name": "Miễn phí ăn sáng cho khách book Overnight và Daily"
@@ -8276,11 +8685,26 @@
       "sn": 2505,
       "name": "RISING DRAGON ESTATE HOTEL",
       "facilityList": [
-        { "sn": 784, "name": "Sofa" },
-        { "sn": 830, "name": "tivi cable" },
-        { "sn": 188, "name": "Wi-Fi miễn phí" },
-        { "sn": 548, "name": "Tủ lạnh" },
-        { "sn": 69, "name": "Điều hoà" }
+        {
+          "sn": 784,
+          "name": "Sofa"
+        },
+        {
+          "sn": 830,
+          "name": "tivi cable"
+        },
+        {
+          "sn": 188,
+          "name": "Wi-Fi miễn phí"
+        },
+        {
+          "sn": 548,
+          "name": "Tủ lạnh"
+        },
+        {
+          "sn": 69,
+          "name": "Điều hoà"
+        }
       ],
       "originPrice": 180000,
       "discountPrice": 180000,
@@ -8462,9 +8886,18 @@
       "sn": 3500,
       "name": "BERYL CHARM HOTEL AND SPA",
       "facilityList": [
-        { "sn": 27, "name": "Thang máy" },
-        { "sn": 69, "name": "Điều hoà" },
-        { "sn": 169, "name": "Cửa sổ thông thoáng" }
+        {
+          "sn": 27,
+          "name": "Thang máy"
+        },
+        {
+          "sn": 69,
+          "name": "Điều hoà"
+        },
+        {
+          "sn": 169,
+          "name": "Cửa sổ thông thoáng"
+        }
       ],
       "originPrice": 500000,
       "discountPrice": 500000,
@@ -8588,11 +9021,26 @@
       "sn": 3150,
       "name": "HANOI GRAND MAISON HOTEL",
       "facilityList": [
-        { "sn": 97, "name": "Smart TV" },
-        { "sn": 27, "name": "Thang máy" },
-        { "sn": 123, "name": "Bồn tắm" },
-        { "sn": 188, "name": "Wi-Fi miễn phí" },
-        { "sn": 69, "name": "Điều hoà" }
+        {
+          "sn": 97,
+          "name": "Smart TV"
+        },
+        {
+          "sn": 27,
+          "name": "Thang máy"
+        },
+        {
+          "sn": 123,
+          "name": "Bồn tắm"
+        },
+        {
+          "sn": 188,
+          "name": "Wi-Fi miễn phí"
+        },
+        {
+          "sn": 69,
+          "name": "Điều hoà"
+        }
       ],
       "originPrice": 300000,
       "discountPrice": 300000,
@@ -8655,12 +9103,30 @@
       "sn": 2403,
       "name": "HNC PREMIER HOTEL & RESIDENCES",
       "facilityList": [
-        { "sn": 27, "name": "Thang máy" },
-        { "sn": 123, "name": "Bồn tắm" },
-        { "sn": 188, "name": "Wi-Fi miễn phí" },
-        { "sn": 360, "name": "Đồ dùng làm bếp" },
-        { "sn": 122, "name": "Lễ tân 24/24" },
-        { "sn": 130, "name": "Đồ dùng làm bếp" }
+        {
+          "sn": 27,
+          "name": "Thang máy"
+        },
+        {
+          "sn": 123,
+          "name": "Bồn tắm"
+        },
+        {
+          "sn": 188,
+          "name": "Wi-Fi miễn phí"
+        },
+        {
+          "sn": 360,
+          "name": "Đồ dùng làm bếp"
+        },
+        {
+          "sn": 122,
+          "name": "Lễ tân 24/24"
+        },
+        {
+          "sn": 130,
+          "name": "Đồ dùng làm bếp"
+        }
       ],
       "originPrice": 290000,
       "discountPrice": 290000,
@@ -8723,10 +9189,22 @@
       "sn": 2689,
       "name": "HUY HOMESTAY",
       "facilityList": [
-        { "sn": 188, "name": "Wi-Fi miễn phí" },
-        { "sn": 69, "name": "Điều hoà" },
-        { "sn": 360, "name": "Đồ dùng làm bếp" },
-        { "sn": 130, "name": "Đồ dùng làm bếp" }
+        {
+          "sn": 188,
+          "name": "Wi-Fi miễn phí"
+        },
+        {
+          "sn": 69,
+          "name": "Điều hoà"
+        },
+        {
+          "sn": 360,
+          "name": "Đồ dùng làm bếp"
+        },
+        {
+          "sn": 130,
+          "name": "Đồ dùng làm bếp"
+        }
       ],
       "originPrice": 300000,
       "discountPrice": 300000,
@@ -8778,10 +9256,22 @@
       "sn": 2532,
       "name": "MIA CASA BY SATORI",
       "facilityList": [
-        { "sn": 97, "name": "Smart TV" },
-        { "sn": 188, "name": "Wi-Fi miễn phí" },
-        { "sn": 69, "name": "Điều hoà" },
-        { "sn": 134, "name": "Bình nóng lạnh" }
+        {
+          "sn": 97,
+          "name": "Smart TV"
+        },
+        {
+          "sn": 188,
+          "name": "Wi-Fi miễn phí"
+        },
+        {
+          "sn": 69,
+          "name": "Điều hoà"
+        },
+        {
+          "sn": 134,
+          "name": "Bình nóng lạnh"
+        }
       ],
       "originPrice": 350000,
       "discountPrice": 350000,
@@ -8833,8 +9323,14 @@
       "sn": 10718,
       "name": "YR HOTEL & APARTMENT",
       "facilityList": [
-        { "sn": 198, "name": "TV" },
-        { "sn": 188, "name": "Wi-Fi miễn phí" }
+        {
+          "sn": 198,
+          "name": "TV"
+        },
+        {
+          "sn": 188,
+          "name": "Wi-Fi miễn phí"
+        }
       ],
       "originPrice": 300000,
       "discountPrice": 300000,
@@ -8870,7 +9366,7 @@
           ]
         },
         {
-          "roomName": "Studio premium with balcony",
+          "roomName": "Studio premeum with balcony",
           "price": 499000,
           "area": 22,
           "roomImages": [
@@ -8886,15 +9382,42 @@
       "sn": 3441,
       "name": "22HOUSING 39 LINH LANG",
       "facilityList": [
-        { "sn": 46, "name": "Quầy bar" },
-        { "sn": 97, "name": "Smart TV" },
-        { "sn": 123, "name": "Bồn tắm" },
-        { "sn": 188, "name": "Wi-Fi miễn phí" },
-        { "sn": 36, "name": "Phòng gia đình" },
-        { "sn": 33, "name": "Bãi đỗ xe ô tô" },
-        { "sn": 70, "name": "Đưa đón sân bay" },
-        { "sn": 37, "name": "Phòng không hút thuốc" },
-        { "sn": 177, "name": "Trung tâm Spa & chăm sóc sức khoẻ" }
+        {
+          "sn": 46,
+          "name": "Quầy bar"
+        },
+        {
+          "sn": 97,
+          "name": "Smart TV"
+        },
+        {
+          "sn": 123,
+          "name": "Bồn tắm"
+        },
+        {
+          "sn": 188,
+          "name": "Wi-Fi miễn phí"
+        },
+        {
+          "sn": 36,
+          "name": "Phòng gia đình"
+        },
+        {
+          "sn": 33,
+          "name": "Bãi đỗ xe ô tô"
+        },
+        {
+          "sn": 70,
+          "name": "Đưa đón sân bay"
+        },
+        {
+          "sn": 37,
+          "name": "Phòng không hút thuốc"
+        },
+        {
+          "sn": 177,
+          "name": "Trung tâm Spa & chăm sóc sức khoẻ"
+        }
       ],
       "originPrice": 430000,
       "discountPrice": 365500,
@@ -9077,11 +9600,26 @@
       "sn": 940,
       "name": "TRẦN GIA 2",
       "facilityList": [
-        { "sn": 140, "name": "Máy sấy tóc" },
-        { "sn": 69, "name": "Điều hoà" },
-        { "sn": 98, "name": "Ghế tình yêu" },
-        { "sn": 134, "name": "Bình nóng lạnh" },
-        { "sn": 159, "name": "Vòi sen tắm đứng" }
+        {
+          "sn": 140,
+          "name": "Máy sấy tóc"
+        },
+        {
+          "sn": 69,
+          "name": "Điều hoà"
+        },
+        {
+          "sn": 98,
+          "name": "Ghế tình yêu"
+        },
+        {
+          "sn": 134,
+          "name": "Bình nóng lạnh"
+        },
+        {
+          "sn": 159,
+          "name": "Vòi sen tắm đứng"
+        }
       ],
       "originPrice": 200000,
       "discountPrice": 200000,
@@ -9141,17 +9679,50 @@
       "sn": 16915,
       "name": "MELON HOTEL",
       "facilityList": [
-        { "sn": 97, "name": "Smart TV" },
-        { "sn": 189, "name": "Mini bar" },
-        { "sn": 123, "name": "Bồn tắm" },
-        { "sn": 188, "name": "Wi-Fi miễn phí" },
-        { "sn": 548, "name": "Tủ lạnh" },
-        { "sn": 136, "name": "Bồn tắm sục" },
-        { "sn": 180, "name": "Máy chiếu" },
-        { "sn": 69, "name": "Điều hoà" },
-        { "sn": 280, "name": "Wi-Fi [miễn phí]" },
-        { "sn": 636, "name": "Đồ chơi tình yêu" },
-        { "sn": 767, "name": "điều hòa nóng lạnh" }
+        {
+          "sn": 97,
+          "name": "Smart TV"
+        },
+        {
+          "sn": 189,
+          "name": "Mini bar"
+        },
+        {
+          "sn": 123,
+          "name": "Bồn tắm"
+        },
+        {
+          "sn": 188,
+          "name": "Wi-Fi miễn phí"
+        },
+        {
+          "sn": 548,
+          "name": "Tủ lạnh"
+        },
+        {
+          "sn": 136,
+          "name": "Bồn tắm sục"
+        },
+        {
+          "sn": 180,
+          "name": "Máy chiếu"
+        },
+        {
+          "sn": 69,
+          "name": "Điều hoà"
+        },
+        {
+          "sn": 280,
+          "name": "Wi-Fi [miễn phí]"
+        },
+        {
+          "sn": 636,
+          "name": "Đồ chơi tình yêu"
+        },
+        {
+          "sn": 767,
+          "name": "điều hòa nóng lạnh"
+        }
       ],
       "originPrice": 250000,
       "discountPrice": 250000,
@@ -9212,9 +9783,18 @@
       "sn": 2805,
       "name": "3T HOTEL & TRAVEL",
       "facilityList": [
-        { "sn": 27, "name": "Thang máy" },
-        { "sn": 188, "name": "Wi-Fi miễn phí" },
-        { "sn": 122, "name": "Lễ tân 24/24" }
+        {
+          "sn": 27,
+          "name": "Thang máy"
+        },
+        {
+          "sn": 188,
+          "name": "Wi-Fi miễn phí"
+        },
+        {
+          "sn": 122,
+          "name": "Lễ tân 24/24"
+        }
       ],
       "originPrice": 600000,
       "discountPrice": 299000,
@@ -9270,9 +9850,18 @@
       "sn": 1013,
       "name": "A25 HOTEL - 109 TRÚC BẠCH",
       "facilityList": [
-        { "sn": 27, "name": "Thang máy" },
-        { "sn": 188, "name": "Wi-Fi miễn phí" },
-        { "sn": 69, "name": "Điều hoà" }
+        {
+          "sn": 27,
+          "name": "Thang máy"
+        },
+        {
+          "sn": 188,
+          "name": "Wi-Fi miễn phí"
+        },
+        {
+          "sn": 69,
+          "name": "Điều hoà"
+        }
       ],
       "originPrice": 230000,
       "discountPrice": 230000,
@@ -9384,8 +9973,14 @@
       "sn": 2135,
       "name": "MÙA XUÂN MOTEL",
       "facilityList": [
-        { "sn": 188, "name": "Wi-Fi miễn phí" },
-        { "sn": 122, "name": "Lễ tân 24/24" }
+        {
+          "sn": 188,
+          "name": "Wi-Fi miễn phí"
+        },
+        {
+          "sn": 122,
+          "name": "Lễ tân 24/24"
+        }
       ],
       "originPrice": 100000,
       "discountPrice": 100000,
@@ -9433,9 +10028,18 @@
       "sn": 1932,
       "name": "LA BATISSE KIM MÃ HOTEL",
       "facilityList": [
-        { "sn": 97, "name": "Smart TV" },
-        { "sn": 188, "name": "Wi-Fi miễn phí" },
-        { "sn": 134, "name": "Bình nóng lạnh" }
+        {
+          "sn": 97,
+          "name": "Smart TV"
+        },
+        {
+          "sn": 188,
+          "name": "Wi-Fi miễn phí"
+        },
+        {
+          "sn": 134,
+          "name": "Bình nóng lạnh"
+        }
       ],
       "originPrice": 300000,
       "discountPrice": 235000,
@@ -9498,12 +10102,30 @@
       "sn": 1667,
       "name": "A25 HOTEL - ĐỘI CẤN 2",
       "facilityList": [
-        { "sn": 198, "name": "TV" },
-        { "sn": 46, "name": "Quầy bar" },
-        { "sn": 97, "name": "Smart TV" },
-        { "sn": 188, "name": "Wi-Fi miễn phí" },
-        { "sn": 69, "name": "Điều hoà" },
-        { "sn": 122, "name": "Lễ tân 24/24" }
+        {
+          "sn": 198,
+          "name": "TV"
+        },
+        {
+          "sn": 46,
+          "name": "Quầy bar"
+        },
+        {
+          "sn": 97,
+          "name": "Smart TV"
+        },
+        {
+          "sn": 188,
+          "name": "Wi-Fi miễn phí"
+        },
+        {
+          "sn": 69,
+          "name": "Điều hoà"
+        },
+        {
+          "sn": 122,
+          "name": "Lễ tân 24/24"
+        }
       ],
       "originPrice": 190000,
       "discountPrice": 190000,
@@ -9561,9 +10183,18 @@
       "sn": 3219,
       "name": "PHƯƠNG NHUNG MOTEL",
       "facilityList": [
-        { "sn": 188, "name": "Wi-Fi miễn phí" },
-        { "sn": 69, "name": "Điều hoà" },
-        { "sn": 122, "name": "Lễ tân 24/24" }
+        {
+          "sn": 188,
+          "name": "Wi-Fi miễn phí"
+        },
+        {
+          "sn": 69,
+          "name": "Điều hoà"
+        },
+        {
+          "sn": 122,
+          "name": "Lễ tân 24/24"
+        }
       ],
       "originPrice": 100000,
       "discountPrice": 100000,
@@ -9613,9 +10244,18 @@
       "sn": 1573,
       "name": "REGAL 2 HOTEL HÀ NỘI",
       "facilityList": [
-        { "sn": 27, "name": "Thang máy" },
-        { "sn": 188, "name": "Wi-Fi miễn phí" },
-        { "sn": 69, "name": "Điều hoà" }
+        {
+          "sn": 27,
+          "name": "Thang máy"
+        },
+        {
+          "sn": 188,
+          "name": "Wi-Fi miễn phí"
+        },
+        {
+          "sn": 69,
+          "name": "Điều hoà"
+        }
       ],
       "originPrice": 300000,
       "discountPrice": 300000,
@@ -9665,16 +10305,46 @@
       "sn": 1407,
       "name": "22HOUSING 48 PHAN KẾ BÍNH",
       "facilityList": [
-        { "sn": 97, "name": "Smart TV" },
-        { "sn": 27, "name": "Thang máy" },
-        { "sn": 188, "name": "Wi-Fi miễn phí" },
-        { "sn": 36, "name": "Phòng gia đình" },
-        { "sn": 69, "name": "Điều hoà" },
-        { "sn": 33, "name": "Bãi đỗ xe ô tô" },
-        { "sn": 122, "name": "Lễ tân 24/24" },
-        { "sn": 70, "name": "Đưa đón sân bay" },
-        { "sn": 67, "name": "Dịch vụ giặt ủi" },
-        { "sn": 37, "name": "Phòng không hút thuốc" }
+        {
+          "sn": 97,
+          "name": "Smart TV"
+        },
+        {
+          "sn": 27,
+          "name": "Thang máy"
+        },
+        {
+          "sn": 188,
+          "name": "Wi-Fi miễn phí"
+        },
+        {
+          "sn": 36,
+          "name": "Phòng gia đình"
+        },
+        {
+          "sn": 69,
+          "name": "Điều hoà"
+        },
+        {
+          "sn": 33,
+          "name": "Bãi đỗ xe ô tô"
+        },
+        {
+          "sn": 122,
+          "name": "Lễ tân 24/24"
+        },
+        {
+          "sn": 70,
+          "name": "Đưa đón sân bay"
+        },
+        {
+          "sn": 67,
+          "name": "Dịch vụ giặt ủi"
+        },
+        {
+          "sn": 37,
+          "name": "Phòng không hút thuốc"
+        }
       ],
       "originPrice": 370000,
       "discountPrice": 370000,
@@ -9737,10 +10407,22 @@
       "sn": 2080,
       "name": "VINHOMES SKYLAKE APARTMENT",
       "facilityList": [
-        { "sn": 27, "name": "Thang máy" },
-        { "sn": 188, "name": "Wi-Fi miễn phí" },
-        { "sn": 69, "name": "Điều hoà" },
-        { "sn": 130, "name": "Đồ dùng làm bếp" }
+        {
+          "sn": 27,
+          "name": "Thang máy"
+        },
+        {
+          "sn": 188,
+          "name": "Wi-Fi miễn phí"
+        },
+        {
+          "sn": 69,
+          "name": "Điều hoà"
+        },
+        {
+          "sn": 130,
+          "name": "Đồ dùng làm bếp"
+        }
       ],
       "originPrice": 870000,
       "discountPrice": 870000,
@@ -9803,8 +10485,14 @@
       "sn": 12376,
       "name": "VISTAY_VINHOMES SKYLAKE",
       "facilityList": [
-        { "sn": 198, "name": "TV" },
-        { "sn": 188, "name": "Wi-Fi miễn phí" }
+        {
+          "sn": 198,
+          "name": "TV"
+        },
+        {
+          "sn": 188,
+          "name": "Wi-Fi miễn phí"
+        }
       ],
       "originPrice": 805000,
       "discountPrice": 805000,
@@ -9865,8 +10553,14 @@
       "sn": 2192,
       "name": "BOM HOMESTAY VINHOMES SKYLAKE",
       "facilityList": [
-        { "sn": 188, "name": "Wi-Fi miễn phí" },
-        { "sn": 69, "name": "Điều hoà" }
+        {
+          "sn": 188,
+          "name": "Wi-Fi miễn phí"
+        },
+        {
+          "sn": 69,
+          "name": "Điều hoà"
+        }
       ],
       "originPrice": 900000,
       "discountPrice": 900000,
@@ -9990,10 +10684,22 @@
       "sn": 812,
       "name": "WIND HOTEL",
       "facilityList": [
-        { "sn": 97, "name": "Smart TV" },
-        { "sn": 188, "name": "Wi-Fi miễn phí" },
-        { "sn": 98, "name": "Ghế tình yêu" },
-        { "sn": 122, "name": "Lễ tân 24/24" }
+        {
+          "sn": 97,
+          "name": "Smart TV"
+        },
+        {
+          "sn": 188,
+          "name": "Wi-Fi miễn phí"
+        },
+        {
+          "sn": 98,
+          "name": "Ghế tình yêu"
+        },
+        {
+          "sn": 122,
+          "name": "Lễ tân 24/24"
+        }
       ],
       "originPrice": 130000,
       "discountPrice": 130000,
@@ -10045,11 +10751,26 @@
       "sn": 2964,
       "name": "ANN'S HOUSE HOTEL & APARTMENT",
       "facilityList": [
-        { "sn": 125, "name": "Bếp" },
-        { "sn": 97, "name": "Smart TV" },
-        { "sn": 27, "name": "Thang máy" },
-        { "sn": 188, "name": "Wi-Fi miễn phí" },
-        { "sn": 122, "name": "Lễ tân 24/24" }
+        {
+          "sn": 125,
+          "name": "Bếp"
+        },
+        {
+          "sn": 97,
+          "name": "Smart TV"
+        },
+        {
+          "sn": 27,
+          "name": "Thang máy"
+        },
+        {
+          "sn": 188,
+          "name": "Wi-Fi miễn phí"
+        },
+        {
+          "sn": 122,
+          "name": "Lễ tân 24/24"
+        }
       ],
       "originPrice": 300000,
       "discountPrice": 300000,
@@ -10145,8 +10866,14 @@
       "sn": 2322,
       "name": "HOÀNG GIA HOTEL - ĐÌNH THÔN",
       "facilityList": [
-        { "sn": 27, "name": "Thang máy" },
-        { "sn": 188, "name": "Wi-Fi miễn phí" }
+        {
+          "sn": 27,
+          "name": "Thang máy"
+        },
+        {
+          "sn": 188,
+          "name": "Wi-Fi miễn phí"
+        }
       ],
       "originPrice": 100000,
       "discountPrice": 100000,
@@ -10204,16 +10931,46 @@
       "sn": 834,
       "name": "SUJI HOTEL",
       "facilityList": [
-        { "sn": 651, "name": "Thùng rác" },
-        { "sn": 188, "name": "Wi-Fi miễn phí" },
-        { "sn": 351, "name": "Máy sấy tóc" },
-        { "sn": 140, "name": "Máy sấy tóc" },
-        { "sn": 777, "name": "Giường King" },
-        { "sn": 69, "name": "Điều hoà" },
-        { "sn": 98, "name": "Ghế tình yêu" },
-        { "sn": 448, "name": "Bàn là quần|Trouser press" },
-        { "sn": 280, "name": "Wi-Fi [miễn phí]" },
-        { "sn": 362, "name": "Không gian làm việc cho máy tính xách tay" }
+        {
+          "sn": 651,
+          "name": "Thùng rác"
+        },
+        {
+          "sn": 188,
+          "name": "Wi-Fi miễn phí"
+        },
+        {
+          "sn": 351,
+          "name": "Máy sấy tóc"
+        },
+        {
+          "sn": 140,
+          "name": "Máy sấy tóc"
+        },
+        {
+          "sn": 777,
+          "name": "Giường King"
+        },
+        {
+          "sn": 69,
+          "name": "Điều hoà"
+        },
+        {
+          "sn": 98,
+          "name": "Ghế tình yêu"
+        },
+        {
+          "sn": 448,
+          "name": "Bàn là quần|Trouser press"
+        },
+        {
+          "sn": 280,
+          "name": "Wi-Fi [miễn phí]"
+        },
+        {
+          "sn": 362,
+          "name": "Không gian làm việc cho máy tính xách tay"
+        }
       ],
       "originPrice": 350000,
       "discountPrice": 350000,
@@ -10276,9 +11033,18 @@
       "sn": 638,
       "name": "ROSEE HOUSE - VINHOMES GREEN BAY",
       "facilityList": [
-        { "sn": 27, "name": "Thang máy" },
-        { "sn": 188, "name": "Wi-Fi miễn phí" },
-        { "sn": 69, "name": "Điều hoà" }
+        {
+          "sn": 27,
+          "name": "Thang máy"
+        },
+        {
+          "sn": 188,
+          "name": "Wi-Fi miễn phí"
+        },
+        {
+          "sn": 69,
+          "name": "Điều hoà"
+        }
       ],
       "originPrice": 350000,
       "discountPrice": 350000,
@@ -10341,33 +11107,114 @@
       "sn": 4698,
       "name": "TOM'S HOUSE - VINHOMES GREEN BAY",
       "facilityList": [
-        { "sn": 198, "name": "TV" },
-        { "sn": 820, "name": "decor" },
-        { "sn": 125, "name": "Bếp" },
-        { "sn": 908, "name": "Netfix" },
-        { "sn": 811, "name": "Youtube" },
-        { "sn": 638, "name": "netflix" },
-        { "sn": 187, "name": "Ban công" },
-        { "sn": 904, "name": "Máy sấy" },
-        { "sn": 188, "name": "Wi-Fi miễn phí" },
-        { "sn": 772, "name": "Tivi internet" },
-        { "sn": 277, "name": "Dép đi trong nhà" },
-        { "sn": 897, "name": "Giường đôi" },
-        { "sn": 912, "name": "Netflix premium premium" },
-        { "sn": 194, "name": "Cách âm" },
-        { "sn": 360, "name": "Đồ dùng làm bếp" },
-        { "sn": 796, "name": "netflix and chill and chill" },
-        { "sn": 134, "name": "Bình nóng lạnh" },
-        { "sn": 667, "name": "Dịch vụ Internet" },
-        { "sn": 170, "name": "Phong cảnh đẹp" },
-        { "sn": 871, "name": "TV màn hình phẳng màn hình phẳng" },
-        { "sn": 130, "name": "Đồ dùng làm bếp" },
-        { "sn": 767, "name": "điều hòa nóng lạnh" },
-        { "sn": 903, "name": "Nước tắm nóng lạnh" },
-        { "sn": 171, "name": "Dịch vụ phát trực tuyến như Netflix" },
-        { "sn": 768, "name": "đồ dùng bếp cơ bản" },
-        { "sn": 902, "name": "Bãi đậu xe máy, ô tô" },
-        { "sn": 676, "name": "Đồ dùng cho giấc ngủ thoải mái" }
+        {
+          "sn": 198,
+          "name": "TV"
+        },
+        {
+          "sn": 820,
+          "name": "decor"
+        },
+        {
+          "sn": 125,
+          "name": "Bếp"
+        },
+        {
+          "sn": 908,
+          "name": "Netfix"
+        },
+        {
+          "sn": 811,
+          "name": "Youtube"
+        },
+        {
+          "sn": 638,
+          "name": "netflix"
+        },
+        {
+          "sn": 187,
+          "name": "Ban công"
+        },
+        {
+          "sn": 904,
+          "name": "Máy sấy"
+        },
+        {
+          "sn": 188,
+          "name": "Wi-Fi miễn phí"
+        },
+        {
+          "sn": 772,
+          "name": "Tivi internet"
+        },
+        {
+          "sn": 277,
+          "name": "Dép đi trong nhà"
+        },
+        {
+          "sn": 897,
+          "name": "Giường đôi"
+        },
+        {
+          "sn": 912,
+          "name": "Netflix premium premium"
+        },
+        {
+          "sn": 194,
+          "name": "Cách âm"
+        },
+        {
+          "sn": 360,
+          "name": "Đồ dùng làm bếp"
+        },
+        {
+          "sn": 796,
+          "name": "netflix and chill and chill"
+        },
+        {
+          "sn": 134,
+          "name": "Bình nóng lạnh"
+        },
+        {
+          "sn": 667,
+          "name": "Dịch vụ Internet"
+        },
+        {
+          "sn": 170,
+          "name": "Phong cảnh đẹp"
+        },
+        {
+          "sn": 871,
+          "name": "TV màn hình phẳng màn hình phẳng"
+        },
+        {
+          "sn": 130,
+          "name": "Đồ dùng làm bếp"
+        },
+        {
+          "sn": 767,
+          "name": "điều hòa nóng lạnh"
+        },
+        {
+          "sn": 903,
+          "name": "Nước tắm nóng lạnh"
+        },
+        {
+          "sn": 171,
+          "name": "Dịch vụ phát trực tuyến như Netflix"
+        },
+        {
+          "sn": 768,
+          "name": "đồ dùng bếp cơ bản"
+        },
+        {
+          "sn": 902,
+          "name": "Bãi đậu xe máy, ô tô"
+        },
+        {
+          "sn": 676,
+          "name": "Đồ dùng cho giấc ngủ thoải mái"
+        }
       ],
       "originPrice": 350000,
       "discountPrice": 350000,
@@ -10430,8 +11277,14 @@
       "sn": 1815,
       "name": "ANTHY VINHOMES GREENBAY",
       "facilityList": [
-        { "sn": 27, "name": "Thang máy" },
-        { "sn": 188, "name": "Wi-Fi miễn phí" }
+        {
+          "sn": 27,
+          "name": "Thang máy"
+        },
+        {
+          "sn": 188,
+          "name": "Wi-Fi miễn phí"
+        }
       ],
       "originPrice": 359000,
       "discountPrice": 359000,
@@ -10494,14 +11347,38 @@
       "sn": 12786,
       "name": "SWEETHOME - VINHOMES GREEN BAY",
       "facilityList": [
-        { "sn": 811, "name": "Youtube" },
-        { "sn": 638, "name": "netflix" },
-        { "sn": 189, "name": "Mini bar" },
-        { "sn": 227, "name": "NỆM ÊM" },
-        { "sn": 772, "name": "Tivi internet" },
-        { "sn": 739, "name": "Phong cách Indochine" },
-        { "sn": 171, "name": "Dịch vụ phát trực tuyến như Netflix" },
-        { "sn": 737, "name": "Internet băng thông quốc tế" }
+        {
+          "sn": 811,
+          "name": "Youtube"
+        },
+        {
+          "sn": 638,
+          "name": "netflix"
+        },
+        {
+          "sn": 189,
+          "name": "Mini bar"
+        },
+        {
+          "sn": 227,
+          "name": "NỆM ÊM"
+        },
+        {
+          "sn": 772,
+          "name": "Tivi internet"
+        },
+        {
+          "sn": 739,
+          "name": "Phong cách Indochine"
+        },
+        {
+          "sn": 171,
+          "name": "Dịch vụ phát trực tuyến như Netflix"
+        },
+        {
+          "sn": 737,
+          "name": "Internet băng thông quốc tế"
+        }
       ],
       "originPrice": 470000,
       "discountPrice": 314900,
@@ -10564,10 +11441,22 @@
       "sn": 1376,
       "name": "VIỆT MỸ HOTEL",
       "facilityList": [
-        { "sn": 97, "name": "Smart TV" },
-        { "sn": 188, "name": "Wi-Fi miễn phí" },
-        { "sn": 69, "name": "Điều hoà" },
-        { "sn": 159, "name": "Vòi sen tắm đứng" }
+        {
+          "sn": 97,
+          "name": "Smart TV"
+        },
+        {
+          "sn": 188,
+          "name": "Wi-Fi miễn phí"
+        },
+        {
+          "sn": 69,
+          "name": "Điều hoà"
+        },
+        {
+          "sn": 159,
+          "name": "Vòi sen tắm đứng"
+        }
       ],
       "originPrice": 150000,
       "discountPrice": 150000,
@@ -10619,9 +11508,18 @@
       "sn": 238,
       "name": "HADAM HOTEL",
       "facilityList": [
-        { "sn": 188, "name": "Wi-Fi miễn phí" },
-        { "sn": 69, "name": "Điều hoà" },
-        { "sn": 122, "name": "Lễ tân 24/24" }
+        {
+          "sn": 188,
+          "name": "Wi-Fi miễn phí"
+        },
+        {
+          "sn": 69,
+          "name": "Điều hoà"
+        },
+        {
+          "sn": 122,
+          "name": "Lễ tân 24/24"
+        }
       ],
       "originPrice": 300000,
       "discountPrice": 300000,
@@ -10670,15 +11568,42 @@
       "sn": 660,
       "name": "LE GRAND HANOI HOTEL - THE ORIENTAL",
       "facilityList": [
-        { "sn": 97, "name": "Smart TV" },
-        { "sn": 27, "name": "Thang máy" },
-        { "sn": 188, "name": "Wi-Fi miễn phí" },
-        { "sn": 69, "name": "Điều hoà" },
-        { "sn": 98, "name": "Ghế tình yêu" },
-        { "sn": 91, "name": "Truyền hình cáp" },
-        { "sn": 122, "name": "Lễ tân 24/24" },
-        { "sn": 169, "name": "Cửa sổ thông thoáng" },
-        { "sn": 171, "name": "Dịch vụ phát trực tuyến như Netflix" }
+        {
+          "sn": 97,
+          "name": "Smart TV"
+        },
+        {
+          "sn": 27,
+          "name": "Thang máy"
+        },
+        {
+          "sn": 188,
+          "name": "Wi-Fi miễn phí"
+        },
+        {
+          "sn": 69,
+          "name": "Điều hoà"
+        },
+        {
+          "sn": 98,
+          "name": "Ghế tình yêu"
+        },
+        {
+          "sn": 91,
+          "name": "Truyền hình cáp"
+        },
+        {
+          "sn": 122,
+          "name": "Lễ tân 24/24"
+        },
+        {
+          "sn": 169,
+          "name": "Cửa sổ thông thoáng"
+        },
+        {
+          "sn": 171,
+          "name": "Dịch vụ phát trực tuyến như Netflix"
+        }
       ],
       "originPrice": 270000,
       "discountPrice": 270000,
@@ -10741,8 +11666,14 @@
       "sn": 12650,
       "name": "NNT HOTEL - TRUNG KÍNH",
       "facilityList": [
-        { "sn": 97, "name": "Smart TV" },
-        { "sn": 159, "name": "Vòi sen tắm đứng" }
+        {
+          "sn": 97,
+          "name": "Smart TV"
+        },
+        {
+          "sn": 159,
+          "name": "Vòi sen tắm đứng"
+        }
       ],
       "originPrice": 300000,
       "discountPrice": 200000,
@@ -10859,9 +11790,18 @@
       "sn": 4817,
       "name": "KING'S HOTEL TRUNG YÊN",
       "facilityList": [
-        { "sn": 123, "name": "Bồn tắm" },
-        { "sn": 211, "name": "Phòng khép kín" },
-        { "sn": 218, "name": "Phòng tắm riêng" }
+        {
+          "sn": 123,
+          "name": "Bồn tắm"
+        },
+        {
+          "sn": 211,
+          "name": "Phòng khép kín"
+        },
+        {
+          "sn": 218,
+          "name": "Phòng tắm riêng"
+        }
       ],
       "originPrice": 300000,
       "discountPrice": 200000,
@@ -10921,12 +11861,30 @@
       "sn": 3077,
       "name": "ROSEE HOTEL & APARTMENT",
       "facilityList": [
-        { "sn": 97, "name": "Smart TV" },
-        { "sn": 27, "name": "Thang máy" },
-        { "sn": 188, "name": "Wi-Fi miễn phí" },
-        { "sn": 33, "name": "Bãi đỗ xe ô tô" },
-        { "sn": 360, "name": "Đồ dùng làm bếp" },
-        { "sn": 130, "name": "Đồ dùng làm bếp" }
+        {
+          "sn": 97,
+          "name": "Smart TV"
+        },
+        {
+          "sn": 27,
+          "name": "Thang máy"
+        },
+        {
+          "sn": 188,
+          "name": "Wi-Fi miễn phí"
+        },
+        {
+          "sn": 33,
+          "name": "Bãi đỗ xe ô tô"
+        },
+        {
+          "sn": 360,
+          "name": "Đồ dùng làm bếp"
+        },
+        {
+          "sn": 130,
+          "name": "Đồ dùng làm bếp"
+        }
       ],
       "originPrice": 250000,
       "discountPrice": 250000,
@@ -10989,11 +11947,26 @@
       "sn": 1403,
       "name": "NGUYỄN ANH HOTEL",
       "facilityList": [
-        { "sn": 97, "name": "Smart TV" },
-        { "sn": 123, "name": "Bồn tắm" },
-        { "sn": 188, "name": "Wi-Fi miễn phí" },
-        { "sn": 69, "name": "Điều hoà" },
-        { "sn": 98, "name": "Ghế tình yêu" }
+        {
+          "sn": 97,
+          "name": "Smart TV"
+        },
+        {
+          "sn": 123,
+          "name": "Bồn tắm"
+        },
+        {
+          "sn": 188,
+          "name": "Wi-Fi miễn phí"
+        },
+        {
+          "sn": 69,
+          "name": "Điều hoà"
+        },
+        {
+          "sn": 98,
+          "name": "Ghế tình yêu"
+        }
       ],
       "originPrice": 200000,
       "discountPrice": 180000,
@@ -11056,17 +12029,50 @@
       "sn": 12081,
       "name": "JACAYL HOTEL",
       "facilityList": [
-        { "sn": 198, "name": "TV" },
-        { "sn": 97, "name": "Smart TV" },
-        { "sn": 123, "name": "Bồn tắm" },
-        { "sn": 188, "name": "Wi-Fi miễn phí" },
-        { "sn": 69, "name": "Điều hoà" },
-        { "sn": 33, "name": "Bãi đỗ xe ô tô" },
-        { "sn": 741, "name": "lễ tân 24/24" },
-        { "sn": 122, "name": "Lễ tân 24/24" },
-        { "sn": 742, "name": "bãi đỗ xe oto" },
-        { "sn": 744, "name": "bình nóng lạnh" },
-        { "sn": 743, "name": "điều hòa nóng lạnh" }
+        {
+          "sn": 198,
+          "name": "TV"
+        },
+        {
+          "sn": 97,
+          "name": "Smart TV"
+        },
+        {
+          "sn": 123,
+          "name": "Bồn tắm"
+        },
+        {
+          "sn": 188,
+          "name": "Wi-Fi miễn phí"
+        },
+        {
+          "sn": 69,
+          "name": "Điều hoà"
+        },
+        {
+          "sn": 33,
+          "name": "Bãi đỗ xe ô tô"
+        },
+        {
+          "sn": 741,
+          "name": "lễ tân 24/24"
+        },
+        {
+          "sn": 122,
+          "name": "Lễ tân 24/24"
+        },
+        {
+          "sn": 742,
+          "name": "bãi đỗ xe oto"
+        },
+        {
+          "sn": 744,
+          "name": "bình nóng lạnh"
+        },
+        {
+          "sn": 743,
+          "name": "điều hòa nóng lạnh"
+        }
       ],
       "originPrice": 299000,
       "discountPrice": 299000,
@@ -11129,9 +12135,18 @@
       "sn": 866,
       "name": "ADELINE HOTEL",
       "facilityList": [
-        { "sn": 27, "name": "Thang máy" },
-        { "sn": 188, "name": "Wi-Fi miễn phí" },
-        { "sn": 134, "name": "Bình nóng lạnh" }
+        {
+          "sn": 27,
+          "name": "Thang máy"
+        },
+        {
+          "sn": 188,
+          "name": "Wi-Fi miễn phí"
+        },
+        {
+          "sn": 134,
+          "name": "Bình nóng lạnh"
+        }
       ],
       "originPrice": 200000,
       "discountPrice": 180000,
@@ -11190,11 +12205,26 @@
       "sn": 659,
       "name": "LE GRAND HANOI HOTEL - THE CHARM",
       "facilityList": [
-        { "sn": 198, "name": "TV" },
-        { "sn": 27, "name": "Thang máy" },
-        { "sn": 188, "name": "Wi-Fi miễn phí" },
-        { "sn": 69, "name": "Điều hoà" },
-        { "sn": 171, "name": "Dịch vụ phát trực tuyến như Netflix" }
+        {
+          "sn": 198,
+          "name": "TV"
+        },
+        {
+          "sn": 27,
+          "name": "Thang máy"
+        },
+        {
+          "sn": 188,
+          "name": "Wi-Fi miễn phí"
+        },
+        {
+          "sn": 69,
+          "name": "Điều hoà"
+        },
+        {
+          "sn": 171,
+          "name": "Dịch vụ phát trực tuyến như Netflix"
+        }
       ],
       "originPrice": 250000,
       "discountPrice": 250000,
@@ -11246,12 +12276,30 @@
       "sn": 846,
       "name": "ĐINH ELEGANT HOTEL",
       "facilityList": [
-        { "sn": 27, "name": "Thang máy" },
-        { "sn": 188, "name": "Wi-Fi miễn phí" },
-        { "sn": 143, "name": "Vòi hoa sen" },
-        { "sn": 351, "name": "Máy sấy tóc" },
-        { "sn": 140, "name": "Máy sấy tóc" },
-        { "sn": 69, "name": "Điều hoà" }
+        {
+          "sn": 27,
+          "name": "Thang máy"
+        },
+        {
+          "sn": 188,
+          "name": "Wi-Fi miễn phí"
+        },
+        {
+          "sn": 143,
+          "name": "Vòi hoa sen"
+        },
+        {
+          "sn": 351,
+          "name": "Máy sấy tóc"
+        },
+        {
+          "sn": 140,
+          "name": "Máy sấy tóc"
+        },
+        {
+          "sn": 69,
+          "name": "Điều hoà"
+        }
       ],
       "originPrice": 300000,
       "discountPrice": 300000,
@@ -11313,13 +12361,34 @@
       "sn": 4739,
       "name": "YOLOWA HOTEL",
       "facilityList": [
-        { "sn": 198, "name": "TV" },
-        { "sn": 148, "name": "bàn ghế" },
-        { "sn": 145, "name": "Tủ quần áo" },
-        { "sn": 188, "name": "Wi-Fi miễn phí" },
-        { "sn": 194, "name": "Cách âm" },
-        { "sn": 122, "name": "Lễ tân 24/24" },
-        { "sn": 146, "name": "Dịch vụ du lịch" }
+        {
+          "sn": 198,
+          "name": "TV"
+        },
+        {
+          "sn": 148,
+          "name": "bàn ghế"
+        },
+        {
+          "sn": 145,
+          "name": "Tủ quần áo"
+        },
+        {
+          "sn": 188,
+          "name": "Wi-Fi miễn phí"
+        },
+        {
+          "sn": 194,
+          "name": "Cách âm"
+        },
+        {
+          "sn": 122,
+          "name": "Lễ tân 24/24"
+        },
+        {
+          "sn": 146,
+          "name": "Dịch vụ du lịch"
+        }
       ],
       "originPrice": 200000,
       "discountPrice": 200000,
@@ -11378,13 +12447,34 @@
       "sn": 11244,
       "name": "22LAND RESIDENCE HOTEL & SPA",
       "facilityList": [
-        { "sn": 198, "name": "TV" },
-        { "sn": 46, "name": "Quầy bar" },
-        { "sn": 188, "name": "Wi-Fi miễn phí" },
-        { "sn": 36, "name": "Phòng gia đình" },
-        { "sn": 70, "name": "Đưa đón sân bay" },
-        { "sn": 305, "name": "Bể bơi [ngoài trời]" },
-        { "sn": 177, "name": "Trung tâm Spa & chăm sóc sức khoẻ" }
+        {
+          "sn": 198,
+          "name": "TV"
+        },
+        {
+          "sn": 46,
+          "name": "Quầy bar"
+        },
+        {
+          "sn": 188,
+          "name": "Wi-Fi miễn phí"
+        },
+        {
+          "sn": 36,
+          "name": "Phòng gia đình"
+        },
+        {
+          "sn": 70,
+          "name": "Đưa đón sân bay"
+        },
+        {
+          "sn": 305,
+          "name": "Bể bơi [ngoài trời]"
+        },
+        {
+          "sn": 177,
+          "name": "Trung tâm Spa & chăm sóc sức khoẻ"
+        }
       ],
       "originPrice": 579000,
       "discountPrice": 405300,
@@ -11447,9 +12537,18 @@
       "sn": 1066,
       "name": "ROSA HOTEL",
       "facilityList": [
-        { "sn": 27, "name": "Thang máy" },
-        { "sn": 188, "name": "Wi-Fi miễn phí" },
-        { "sn": 69, "name": "Điều hoà" }
+        {
+          "sn": 27,
+          "name": "Thang máy"
+        },
+        {
+          "sn": 188,
+          "name": "Wi-Fi miễn phí"
+        },
+        {
+          "sn": 69,
+          "name": "Điều hoà"
+        }
       ],
       "originPrice": 300000,
       "discountPrice": 300000,
@@ -11512,8 +12611,14 @@
       "sn": 1475,
       "name": "A25 HOTEL - 187 TRUNG KÍNH",
       "facilityList": [
-        { "sn": 97, "name": "Smart TV" },
-        { "sn": 188, "name": "Wi-Fi miễn phí" }
+        {
+          "sn": 97,
+          "name": "Smart TV"
+        },
+        {
+          "sn": 188,
+          "name": "Wi-Fi miễn phí"
+        }
       ],
       "originPrice": 250000,
       "discountPrice": 250000,
@@ -11576,12 +12681,30 @@
       "sn": 3818,
       "name": "LUXTEL HOTEL",
       "facilityList": [
-        { "sn": 27, "name": "Thang máy" },
-        { "sn": 145, "name": "Tủ quần áo" },
-        { "sn": 69, "name": "Điều hoà" },
-        { "sn": 173, "name": "Hầm để xe" },
-        { "sn": 157, "name": "Mở cửa 24/24" },
-        { "sn": 170, "name": "Phong cảnh đẹp" }
+        {
+          "sn": 27,
+          "name": "Thang máy"
+        },
+        {
+          "sn": 145,
+          "name": "Tủ quần áo"
+        },
+        {
+          "sn": 69,
+          "name": "Điều hoà"
+        },
+        {
+          "sn": 173,
+          "name": "Hầm để xe"
+        },
+        {
+          "sn": 157,
+          "name": "Mở cửa 24/24"
+        },
+        {
+          "sn": 170,
+          "name": "Phong cảnh đẹp"
+        }
       ],
       "originPrice": 250000,
       "discountPrice": 250000,
@@ -11644,23 +12767,74 @@
       "sn": 15731,
       "name": "VNAHOMES SERVICED APARTMENT",
       "facilityList": [
-        { "sn": 125, "name": "Bếp" },
-        { "sn": 638, "name": "netflix" },
-        { "sn": 189, "name": "Mini bar" },
-        { "sn": 27, "name": "Thang máy" },
-        { "sn": 188, "name": "Wi-Fi miễn phí" },
-        { "sn": 548, "name": "Tủ lạnh" },
-        { "sn": 124, "name": "Lò vi sóng" },
-        { "sn": 69, "name": "Điều hoà" },
-        { "sn": 173, "name": "Hầm để xe" },
-        { "sn": 360, "name": "Đồ dùng làm bếp" },
-        { "sn": 122, "name": "Lễ tân 24/24" },
-        { "sn": 169, "name": "Cửa sổ thông thoáng" },
-        { "sn": 70, "name": "Đưa đón sân bay" },
-        { "sn": 67, "name": "Dịch vụ giặt ủi" },
-        { "sn": 419, "name": "TV [màn hình phẳng]" },
-        { "sn": 37, "name": "Phòng không hút thuốc" },
-        { "sn": 159, "name": "Vòi sen tắm đứng" }
+        {
+          "sn": 125,
+          "name": "Bếp"
+        },
+        {
+          "sn": 638,
+          "name": "netflix"
+        },
+        {
+          "sn": 189,
+          "name": "Mini bar"
+        },
+        {
+          "sn": 27,
+          "name": "Thang máy"
+        },
+        {
+          "sn": 188,
+          "name": "Wi-Fi miễn phí"
+        },
+        {
+          "sn": 548,
+          "name": "Tủ lạnh"
+        },
+        {
+          "sn": 124,
+          "name": "Lò vi sóng"
+        },
+        {
+          "sn": 69,
+          "name": "Điều hoà"
+        },
+        {
+          "sn": 173,
+          "name": "Hầm để xe"
+        },
+        {
+          "sn": 360,
+          "name": "Đồ dùng làm bếp"
+        },
+        {
+          "sn": 122,
+          "name": "Lễ tân 24/24"
+        },
+        {
+          "sn": 169,
+          "name": "Cửa sổ thông thoáng"
+        },
+        {
+          "sn": 70,
+          "name": "Đưa đón sân bay"
+        },
+        {
+          "sn": 67,
+          "name": "Dịch vụ giặt ủi"
+        },
+        {
+          "sn": 419,
+          "name": "TV [màn hình phẳng]"
+        },
+        {
+          "sn": 37,
+          "name": "Phòng không hút thuốc"
+        },
+        {
+          "sn": 159,
+          "name": "Vòi sen tắm đứng"
+        }
       ],
       "originPrice": 350000,
       "discountPrice": 332500,
@@ -11723,16 +12897,46 @@
       "sn": 829,
       "name": "THE ROYAL HOTEL",
       "facilityList": [
-        { "sn": 27, "name": "Thang máy" },
-        { "sn": 188, "name": "Wi-Fi miễn phí" },
-        { "sn": 69, "name": "Điều hoà" },
-        { "sn": 98, "name": "Ghế tình yêu" },
-        { "sn": 33, "name": "Bãi đỗ xe ô tô" },
-        { "sn": 114, "name": "Xe máy cho thuê" },
-        { "sn": 122, "name": "Lễ tân 24/24" },
-        { "sn": 70, "name": "Đưa đón sân bay" },
-        { "sn": 134, "name": "Bình nóng lạnh" },
-        { "sn": 139, "name": "Dịch vụ đặt vé" }
+        {
+          "sn": 27,
+          "name": "Thang máy"
+        },
+        {
+          "sn": 188,
+          "name": "Wi-Fi miễn phí"
+        },
+        {
+          "sn": 69,
+          "name": "Điều hoà"
+        },
+        {
+          "sn": 98,
+          "name": "Ghế tình yêu"
+        },
+        {
+          "sn": 33,
+          "name": "Bãi đỗ xe ô tô"
+        },
+        {
+          "sn": 114,
+          "name": "Xe máy cho thuê"
+        },
+        {
+          "sn": 122,
+          "name": "Lễ tân 24/24"
+        },
+        {
+          "sn": 70,
+          "name": "Đưa đón sân bay"
+        },
+        {
+          "sn": 134,
+          "name": "Bình nóng lạnh"
+        },
+        {
+          "sn": 139,
+          "name": "Dịch vụ đặt vé"
+        }
       ],
       "originPrice": 220000,
       "discountPrice": 220000,
@@ -11794,29 +12998,98 @@
       "sn": 4061,
       "name": "22HOUSING MOON WESTLAKE RESIDENCE",
       "facilityList": [
-        { "sn": 125, "name": "Bếp" },
-        { "sn": 97, "name": "Smart TV" },
-        { "sn": 27, "name": "Thang máy" },
-        { "sn": 89, "name": "Sân vườn" },
-        { "sn": 123, "name": "Bồn tắm" },
-        { "sn": 142, "name": "Sàn gỗ|sàn gỗ" },
-        { "sn": 131, "name": "Bếp từ từ" },
-        { "sn": 188, "name": "Wi-Fi miễn phí" },
-        { "sn": 137, "name": "Tủ lạnh" },
-        { "sn": 548, "name": "Tủ lạnh" },
-        { "sn": 124, "name": "Lò vi sóng" },
-        { "sn": 141, "name": "Bàn là" },
-        { "sn": 173, "name": "Hầm để xe" },
-        { "sn": 33, "name": "Bãi đỗ xe ô tô" },
-        { "sn": 360, "name": "Đồ dùng làm bếp" },
-        { "sn": 122, "name": "Lễ tân 24/24" },
-        { "sn": 169, "name": "Cửa sổ thông thoáng" },
-        { "sn": 70, "name": "Đưa đón sân bay" },
-        { "sn": 67, "name": "Dịch vụ giặt ủi" },
-        { "sn": 176, "name": "Phòng gia đình" },
-        { "sn": 130, "name": "Đồ dùng làm bếp" },
-        { "sn": 171, "name": "Dịch vụ phát trực tuyến như Netflix" },
-        { "sn": 178, "name": "Phòng không hút thuốc" }
+        {
+          "sn": 125,
+          "name": "Bếp"
+        },
+        {
+          "sn": 97,
+          "name": "Smart TV"
+        },
+        {
+          "sn": 27,
+          "name": "Thang máy"
+        },
+        {
+          "sn": 89,
+          "name": "Sân vườn"
+        },
+        {
+          "sn": 123,
+          "name": "Bồn tắm"
+        },
+        {
+          "sn": 142,
+          "name": "Sàn gỗ|sàn gỗ"
+        },
+        {
+          "sn": 131,
+          "name": "Bếp từ từ"
+        },
+        {
+          "sn": 188,
+          "name": "Wi-Fi miễn phí"
+        },
+        {
+          "sn": 137,
+          "name": "Tủ lạnh"
+        },
+        {
+          "sn": 548,
+          "name": "Tủ lạnh"
+        },
+        {
+          "sn": 124,
+          "name": "Lò vi sóng"
+        },
+        {
+          "sn": 141,
+          "name": "Bàn là"
+        },
+        {
+          "sn": 173,
+          "name": "Hầm để xe"
+        },
+        {
+          "sn": 33,
+          "name": "Bãi đỗ xe ô tô"
+        },
+        {
+          "sn": 360,
+          "name": "Đồ dùng làm bếp"
+        },
+        {
+          "sn": 122,
+          "name": "Lễ tân 24/24"
+        },
+        {
+          "sn": 169,
+          "name": "Cửa sổ thông thoáng"
+        },
+        {
+          "sn": 70,
+          "name": "Đưa đón sân bay"
+        },
+        {
+          "sn": 67,
+          "name": "Dịch vụ giặt ủi"
+        },
+        {
+          "sn": 176,
+          "name": "Phòng gia đình"
+        },
+        {
+          "sn": 130,
+          "name": "Đồ dùng làm bếp"
+        },
+        {
+          "sn": 171,
+          "name": "Dịch vụ phát trực tuyến như Netflix"
+        },
+        {
+          "sn": 178,
+          "name": "Phòng không hút thuốc"
+        }
       ],
       "originPrice": 439000,
       "discountPrice": 259000,
@@ -11879,10 +13152,22 @@
       "sn": 1107,
       "name": "A25 HOTEL - 30 AN DƯƠNG",
       "facilityList": [
-        { "sn": 97, "name": "Smart TV" },
-        { "sn": 27, "name": "Thang máy" },
-        { "sn": 188, "name": "Wi-Fi miễn phí" },
-        { "sn": 69, "name": "Điều hoà" }
+        {
+          "sn": 97,
+          "name": "Smart TV"
+        },
+        {
+          "sn": 27,
+          "name": "Thang máy"
+        },
+        {
+          "sn": 188,
+          "name": "Wi-Fi miễn phí"
+        },
+        {
+          "sn": 69,
+          "name": "Điều hoà"
+        }
       ],
       "originPrice": 200000,
       "discountPrice": 200000,
@@ -11945,9 +13230,18 @@
       "sn": 18497,
       "name": "GODIDI HOMESTAY",
       "facilityList": [
-        { "sn": 779, "name": "Free wifi" },
-        { "sn": 187, "name": "Ban công" },
-        { "sn": 790, "name": "Máy chiếu phim phim" }
+        {
+          "sn": 779,
+          "name": "Free wifi"
+        },
+        {
+          "sn": 187,
+          "name": "Ban công"
+        },
+        {
+          "sn": 790,
+          "name": "Máy chiếu phim phim"
+        }
       ],
       "originPrice": 350000,
       "discountPrice": 350000,
@@ -11988,15 +13282,42 @@
       "sn": 30553,
       "name": "LAKEVIEW RESIDENCE HOTEL",
       "facilityList": [
-        { "sn": 123, "name": "Bồn tắm" },
-        { "sn": 940, "name": "View Hồ" },
-        { "sn": 950, "name": "Lễ tân|Lễ tân" },
-        { "sn": 949, "name": "Smart Tivi" },
-        { "sn": 216, "name": "Khăn tắm" },
-        { "sn": 852, "name": "Lễ tân 24h" },
-        { "sn": 781, "name": "Amenities free" },
-        { "sn": 831, "name": "Wifi miễn phí miễn phí" },
-        { "sn": 903, "name": "Nước tắm nóng lạnh" }
+        {
+          "sn": 123,
+          "name": "Bồn tắm"
+        },
+        {
+          "sn": 940,
+          "name": "View Hồ"
+        },
+        {
+          "sn": 950,
+          "name": "Lễ tân|Lễ tân"
+        },
+        {
+          "sn": 949,
+          "name": "Smart Tivi"
+        },
+        {
+          "sn": 216,
+          "name": "Khăn tắm"
+        },
+        {
+          "sn": 852,
+          "name": "Lễ tân 24h"
+        },
+        {
+          "sn": 781,
+          "name": "Amenities free"
+        },
+        {
+          "sn": 831,
+          "name": "Wifi miễn phí miễn phí"
+        },
+        {
+          "sn": 903,
+          "name": "Nước tắm nóng lạnh"
+        }
       ],
       "originPrice": 379000,
       "discountPrice": 269000,
@@ -12059,12 +13380,30 @@
       "sn": 27923,
       "name": "LAGOM HOUSE - NGUYỄN ĐÌNH THI",
       "facilityList": [
-        { "sn": 198, "name": "TV" },
-        { "sn": 125, "name": "Bếp" },
-        { "sn": 187, "name": "Ban công" },
-        { "sn": 229, "name": "Máy giặt" },
-        { "sn": 337, "name": "Máy sấy quần áo" },
-        { "sn": 871, "name": "TV màn hình phẳng màn hình phẳng" }
+        {
+          "sn": 198,
+          "name": "TV"
+        },
+        {
+          "sn": 125,
+          "name": "Bếp"
+        },
+        {
+          "sn": 187,
+          "name": "Ban công"
+        },
+        {
+          "sn": 229,
+          "name": "Máy giặt"
+        },
+        {
+          "sn": 337,
+          "name": "Máy sấy quần áo"
+        },
+        {
+          "sn": 871,
+          "name": "TV màn hình phẳng màn hình phẳng"
+        }
       ],
       "originPrice": 439000,
       "discountPrice": 439000,
@@ -12116,9 +13455,18 @@
       "sn": 18436,
       "name": "CIXI SERVICED APARTMENT- THUỴ KHUÊ",
       "facilityList": [
-        { "sn": 198, "name": "TV" },
-        { "sn": 634, "name": "Wifi" },
-        { "sn": 180, "name": "Máy chiếu" }
+        {
+          "sn": 198,
+          "name": "TV"
+        },
+        {
+          "sn": 634,
+          "name": "Wifi"
+        },
+        {
+          "sn": 180,
+          "name": "Máy chiếu"
+        }
       ],
       "originPrice": 600000,
       "discountPrice": 600000,
@@ -12170,10 +13518,22 @@
       "sn": 17909,
       "name": "CIXI SERVICED APARTMENT",
       "facilityList": [
-        { "sn": 198, "name": "TV" },
-        { "sn": 69, "name": "Điều hoà" },
-        { "sn": 280, "name": "Wi-Fi [miễn phí]" },
-        { "sn": 134, "name": "Bình nóng lạnh" }
+        {
+          "sn": 198,
+          "name": "TV"
+        },
+        {
+          "sn": 69,
+          "name": "Điều hoà"
+        },
+        {
+          "sn": 280,
+          "name": "Wi-Fi [miễn phí]"
+        },
+        {
+          "sn": 134,
+          "name": "Bình nóng lạnh"
+        }
       ],
       "originPrice": 550000,
       "discountPrice": 550000,
@@ -12236,13 +13596,34 @@
       "sn": 13053,
       "name": "ALÀ HOME",
       "facilityList": [
-        { "sn": 198, "name": "TV" },
-        { "sn": 189, "name": "Mini bar" },
-        { "sn": 123, "name": "Bồn tắm" },
-        { "sn": 214, "name": "Cửa sổ" },
-        { "sn": 188, "name": "Wi-Fi miễn phí" },
-        { "sn": 69, "name": "Điều hoà" },
-        { "sn": 275, "name": "Tủ lạnh nhỏ trong phòng" }
+        {
+          "sn": 198,
+          "name": "TV"
+        },
+        {
+          "sn": 189,
+          "name": "Mini bar"
+        },
+        {
+          "sn": 123,
+          "name": "Bồn tắm"
+        },
+        {
+          "sn": 214,
+          "name": "Cửa sổ"
+        },
+        {
+          "sn": 188,
+          "name": "Wi-Fi miễn phí"
+        },
+        {
+          "sn": 69,
+          "name": "Điều hoà"
+        },
+        {
+          "sn": 275,
+          "name": "Tủ lạnh nhỏ trong phòng"
+        }
       ],
       "originPrice": 200000,
       "discountPrice": 150000,
@@ -12299,14 +13680,38 @@
       "sn": 27911,
       "name": "SUN CLOVER BOUTIQUE HOTEL",
       "facilityList": [
-        { "sn": 198, "name": "TV" },
-        { "sn": 870, "name": "Tivi" },
-        { "sn": 187, "name": "Ban công" },
-        { "sn": 869, "name": "Dầu gội" },
-        { "sn": 852, "name": "Lễ tân 24h" },
-        { "sn": 847, "name": "Lễ tân 24/7" },
-        { "sn": 831, "name": "Wifi miễn phí miễn phí" },
-        { "sn": 808, "name": "Nước uống mễn phí" }
+        {
+          "sn": 198,
+          "name": "TV"
+        },
+        {
+          "sn": 870,
+          "name": "Tivi"
+        },
+        {
+          "sn": 187,
+          "name": "Ban công"
+        },
+        {
+          "sn": 869,
+          "name": "Dầu gội"
+        },
+        {
+          "sn": 852,
+          "name": "Lễ tân 24h"
+        },
+        {
+          "sn": 847,
+          "name": "Lễ tân 24/7"
+        },
+        {
+          "sn": 831,
+          "name": "Wifi miễn phí miễn phí"
+        },
+        {
+          "sn": 808,
+          "name": "Nước uống mễn phí"
+        }
       ],
       "originPrice": 350000,
       "discountPrice": 350000,
@@ -12369,9 +13774,18 @@
       "sn": 3648,
       "name": "SAO BĂNG II MOTEL",
       "facilityList": [
-        { "sn": 69, "name": "Điều hoà" },
-        { "sn": 122, "name": "Lễ tân 24/24" },
-        { "sn": 134, "name": "Bình nóng lạnh" }
+        {
+          "sn": 69,
+          "name": "Điều hoà"
+        },
+        {
+          "sn": 122,
+          "name": "Lễ tân 24/24"
+        },
+        {
+          "sn": 134,
+          "name": "Bình nóng lạnh"
+        }
       ],
       "originPrice": 120000,
       "discountPrice": 120000,
@@ -12412,8 +13826,14 @@
       "sn": 12539,
       "name": "HANVET HOTEL - HAI BÀ TRƯNG",
       "facilityList": [
-        { "sn": 198, "name": "TV" },
-        { "sn": 188, "name": "Wi-Fi miễn phí" }
+        {
+          "sn": 198,
+          "name": "TV"
+        },
+        {
+          "sn": 188,
+          "name": "Wi-Fi miễn phí"
+        }
       ],
       "originPrice": 280000,
       "discountPrice": 220000,
@@ -12464,12 +13884,30 @@
       "sn": 1666,
       "name": "A25 HOTEL - 53 TUỆ TĨNH",
       "facilityList": [
-        { "sn": 198, "name": "TV" },
-        { "sn": 46, "name": "Quầy bar" },
-        { "sn": 188, "name": "Wi-Fi miễn phí" },
-        { "sn": 69, "name": "Điều hoà" },
-        { "sn": 33, "name": "Bãi đỗ xe ô tô" },
-        { "sn": 122, "name": "Lễ tân 24/24" }
+        {
+          "sn": 198,
+          "name": "TV"
+        },
+        {
+          "sn": 46,
+          "name": "Quầy bar"
+        },
+        {
+          "sn": 188,
+          "name": "Wi-Fi miễn phí"
+        },
+        {
+          "sn": 69,
+          "name": "Điều hoà"
+        },
+        {
+          "sn": 33,
+          "name": "Bãi đỗ xe ô tô"
+        },
+        {
+          "sn": 122,
+          "name": "Lễ tân 24/24"
+        }
       ],
       "originPrice": 200000,
       "discountPrice": 200000,
@@ -12515,9 +13953,18 @@
       "sn": 1443,
       "name": "THE POPPY VILLA & HOTEL",
       "facilityList": [
-        { "sn": 97, "name": "Smart TV" },
-        { "sn": 188, "name": "Wi-Fi miễn phí" },
-        { "sn": 159, "name": "Vòi sen tắm đứng" }
+        {
+          "sn": 97,
+          "name": "Smart TV"
+        },
+        {
+          "sn": 188,
+          "name": "Wi-Fi miễn phí"
+        },
+        {
+          "sn": 159,
+          "name": "Vòi sen tắm đứng"
+        }
       ],
       "originPrice": 190000,
       "discountPrice": 190000,
@@ -12567,10 +14014,22 @@
       "sn": 521,
       "name": "HOVI DE VILLA",
       "facilityList": [
-        { "sn": 27, "name": "Thang máy" },
-        { "sn": 188, "name": "Wi-Fi miễn phí" },
-        { "sn": 69, "name": "Điều hoà" },
-        { "sn": 122, "name": "Lễ tân 24/24" }
+        {
+          "sn": 27,
+          "name": "Thang máy"
+        },
+        {
+          "sn": 188,
+          "name": "Wi-Fi miễn phí"
+        },
+        {
+          "sn": 69,
+          "name": "Điều hoà"
+        },
+        {
+          "sn": 122,
+          "name": "Lễ tân 24/24"
+        }
       ],
       "originPrice": 160000,
       "discountPrice": 160000,
@@ -12633,10 +14092,22 @@
       "sn": 1268,
       "name": "MY HOTEL 23",
       "facilityList": [
-        { "sn": 97, "name": "Smart TV" },
-        { "sn": 27, "name": "Thang máy" },
-        { "sn": 188, "name": "Wi-Fi miễn phí" },
-        { "sn": 69, "name": "Điều hoà" }
+        {
+          "sn": 97,
+          "name": "Smart TV"
+        },
+        {
+          "sn": 27,
+          "name": "Thang máy"
+        },
+        {
+          "sn": 188,
+          "name": "Wi-Fi miễn phí"
+        },
+        {
+          "sn": 69,
+          "name": "Điều hoà"
+        }
       ],
       "originPrice": 390000,
       "discountPrice": 179000,
@@ -12697,8 +14168,14 @@
       "sn": 1267,
       "name": "NIGHT HOTEL",
       "facilityList": [
-        { "sn": 188, "name": "Wi-Fi miễn phí" },
-        { "sn": 790, "name": "Máy chiếu phim phim" }
+        {
+          "sn": 188,
+          "name": "Wi-Fi miễn phí"
+        },
+        {
+          "sn": 790,
+          "name": "Máy chiếu phim phim"
+        }
       ],
       "originPrice": 190000,
       "discountPrice": 190000,
@@ -12761,9 +14238,18 @@
       "sn": 612,
       "name": "LINH ANH HOTEL",
       "facilityList": [
-        { "sn": 27, "name": "Thang máy" },
-        { "sn": 188, "name": "Wi-Fi miễn phí" },
-        { "sn": 69, "name": "Điều hoà" }
+        {
+          "sn": 27,
+          "name": "Thang máy"
+        },
+        {
+          "sn": 188,
+          "name": "Wi-Fi miễn phí"
+        },
+        {
+          "sn": 69,
+          "name": "Điều hoà"
+        }
       ],
       "originPrice": 130000,
       "discountPrice": 130000,
@@ -12824,9 +14310,18 @@
       "sn": 1004,
       "name": "A25 HOTEL - 221 BẠCH MAI",
       "facilityList": [
-        { "sn": 27, "name": "Thang máy" },
-        { "sn": 188, "name": "Wi-Fi miễn phí" },
-        { "sn": 69, "name": "Điều hoà" }
+        {
+          "sn": 27,
+          "name": "Thang máy"
+        },
+        {
+          "sn": 188,
+          "name": "Wi-Fi miễn phí"
+        },
+        {
+          "sn": 69,
+          "name": "Điều hoà"
+        }
       ],
       "originPrice": 220000,
       "discountPrice": 220000,
@@ -12877,15 +14372,42 @@
       "sn": 3067,
       "name": "BLAU HOTEL - 58 TRIỆU VIỆT VƯƠNG",
       "facilityList": [
-        { "sn": 97, "name": "Smart TV" },
-        { "sn": 27, "name": "Thang máy" },
-        { "sn": 123, "name": "Bồn tắm" },
-        { "sn": 188, "name": "Wi-Fi miễn phí" },
-        { "sn": 92, "name": "Nước lọc" },
-        { "sn": 98, "name": "Ghế tình yêu" },
-        { "sn": 33, "name": "Bãi đỗ xe ô tô" },
-        { "sn": 114, "name": "Xe máy cho thuê" },
-        { "sn": 122, "name": "Lễ tân 24/24" }
+        {
+          "sn": 97,
+          "name": "Smart TV"
+        },
+        {
+          "sn": 27,
+          "name": "Thang máy"
+        },
+        {
+          "sn": 123,
+          "name": "Bồn tắm"
+        },
+        {
+          "sn": 188,
+          "name": "Wi-Fi miễn phí"
+        },
+        {
+          "sn": 92,
+          "name": "Nước lọc"
+        },
+        {
+          "sn": 98,
+          "name": "Ghế tình yêu"
+        },
+        {
+          "sn": 33,
+          "name": "Bãi đỗ xe ô tô"
+        },
+        {
+          "sn": 114,
+          "name": "Xe máy cho thuê"
+        },
+        {
+          "sn": 122,
+          "name": "Lễ tân 24/24"
+        }
       ],
       "originPrice": 380000,
       "discountPrice": 190000,
@@ -12937,10 +14459,22 @@
       "sn": 1655,
       "name": "A25 HOTEL - 80 MAI HẮC ĐẾ",
       "facilityList": [
-        { "sn": 46, "name": "Quầy bar" },
-        { "sn": 188, "name": "Wi-Fi miễn phí" },
-        { "sn": 69, "name": "Điều hoà" },
-        { "sn": 122, "name": "Lễ tân 24/24" }
+        {
+          "sn": 46,
+          "name": "Quầy bar"
+        },
+        {
+          "sn": 188,
+          "name": "Wi-Fi miễn phí"
+        },
+        {
+          "sn": 69,
+          "name": "Điều hoà"
+        },
+        {
+          "sn": 122,
+          "name": "Lễ tân 24/24"
+        }
       ],
       "originPrice": 200000,
       "discountPrice": 200000,
@@ -12995,9 +14529,18 @@
       "sn": 1563,
       "name": "OHANA VILLA HOTEL",
       "facilityList": [
-        { "sn": 188, "name": "Wi-Fi miễn phí" },
-        { "sn": 122, "name": "Lễ tân 24/24" },
-        { "sn": 159, "name": "Vòi sen tắm đứng" }
+        {
+          "sn": 188,
+          "name": "Wi-Fi miễn phí"
+        },
+        {
+          "sn": 122,
+          "name": "Lễ tân 24/24"
+        },
+        {
+          "sn": 159,
+          "name": "Vòi sen tắm đứng"
+        }
       ],
       "originPrice": 190000,
       "discountPrice": 190000,
@@ -13060,8 +14603,14 @@
       "sn": 1591,
       "name": "QUEEN HOTEL 2 - HAI BÀ TRƯNG",
       "facilityList": [
-        { "sn": 27, "name": "Thang máy" },
-        { "sn": 122, "name": "Lễ tân 24/24" }
+        {
+          "sn": 27,
+          "name": "Thang máy"
+        },
+        {
+          "sn": 122,
+          "name": "Lễ tân 24/24"
+        }
       ],
       "originPrice": 180000,
       "discountPrice": 180000,
@@ -13119,15 +14668,42 @@
       "sn": 15189,
       "name": "MINASI HOTEL & SPA",
       "facilityList": [
-        { "sn": 198, "name": "TV" },
-        { "sn": 634, "name": "Wifi" },
-        { "sn": 374, "name": "Vòi sen" },
-        { "sn": 27, "name": "Thang máy" },
-        { "sn": 123, "name": "Bồn tắm" },
-        { "sn": 351, "name": "Máy sấy tóc" },
-        { "sn": 736, "name": "Toilet riêng" },
-        { "sn": 277, "name": "Dép đi trong nhà" },
-        { "sn": 69, "name": "Điều hoà" }
+        {
+          "sn": 198,
+          "name": "TV"
+        },
+        {
+          "sn": 634,
+          "name": "Wifi"
+        },
+        {
+          "sn": 374,
+          "name": "Vòi sen"
+        },
+        {
+          "sn": 27,
+          "name": "Thang máy"
+        },
+        {
+          "sn": 123,
+          "name": "Bồn tắm"
+        },
+        {
+          "sn": 351,
+          "name": "Máy sấy tóc"
+        },
+        {
+          "sn": 736,
+          "name": "Toilet riêng"
+        },
+        {
+          "sn": 277,
+          "name": "Dép đi trong nhà"
+        },
+        {
+          "sn": 69,
+          "name": "Điều hoà"
+        }
       ],
       "originPrice": 625000,
       "discountPrice": 625000,
@@ -13179,9 +14755,18 @@
       "sn": 1012,
       "name": "A25 HOTEL - 57 QUANG TRUNG",
       "facilityList": [
-        { "sn": 27, "name": "Thang máy" },
-        { "sn": 188, "name": "Wi-Fi miễn phí" },
-        { "sn": 69, "name": "Điều hoà" }
+        {
+          "sn": 27,
+          "name": "Thang máy"
+        },
+        {
+          "sn": 188,
+          "name": "Wi-Fi miễn phí"
+        },
+        {
+          "sn": 69,
+          "name": "Điều hoà"
+        }
       ],
       "originPrice": 220000,
       "discountPrice": 220000,
@@ -13244,21 +14829,66 @@
       "sn": 16005,
       "name": "MUSE IN VIETNAM",
       "facilityList": [
-        { "sn": 125, "name": "Bếp" },
-        { "sn": 638, "name": "netflix" },
-        { "sn": 189, "name": "Mini bar" },
-        { "sn": 187, "name": "Ban công" },
-        { "sn": 131, "name": "Bếp từ từ" },
-        { "sn": 188, "name": "Wi-Fi miễn phí" },
-        { "sn": 548, "name": "Tủ lạnh" },
-        { "sn": 231, "name": "Phòng bếp" },
-        { "sn": 228, "name": "Phòng khách" },
-        { "sn": 69, "name": "Điều hoà" },
-        { "sn": 350, "name": "Bếp đầy đủ" },
-        { "sn": 360, "name": "Đồ dùng làm bếp" },
-        { "sn": 419, "name": "TV [màn hình phẳng]" },
-        { "sn": 744, "name": "bình nóng lạnh" },
-        { "sn": 159, "name": "Vòi sen tắm đứng" }
+        {
+          "sn": 125,
+          "name": "Bếp"
+        },
+        {
+          "sn": 638,
+          "name": "netflix"
+        },
+        {
+          "sn": 189,
+          "name": "Mini bar"
+        },
+        {
+          "sn": 187,
+          "name": "Ban công"
+        },
+        {
+          "sn": 131,
+          "name": "Bếp từ từ"
+        },
+        {
+          "sn": 188,
+          "name": "Wi-Fi miễn phí"
+        },
+        {
+          "sn": 548,
+          "name": "Tủ lạnh"
+        },
+        {
+          "sn": 231,
+          "name": "Phòng bếp"
+        },
+        {
+          "sn": 228,
+          "name": "Phòng khách"
+        },
+        {
+          "sn": 69,
+          "name": "Điều hoà"
+        },
+        {
+          "sn": 350,
+          "name": "Bếp đầy đủ"
+        },
+        {
+          "sn": 360,
+          "name": "Đồ dùng làm bếp"
+        },
+        {
+          "sn": 419,
+          "name": "TV [màn hình phẳng]"
+        },
+        {
+          "sn": 744,
+          "name": "bình nóng lạnh"
+        },
+        {
+          "sn": 159,
+          "name": "Vòi sen tắm đứng"
+        }
       ],
       "originPrice": 390000,
       "discountPrice": 390000,
@@ -13321,11 +14951,26 @@
       "sn": 2484,
       "name": "NGUYỄN ANH HOTEL - 27 NGUYỄN NGỌC DOÃN",
       "facilityList": [
-        { "sn": 97, "name": "Smart TV" },
-        { "sn": 123, "name": "Bồn tắm" },
-        { "sn": 188, "name": "Wi-Fi miễn phí" },
-        { "sn": 69, "name": "Điều hoà" },
-        { "sn": 98, "name": "Ghế tình yêu" }
+        {
+          "sn": 97,
+          "name": "Smart TV"
+        },
+        {
+          "sn": 123,
+          "name": "Bồn tắm"
+        },
+        {
+          "sn": 188,
+          "name": "Wi-Fi miễn phí"
+        },
+        {
+          "sn": 69,
+          "name": "Điều hoà"
+        },
+        {
+          "sn": 98,
+          "name": "Ghế tình yêu"
+        }
       ],
       "originPrice": 200000,
       "discountPrice": 200000,
@@ -13388,10 +15033,22 @@
       "sn": 2190,
       "name": "HANOI A83 HOTEL",
       "facilityList": [
-        { "sn": 830, "name": "tivi cable" },
-        { "sn": 188, "name": "Wi-Fi miễn phí" },
-        { "sn": 69, "name": "Điều hoà" },
-        { "sn": 122, "name": "Lễ tân 24/24" }
+        {
+          "sn": 830,
+          "name": "tivi cable"
+        },
+        {
+          "sn": 188,
+          "name": "Wi-Fi miễn phí"
+        },
+        {
+          "sn": 69,
+          "name": "Điều hoà"
+        },
+        {
+          "sn": 122,
+          "name": "Lễ tân 24/24"
+        }
       ],
       "originPrice": 190000,
       "discountPrice": 190000,
@@ -13453,12 +15110,30 @@
       "sn": 4321,
       "name": "MAI HOTEL",
       "facilityList": [
-        { "sn": 97, "name": "Smart TV" },
-        { "sn": 123, "name": "Bồn tắm" },
-        { "sn": 188, "name": "Wi-Fi miễn phí" },
-        { "sn": 69, "name": "Điều hoà" },
-        { "sn": 98, "name": "Ghế tình yêu" },
-        { "sn": 122, "name": "Lễ tân 24/24" }
+        {
+          "sn": 97,
+          "name": "Smart TV"
+        },
+        {
+          "sn": 123,
+          "name": "Bồn tắm"
+        },
+        {
+          "sn": 188,
+          "name": "Wi-Fi miễn phí"
+        },
+        {
+          "sn": 69,
+          "name": "Điều hoà"
+        },
+        {
+          "sn": 98,
+          "name": "Ghế tình yêu"
+        },
+        {
+          "sn": 122,
+          "name": "Lễ tân 24/24"
+        }
       ],
       "originPrice": 275000,
       "discountPrice": 220000,
@@ -13521,9 +15196,18 @@
       "sn": 1477,
       "name": "BLUE HANOI INN-LUXURY HOTEL",
       "facilityList": [
-        { "sn": 97, "name": "Smart TV" },
-        { "sn": 123, "name": "Bồn tắm" },
-        { "sn": 188, "name": "Wi-Fi miễn phí" }
+        {
+          "sn": 97,
+          "name": "Smart TV"
+        },
+        {
+          "sn": 123,
+          "name": "Bồn tắm"
+        },
+        {
+          "sn": 188,
+          "name": "Wi-Fi miễn phí"
+        }
       ],
       "originPrice": 200000,
       "discountPrice": 200000,
@@ -13586,10 +15270,22 @@
       "sn": 3083,
       "name": "AN BÌNH MOTEL",
       "facilityList": [
-        { "sn": 27, "name": "Thang máy" },
-        { "sn": 188, "name": "Wi-Fi miễn phí" },
-        { "sn": 143, "name": "Vòi hoa sen" },
-        { "sn": 122, "name": "Lễ tân 24/24" }
+        {
+          "sn": 27,
+          "name": "Thang máy"
+        },
+        {
+          "sn": 188,
+          "name": "Wi-Fi miễn phí"
+        },
+        {
+          "sn": 143,
+          "name": "Vòi hoa sen"
+        },
+        {
+          "sn": 122,
+          "name": "Lễ tân 24/24"
+        }
       ],
       "originPrice": 120000,
       "discountPrice": 120000,
@@ -13641,10 +15337,22 @@
       "sn": 4782,
       "name": "MAI HOME",
       "facilityList": [
-        { "sn": 198, "name": "TV" },
-        { "sn": 123, "name": "Bồn tắm" },
-        { "sn": 188, "name": "Wi-Fi miễn phí" },
-        { "sn": 98, "name": "Ghế tình yêu" }
+        {
+          "sn": 198,
+          "name": "TV"
+        },
+        {
+          "sn": 123,
+          "name": "Bồn tắm"
+        },
+        {
+          "sn": 188,
+          "name": "Wi-Fi miễn phí"
+        },
+        {
+          "sn": 98,
+          "name": "Ghế tình yêu"
+        }
       ],
       "originPrice": 300000,
       "discountPrice": 220000,
@@ -13701,10 +15409,22 @@
       "sn": 1662,
       "name": "A25 HOTEL - 28 TRẦN QUÝ CÁP",
       "facilityList": [
-        { "sn": 46, "name": "Quầy bar" },
-        { "sn": 188, "name": "Wi-Fi miễn phí" },
-        { "sn": 69, "name": "Điều hoà" },
-        { "sn": 122, "name": "Lễ tân 24/24" }
+        {
+          "sn": 46,
+          "name": "Quầy bar"
+        },
+        {
+          "sn": 188,
+          "name": "Wi-Fi miễn phí"
+        },
+        {
+          "sn": 69,
+          "name": "Điều hoà"
+        },
+        {
+          "sn": 122,
+          "name": "Lễ tân 24/24"
+        }
       ],
       "originPrice": 220000,
       "discountPrice": 220000,
@@ -13749,9 +15469,18 @@
       "sn": 1427,
       "name": "TRẦN GIA 1",
       "facilityList": [
-        { "sn": 97, "name": "Smart TV" },
-        { "sn": 188, "name": "Wi-Fi miễn phí" },
-        { "sn": 98, "name": "Ghế tình yêu" }
+        {
+          "sn": 97,
+          "name": "Smart TV"
+        },
+        {
+          "sn": 188,
+          "name": "Wi-Fi miễn phí"
+        },
+        {
+          "sn": 98,
+          "name": "Ghế tình yêu"
+        }
       ],
       "originPrice": 180000,
       "discountPrice": 180000,
@@ -13803,10 +15532,22 @@
       "sn": 1759,
       "name": "CHARM HOTEL",
       "facilityList": [
-        { "sn": 188, "name": "Wi-Fi miễn phí" },
-        { "sn": 69, "name": "Điều hoà" },
-        { "sn": 122, "name": "Lễ tân 24/24" },
-        { "sn": 169, "name": "Cửa sổ thông thoáng" }
+        {
+          "sn": 188,
+          "name": "Wi-Fi miễn phí"
+        },
+        {
+          "sn": 69,
+          "name": "Điều hoà"
+        },
+        {
+          "sn": 122,
+          "name": "Lễ tân 24/24"
+        },
+        {
+          "sn": 169,
+          "name": "Cửa sổ thông thoáng"
+        }
       ],
       "originPrice": 300000,
       "discountPrice": 300000,
@@ -13865,13 +15606,34 @@
       "sn": 3429,
       "name": "A&EM VILLA HOTEL",
       "facilityList": [
-        { "sn": 97, "name": "Smart TV" },
-        { "sn": 27, "name": "Thang máy" },
-        { "sn": 123, "name": "Bồn tắm" },
-        { "sn": 188, "name": "Wi-Fi miễn phí" },
-        { "sn": 98, "name": "Ghế tình yêu" },
-        { "sn": 33, "name": "Bãi đỗ xe ô tô" },
-        { "sn": 122, "name": "Lễ tân 24/24" }
+        {
+          "sn": 97,
+          "name": "Smart TV"
+        },
+        {
+          "sn": 27,
+          "name": "Thang máy"
+        },
+        {
+          "sn": 123,
+          "name": "Bồn tắm"
+        },
+        {
+          "sn": 188,
+          "name": "Wi-Fi miễn phí"
+        },
+        {
+          "sn": 98,
+          "name": "Ghế tình yêu"
+        },
+        {
+          "sn": 33,
+          "name": "Bãi đỗ xe ô tô"
+        },
+        {
+          "sn": 122,
+          "name": "Lễ tân 24/24"
+        }
       ],
       "originPrice": 180000,
       "discountPrice": 180000,
@@ -13933,9 +15695,18 @@
       "sn": 4495,
       "name": "MAI VILLA - NGUYÊN HỒNG",
       "facilityList": [
-        { "sn": 97, "name": "Smart TV" },
-        { "sn": 69, "name": "Điều hoà" },
-        { "sn": 98, "name": "Ghế tình yêu" }
+        {
+          "sn": 97,
+          "name": "Smart TV"
+        },
+        {
+          "sn": 69,
+          "name": "Điều hoà"
+        },
+        {
+          "sn": 98,
+          "name": "Ghế tình yêu"
+        }
       ],
       "originPrice": 180000,
       "discountPrice": 160000,
@@ -13976,30 +15747,102 @@
       "sn": 28186,
       "name": "GẤU HOTEL",
       "facilityList": [
-        { "sn": 870, "name": "Tivi" },
-        { "sn": 814, "name": "Minibar" },
-        { "sn": 97, "name": "Smart TV" },
-        { "sn": 779, "name": "Free wifi" },
-        { "sn": 123, "name": "Bồn tắm" },
-        { "sn": 187, "name": "Ban công" },
-        { "sn": 188, "name": "Wi-Fi miễn phí" },
-        { "sn": 548, "name": "Tủ lạnh" },
-        { "sn": 840, "name": "Bãi đỗ xe" },
-        { "sn": 852, "name": "Lễ tân 24h" },
-        { "sn": 781, "name": "Amenities free" },
-        { "sn": 69, "name": "Điều hoà" },
-        { "sn": 862, "name": "Máy báo cháy" },
-        { "sn": 627, "name": "Giường tròn" },
-        { "sn": 194, "name": "Cách âm" },
-        { "sn": 831, "name": "Wifi miễn phí miễn phí" },
-        { "sn": 905, "name": "Bồn tắm (102)" },
-        { "sn": 851, "name": "Nước nóng lạnh" },
-        { "sn": 807, "name": "Vòi sen Nóng lạnh" },
-        { "sn": 871, "name": "TV màn hình phẳng màn hình phẳng" },
-        { "sn": 902, "name": "Bãi đậu xe máy, ô tô" },
-        { "sn": 788, "name": "Bãi đô xe máy miễn phí" },
-        { "sn": 787, "name": "Bãi đỗ xe ô tô miễn phí ô tô miễn phí" },
-        { "sn": 794, "name": "miễn phí 2 chai nước lọc" },
+        {
+          "sn": 870,
+          "name": "Tivi"
+        },
+        {
+          "sn": 814,
+          "name": "Minibar"
+        },
+        {
+          "sn": 97,
+          "name": "Smart TV"
+        },
+        {
+          "sn": 779,
+          "name": "Free wifi"
+        },
+        {
+          "sn": 123,
+          "name": "Bồn tắm"
+        },
+        {
+          "sn": 187,
+          "name": "Ban công"
+        },
+        {
+          "sn": 188,
+          "name": "Wi-Fi miễn phí"
+        },
+        {
+          "sn": 548,
+          "name": "Tủ lạnh"
+        },
+        {
+          "sn": 840,
+          "name": "Bãi đỗ xe"
+        },
+        {
+          "sn": 852,
+          "name": "Lễ tân 24h"
+        },
+        {
+          "sn": 781,
+          "name": "Amenities free"
+        },
+        {
+          "sn": 69,
+          "name": "Điều hoà"
+        },
+        {
+          "sn": 862,
+          "name": "Máy báo cháy"
+        },
+        {
+          "sn": 627,
+          "name": "Giường tròn"
+        },
+        {
+          "sn": 194,
+          "name": "Cách âm"
+        },
+        {
+          "sn": 831,
+          "name": "Wifi miễn phí miễn phí"
+        },
+        {
+          "sn": 905,
+          "name": "Bồn tắm (102)"
+        },
+        {
+          "sn": 851,
+          "name": "Nước nóng lạnh"
+        },
+        {
+          "sn": 807,
+          "name": "Vòi sen Nóng lạnh"
+        },
+        {
+          "sn": 871,
+          "name": "TV màn hình phẳng màn hình phẳng"
+        },
+        {
+          "sn": 902,
+          "name": "Bãi đậu xe máy, ô tô"
+        },
+        {
+          "sn": 788,
+          "name": "Bãi đô xe máy miễn phí"
+        },
+        {
+          "sn": 787,
+          "name": "Bãi đỗ xe ô tô miễn phí ô tô miễn phí"
+        },
+        {
+          "sn": 794,
+          "name": "miễn phí 2 chai nước lọc"
+        },
         {
           "sn": 789,
           "name": "Miễn phí ăn sáng cho khách book Overnight và Daily"
@@ -14093,8 +15936,14 @@
       "sn": 1478,
       "name": "BLUE HANOI INN-CENTER HOTEL",
       "facilityList": [
-        { "sn": 97, "name": "Smart TV" },
-        { "sn": 188, "name": "Wi-Fi miễn phí" }
+        {
+          "sn": 97,
+          "name": "Smart TV"
+        },
+        {
+          "sn": 188,
+          "name": "Wi-Fi miễn phí"
+        }
       ],
       "originPrice": 200000,
       "discountPrice": 200000,
@@ -14143,19 +15992,58 @@
       "sn": 2901,
       "name": "SUNNY HOTEL",
       "facilityList": [
-        { "sn": 97, "name": "Smart TV" },
-        { "sn": 27, "name": "Thang máy" },
-        { "sn": 148, "name": "bàn ghế" },
-        { "sn": 188, "name": "Wi-Fi miễn phí" },
-        { "sn": 133, "name": "Cafe miễn phí" },
-        { "sn": 36, "name": "Phòng gia đình" },
-        { "sn": 154, "name": "Máy chơi game" },
-        { "sn": 33, "name": "Bãi đỗ xe ô tô" },
-        { "sn": 169, "name": "Cửa sổ thông thoáng" },
-        { "sn": 134, "name": "Bình nóng lạnh" },
-        { "sn": 67, "name": "Dịch vụ giặt ủi" },
-        { "sn": 159, "name": "Vòi sen tắm đứng" },
-        { "sn": 127, "name": "Dịch vụ dọn phòng mỗi ngày" }
+        {
+          "sn": 97,
+          "name": "Smart TV"
+        },
+        {
+          "sn": 27,
+          "name": "Thang máy"
+        },
+        {
+          "sn": 148,
+          "name": "bàn ghế"
+        },
+        {
+          "sn": 188,
+          "name": "Wi-Fi miễn phí"
+        },
+        {
+          "sn": 133,
+          "name": "Cafe miễn phí"
+        },
+        {
+          "sn": 36,
+          "name": "Phòng gia đình"
+        },
+        {
+          "sn": 154,
+          "name": "Máy chơi game"
+        },
+        {
+          "sn": 33,
+          "name": "Bãi đỗ xe ô tô"
+        },
+        {
+          "sn": 169,
+          "name": "Cửa sổ thông thoáng"
+        },
+        {
+          "sn": 134,
+          "name": "Bình nóng lạnh"
+        },
+        {
+          "sn": 67,
+          "name": "Dịch vụ giặt ủi"
+        },
+        {
+          "sn": 159,
+          "name": "Vòi sen tắm đứng"
+        },
+        {
+          "sn": 127,
+          "name": "Dịch vụ dọn phòng mỗi ngày"
+        }
       ],
       "originPrice": 220000,
       "discountPrice": 170000,
@@ -14207,10 +16095,22 @@
       "sn": 12405,
       "name": "MIN HOTEL",
       "facilityList": [
-        { "sn": 97, "name": "Smart TV" },
-        { "sn": 98, "name": "Ghế tình yêu" },
-        { "sn": 280, "name": "Wi-Fi [miễn phí]" },
-        { "sn": 542, "name": "Chỗ để xe cho ô tô - phương tiện tự đỗ xe" }
+        {
+          "sn": 97,
+          "name": "Smart TV"
+        },
+        {
+          "sn": 98,
+          "name": "Ghế tình yêu"
+        },
+        {
+          "sn": 280,
+          "name": "Wi-Fi [miễn phí]"
+        },
+        {
+          "sn": 542,
+          "name": "Chỗ để xe cho ô tô - phương tiện tự đỗ xe"
+        }
       ],
       "originPrice": 300000,
       "discountPrice": 300000,
@@ -14270,11 +16170,26 @@
       "sn": 3401,
       "name": "VY HOUSE HOTEL",
       "facilityList": [
-        { "sn": 145, "name": "Tủ quần áo" },
-        { "sn": 69, "name": "Điều hoà" },
-        { "sn": 33, "name": "Bãi đỗ xe ô tô" },
-        { "sn": 122, "name": "Lễ tân 24/24" },
-        { "sn": 169, "name": "Cửa sổ thông thoáng" }
+        {
+          "sn": 145,
+          "name": "Tủ quần áo"
+        },
+        {
+          "sn": 69,
+          "name": "Điều hoà"
+        },
+        {
+          "sn": 33,
+          "name": "Bãi đỗ xe ô tô"
+        },
+        {
+          "sn": 122,
+          "name": "Lễ tân 24/24"
+        },
+        {
+          "sn": 169,
+          "name": "Cửa sổ thông thoáng"
+        }
       ],
       "originPrice": 250000,
       "discountPrice": 250000,
@@ -14336,11 +16251,26 @@
       "sn": 4037,
       "name": "LAVIE HOTEL",
       "facilityList": [
-        { "sn": 27, "name": "Thang máy" },
-        { "sn": 188, "name": "Wi-Fi miễn phí" },
-        { "sn": 98, "name": "Ghế tình yêu" },
-        { "sn": 33, "name": "Bãi đỗ xe ô tô" },
-        { "sn": 122, "name": "Lễ tân 24/24" }
+        {
+          "sn": 27,
+          "name": "Thang máy"
+        },
+        {
+          "sn": 188,
+          "name": "Wi-Fi miễn phí"
+        },
+        {
+          "sn": 98,
+          "name": "Ghế tình yêu"
+        },
+        {
+          "sn": 33,
+          "name": "Bãi đỗ xe ô tô"
+        },
+        {
+          "sn": 122,
+          "name": "Lễ tân 24/24"
+        }
       ],
       "originPrice": 250000,
       "discountPrice": 187500,
@@ -14403,11 +16333,26 @@
       "sn": 608,
       "name": "COSY MOTEL",
       "facilityList": [
-        { "sn": 27, "name": "Thang máy" },
-        { "sn": 188, "name": "Wi-Fi miễn phí" },
-        { "sn": 69, "name": "Điều hoà" },
-        { "sn": 91, "name": "Truyền hình cáp" },
-        { "sn": 122, "name": "Lễ tân 24/24" }
+        {
+          "sn": 27,
+          "name": "Thang máy"
+        },
+        {
+          "sn": 188,
+          "name": "Wi-Fi miễn phí"
+        },
+        {
+          "sn": 69,
+          "name": "Điều hoà"
+        },
+        {
+          "sn": 91,
+          "name": "Truyền hình cáp"
+        },
+        {
+          "sn": 122,
+          "name": "Lễ tân 24/24"
+        }
       ],
       "originPrice": 200000,
       "discountPrice": 180000,
@@ -14458,37 +16403,130 @@
       "sn": 27918,
       "name": "THE SUN APARTMENT",
       "facilityList": [
-        { "sn": 198, "name": "TV" },
-        { "sn": 784, "name": "Sofa" },
-        { "sn": 870, "name": "Tivi" },
-        { "sn": 634, "name": "Wifi" },
-        { "sn": 125, "name": "Bếp" },
-        { "sn": 230, "name": "Ghế sofa" },
-        { "sn": 860, "name": "Bàn Là" },
-        { "sn": 97, "name": "Smart TV" },
-        { "sn": 27, "name": "Thang máy" },
-        { "sn": 187, "name": "Ban công" },
-        { "sn": 894, "name": "Bếp Mini Mini" },
-        { "sn": 904, "name": "Máy sấy" },
-        { "sn": 148, "name": "bàn ghế" },
-        { "sn": 145, "name": "Tủ quần áo" },
-        { "sn": 188, "name": "Wi-Fi miễn phí" },
-        { "sn": 229, "name": "Máy giặt" },
-        { "sn": 548, "name": "Tủ lạnh" },
-        { "sn": 880, "name": "NÓNG LẠNH" },
-        { "sn": 180, "name": "Máy chiếu" },
-        { "sn": 351, "name": "Máy sấy tóc" },
-        { "sn": 832, "name": "Có thang máy" },
-        { "sn": 69, "name": "Điều hoà" },
-        { "sn": 897, "name": "Giường đôi" },
-        { "sn": 831, "name": "Wifi miễn phí miễn phí" },
-        { "sn": 896, "name": "Giường 1m6x2m" },
-        { "sn": 360, "name": "Đồ dùng làm bếp" },
-        { "sn": 790, "name": "Máy chiếu phim phim" },
-        { "sn": 169, "name": "Cửa sổ thông thoáng" },
-        { "sn": 895, "name": "Bếp + WC khép kín + WC khép kín" },
-        { "sn": 171, "name": "Dịch vụ phát trực tuyến như Netflix" },
-        { "sn": 220, "name": "Nhà vệ sinh và nhà tắm khép kín" }
+        {
+          "sn": 198,
+          "name": "TV"
+        },
+        {
+          "sn": 784,
+          "name": "Sofa"
+        },
+        {
+          "sn": 870,
+          "name": "Tivi"
+        },
+        {
+          "sn": 634,
+          "name": "Wifi"
+        },
+        {
+          "sn": 125,
+          "name": "Bếp"
+        },
+        {
+          "sn": 230,
+          "name": "Ghế sofa"
+        },
+        {
+          "sn": 860,
+          "name": "Bàn Là"
+        },
+        {
+          "sn": 97,
+          "name": "Smart TV"
+        },
+        {
+          "sn": 27,
+          "name": "Thang máy"
+        },
+        {
+          "sn": 187,
+          "name": "Ban công"
+        },
+        {
+          "sn": 894,
+          "name": "Bếp Mini Mini"
+        },
+        {
+          "sn": 904,
+          "name": "Máy sấy"
+        },
+        {
+          "sn": 148,
+          "name": "bàn ghế"
+        },
+        {
+          "sn": 145,
+          "name": "Tủ quần áo"
+        },
+        {
+          "sn": 188,
+          "name": "Wi-Fi miễn phí"
+        },
+        {
+          "sn": 229,
+          "name": "Máy giặt"
+        },
+        {
+          "sn": 548,
+          "name": "Tủ lạnh"
+        },
+        {
+          "sn": 880,
+          "name": "NÓNG LẠNH"
+        },
+        {
+          "sn": 180,
+          "name": "Máy chiếu"
+        },
+        {
+          "sn": 351,
+          "name": "Máy sấy tóc"
+        },
+        {
+          "sn": 832,
+          "name": "Có thang máy"
+        },
+        {
+          "sn": 69,
+          "name": "Điều hoà"
+        },
+        {
+          "sn": 897,
+          "name": "Giường đôi"
+        },
+        {
+          "sn": 831,
+          "name": "Wifi miễn phí miễn phí"
+        },
+        {
+          "sn": 896,
+          "name": "Giường 1m6x2m"
+        },
+        {
+          "sn": 360,
+          "name": "Đồ dùng làm bếp"
+        },
+        {
+          "sn": 790,
+          "name": "Máy chiếu phim phim"
+        },
+        {
+          "sn": 169,
+          "name": "Cửa sổ thông thoáng"
+        },
+        {
+          "sn": 895,
+          "name": "Bếp + WC khép kín + WC khép kín"
+        },
+        {
+          "sn": 171,
+          "name": "Dịch vụ phát trực tuyến như Netflix"
+        },
+        {
+          "sn": 220,
+          "name": "Nhà vệ sinh và nhà tắm khép kín"
+        }
       ],
       "originPrice": 249000,
       "discountPrice": 219000,
@@ -14551,12 +16589,30 @@
       "sn": 1112,
       "name": "A25 HOTEL - 63A PHƯƠNG LIỆT",
       "facilityList": [
-        { "sn": 97, "name": "Smart TV" },
-        { "sn": 189, "name": "Mini bar" },
-        { "sn": 27, "name": "Thang máy" },
-        { "sn": 188, "name": "Wi-Fi miễn phí" },
-        { "sn": 69, "name": "Điều hoà" },
-        { "sn": 275, "name": "Tủ lạnh nhỏ trong phòng" }
+        {
+          "sn": 97,
+          "name": "Smart TV"
+        },
+        {
+          "sn": 189,
+          "name": "Mini bar"
+        },
+        {
+          "sn": 27,
+          "name": "Thang máy"
+        },
+        {
+          "sn": 188,
+          "name": "Wi-Fi miễn phí"
+        },
+        {
+          "sn": 69,
+          "name": "Điều hoà"
+        },
+        {
+          "sn": 275,
+          "name": "Tủ lạnh nhỏ trong phòng"
+        }
       ],
       "originPrice": 250000,
       "discountPrice": 250000,
@@ -14612,10 +16668,22 @@
       "sn": 929,
       "name": "ĐINH HOTEL AMI",
       "facilityList": [
-        { "sn": 27, "name": "Thang máy" },
-        { "sn": 140, "name": "Máy sấy tóc" },
-        { "sn": 69, "name": "Điều hoà" },
-        { "sn": 134, "name": "Bình nóng lạnh" }
+        {
+          "sn": 27,
+          "name": "Thang máy"
+        },
+        {
+          "sn": 140,
+          "name": "Máy sấy tóc"
+        },
+        {
+          "sn": 69,
+          "name": "Điều hoà"
+        },
+        {
+          "sn": 134,
+          "name": "Bình nóng lạnh"
+        }
       ],
       "originPrice": 200000,
       "discountPrice": 200000,
@@ -14678,9 +16746,18 @@
       "sn": 1580,
       "name": "EVEREST HOTEL HÀ NỘI",
       "facilityList": [
-        { "sn": 27, "name": "Thang máy" },
-        { "sn": 188, "name": "Wi-Fi miễn phí" },
-        { "sn": 69, "name": "Điều hoà" }
+        {
+          "sn": 27,
+          "name": "Thang máy"
+        },
+        {
+          "sn": 188,
+          "name": "Wi-Fi miễn phí"
+        },
+        {
+          "sn": 69,
+          "name": "Điều hoà"
+        }
       ],
       "originPrice": 270000,
       "discountPrice": 270000,
@@ -14738,9 +16815,18 @@
       "sn": 566,
       "name": "QUEEN HOTEL 5",
       "facilityList": [
-        { "sn": 97, "name": "Smart TV" },
-        { "sn": 188, "name": "Wi-Fi miễn phí" },
-        { "sn": 122, "name": "Lễ tân 24/24" }
+        {
+          "sn": 97,
+          "name": "Smart TV"
+        },
+        {
+          "sn": 188,
+          "name": "Wi-Fi miễn phí"
+        },
+        {
+          "sn": 122,
+          "name": "Lễ tân 24/24"
+        }
       ],
       "originPrice": 150000,
       "discountPrice": 150000,
@@ -14834,12 +16920,30 @@
       "sn": 16794,
       "name": "MELY HOTEL",
       "facilityList": [
-        { "sn": 198, "name": "TV" },
-        { "sn": 214, "name": "Cửa sổ" },
-        { "sn": 188, "name": "Wi-Fi miễn phí" },
-        { "sn": 69, "name": "Điều hoà" },
-        { "sn": 770, "name": "2 giường ngủ" },
-        { "sn": 655, "name": "Trái cây/đồ ăn vặt|Fruits/snacks" }
+        {
+          "sn": 198,
+          "name": "TV"
+        },
+        {
+          "sn": 214,
+          "name": "Cửa sổ"
+        },
+        {
+          "sn": 188,
+          "name": "Wi-Fi miễn phí"
+        },
+        {
+          "sn": 69,
+          "name": "Điều hoà"
+        },
+        {
+          "sn": 770,
+          "name": "2 giường ngủ"
+        },
+        {
+          "sn": 655,
+          "name": "Trái cây/đồ ăn vặt|Fruits/snacks"
+        }
       ],
       "originPrice": 180000,
       "discountPrice": 153000,
@@ -14931,9 +17035,18 @@
       "sn": 3135,
       "name": "THANH BÌNH MOTEL LÊ TRỌNG TẤN",
       "facilityList": [
-        { "sn": 188, "name": "Wi-Fi miễn phí" },
-        { "sn": 69, "name": "Điều hoà" },
-        { "sn": 98, "name": "Ghế tình yêu" }
+        {
+          "sn": 188,
+          "name": "Wi-Fi miễn phí"
+        },
+        {
+          "sn": 69,
+          "name": "Điều hoà"
+        },
+        {
+          "sn": 98,
+          "name": "Ghế tình yêu"
+        }
       ],
       "originPrice": 140000,
       "discountPrice": 140000,
@@ -14984,10 +17097,22 @@
       "sn": 1506,
       "name": "GRAND DRAGON HOTEL HANOI",
       "facilityList": [
-        { "sn": 97, "name": "Smart TV" },
-        { "sn": 188, "name": "Wi-Fi miễn phí" },
-        { "sn": 33, "name": "Bãi đỗ xe ô tô" },
-        { "sn": 122, "name": "Lễ tân 24/24" }
+        {
+          "sn": 97,
+          "name": "Smart TV"
+        },
+        {
+          "sn": 188,
+          "name": "Wi-Fi miễn phí"
+        },
+        {
+          "sn": 33,
+          "name": "Bãi đỗ xe ô tô"
+        },
+        {
+          "sn": 122,
+          "name": "Lễ tân 24/24"
+        }
       ],
       "originPrice": 300000,
       "discountPrice": 300000,
@@ -15050,12 +17175,30 @@
       "sn": 853,
       "name": "MY IRIS",
       "facilityList": [
-        { "sn": 27, "name": "Thang máy" },
-        { "sn": 188, "name": "Wi-Fi miễn phí" },
-        { "sn": 351, "name": "Máy sấy tóc" },
-        { "sn": 140, "name": "Máy sấy tóc" },
-        { "sn": 69, "name": "Điều hoà" },
-        { "sn": 141, "name": "Tiện nghi là" }
+        {
+          "sn": 27,
+          "name": "Thang máy"
+        },
+        {
+          "sn": 188,
+          "name": "Wi-Fi miễn phí"
+        },
+        {
+          "sn": 351,
+          "name": "Máy sấy tóc"
+        },
+        {
+          "sn": 140,
+          "name": "Máy sấy tóc"
+        },
+        {
+          "sn": 69,
+          "name": "Điều hoà"
+        },
+        {
+          "sn": 141,
+          "name": "Tiện nghi là"
+        }
       ],
       "originPrice": 238000,
       "discountPrice": 238000,
@@ -15111,9 +17254,18 @@
       "sn": 3905,
       "name": "KING'S HOTEL VĂN QUÁN",
       "facilityList": [
-        { "sn": 97, "name": "Smart TV" },
-        { "sn": 27, "name": "Thang máy" },
-        { "sn": 188, "name": "Wi-Fi miễn phí" }
+        {
+          "sn": 97,
+          "name": "Smart TV"
+        },
+        {
+          "sn": 27,
+          "name": "Thang máy"
+        },
+        {
+          "sn": 188,
+          "name": "Wi-Fi miễn phí"
+        }
       ],
       "originPrice": 250000,
       "discountPrice": 200000,
@@ -15173,12 +17325,30 @@
       "sn": 4713,
       "name": "THÀNH NAM MOTEL",
       "facilityList": [
-        { "sn": 198, "name": "TV" },
-        { "sn": 188, "name": "Wi-Fi miễn phí" },
-        { "sn": 351, "name": "Máy sấy tóc" },
-        { "sn": 272, "name": "Điều hòa" },
-        { "sn": 69, "name": "Điều hoà" },
-        { "sn": 98, "name": "Ghế tình yêu" }
+        {
+          "sn": 198,
+          "name": "TV"
+        },
+        {
+          "sn": 188,
+          "name": "Wi-Fi miễn phí"
+        },
+        {
+          "sn": 351,
+          "name": "Máy sấy tóc"
+        },
+        {
+          "sn": 272,
+          "name": "Điều hòa"
+        },
+        {
+          "sn": 69,
+          "name": "Điều hoà"
+        },
+        {
+          "sn": 98,
+          "name": "Ghế tình yêu"
+        }
       ],
       "originPrice": 130000,
       "discountPrice": 130000,
@@ -15229,13 +17399,34 @@
       "sn": 16325,
       "name": "HOÀNG TỬ HOTEL 9",
       "facilityList": [
-        { "sn": 189, "name": "Mini bar" },
-        { "sn": 123, "name": "Bồn tắm" },
-        { "sn": 188, "name": "Wi-Fi miễn phí" },
-        { "sn": 69, "name": "Điều hoà" },
-        { "sn": 275, "name": "Tủ lạnh nhỏ trong phòng" },
-        { "sn": 744, "name": "bình nóng lạnh" },
-        { "sn": 743, "name": "điều hòa nóng lạnh" }
+        {
+          "sn": 189,
+          "name": "Mini bar"
+        },
+        {
+          "sn": 123,
+          "name": "Bồn tắm"
+        },
+        {
+          "sn": 188,
+          "name": "Wi-Fi miễn phí"
+        },
+        {
+          "sn": 69,
+          "name": "Điều hoà"
+        },
+        {
+          "sn": 275,
+          "name": "Tủ lạnh nhỏ trong phòng"
+        },
+        {
+          "sn": 744,
+          "name": "bình nóng lạnh"
+        },
+        {
+          "sn": 743,
+          "name": "điều hòa nóng lạnh"
+        }
       ],
       "originPrice": 300000,
       "discountPrice": 300000,
@@ -15283,8 +17474,14 @@
       "sn": 1532,
       "name": "NGÂN HÀ HOTEL",
       "facilityList": [
-        { "sn": 33, "name": "Bãi đỗ xe ô tô" },
-        { "sn": 122, "name": "Lễ tân 24/24" }
+        {
+          "sn": 33,
+          "name": "Bãi đỗ xe ô tô"
+        },
+        {
+          "sn": 122,
+          "name": "Lễ tân 24/24"
+        }
       ],
       "originPrice": 150000,
       "discountPrice": 150000,
@@ -15347,9 +17544,18 @@
       "sn": 978,
       "name": "LIEBER 2 HOTEL",
       "facilityList": [
-        { "sn": 27, "name": "Thang máy" },
-        { "sn": 188, "name": "Wi-Fi miễn phí" },
-        { "sn": 69, "name": "Điều hoà" }
+        {
+          "sn": 27,
+          "name": "Thang máy"
+        },
+        {
+          "sn": 188,
+          "name": "Wi-Fi miễn phí"
+        },
+        {
+          "sn": 69,
+          "name": "Điều hoà"
+        }
       ],
       "originPrice": 220000,
       "discountPrice": 220000,
@@ -15410,15 +17616,42 @@
       "sn": 27028,
       "name": "JACAYL HOTEL - HÀ ĐÔNG",
       "facilityList": [
-        { "sn": 198, "name": "TV" },
-        { "sn": 97, "name": "Smart TV" },
-        { "sn": 123, "name": "Bồn tắm" },
-        { "sn": 852, "name": "Lễ tân 24h" },
-        { "sn": 69, "name": "Điều hoà" },
-        { "sn": 33, "name": "Bãi đỗ xe ô tô" },
-        { "sn": 831, "name": "Wifi miễn phí miễn phí" },
-        { "sn": 134, "name": "Bình nóng lạnh" },
-        { "sn": 767, "name": "điều hòa nóng lạnh" }
+        {
+          "sn": 198,
+          "name": "TV"
+        },
+        {
+          "sn": 97,
+          "name": "Smart TV"
+        },
+        {
+          "sn": 123,
+          "name": "Bồn tắm"
+        },
+        {
+          "sn": 852,
+          "name": "Lễ tân 24h"
+        },
+        {
+          "sn": 69,
+          "name": "Điều hoà"
+        },
+        {
+          "sn": 33,
+          "name": "Bãi đỗ xe ô tô"
+        },
+        {
+          "sn": 831,
+          "name": "Wifi miễn phí miễn phí"
+        },
+        {
+          "sn": 134,
+          "name": "Bình nóng lạnh"
+        },
+        {
+          "sn": 767,
+          "name": "điều hòa nóng lạnh"
+        }
       ],
       "originPrice": 199000,
       "discountPrice": 199000,
@@ -15481,17 +17714,50 @@
       "sn": 19198,
       "name": "LAM ANH HOTEL 5",
       "facilityList": [
-        { "sn": 198, "name": "TV" },
-        { "sn": 634, "name": "Wifi" },
-        { "sn": 908, "name": "Netfix" },
-        { "sn": 27, "name": "Thang máy" },
-        { "sn": 98, "name": "Ghế tình yêu" },
-        { "sn": 776, "name": "Có bồn tắm" },
-        { "sn": 741, "name": "lễ tân 24/24" },
-        { "sn": 122, "name": "Lễ tân 24/24" },
-        { "sn": 159, "name": "Vòi sen tắm đứng" },
-        { "sn": 767, "name": "điều hòa nóng lạnh" },
-        { "sn": 787, "name": "Bãi đỗ xe ô tô miễn phí ô tô miễn phí" }
+        {
+          "sn": 198,
+          "name": "TV"
+        },
+        {
+          "sn": 634,
+          "name": "Wifi"
+        },
+        {
+          "sn": 908,
+          "name": "Netfix"
+        },
+        {
+          "sn": 27,
+          "name": "Thang máy"
+        },
+        {
+          "sn": 98,
+          "name": "Ghế tình yêu"
+        },
+        {
+          "sn": 776,
+          "name": "Có bồn tắm"
+        },
+        {
+          "sn": 741,
+          "name": "lễ tân 24/24"
+        },
+        {
+          "sn": 122,
+          "name": "Lễ tân 24/24"
+        },
+        {
+          "sn": 159,
+          "name": "Vòi sen tắm đứng"
+        },
+        {
+          "sn": 767,
+          "name": "điều hòa nóng lạnh"
+        },
+        {
+          "sn": 787,
+          "name": "Bãi đỗ xe ô tô miễn phí ô tô miễn phí"
+        }
       ],
       "originPrice": 300000,
       "discountPrice": 220000,
@@ -15554,9 +17820,18 @@
       "sn": 2898,
       "name": "CICI MINI HOTEL",
       "facilityList": [
-        { "sn": 188, "name": "Wi-Fi miễn phí" },
-        { "sn": 69, "name": "Điều hoà" },
-        { "sn": 122, "name": "Lễ tân 24/24" }
+        {
+          "sn": 188,
+          "name": "Wi-Fi miễn phí"
+        },
+        {
+          "sn": 69,
+          "name": "Điều hoà"
+        },
+        {
+          "sn": 122,
+          "name": "Lễ tân 24/24"
+        }
       ],
       "originPrice": 160000,
       "discountPrice": 160000,
@@ -15619,16 +17894,46 @@
       "sn": 28387,
       "name": "THE ONE HOTEL - HÀ ĐÔNG",
       "facilityList": [
-        { "sn": 784, "name": "Sofa" },
-        { "sn": 870, "name": "Tivi" },
-        { "sn": 779, "name": "Free wifi" },
-        { "sn": 785, "name": "Bàn trà" },
-        { "sn": 880, "name": "NÓNG LẠNH" },
-        { "sn": 852, "name": "Lễ tân 24h" },
-        { "sn": 781, "name": "Amenities free" },
-        { "sn": 832, "name": "Có thang máy" },
-        { "sn": 831, "name": "Wifi miễn phí miễn phí" },
-        { "sn": 796, "name": "netflix and chill and chill" }
+        {
+          "sn": 784,
+          "name": "Sofa"
+        },
+        {
+          "sn": 870,
+          "name": "Tivi"
+        },
+        {
+          "sn": 779,
+          "name": "Free wifi"
+        },
+        {
+          "sn": 785,
+          "name": "Bàn trà"
+        },
+        {
+          "sn": 880,
+          "name": "NÓNG LẠNH"
+        },
+        {
+          "sn": 852,
+          "name": "Lễ tân 24h"
+        },
+        {
+          "sn": 781,
+          "name": "Amenities free"
+        },
+        {
+          "sn": 832,
+          "name": "Có thang máy"
+        },
+        {
+          "sn": 831,
+          "name": "Wifi miễn phí miễn phí"
+        },
+        {
+          "sn": 796,
+          "name": "netflix and chill and chill"
+        }
       ],
       "originPrice": 170000,
       "discountPrice": 160000,
@@ -15691,10 +17996,22 @@
       "sn": 3914,
       "name": "MIX BOUTIQUE HOTEL 4",
       "facilityList": [
-        { "sn": 97, "name": "Smart TV" },
-        { "sn": 27, "name": "Thang máy" },
-        { "sn": 69, "name": "Điều hoà" },
-        { "sn": 122, "name": "Lễ tân 24/24" }
+        {
+          "sn": 97,
+          "name": "Smart TV"
+        },
+        {
+          "sn": 27,
+          "name": "Thang máy"
+        },
+        {
+          "sn": 69,
+          "name": "Điều hoà"
+        },
+        {
+          "sn": 122,
+          "name": "Lễ tân 24/24"
+        }
       ],
       "originPrice": 300000,
       "discountPrice": 199000,
@@ -15746,13 +18063,34 @@
       "sn": 3854,
       "name": "VÂN ANH MOTEL",
       "facilityList": [
-        { "sn": 188, "name": "Wi-Fi miễn phí" },
-        { "sn": 143, "name": "Vòi hoa sen" },
-        { "sn": 92, "name": "Nước lọc" },
-        { "sn": 69, "name": "Điều hoà" },
-        { "sn": 153, "name": "Phòng tình nhân" },
-        { "sn": 157, "name": "Mở cửa 24/24" },
-        { "sn": 91, "name": "Truyền hình cáp" }
+        {
+          "sn": 188,
+          "name": "Wi-Fi miễn phí"
+        },
+        {
+          "sn": 143,
+          "name": "Vòi hoa sen"
+        },
+        {
+          "sn": 92,
+          "name": "Nước lọc"
+        },
+        {
+          "sn": 69,
+          "name": "Điều hoà"
+        },
+        {
+          "sn": 153,
+          "name": "Phòng tình nhân"
+        },
+        {
+          "sn": 157,
+          "name": "Mở cửa 24/24"
+        },
+        {
+          "sn": 91,
+          "name": "Truyền hình cáp"
+        }
       ],
       "originPrice": 120000,
       "discountPrice": 120000,
@@ -15851,14 +18189,38 @@
       "sn": 611,
       "name": "HOÀNG GIA HOTEL - XA LA",
       "facilityList": [
-        { "sn": 27, "name": "Thang máy" },
-        { "sn": 145, "name": "Tủ quần áo" },
-        { "sn": 188, "name": "Wi-Fi miễn phí" },
-        { "sn": 137, "name": "Tủ lạnh" },
-        { "sn": 548, "name": "Tủ lạnh" },
-        { "sn": 351, "name": "Máy sấy tóc" },
-        { "sn": 140, "name": "Máy sấy tóc" },
-        { "sn": 69, "name": "Điều hoà" }
+        {
+          "sn": 27,
+          "name": "Thang máy"
+        },
+        {
+          "sn": 145,
+          "name": "Tủ quần áo"
+        },
+        {
+          "sn": 188,
+          "name": "Wi-Fi miễn phí"
+        },
+        {
+          "sn": 137,
+          "name": "Tủ lạnh"
+        },
+        {
+          "sn": 548,
+          "name": "Tủ lạnh"
+        },
+        {
+          "sn": 351,
+          "name": "Máy sấy tóc"
+        },
+        {
+          "sn": 140,
+          "name": "Máy sấy tóc"
+        },
+        {
+          "sn": 69,
+          "name": "Điều hoà"
+        }
       ],
       "originPrice": 150000,
       "discountPrice": 150000,
@@ -15920,9 +18282,18 @@
       "sn": 1512,
       "name": "THANH LAM 3 HOTEL",
       "facilityList": [
-        { "sn": 97, "name": "Smart TV" },
-        { "sn": 188, "name": "Wi-Fi miễn phí" },
-        { "sn": 122, "name": "Lễ tân 24/24" }
+        {
+          "sn": 97,
+          "name": "Smart TV"
+        },
+        {
+          "sn": 188,
+          "name": "Wi-Fi miễn phí"
+        },
+        {
+          "sn": 122,
+          "name": "Lễ tân 24/24"
+        }
       ],
       "originPrice": 200000,
       "discountPrice": 200000,
@@ -15974,13 +18345,34 @@
       "sn": 2420,
       "name": "THANH BÌNH - NHÀ TRỌ TÌNH YÊU",
       "facilityList": [
-        { "sn": 198, "name": "TV" },
-        { "sn": 779, "name": "Free wifi" },
-        { "sn": 188, "name": "Wi-Fi miễn phí" },
-        { "sn": 69, "name": "Điều hoà" },
-        { "sn": 98, "name": "Ghế tình yêu" },
-        { "sn": 33, "name": "Bãi đỗ xe ô tô" },
-        { "sn": 122, "name": "Lễ tân 24/24" }
+        {
+          "sn": 198,
+          "name": "TV"
+        },
+        {
+          "sn": 779,
+          "name": "Free wifi"
+        },
+        {
+          "sn": 188,
+          "name": "Wi-Fi miễn phí"
+        },
+        {
+          "sn": 69,
+          "name": "Điều hoà"
+        },
+        {
+          "sn": 98,
+          "name": "Ghế tình yêu"
+        },
+        {
+          "sn": 33,
+          "name": "Bãi đỗ xe ô tô"
+        },
+        {
+          "sn": 122,
+          "name": "Lễ tân 24/24"
+        }
       ],
       "originPrice": 100000,
       "discountPrice": 100000,
@@ -16032,10 +18424,22 @@
       "sn": 17908,
       "name": "LOTUS MOTEL - HÀ ĐÔNG",
       "facilityList": [
-        { "sn": 198, "name": "TV" },
-        { "sn": 188, "name": "Wi-Fi miễn phí" },
-        { "sn": 69, "name": "Điều hoà" },
-        { "sn": 134, "name": "Bình nóng lạnh" }
+        {
+          "sn": 198,
+          "name": "TV"
+        },
+        {
+          "sn": 188,
+          "name": "Wi-Fi miễn phí"
+        },
+        {
+          "sn": 69,
+          "name": "Điều hoà"
+        },
+        {
+          "sn": 134,
+          "name": "Bình nóng lạnh"
+        }
       ],
       "originPrice": 150000,
       "discountPrice": 150000,

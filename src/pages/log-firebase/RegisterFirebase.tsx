@@ -24,14 +24,8 @@ const RegisterFirebase = () => {
         });
       }
       console.log("User Registered Successfully!!");
-      toast.success("User Registered Successfully!!", {
-        position: "top-center",
-      });
     } catch (error) {
       console.log(error.message);
-      toast.error(error.message, {
-        position: "bottom-center",
-      });
     }
   };
 
