@@ -11,8 +11,6 @@ import { auth } from "../log-firebase/Firebase";
 import { useDispatch } from "react-redux";
 import { bookRoom } from "../../reducers/HotelsSlice";
 import SimpleDialog from "../room-detail/RoomDetail";
-import axios from "axios";
-import { API_URL } from "../../AppAPI";
 import HotelsServices from "../../sever-interaction/HotelsServices";
 import { selectRoom } from "../../reducers/bookingSlice";
 

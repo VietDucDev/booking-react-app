@@ -10,6 +10,7 @@ import SortBox from "./SortBox";
 import FilterBox from "./FilterBox";
 import React from "react";
 import { Navigate, useNavigate, useSearchParams } from "react-router-dom";
+import HotelsServices from "../../sever-interaction/HotelsServices";
 
 export interface Hotel {
   sn: number;
@@ -101,25 +102,20 @@ const HotelListPage: React.FC<Hotel | {}> = () => {
   // const { queryParams } = useSelector((state: RootState) => state.hotelFilter);
 
   useEffect(() => {
-    const districtName = searchParams.get("district_name");
-    const hotelType = searchParams.get("hotel_type");
+    const getDataHotelList = async () => {
+      try {
+        const districtName = searchParams.get("district_name");
+        const hotelType = searchParams.get("hotel_type");
+        let url = "";
 
-    let url = "http://localhost:3000/hotels";
-
-    if (districtName) {
-      url += `?districtName=${districtName}`;
-    } else if (hotelType) {
-      url += `?hotelType=${hotelType}`;
-    }
-
-    fetch(url)
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("Network response was not ok");
+        if (districtName) {
+          url = `?districtName=${districtName}`;
+        } else if (hotelType) {
+          url = `?hotelType=${hotelType}`;
         }
-        return response.json();
-      })
-      .then((data) => {
+
+        const data = await HotelsServices.getHotels(url);
+
         console.log("data: ", data);
 
         //filter by price
@@ -177,10 +173,12 @@ const HotelListPage: React.FC<Hotel | {}> = () => {
 
         setHotelList(hotelResult);
         // console.log(data);
-      })
-      .catch((error) => {
+      } catch (error) {
         console.error("There was a problem with the fetch operation:", error);
-      });
+      }
+    };
+
+    getDataHotelList();
   }, [searchParams]);
 
   //handle open/close modal
