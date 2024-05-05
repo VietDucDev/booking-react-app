@@ -1,0 +1,42 @@
+.modal_search {
+  //   padding: 50px;
+  //   animation: fade-in 0.4s ease-out forwards;
+  position: fixed;
+  transform: translate(-50%);
+  padding: 20px;
+  border-radius: 50px;
+}
+
+.fade-out-modal {
+  animation: fade-out-modal 0.3s ease-in-out forwards;
+}
+
+.fade-in-modal {
+  animation: fade-in-modal 0.4s ease-in-out forwards;
+}
+
+@keyframes fade-in-modal {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -30%) scale(0.5);
+    border-radius: 100px;
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 20%) scale(1);
+    border-radius: 10px;
+  }
+}
+
+@keyframes fade-out-modal {
+  from {
+    opacity: 1;
+    transform: translate(-50%, 20%) scale(1);
+    border-radius: 10px;
+  }
+  to {
+    opacity: 0;
+    transform: translate(-50%, -30%) scale(0.5);
+    border-radius: 100px;
+  }
+}
