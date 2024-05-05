@@ -6,6 +6,18 @@
   background-size: cover;
 }
 
+.filter_box_modal {
+  display: inline-block;
+}
+
+.fade-in-filter {
+  animation: fade-in-filter 0.3s ease-in-out forwards;
+}
+
+.fade-out-filter {
+  animation: fade-in-filter 0.4s ease-in-out forwards;
+}
+
 .main_container {
   // border: 1px solid orange;
   margin-top: 65px;
@@ -159,5 +171,31 @@
   }
   to {
     margin-top: 15px;
+  }
+}
+
+@keyframes fade-in-modal {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -30%) scale(0.5);
+    border-radius: 100px;
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 20%) scale(1);
+    border-radius: 10px;
+  }
+}
+
+@keyframes fade-out-modal {
+  from {
+    opacity: 1;
+    transform: translate(-50%, 20%) scale(1);
+    border-radius: 10px;
+  }
+  to {
+    opacity: 0;
+    transform: translate(-50%, -30%) scale(0.5);
+    border-radius: 100px;
   }
 }

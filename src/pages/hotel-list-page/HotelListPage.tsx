@@ -186,7 +186,14 @@ const HotelListPage: React.FC<Hotel | {}> = () => {
   const [openFilterBox, setOpenFilterBox] = useState(false);
   const handleOpenSortBox = () => setOpenSortBox(true);
   const handleCloseSortBox = () => setOpenSortBox(false);
-  const handleOpenFilterBox = () => setOpenFilterBox(true);
+  const handleOpenFilterBox = () => {
+    setOpenFilterBox(true);
+    const modalFilter = document.querySelector(".filter_box_modal");
+    if (modalFilter) {
+      modalFilter.classList.add("fade-in-filter");
+      modalFilter.classList.remove("fade-out-filter");
+    }
+  };
   const handleCloseFilterBox = () => {
     setOpenFilterBox(false);
   };
@@ -232,6 +239,7 @@ const HotelListPage: React.FC<Hotel | {}> = () => {
         onClose={handleCloseFilterBox}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
+        className="filter_box_modal"
       >
         <FilterBox onCloseFilterBox={handleCloseFilterBox} />
       </Modal>

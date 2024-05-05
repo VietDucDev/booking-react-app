@@ -3,6 +3,8 @@ import { RootState } from "../app/store";
 import { useNavigate } from "react-router-dom";
 import { cancelRoom } from "../reducers/HotelsSlice";
 import { BookRoomProps } from "./RoomPage/RoomPage";
+import Swal from "sweetalert2";
+import noResultImage from "../../public/images/No_result_img.gif";
 
 const MyReservation = () => {
   const dispatch = useDispatch();
@@ -13,10 +15,20 @@ const MyReservation = () => {
     navigate(`/roomPage/${id}`);
   };
 
-  const handleCancleBooking = (hotel: BookRoomProps) => {
-    const confirmation = window.confirm("Bạn có chắc chắn muốn hủy đặt phòng?");
-
-    if (confirmation) {
+  const handleCancleBooking = async (hotel: BookRoomProps) => {
+    const confirmResult = await Swal.fire({
+      title: "Bạn có chắc chắn muốn hủy đặt phòng?",
+      text: "Bấm OK để xác nhận.",
+      icon: "question",
+      iconColor: "#04413C",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      cancelButtonText: "Hủy bỏ",
+      confirmButtonText: "OK",
+      color: "#04413C",
+    });
+    if (confirmResult.isConfirmed) {
       dispatch(cancelRoom(hotel));
     }
   };
@@ -55,19 +67,16 @@ const MyReservation = () => {
 
           <div className="container px-0">
             {bookedHotels.length === 0 ? (
-              <div className="mt-5">
+              <div className="mt-5 text-center">
                 <img
-                  src="https://go2joy.vn/_nuxt/search-not-found.47b1f6f6.png"
+                  src={noResultImage}
                   alt=""
+                  style={{ width: "300px", textAlign: "center" }}
                 />
                 <h4>Bạn chưa có đặt phòng</h4>
-                <p className="text-secondary">Hãy đặt phòng để tận hưởng nhé</p>
-                <button
-                  className="btn btn-primary"
-                  onClick={handleBackToHomePage}
-                >
-                  <i className="fa-solid fa-arrow-left"></i> Quay về trang chủ
-                </button>
+                <p className="text-secondary">
+                  Hãy đặt phòng để tận hưởng nhé!
+                </p>
               </div>
             ) : (
               <div>

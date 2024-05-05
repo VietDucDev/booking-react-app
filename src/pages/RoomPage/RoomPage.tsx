@@ -12,6 +12,7 @@ import { useDispatch } from "react-redux";
 import { bookRoom } from "../../reducers/HotelsSlice";
 import SimpleDialog from "../room-detail/RoomDetail";
 import HotelsServices from "../../sever-interaction/HotelsServices";
+import Swal from "sweetalert2";
 
 export interface Room {
   roomName: string;
@@ -101,8 +102,24 @@ const RoomPage = () => {
     console.log("Đã đặt phòng: ", dataBookRoom);
   };
 
-  const handleBookRoomFail = () => {
-    navigate("/login_logout");
+  const handleBookRoomFail = async () => {
+    const confirmResult = await Swal.fire({
+      title: "Bạn cần đăng nhập để dùng chức năng đặt phòng!",
+      text: "Bấm OK để chuyển sang trang đăng nhập.",
+      icon: "info",
+      iconColor: "#04413C",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      cancelButtonText: "Hủy bỏ",
+      confirmButtonText: "OK",
+      color: "#04413C",
+    });
+    if (confirmResult.isConfirmed) {
+      navigate("/login_logout");
+    } else {
+      console.log("login cancelled");
+    }
   };
 
   return (
