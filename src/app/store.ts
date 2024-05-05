@@ -1,9 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
 import hotelsReducer from "../reducers/HotelsSlice";
+import bookingReducer from "../reducers/bookingSlice";
 
 export const store = configureStore({
   reducer: {
     bookedRooms: hotelsReducer,
+    booking: bookingReducer,
   },
 });
 

@@ -4,7 +4,7 @@ import Avatar from "@mui/material/Avatar";
 import Rating from "@mui/material/Rating";
 import "../../style/sass/_roomPage.scss";
 import Footer from "../../components/Footer";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams, useHistory } from "react-router-dom";
 import Modal from "@mui/material/Modal";
 import { Backdrop, Box, Fade } from "@mui/material";
 import { auth } from "../log-firebase/Firebase";
@@ -13,6 +13,7 @@ import { bookRoom } from "../../reducers/HotelsSlice";
 import SimpleDialog from "../room-detail/RoomDetail";
 import HotelsServices from "../../sever-interaction/HotelsServices";
 import Swal from "sweetalert2";
+import { selectRoom } from "../../reducers/bookingSlice";
 
 export interface Room {
   roomName: string;
@@ -62,7 +63,6 @@ const style = {
 
 const RoomPage = () => {
   const dispatch = useDispatch();
-  // const [isLoggin, setIsLoggin] = useState<boolean>(true);
 
   const [data, setData] = useState<DataProps>();
   const [dataRoomItem, setDataRoomItem] = useState<Room>();
@@ -72,7 +72,7 @@ const RoomPage = () => {
   const handleClose = () => setOpen(false);
   const navigate = useNavigate();
 
-  const [user, setUser] = useState();
+  const [user, setUser] = useState<any>();
   useEffect(() => {
     auth.onAuthStateChanged((user: any) => {
       setUser(user);
@@ -99,7 +99,7 @@ const RoomPage = () => {
 
   const handleBookRoom = (dataBookRoom: BookRoomProps) => {
     dispatch(bookRoom(dataBookRoom));
-    console.log("Đã đặt phòng: ", dataBookRoom);
+    navigate("/hotelBooking");
   };
 
   const handleBookRoomFail = async () => {
@@ -120,6 +120,12 @@ const RoomPage = () => {
     } else {
       console.log("login cancelled");
     }
+  };
+
+  const handleRoomSelect = (dataBookRoom: BookRoomProps) => {
+    // setSelectedRoom(dataBookRoom);
+    dispatch(selectRoom(dataBookRoom));
+    navigate("/hotelBooking");
   };
 
   return (
@@ -349,7 +355,14 @@ const RoomPage = () => {
                           onClick={
                             user
                               ? () =>
-                                  handleBookRoom({
+                                  // handleBookRoom({
+                                  //   hotelId: data.id,
+                                  //   hotelName: data.name,
+                                  //   hotelAddress: data.address,
+                                  //   roomId: index,
+                                  //   roomData: room,
+                                  // })
+                                  handleRoomSelect({
                                     hotelId: data.id,
                                     hotelName: data.name,
                                     hotelAddress: data.address,
