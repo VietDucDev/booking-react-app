@@ -12,7 +12,7 @@ const CheckoutHotelService = {
       throw error;
     }
   },
-  async deleteCheckoutHotel(id: string) {
+  async deleteCheckoutHotel(id: number) {
     try {
       const hotelId = id ? `/${id}` : "";
       const response = await ApiService.deleteRequest(
