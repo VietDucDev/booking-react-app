@@ -4,7 +4,7 @@ import Avatar from "@mui/material/Avatar";
 import Rating from "@mui/material/Rating";
 import "../../style/sass/_roomPage.scss";
 import Footer from "../../components/Footer";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams, useHistory } from "react-router-dom";
 import Modal from "@mui/material/Modal";
 import { Backdrop, Box, Fade } from "@mui/material";
 import { auth } from "../log-firebase/Firebase";
@@ -14,6 +14,7 @@ import SimpleDialog from "../room-detail/RoomDetail";
 import axios from "axios";
 import { API_URL } from "../../AppAPI";
 import HotelsServices from "../../sever-interaction/HotelsServices";
+import { selectRoom } from "../../reducers/bookingSlice";
 
 export interface Room {
   roomName: string;
@@ -63,21 +64,18 @@ const style = {
 
 const RoomPage = () => {
   const dispatch = useDispatch();
-  // const [isLoggin, setIsLoggin] = useState<boolean>(true);
 
   const [data, setData] = useState<DataProps>();
   const [dataRoomItem, setDataRoomItem] = useState<Room>();
-  
-  
 
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
   const navigate = useNavigate();
 
-  const [user, setUser] = useState();
+  const [user, setUser] = useState<any>();
   useEffect(() => {
-    auth.onAuthStateChanged((user) => {
+    auth.onAuthStateChanged((user: any) => {
       setUser(user);
     });
   });
@@ -102,11 +100,17 @@ const RoomPage = () => {
 
   const handleBookRoom = (dataBookRoom: BookRoomProps) => {
     dispatch(bookRoom(dataBookRoom));
-    console.log("Đã đặt phòng: ", dataBookRoom);
+    navigate("/hotelBooking");
   };
 
   const handleBookRoomFail = () => {
     navigate("/login_logout");
+  };
+
+  const handleRoomSelect = (dataBookRoom: BookRoomProps) => {
+    // setSelectedRoom(dataBookRoom);
+    dispatch(selectRoom(dataBookRoom));
+    navigate("/hotelBooking");
   };
 
   return (
@@ -336,7 +340,14 @@ const RoomPage = () => {
                           onClick={
                             user
                               ? () =>
-                                  handleBookRoom({
+                                  // handleBookRoom({
+                                  //   hotelId: data.id,
+                                  //   hotelName: data.name,
+                                  //   hotelAddress: data.address,
+                                  //   roomId: index,
+                                  //   roomData: room,
+                                  // })
+                                  handleRoomSelect({
                                     hotelId: data.id,
                                     hotelName: data.name,
                                     hotelAddress: data.address,
@@ -757,7 +768,12 @@ const RoomPage = () => {
           </Box>
         </Fade>
       </Modal> */}
-      <SimpleDialog open={open} dataRoomItem={dataRoomItem} data={data} onClose={handleClose} />
+      <SimpleDialog
+        open={open}
+        dataRoomItem={dataRoomItem}
+        data={data}
+        onClose={handleClose}
+      />
     </Fragment>
   );
 };

@@ -12,6 +12,7 @@ import { auth } from "./pages/log-firebase/Firebase";
 import RoomPage from "./pages/RoomPage/RoomPage";
 import { Fragment, useEffect, useState } from "react";
 import MyReservation from "./pages/MyReservation";
+import HotelBooking from "./pages/hotel-booking/HotelBooking";
 
 function App() {
   const [user, setUser] = useState<any>();
@@ -19,7 +20,6 @@ function App() {
     auth.onAuthStateChanged((user: any) => {
       setUser(user);
     });
-    console.log("userEffet", user);
   });
 
   return (
@@ -34,6 +34,7 @@ function App() {
         <Route path="/hotel-list" element={<HotelListPage />} />
         <Route path="/roomPage/:id" element={<RoomPage />} />
         <Route path="/myReservation" element={<MyReservation />} />
+        <Route path="/hotelBooking" element={<HotelBooking />} />
         <Route
           path="/login_logout"
           element={user ? <Navigate to="/home" /> : <Login_Logout />}
