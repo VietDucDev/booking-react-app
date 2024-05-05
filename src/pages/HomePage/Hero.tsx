@@ -102,7 +102,7 @@ const Hero = () => {
       <img src="./public/images/hero.jpg" alt="hero" className="w-100" />
 
       <div
-        className={`search_bar d-none d-lg-flex d-md-flex justify-content-between bg-white shadow py-3 px-3 rounded flex-lg-row flex-md-column`}
+        className={`search_bar d-lg-flex d-md-flex justify-content-between bg-white shadow py-3 px-3 rounded flex-lg-row flex-md-column`}
       >
         <div className="d-flex p-lg-0 mb-lg-0 mb-md-3 mb-sm-3 mr-lg-3">
           <div
