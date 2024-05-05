@@ -3,12 +3,13 @@ import { RootState } from "../app/store";
 import { useNavigate } from "react-router-dom";
 import { cancelRoom } from "../reducers/HotelsSlice";
 import { BookRoomProps } from "./RoomPage/RoomPage";
+import CheckoutHotelService from "../sever-interaction/CheckoutHotelService";
 
 const MyReservation = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { bookedHotels } = useSelector((state: RootState) => state.bookedRooms);
-  console.table(bookedHotels);
+
   const handleShowRoomDetail = (id: string) => {
     navigate(`/roomPage/${id}`);
   };
@@ -27,10 +28,20 @@ const MyReservation = () => {
 
   // ------
 
-  bookedHotels.map((hotel) => {
-    console.log("Hotel: ", hotel);
-  });
+  // bookedHotels.map((hotel) => {});
   //-------
+
+  const handleDelete = async (id: number) => {
+    try {
+      // Thực hiện gọi phương thức deleteCheckoutHotel từ service
+      const response = await CheckoutHotelService.deleteCheckoutHotel(id);
+      // Xử lý kết quả trả về (nếu cần)
+      console.log("Delete successful", response);
+    } catch (error) {
+      // Xử lý lỗi (nếu có)
+      console.error("Error deleting hotel", error);
+    }
+  };
 
   return (
     <>
@@ -128,7 +139,10 @@ const MyReservation = () => {
                           </p>
                           <button
                             className="btn btn-danger mt-4"
-                            onClick={() => handleCancleBooking(hotel)}
+                            onClick={() => {
+                              handleCancleBooking(hotel);
+                              handleDelete(hotel.roomId);
+                            }}
                           >
                             Hủy đặt phòng
                           </button>

@@ -7,6 +7,7 @@ import { useSelector } from "react-redux";
 import { selectSelectedRoom } from "../../reducers/bookingSlice";
 import { useDispatch } from "react-redux";
 import { bookRoom } from "../../reducers/HotelsSlice";
+import CheckoutHotelService from "../../sever-interaction/CheckoutHotelService";
 
 const HotelBooking = () => {
   const navigate = useNavigate();
@@ -27,6 +28,21 @@ const HotelBooking = () => {
   const handleBookRoom = (dataBookRoom: BookRoomProps) => {
     dispatch(bookRoom(dataBookRoom));
     navigate("/hotelBooking");
+  };
+
+  const handleBookingSendApi = async (dataBookRoom: BookRoomProps) => {
+    try {
+      // Thực hiện gọi phương thức postCheckoutHotel từ service
+
+      const response = await CheckoutHotelService.postCheckoutHotel(
+        dataBookRoom
+      );
+      // Xử lý kết quả trả về (nếu cần)
+      console.log("Buy successful", response);
+    } catch (error) {
+      // Xử lý lỗi (nếu có)
+      console.error("Error buying hotel", error);
+    }
   };
 
   return (
@@ -108,15 +124,22 @@ const HotelBooking = () => {
                   <p>Thanh toán trực tiếp</p>
                 </div>
                 <button
-                  onClick={() =>
+                  onClick={() => {
                     handleBookRoom({
                       hotelId: selectedRoom.hotelId,
                       hotelName: selectedRoom.hotelName,
                       hotelAddress: selectedRoom.hotelAddress,
                       roomId: selectedRoom.roomId,
                       roomData: selectedRoom.roomData,
-                    })
-                  }
+                    });
+                    handleBookingSendApi({
+                      hotelId: selectedRoom.hotelId,
+                      hotelName: selectedRoom.hotelName,
+                      hotelAddress: selectedRoom.hotelAddress,
+                      roomId: selectedRoom.roomId,
+                      roomData: selectedRoom.roomData,
+                    });
+                  }}
                   className="total-submit"
                 >
                   Đặt phòng

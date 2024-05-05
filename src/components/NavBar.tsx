@@ -242,7 +242,6 @@ const NavBar = () => {
   };
 
   const checkURL = useLocation();
-  console.log("checkURL: ", checkURL);
   const [isHome, setIsHome] = useState(checkURL.pathname === "/home");
 
   const handleScroll = () => {
