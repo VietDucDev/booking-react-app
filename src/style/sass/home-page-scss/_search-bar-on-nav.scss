@@ -42,3 +42,9 @@
     top: 0px;
   }
 }
+
+@media (max-width: 500px) {
+  .search_on_navbar {
+    font-size: 14px;
+  }
+}

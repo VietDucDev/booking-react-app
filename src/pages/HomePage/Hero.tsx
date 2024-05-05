@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "../../style/sass/home-page-scss/_searchBar.scss";
+import CitiesServices from "../../sever-interaction/CitiesServices";
 
 interface City {
   id: number;
@@ -22,16 +23,29 @@ const Hero = () => {
   const [selectedCity, setSelectedCity] = useState<number | null>(null);
   const [selectedDistrict, setSelectedDistrict] = useState<string | null>(null);
 
+  // useEffect(() => {
+  //   axios
+  //     .get("http://localhost:3000/cities")
+  //     .then((response) => {
+  //       const citiesData: City[] = response.data;
+  //       setCities(citiesData);
+  //     })
+  //     .catch((error) => {
+  //       console.error("Error fetching cities:", error);
+  //     });
+  // }, []);
+
   useEffect(() => {
-    axios
-      .get("http://localhost:3000/cities")
-      .then((response) => {
-        const citiesData: City[] = response.data;
+    const fetchCities = async () => {
+      try {
+        const citiesData = await CitiesServices.getCities();
         setCities(citiesData);
-      })
-      .catch((error) => {
+      } catch (error) {
         console.error("Error fetching cities:", error);
-      });
+      }
+    };
+
+    fetchCities();
   }, []);
 
   const handleCityChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
@@ -102,11 +116,11 @@ const Hero = () => {
       <img src="./public/images/hero.jpg" alt="hero" className="w-100" />
 
       <div
-        className={`search_bar d-lg-flex d-md-flex justify-content-between bg-white shadow py-3 px-3 rounded flex-lg-row flex-md-column`}
+        className={`search_bar d-flex justify-content-between bg-white shadow py-3 px-3 rounded flex-column flex-lg-row`}
       >
-        <div className="d-flex p-lg-0 mb-lg-0 mb-md-3 mb-sm-3 mr-lg-3">
+        <div className="d-flex mb-3 mb-lg-0 mr-lg-3">
           <div
-            className="d-flex align-items-center px-3 py-lg-3 py-md-2 justify-content-center text-white rounded-left"
+            className="d-flex align-items-center px-3 py-2 py-lg-3 text-white rounded-left"
             style={{ backgroundColor: "#003c43", textWrap: "nowrap" }}
           >
             <i
@@ -130,9 +144,9 @@ const Hero = () => {
           </select>
         </div>
 
-        <div className="d-flex mb-lg-0 mb-md-3 mb-sm-3 mr-lg-3">
+        <div className="d-flex mb-3 mb-lg-0 mr-lg-3">
           <div
-            className="d-flex align-items-center py-lg-3 py-sm-2 px-lg-3 px-md-5 text-white rounded-left"
+            className="d-flex align-items-center py-2 px-5 text-white rounded-left"
             style={{ backgroundColor: "#003c43", textWrap: "nowrap" }}
           >
             <i

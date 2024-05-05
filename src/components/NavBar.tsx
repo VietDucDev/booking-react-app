@@ -242,7 +242,7 @@ const NavBar = () => {
   };
 
   const checkURL = useLocation();
-  console.log("checkURL: ", checkURL);
+  // console.log("checkURL: ", checkURL);
   const [isHome, setIsHome] = useState(checkURL.pathname === "/home");
 
   const handleScroll = () => {
@@ -259,6 +259,7 @@ const NavBar = () => {
         }
         // Simplifying the code by removing duplication
         if (scrollPosition > (window.innerWidth >= 992 ? 300 : 100)) {
+          searchBar.classList.add("d-flex");
           searchBar.classList.add("fade-in-nav");
           searchBar.classList.remove("fade-out-nav");
         } else {
@@ -271,15 +272,20 @@ const NavBar = () => {
 
   useEffect(() => {
     setIsHome(checkURL.pathname === "/home");
-    if (checkURL.pathname === "/home") {
+
+    if (isHome) {
       window.addEventListener("scroll", handleScroll);
-      // Return a cleanup function to remove the event listener when the component is unmounted or when the URL changes
+
       return () => {
         window.removeEventListener("scroll", handleScroll);
       };
+    } else {
+      const searchBar = document.querySelector(".search_on_navbar");
+      if (searchBar) {
+        searchBar.classList.add("d-flex");
+      }
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [checkURL.pathname]); // Add checkURL.pathname to the dependency array to re-run the effect when the URL changes
+  }, [checkURL.pathname, isHome]); // Add checkURL.pathname and isHome to the dependency array to re-run the effect when they change
 
   return (
     <nav className="fixed-top bg-white shadow">
@@ -340,7 +346,7 @@ const NavBar = () => {
         <div
           className={`search_on_navbar ${
             isHome ? "" : "fixed"
-          } align-items-center d-flex d-sm-flex border rounded-pill p-2 pl-3`}
+          } align-items-center d-none border rounded-pill p-2 pl-3`}
           onClick={handleOpen}
         >
           Bạn muốn đi đâu?

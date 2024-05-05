@@ -39,14 +39,12 @@
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 500px) {
   .search_bar {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, 50%);
-    bottom: 0px;
-    width: 400px;
-    // text-align: center;
+    top: -30%;
+    left: 35%;
+    height: fit-content;
+    scale: 0.7;
   }
 }

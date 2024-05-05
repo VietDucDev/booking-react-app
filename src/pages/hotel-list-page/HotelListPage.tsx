@@ -1,4 +1,4 @@
-import { Button, Modal } from "@mui/material";
+import { Button, Modal, Pagination, Stack } from "@mui/material";
 import ToggleButton from "@mui/material/ToggleButton";
 import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
 import { Fragment, useEffect, useState } from "react";
@@ -186,12 +186,13 @@ const HotelListPage: React.FC<Hotel | {}> = () => {
   const [openFilterBox, setOpenFilterBox] = useState(false);
   const handleOpenSortBox = () => setOpenSortBox(true);
   const handleCloseSortBox = () => setOpenSortBox(false);
+
   const handleOpenFilterBox = () => {
     setOpenFilterBox(true);
     const modalFilter = document.querySelector(".filter_box_modal");
     if (modalFilter) {
       modalFilter.classList.add("fade-in-filter");
-      modalFilter.classList.remove("fade-out-filter");
+      // modalFilter.classList.remove("fade-out-filter");
     }
   };
   const handleCloseFilterBox = () => {
