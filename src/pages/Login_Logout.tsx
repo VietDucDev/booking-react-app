@@ -16,12 +16,6 @@ interface FormValues {
   passwordConfirm: string;
 }
 
-interface FormErrors {
-  email: string;
-  password: string;
-  passwordConfirm: string;
-}
-
 const Login_Logout = () => {
   const [isSignIn, setIsSignIn] = useState(true);
 
@@ -234,7 +228,8 @@ const Login_Logout = () => {
                   </div>
                 </div>
               </div>
-              <div className="overlay-container">
+
+              <div className="overlay-container d-sm-none d-md-block">
                 <div className="overlay">
                   <div className="overlay-panel overlay-left">
                     <h4>WELCOME TO</h4>

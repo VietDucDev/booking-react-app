@@ -18550,6 +18550,60 @@
           "https://s3.go2joy.vn/1000w/hotel/730_1507602261324/203cfa60d12ae60dfc12a98c7b791361.jpg"
         ]
       }
+    },
+    {
+      "id": "ce4e",
+      "hotelId": "141",
+      "hotelName": "T&B HOUSING – KIM MÃ",
+      "hotelAddress": "551 Kim Mã, Ngọc Khánh, Ba Đình, Hà Nội, Việt Nam",
+      "roomId": 0,
+      "roomData": {
+        "roomName": "STUDIO",
+        "price": 400000,
+        "area": 40,
+        "roomImages": [
+          "https://s3.go2joy.vn/1000w/hotel/2608_1594006683739/69d81f0894f23ca557dd46f65ceec708.jpg",
+          "https://s3.go2joy.vn/1000w/hotel/2608_1594006683739/cb73f7831867822b6159e3c04f464356.jpg",
+          "https://s3.go2joy.vn/1000w/hotel/2608_1594006683739/c78143bc37625b283d973452b2aec3c4.jpg",
+          "https://s3.go2joy.vn/1000w/hotel/2608_1594006683739/607184a4de2c29ed83c45f4e9678fd74.jpg"
+        ]
+      }
+    },
+    {
+      "id": "e762",
+      "hotelId": "01",
+      "hotelName": "DAZI SIGNATURE HOTEL",
+      "hotelAddress": "23 Trương Định, Phường Bến Thành, Quận 1, Thành phố Hồ Chí Minh",
+      "roomId": 0,
+      "roomData": {
+        "roomName": "PRESIDENT ROOM - TEXAS",
+        "price": 1600000,
+        "area": 40,
+        "roomImages": [
+          "https://s3.go2joy.vn/1000w/hotel/13047/2848_1700550365_655c56dd09012.jpg",
+          "https://s3.go2joy.vn/1000w/hotel/13047/2848_1700550166_655c5616133a8.JPG",
+          "https://s3.go2joy.vn/1000w/hotel/13047/2848_1700550166_655c56162ddea.JPG",
+          "https://s3.go2joy.vn/1000w/hotel/13047/2848_1700550166_655c561647a73.JPG"
+        ]
+      }
+    },
+    {
+      "id": "f8bb",
+      "hotelId": "21",
+      "hotelName": "SOPHIA APARTMENT QUẬN 2",
+      "hotelAddress": "Số 14 Đường D5, Phường An Khánh, Thành Phố Thủ Đức, Thành phố Hồ Chí Minh",
+      "roomId": 0,
+      "roomData": {
+        "roomName": "PHÒNG TIÊU CHUẨN",
+        "price": 230000,
+        "area": 30,
+        "roomImages": [
+          "https://s3.go2joy.vn/1000w/hotel/17906/4479_1705905015_65ae0b776e132.jpg",
+          "https://s3.go2joy.vn/1000w/hotel/17906/4479_1705905015_65ae0b776e132.jpg",
+          "https://s3.go2joy.vn/1000w/hotel/17906/4479_1705905015_65ae0b77c5ca6.jpg",
+          "https://s3.go2joy.vn/1000w/hotel/17906/4479_1705905015_65ae0b77e74aa.jpg"
+        ]
+      }
     }
   ]
 }

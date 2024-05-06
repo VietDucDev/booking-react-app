@@ -6,12 +6,17 @@ import "../../style/sass/room-page-scss/_roomPage.scss";
 import Footer from "../../components/Footer";
 import { useNavigate, useParams } from "react-router-dom";
 import { auth } from "../log-firebase/Firebase";
-import { useDispatch } from "react-redux";
 import { bookRoom } from "../../reducers/HotelsSlice";
 import SimpleDialog from "../room-detail/RoomDetail";
 import HotelsServices from "../../sever-interaction/HotelsServices";
-import Swal from "sweetalert2";
 import { selectRoom } from "../../reducers/bookingSlice";
+import Swal from "sweetalert2";
+import { useDispatch } from "react-redux";
+import Checkbox from "@mui/material/Checkbox";
+import FavoriteBorder from "@mui/icons-material/FavoriteBorder";
+import Favorite from "@mui/icons-material/Favorite";
+
+const label = { inputProps: { "aria-label": "Checkbox demo" } };
 
 export interface Room {
   roomName: string;
@@ -46,18 +51,6 @@ export interface BookRoomProps {
   roomId: number;
   roomData: Room;
 }
-
-const style = {
-  position: "absolute" as "absolute",
-  top: "50%",
-  left: "50%",
-  transform: "translate(-50%, -50%)",
-  width: 900,
-  height: 550,
-  bgcolor: "background.paper",
-  boxShadow: 24,
-  p: 1,
-};
 
 const RoomPage = () => {
   const dispatch = useDispatch();
@@ -121,96 +114,41 @@ const RoomPage = () => {
   };
 
   const handleRoomSelect = (dataBookRoom: BookRoomProps) => {
-    // setSelectedRoom(dataBookRoom);
     dispatch(selectRoom(dataBookRoom));
     navigate("/hotelBooking");
   };
 
   return (
     <Fragment>
-      <div className="container" id="container-roomPage">
+      <div className="container col-11 col-lg-10" id="container-roomPage">
         <div className="row align-items-center">
           <div className="col">
             <div className="row">
               <div className="col">
-                <div className="row">
-                  <div className="col-8 hotel-name-wrapper">
+                <div className="row d-flex justify-content-between px-3 mt-3">
+                  <div>
+                    <p className="hotel-name mb-1">{data?.name}</p>
                     <div>
-                      <p className="hotel-name m-0">{data?.name}</p>
+                      <i className="fa-solid fa-map mr-2"></i>
+                      <span className="font-weight-bold">{data?.address}</span>
                     </div>
                   </div>
-                  <div className="col-4 d-flex align-items-center">
-                    <div className="con-like">
-                      <input
-                        className="like"
-                        type="checkbox"
-                        title="like"
-                        disabled={!user}
-                      />
-                      <div className="checkmark">
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          className="outline"
-                          viewBox="0 0 24 24"
-                        >
-                          <path d="M17.5,1.917a6.4,6.4,0,0,0-5.5,3.3,6.4,6.4,0,0,0-5.5-3.3A6.8,6.8,0,0,0,0,8.967c0,4.547,4.786,9.513,8.8,12.88a4.974,4.974,0,0,0,6.4,0C19.214,18.48,24,13.514,24,8.967A6.8,6.8,0,0,0,17.5,1.917Zm-3.585,18.4a2.973,2.973,0,0,1-3.83,0C4.947,16.006,2,11.87,2,8.967a4.8,4.8,0,0,1,4.5-5.05A4.8,4.8,0,0,1,11,8.967a1,1,0,0,0,2,0,4.8,4.8,0,0,1,4.5-5.05A4.8,4.8,0,0,1,22,8.967C22,11.87,19.053,16.006,13.915,20.313Z"></path>
-                        </svg>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          className="filled"
-                          viewBox="0 0 24 24"
-                        >
-                          <path d="M17.5,1.917a6.4,6.4,0,0,0-5.5,3.3,6.4,6.4,0,0,0-5.5-3.3A6.8,6.8,0,0,0,0,8.967c0,4.547,4.786,9.513,8.8,12.88a4.974,4.974,0,0,0,6.4,0C19.214,18.48,24,13.514,24,8.967A6.8,6.8,0,0,0,17.5,1.917Z"></path>
-                        </svg>
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          height="100"
-                          width="100"
-                          className="celebrate"
-                        >
-                          <polygon
-                            className="poly"
-                            points="10,10 20,20"
-                          ></polygon>
-                          <polygon
-                            className="poly"
-                            points="10,50 20,50"
-                          ></polygon>
-                          <polygon
-                            className="poly"
-                            points="20,80 30,70"
-                          ></polygon>
-                          <polygon
-                            className="poly"
-                            points="90,10 80,20"
-                          ></polygon>
-                          <polygon
-                            className="poly"
-                            points="90,50 80,50"
-                          ></polygon>
-                          <polygon
-                            className="poly"
-                            points="80,80 70,70"
-                          ></polygon>
-                        </svg>
-                      </div>
-                    </div>
-                    <p className="mb-0 ml-2 ">Yêu thích</p>
-                  </div>
-                </div>
-                <div className="row mb-3">
-                  <div className="col-8">
-                    <i className="fa-solid fa-map mr-2"></i>
-                    <strong>{data?.address}</strong>
-                  </div>
-                  <div className="col-4 ">
+
+                  <div className="col-12 col-lg-3 px-0 d-flex justify-content-between flex-lg-column align-items-lg-end">
                     <div className="d-flex align-items-center">
-                      <div className="d-flex align-items-center ">
-                        <i className="fa-solid fa-star mr-1"></i>
-                        <p className="m-0">4.8</p>
-                        <p className="m-0">/5</p>
-                      </div>
-                      <p className="m-0 ml-1"> • 722 đánh giá</p>
+                      <Checkbox
+                        {...label}
+                        icon={<FavoriteBorder />}
+                        checkedIcon={<Favorite />}
+                      />
+                      Yêu thích
+                    </div>
+                    <div
+                      className="d-flex align-items-center justify-content-end"
+                      style={{ fontWeight: "600" }}
+                    >
+                      <i className="fa-solid fa-star mr-1"></i>
+                      {data?.averageMark}/5 • {data?.totalReview} Đánh giá
                     </div>
                   </div>
                 </div>
@@ -229,7 +167,7 @@ const RoomPage = () => {
             <div className="" id="introduce">
               <div className="row">
                 <div className="col">
-                  <h2>Giới thiệu</h2>
+                  <h2 className="mt-3 mb-0">Giới thiệu</h2>
                   <div className="my-4">
                     <p>
                       Tọa lạc tại con đường&nbsp;sầm uất,&nbsp;hiện đại,{" "}
@@ -276,25 +214,26 @@ const RoomPage = () => {
                 <div className="col">
                   <h2 className="mb-4">Danh sách phòng</h2>
                   {data?.roomList.map((room, index) => (
-                    <div
-                      key={index}
-                      className="row room-item text-right text-md-left"
-                    >
+                    <div key={index} className="row room-item text-md-left">
                       <div className="col-12 col-md-3">
                         <Carousel_RoomPage_Img
                           imgList={room?.roomImages || []}
                           showThumbnails={false}
                         />
                       </div>
+
                       <div className="room-info-box col-12 col-md-3">
-                        <div className="room-info">
-                          <p style={{ fontWeight: "500" }}>Thông tin phòng</p>
+                        <div className="room-info d-flex flex-column">
+                          <p style={{ fontWeight: "500" }} className="my-1">
+                            Thông tin phòng
+                          </p>
                           <p
                             style={{
-                              fontWeight: "700",
+                              fontWeight: "bold",
                               textTransform: "uppercase",
                               fontSize: "18px",
                             }}
+                            className="my-1"
                           >
                             {room.roomName}
                           </p>
@@ -303,15 +242,13 @@ const RoomPage = () => {
                           </span>
                         </div>
                         <div className="room-details-btn">
-                          <button>
-                            <p
-                              onClick={() => {
-                                setDataRoomItem(room);
-                                handleOpen();
-                              }}
-                            >
-                              Xem chi tiết phòng
-                            </p>
+                          <button
+                            onClick={() => {
+                              setDataRoomItem(room);
+                              handleOpen();
+                            }}
+                          >
+                            Xem chi tiết phòng
                             <svg
                               xmlns="http://www.w3.org/2000/svg"
                               className="h-6 w-6"
@@ -329,12 +266,14 @@ const RoomPage = () => {
                           </button>
                         </div>
                       </div>
+
                       <div
-                        className="col-12 col-md-3"
+                        className="col-12 col-md-3 my-3 my-md-0"
                         style={{ fontWeight: "500" }}
                       >
                         Đặc điểm nổi bật
                       </div>
+
                       <div className="col-12 col-md-3 bookroom-wrapper">
                         <p style={{ fontWeight: "500" }}>Giá phòng</p>
                         <p
@@ -353,13 +292,6 @@ const RoomPage = () => {
                           onClick={
                             user
                               ? () =>
-                                  // handleBookRoom({
-                                  //   hotelId: data.id,
-                                  //   hotelName: data.name,
-                                  //   hotelAddress: data.address,
-                                  //   roomId: index,
-                                  //   roomData: room,
-                                  // })
                                   handleRoomSelect({
                                     hotelId: data.id,
                                     hotelName: data.name,
@@ -420,21 +352,26 @@ const RoomPage = () => {
               {/* ------------- */}
               <div className="row mb-4" id="review">
                 <div className="col">
-                  <div className="row">
-                    <div className="col-6 mb-4">
+                  <div className="row mb-4">
+                    <div className="col-12 col-md-6">
                       <h2 className="mb-1">Đánh giá</h2>
                       <div className="d-flex">
                         <div className="d-flex align-items-center">
                           <i className="fa-solid fa-star mr-1 custom-review"></i>
-                          <p className="m-0 custom-review">4.8</p>
+                          <p className="m-0 custom-review">
+                            {data?.averageMark}
+                          </p>
                         </div>
                         <div className="d-flex align-items-end pb-2">
                           <p className="m-0">/5</p>
-                          <p className="m-0 ml-1"> • 722 đánh giá</p>
+                          <p className="m-0 ml-1">
+                            {" "}
+                            • {data?.totalReview} đánh giá
+                          </p>
                         </div>
                       </div>
                     </div>
-                    <div className="col-6">
+                    <div className="col-12 col-md-6">
                       <div className="row">
                         <div className="col d-flex align-items-center">
                           <div className="rate-name">Sạch sẽ: </div>
@@ -475,6 +412,7 @@ const RoomPage = () => {
                       </div>
                     </div>
                   </div>
+
                   <div className="row">
                     {/* comment */}
                     <div className="col-12 col-md-6">
@@ -492,7 +430,7 @@ const RoomPage = () => {
                                 }}
                               />
                             </div>
-                            <div className="px-0 my-auto">
+                            <div className="px-0 pl-3 my-auto">
                               <p className="m-0">5:37 14/02/2024</p>
                               <p className="m-0">
                                 Khách hàng: <strong>Đoàn Hoàng</strong>
@@ -532,7 +470,7 @@ const RoomPage = () => {
                                 }}
                               />
                             </div>
-                            <div className="px-0 my-auto">
+                            <div className="px-0 pl-3 my-auto">
                               <p className="m-0">5:37 14/02/2024</p>
                               <p className="m-0">
                                 Khách hàng: <strong>Việt Đức</strong>
@@ -572,7 +510,7 @@ const RoomPage = () => {
                                 }}
                               />
                             </div>
-                            <div className="px-0 my-auto">
+                            <div className="px-0 pl-3 my-auto">
                               <p className="m-0">5:37 14/02/2024</p>
                               <p className="m-0">
                                 Khách hàng: <strong>Sơn Tùng</strong>
@@ -612,7 +550,7 @@ const RoomPage = () => {
                                 }}
                               />
                             </div>
-                            <div className="px-0 my-auto">
+                            <div className="px-0 pl-3 my-auto">
                               <p className="m-0">5:37 14/02/2024</p>
                               <p className="m-0">
                                 Khách hàng: <strong>Đức ĐạiK</strong>
@@ -637,6 +575,7 @@ const RoomPage = () => {
                       </div>
                     </div>
                   </div>
+
                   <div className="row">
                     <div className="col">
                       <a href="" onClick={handleClickATag}>
@@ -709,78 +648,6 @@ const RoomPage = () => {
         </div>
       </div>
       <Footer />
-
-      {/* modal room detail */}
-      {/* <Modal
-        aria-labelledby="transition-modal-title"
-        aria-describedby="transition-modal-description"
-        open={open}
-        onClose={handleClose}
-        closeAfterTransition
-        slots={{ backdrop: Backdrop }}
-        slotProps={{
-          backdrop: {
-            timeout: 500,
-          },
-        }}
-      >
-        <Fade in={open}>
-          <Box sx={style}>
-            <div className="row room-details justify-content-between m-0">
-              <div className="col-md-8 col-12 p-0">
-                <Carousel_RoomPage_Img
-                  imgList={dataRoomItem?.roomImages || []}
-                  showThumbnails={true}
-                />
-              </div>
-              <div className="col-md-4 col-12 text-center p-0">
-                <div className="d-flex">
-                  <p
-                    className="mt-2"
-                    style={{
-                      fontWeight: "700",
-                      textTransform: "uppercase",
-                      fontSize: "18px",
-                    }}
-                  >
-                    {dataRoomItem?.roomName}
-                  </p>
-                  <button className="btn pt-0 ml-4" onClick={handleClose}>
-                    <i className="fa-solid fa-xmark"></i>
-                  </button>
-                </div>
-                <div
-                  style={{
-                    width: "100%",
-                    position: "absolute",
-                    bottom: "0px",
-                  }}
-                >
-                  <p style={{ fontWeight: "500" }}>Giá phòng</p>
-                  <p
-                    style={{
-                      fontSize: "17px",
-                      color: "#003c43",
-                      fontWeight: "600",
-                    }}
-                  >
-                    {data?.firstHours} giờ
-                  </p>
-                  <p style={{ fontSize: "28px", fontWeight: "600" }}>
-                    {dataRoomItem?.price.toLocaleString("vi-VN")} đ
-                  </p>
-                  <button
-                    className="btn booking_btn"
-                    // onClick={() => handleBookRoom(data)}
-                  >
-                    Đặt phòng
-                  </button>
-                </div>
-              </div>
-            </div>
-          </Box>
-        </Fade>
-      </Modal> */}
       <SimpleDialog
         open={open}
         dataRoomItem={dataRoomItem}

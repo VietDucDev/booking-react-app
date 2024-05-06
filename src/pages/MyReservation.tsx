@@ -6,6 +6,7 @@ import { BookRoomProps } from "./RoomPage/RoomPage";
 import Swal from "sweetalert2";
 import noResultImage from "../../public/images/No_result_img.gif";
 import CheckoutHotelService from "../sever-interaction/CheckoutHotelService";
+import { Button } from "@mui/material";
 
 const MyReservation = () => {
   const dispatch = useDispatch();
@@ -63,12 +64,14 @@ const MyReservation = () => {
       >
         <div className="my-4">
           <div className="d-flex align-items-center flex-wrap">
-            <button
+            <Button
               className="btn btn-primary col-12 col-lg-6"
               onClick={handleBackToHomePage}
+              variant="contained"
             >
               <i className="fa-solid fa-arrow-left"></i> Quay về trang chủ
-            </button>
+            </Button>
+
             <h2 className="col-12 col-lg-6 my-4 text-center font-weight-bold">
               Đặt phòng của tôi
             </h2>
@@ -93,7 +96,11 @@ const MyReservation = () => {
                   <div
                     className="mb-4"
                     key={index}
-                    style={{ border: "1px solid gray", borderRadius: "7px" }}
+                    style={{
+                      border: "1px solid #DDDDDD",
+                      borderRadius: "7px",
+                      boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
+                    }}
                   >
                     <div className="d-flex justify-content-between p-3 align-items-center">
                       <p
@@ -114,8 +121,8 @@ const MyReservation = () => {
                     <div
                       className="d-flex justify-content-between align-items-center p-3"
                       style={{
-                        borderTop: "1px solid gray",
-                        borderBottom: "1px solid gray",
+                        borderTop: "1px solid #DDDDDD",
+                        borderBottom: "1px solid #DDDDDD",
                       }}
                     >
                       <div className="d-flex flex-column flex-md-row">
