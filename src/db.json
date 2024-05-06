@@ -1,23 +1,23 @@
 {
   "cities": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Hà Nội"
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Hồ Chí Minh"
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "Đà Nẵng"
     },
     {
-      "id": 4,
+      "id": "4",
       "name": "Khánh Hòa"
     },
     {
-      "id": 5,
+      "id": "5",
       "name": "Phú Quốc"
     }
   ],
@@ -25,172 +25,206 @@
     {
       "cityId": 1,
       "districtId": 1,
-      "districtName": "Ba Đình"
+      "districtName": "Ba Đình",
+      "id": "061c"
     },
     {
       "cityId": 1,
       "districtId": 2,
-      "districtName": "Cầu Giấy"
+      "districtName": "Cầu Giấy",
+      "id": "5a5f"
     },
     {
       "cityId": 1,
       "districtId": 3,
-      "districtName": "Đống Đa"
+      "districtName": "Đống Đa",
+      "id": "2216"
     },
     {
       "cityId": 1,
       "districtId": 4,
-      "districtName": "Hà Đông"
+      "districtName": "Hà Đông",
+      "id": "fd8a"
     },
     {
       "cityId": 1,
       "districtId": 5,
-      "districtName": "Hai Bà Trưng"
+      "districtName": "Hai Bà Trưng",
+      "id": "667f"
     },
     {
       "cityId": 1,
       "districtId": 6,
-      "districtName": "Hoàn Kiếm"
+      "districtName": "Hoàn Kiếm",
+      "id": "ffda"
     },
     {
       "cityId": 1,
       "districtId": 7,
-      "districtName": "Nam Từ Liêm"
+      "districtName": "Nam Từ Liêm",
+      "id": "fb52"
     },
     {
       "cityId": 1,
       "districtId": 8,
-      "districtName": "Tây Hồ"
+      "districtName": "Tây Hồ",
+      "id": "2310"
     },
     {
       "cityId": 1,
       "districtId": 9,
-      "districtName": "Thanh Xuân"
+      "districtName": "Thanh Xuân",
+      "id": "d6b8"
     },
     {
       "cityId": 2,
       "districtId": 1,
-      "districtName": "Quận 1"
+      "districtName": "Quận 1",
+      "id": "b23e"
     },
     {
       "cityId": 2,
       "districtId": 2,
-      "districtName": "Quận 2"
+      "districtName": "Quận 2",
+      "id": "8896"
     },
     {
       "cityId": 2,
       "districtId": 3,
-      "districtName": "Quận 3"
+      "districtName": "Quận 3",
+      "id": "6974"
     },
     {
       "cityId": 2,
       "districtId": 4,
-      "districtName": "Quận 4"
+      "districtName": "Quận 4",
+      "id": "8e4a"
     },
     {
       "cityId": 2,
       "districtId": 5,
-      "districtName": "Quận 5"
+      "districtName": "Quận 5",
+      "id": "f94a"
     },
     {
       "cityId": 2,
       "districtId": 6,
-      "districtName": "Quận 6"
+      "districtName": "Quận 6",
+      "id": "c6a0"
     },
     {
       "cityId": 2,
       "districtId": 7,
-      "districtName": "Quận 7"
+      "districtName": "Quận 7",
+      "id": "007c"
     },
     {
       "cityId": 2,
       "districtId": 8,
-      "districtName": "Bình Thạnh"
+      "districtName": "Bình Thạnh",
+      "id": "e348"
     },
     {
       "cityId": 2,
       "districtId": 9,
-      "districtName": "Quận Tân Bình"
+      "districtName": "Quận Tân Bình",
+      "id": "50f8"
     },
     {
       "cityId": 3,
       "districtId": 1,
-      "districtName": "Liên Chiểu"
+      "districtName": "Liên Chiểu",
+      "id": "11c2"
     },
     {
       "cityId": 3,
       "districtId": 2,
-      "districtName": "Thanh Khê"
+      "districtName": "Thanh Khê",
+      "id": "a9c8"
     },
     {
       "cityId": 3,
       "districtId": 3,
-      "districtName": "Hải Châu"
+      "districtName": "Hải Châu",
+      "id": "a331"
     },
     {
       "cityId": 3,
       "districtId": 4,
-      "districtName": "Sơn Trà"
+      "districtName": "Sơn Trà",
+      "id": "f758"
     },
     {
       "cityId": 3,
       "districtId": 5,
-      "districtName": "Ngũ Hành Sơn"
+      "districtName": "Ngũ Hành Sơn",
+      "id": "dcd8"
     },
     {
       "cityId": 3,
       "districtId": 6,
-      "districtName": "Cẩm Lệ"
+      "districtName": "Cẩm Lệ",
+      "id": "1b48"
     },
     {
       "cityId": 3,
       "districtId": 7,
-      "districtName": "Hòa Vang"
+      "districtName": "Hòa Vang",
+      "id": "2af3"
     },
     {
       "cityId": 3,
       "districtId": 8,
-      "districtName": "Hoàng Sa"
+      "districtName": "Hoàng Sa",
+      "id": "c6f1"
     },
     {
       "cityId": 4,
       "districtId": 1,
-      "districtName": "Thành phố Nha Trang"
+      "districtName": "Thành phố Nha Trang",
+      "id": "1d21"
     },
     {
       "cityId": 4,
       "districtId": 2,
-      "districtName": "Thành phố Cam Ranh"
+      "districtName": "Thành phố Cam Ranh",
+      "id": "dcc0"
     },
     {
       "cityId": 4,
       "districtId": 3,
-      "districtName": "Cam Lâm"
+      "districtName": "Cam Lâm",
+      "id": "71f2"
     },
     {
       "cityId": 4,
       "districtId": 4,
-      "districtName": "Vạn Ninh"
+      "districtName": "Vạn Ninh",
+      "id": "39e8"
     },
     {
       "cityId": 4,
       "districtId": 5,
-      "districtName": "Ninh Hòa"
+      "districtName": "Ninh Hòa",
+      "id": "2bca"
     },
     {
       "cityId": 4,
       "districtId": 6,
-      "districtName": "Khánh Vĩnh"
+      "districtName": "Khánh Vĩnh",
+      "id": "5b45"
     },
     {
       "cityId": 4,
       "districtId": 7,
-      "districtName": "Diên Khánh"
+      "districtName": "Diên Khánh",
+      "id": "c43a"
     },
     {
       "cityId": 4,
       "districtId": 8,
-      "districtName": "Trường Sa"
+      "districtName": "Trường Sa",
+      "id": "5a23"
     }
   ],
   "hotelCollection": [
@@ -18498,5 +18532,24 @@
       ]
     }
   ],
-  "checkout": []
+  "checkout": [
+    {
+      "id": "de75",
+      "hotelId": "55",
+      "hotelName": "BONITA HÙNG VƯƠNG",
+      "hotelAddress": "88B Đường Hùng Vương, Phường 9, Quận 5, Hồ Chí Minh, Vietnam",
+      "roomId": 0,
+      "roomData": {
+        "roomName": "FANTASY",
+        "price": 220000,
+        "area": 16,
+        "roomImages": [
+          "https://s3.go2joy.vn/1000w/hotel/730_1507602261324/65d2329994ad78899e599e30ecbcfbfd.jpg",
+          "https://s3.go2joy.vn/1000w/hotel/730/6130_1675065597_63d778fddaccc.jpg",
+          "https://s3.go2joy.vn/1000w/hotel/730/6130_1675065597_63d778fddaccc.jpg",
+          "https://s3.go2joy.vn/1000w/hotel/730_1507602261324/203cfa60d12ae60dfc12a98c7b791361.jpg"
+        ]
+      }
+    }
+  ]
 }
