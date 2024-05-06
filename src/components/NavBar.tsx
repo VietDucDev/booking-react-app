@@ -302,30 +302,36 @@ const NavBar = () => {
               className="mr-0 mr-lg-3"
             />
           </Link>
-          <div className="d-lg-flex d-md-none d-sm-none d-none">
+          <div className="d-lg-flex d-md-none d-sm-none d-none ml-3">
             <Link
               to="discount"
               className="mx-2 text-dark text-decoration-none d-flex align-items-center"
               style={{
                 fontSize: "14px",
                 cursor: "pointer",
+                color: "#003c43",
+                fontWeight: "600",
               }}
             >
               <i className="fas fa-gift mr-2"></i>
               Ưu đãi
             </Link>
+
             <div className="dropdown">
               <button
-                className="btn dropdown-toggle"
+                className="btn dropdown"
                 type="button"
                 data-toggle="dropdown"
                 aria-expanded="false"
                 style={{
                   fontSize: "14px",
                   letterSpacing: "0",
+                  color: "#003c43",
+                  fontWeight: "600",
                 }}
               >
-                Danh mục khách sạn
+                <span>Danh mục khách sạn </span>{" "}
+                <i className="fa-solid fa-chevron-down"></i>
               </button>
               <div className="dropdown-menu shadow px-2">
                 {hotelList.map((hotel) => (
@@ -364,19 +370,22 @@ const NavBar = () => {
         </div>
 
         <div className="align-items-center d-none d-sm-none d-md-none d-lg-flex">
-          <div className="dropdown">
+          <div className="dropdown mr-3">
             <button
               className="btn text-capitalize d-flex align-items-center"
               type="button"
               data-toggle="dropdown"
               aria-expanded="false"
-              style={{ fontSize: "14px", letterSpacing: "0" }}
+              style={{
+                fontSize: "14px",
+                letterSpacing: "0",
+                fontWeight: "500",
+              }}
             >
-              <img
-                src="https://go2joy.vn/_nuxt/vn-flag.98e62614.svg"
-                alt="vietnam_flag"
-                style={{ marginRight: "6px" }}
-              />
+              <i
+                className="fa-solid fa-language"
+                style={{ fontSize: "16px", marginRight: "5px" }}
+              ></i>
               Tiếng việt
             </button>
             <div className="dropdown-menu mt-2">
@@ -408,7 +417,7 @@ const NavBar = () => {
                     backgroundColor: "#003c43",
                   }}
                 >
-                  N
+                  <i className="fa-regular fa-user"></i>
                 </div>
               </button>
               <ul className="dropdown-menu mt-2">
@@ -416,7 +425,7 @@ const NavBar = () => {
                   className="dropdown-item"
                   style={{ borderBottom: "1px solid gray" }}
                 >
-                  <h6>Nguyễn Văn A</h6>
+                  <h6>User name</h6>
                   <i className="fa-solid fa-phone"></i>(+84) 818512944
                 </li>
                 <li>
@@ -449,7 +458,16 @@ const NavBar = () => {
               </ul>
             </div>
           ) : (
-            <a href="/login_logout">Đăng nhập</a>
+            <a
+              href="/login_logout"
+              style={{ color: "#003c43", fontWeight: "600", fontSize: "15px" }}
+            >
+              <i
+                className="fa-regular fa-user"
+                style={{ marginRight: "2px", fontWeight: "400" }}
+              ></i>{" "}
+              Đăng nhập
+            </a>
           )}
         </div>
 

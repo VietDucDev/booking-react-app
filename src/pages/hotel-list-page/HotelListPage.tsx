@@ -1,4 +1,4 @@
-import { Button, Modal, Pagination, Stack } from "@mui/material";
+import { Button, Modal } from "@mui/material";
 import ToggleButton from "@mui/material/ToggleButton";
 import ToggleButtonGroup from "@mui/material/ToggleButtonGroup";
 import { Fragment, useEffect, useState } from "react";
@@ -9,7 +9,7 @@ import noResultImage from "../../../public/images/No_result_img.gif";
 import SortBox from "./SortBox";
 import FilterBox from "./FilterBox";
 import React from "react";
-import { Navigate, useNavigate, useSearchParams } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import HotelsServices from "../../sever-interaction/HotelsServices";
 
 export interface Hotel {
@@ -95,11 +95,11 @@ const getHotelsResult = (allData: Hotel[], queryParams: QueryParams) => {
 };
 
 const HotelListPage: React.FC<Hotel | {}> = () => {
+  const navigate = useNavigate();
   const [hotelList, setHotelList] = useState<Hotel[]>([]);
   const [searchParams, setSearchParams] = useSearchParams();
   const districtSearchParams = searchParams.get("district_name");
   const hotelTypeSearchParams = searchParams.get("hotel_type");
-  // const { queryParams } = useSelector((state: RootState) => state.hotelFilter);
 
   useEffect(() => {
     const getDataHotelList = async () => {
@@ -115,8 +115,6 @@ const HotelListPage: React.FC<Hotel | {}> = () => {
         }
 
         const data = await HotelsServices.getHotels(url);
-
-        console.log("data: ", data);
 
         //filter by price
         const minPriceParam = searchParams.get("min_price");
@@ -141,7 +139,6 @@ const HotelListPage: React.FC<Hotel | {}> = () => {
             quickFacilityList.push(facility);
           }
         });
-        // console.log("quickFacilityList :", quickFacilityList);
 
         //filter by checkbox factility (more facilities) (8)
         const moreFacilitiesParams = searchParams.get("more_facilities");
@@ -154,7 +151,6 @@ const HotelListPage: React.FC<Hotel | {}> = () => {
             moreFacilitiesList.push(facility);
           }
         });
-        // console.log("moreFacilitiesList: ", moreFacilitiesList);
 
         //sort hotel
         const sortParams = searchParams.get("sort");
@@ -169,7 +165,6 @@ const HotelListPage: React.FC<Hotel | {}> = () => {
           moreFacilitiesList: moreFacilitiesList,
           sort: sortParams,
         });
-        console.log("hotelResult: ", hotelResult);
 
         setHotelList(hotelResult);
         // console.log(data);
@@ -192,7 +187,6 @@ const HotelListPage: React.FC<Hotel | {}> = () => {
     const modalFilter = document.querySelector(".filter_box_modal");
     if (modalFilter) {
       modalFilter.classList.add("fade-in-filter");
-      // modalFilter.classList.remove("fade-out-filter");
     }
   };
   const handleCloseFilterBox = () => {
@@ -206,7 +200,6 @@ const HotelListPage: React.FC<Hotel | {}> = () => {
     newFormats: string[]
   ) => {
     setFormats(newFormats);
-    console.log("newFormats", newFormats);
     if (districtSearchParams || hotelTypeSearchParams) {
       setSearchParams((prevSearchParams) => {
         prevSearchParams.delete("facility");
@@ -218,14 +211,11 @@ const HotelListPage: React.FC<Hotel | {}> = () => {
     }
   };
 
-  //clear local storage when component unmount (when navigate to other pages)
   useEffect(() => {
     return () => {
       localStorage.clear();
     };
   }, []);
-
-  const navigate = useNavigate();
 
   const handleShowRoomDetail = (id: string) => {
     navigate(`/roomPage/${id}`);
@@ -234,7 +224,6 @@ const HotelListPage: React.FC<Hotel | {}> = () => {
   return (
     <Fragment>
       {/* Filter */}
-
       <Modal
         open={openFilterBox}
         onClose={handleCloseFilterBox}
@@ -253,7 +242,6 @@ const HotelListPage: React.FC<Hotel | {}> = () => {
       >
         <SortBox onCloseSortBox={handleCloseSortBox} />
       </Modal>
-      {/* <NavBarFake /> */}
 
       <div className="background">
         <div className="container main_container">
@@ -365,8 +353,6 @@ const HotelListPage: React.FC<Hotel | {}> = () => {
               </p>
             )}
 
-            {/* <TestComponent /> */}
-
             <div className="hotel_list_wrapper col-md-8 col-12">
               {hotelList.length === 0 ? (
                 <div className="row">
@@ -386,45 +372,51 @@ const HotelListPage: React.FC<Hotel | {}> = () => {
                   </div>
                 </div>
               ) : (
-                hotelList.map((hotel: Hotel, index: number) => (
+                hotelList.map((hotel: Hotel) => (
                   <div
-                    key={index}
+                    key={hotel.id}
                     className="each_hotel_wrapper row"
                     onClick={() => handleShowRoomDetail(hotel.id)}
                     style={{ cursor: "pointer" }}
                   >
                     <img
-                      className="thumbnail_image my-auto col-md-4 col-sm-6"
+                      className="thumbnail_image col-md-4 col-sm-6"
                       src={hotel.thumbnail}
                       alt="thumbnail room image"
                     />
-                    <div className="hotel_info_wrapper my-auto col-md-8 col-sm-6 ">
-                      <h3>{hotel.name}</h3>
-                      <div className="some_extension_wrapper">
-                        {/* First row of facilities */}
-                        <div className="row">
-                          <div className="col">
-                            {hotel.facilityList
-                              .slice(0, 3)
-                              .map((facility, index) => (
-                                <span key={index}>
-                                  {facility.name}
-                                  {index < 2 && " - "}
-                                </span>
-                              ))}
+
+                    <div className="hotel_info_wrapper my-0 col-md-8 col-sm-6 d-flex flex-column justify-content-between">
+                      <div>
+                        <h3>{hotel.name}</h3>
+                        <div className="some_extension_wrapper">
+                          {/* First row of facilities */}
+                          <div className="row">
+                            <div className="col">
+                              {hotel.facilityList
+                                .slice(0, 3)
+                                .map((facility, index) => (
+                                  <span key={index} className="text-secondary">
+                                    {facility.name}
+                                    {index < 2 && " - "}
+                                  </span>
+                                ))}
+                            </div>
                           </div>
-                        </div>
-                        {/* Second row of facilities */}
-                        <div className="row">
-                          <div className="col">
-                            {hotel.facilityList
-                              .slice(3, 6)
-                              .map((facility, index) => (
-                                <span key={index + 3}>
-                                  {facility.name}
-                                  {index < 2 && " - "}
-                                </span>
-                              ))}
+                          {/* Second row of facilities */}
+                          <div className="row">
+                            <div className="col">
+                              {hotel.facilityList
+                                .slice(3, 6)
+                                .map((facility, index) => (
+                                  <span
+                                    key={index + 3}
+                                    className="text-secondary"
+                                  >
+                                    {facility.name}
+                                    {index < 2 && " - "}
+                                  </span>
+                                ))}
+                            </div>
                           </div>
                         </div>
                       </div>
@@ -440,11 +432,8 @@ const HotelListPage: React.FC<Hotel | {}> = () => {
                         </p>
                         <p className="m-0 d-flex justify-content-between">
                           <span style={{ color: "#135D66" }}>
-                            <i className="fa-solid fa-star">
-                              {" "}
-                              {hotel.averageMark}
-                            </i>{" "}
-                            ({hotel.totalReview} Đánh giá)
+                            <i className="fa-solid fa-star"> </i>
+                            {hotel.averageMark} ({hotel.totalReview} Đánh giá)
                           </span>{" "}
                           <strong>
                             {hotel.originPrice.toLocaleString("vi-VN", {

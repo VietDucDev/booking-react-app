@@ -1,5 +1,5 @@
 import { Fragment, useEffect, useState } from "react";
-import "./HotelBooking.scss";
+import "../../style/sass/hotel-booking-scss/HotelBooking.scss";
 import { auth } from "../log-firebase/Firebase";
 import { useNavigate } from "react-router-dom";
 import { BookRoomProps, Room } from "../RoomPage/RoomPage";

@@ -14,7 +14,7 @@ import Typography from "@mui/material/Typography";
 import IconButton from "@mui/material/IconButton";
 import { blue } from "@mui/material/colors";
 import Carousel_RoomPage_Img from "../RoomPage/Carousel_RoomPage_Img";
-import "./RoomDetail.scss";
+import "../../style/sass/room-detail-scss/RoomDetail.scss";
 import { DataProps, Room } from "../RoomPage/RoomPage";
 
 const emails = ["username@gmail.com", "user02@gmail.com"];
@@ -27,7 +27,6 @@ export interface SimpleDialogProps {
 }
 
 export default function SimpleDialog(props: SimpleDialogProps) {
-
   const { open, dataRoomItem, data, onClose } = props;
 
   const handleClose = () => {
@@ -70,27 +69,3 @@ export default function SimpleDialog(props: SimpleDialogProps) {
     </Dialog>
   );
 }
-
-// export default function RoomDetail() {
-//   const [open, setOpen] = React.useState(false);
-
-//   const handleClickOpen = () => {
-//     setOpen(true);
-//   };
-
-//   const handleClose = (value: string) => {
-//     setOpen(false);
-//     setSelectedValue(value);
-//   };
-
-//   return (
-//     <div className="room-detail">
-//       <Typography variant="subtitle1" component="div"></Typography>
-//       <br />
-//       <Button variant="outlined" onClick={handleClickOpen}>
-//         Open simple dialog
-//       </Button>
-//       <SimpleDialog open={open} dataRoomItem={} onClose={handleClose} />
-//     </div>
-//   );
-// }
