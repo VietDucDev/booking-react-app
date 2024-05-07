@@ -28,6 +28,7 @@ const hotelSlice = createSlice({
         const toastOptions: ToastOptions = {
           autoClose: 2500,
           pauseOnHover: false,
+          style: { top: "60px" },
         };
         toast.success("Đặt phòng thành công!!", toastOptions);
 
@@ -39,6 +40,7 @@ const hotelSlice = createSlice({
         toast.error("Bạn đã đặt phòng này trước đó rồi!", {
           autoClose: 2500,
           pauseOnHover: false,
+          style: { top: "60px" },
         });
       }
     },
@@ -54,6 +56,7 @@ const hotelSlice = createSlice({
       toast.info("Đã hủy đặt phòng!", {
         autoClose: 2500,
         pauseOnHover: false,
+        style: { top: "60px" },
       });
     },
   },

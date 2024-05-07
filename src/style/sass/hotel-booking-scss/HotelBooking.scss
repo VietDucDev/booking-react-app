@@ -21,6 +21,7 @@
     padding: 12px;
     border: 1px solid #ccc;
     border-radius: 12px;
+    cursor: pointer;
   }
 
   #order {
@@ -107,5 +108,15 @@
         }
       }
     }
+  }
+
+  .date {
+    border: none;
+    border: 0.2em solid #e91e63;
+    text-align: center;
+    cursor: pointer;
+    padding: 3px;
+    border-radius: 2em;
+    color: #e91e63;
   }
 }

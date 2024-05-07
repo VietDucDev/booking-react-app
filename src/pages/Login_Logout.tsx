@@ -13,11 +13,7 @@ interface FormValues {
   lname?: string;
   email: string;
   password: string;
-}
-
-interface FormErrors {
-  email: string;
-  password: string;
+  passwordConfirm: string;
 }
 
 const Login_Logout = () => {
@@ -31,6 +27,7 @@ const Login_Logout = () => {
     lname: "",
     email: "",
     password: "",
+    passwordConfirm: "",
   };
 
   // log with firebase
@@ -71,12 +68,37 @@ const Login_Logout = () => {
     }
   };
   // end log with firebase
+
+  const validate = (values: FormValues) => {
+    const errors: any = {};
+
+    // Xác thực email
+    if (!values.email.includes("@")) {
+      errors.email = "Email phải chứa ký tự @";
+    }
+
+    // Xác thực mật khẩu
+    if (values.password.length < 6) {
+      errors.password = "Mật khẩu phải có ít nhất 6 ký tự";
+    }
+
+    // So sánh mật khẩu với mật khẩu xác nhận
+    if (!isSignIn) {
+      // So sánh mật khẩu với mật khẩu xác nhận
+      if (values.password !== values.passwordConfirm) {
+        errors.passwordConfirm = "Mật khẩu xác nhận phải giống với mật khẩu";
+      }
+    }
+    console.log(errors);
+
+    return errors;
+  };
   return (
     <Fragment>
       <div className="signin-signup-conatiner">
         <Formik
           initialValues={initialValues}
-          // validate={}
+          validate={validate}
           onSubmit={
             isSignIn
               ? (value: FormValues) => handleSubmit(value)
@@ -107,23 +129,43 @@ const Login_Logout = () => {
                   </div>
                   <span>hoặc sử dụng email để đăng ký</span>
                   <Field type="text" name="fname" placeholder="Tên" />
-                  <ErrorMessage name="fname" component="div" />
+                  <ErrorMessage
+                    name="fname"
+                    component="div"
+                    className="error"
+                  />
                   <Field type="text" name="lname" placeholder="Họ" />
-                  <ErrorMessage name="lname" component="div" />
+                  <ErrorMessage
+                    name="lname"
+                    component="div"
+                    className="error"
+                  />
                   <Field type="email" name="email" placeholder="Email" />
-                  <ErrorMessage name="email" component="div" />
+                  <ErrorMessage
+                    name="email"
+                    component="div"
+                    className="error"
+                  />
                   <Field
                     type="password"
                     name="password"
                     placeholder="Mật khẩu"
                   />
-                  <ErrorMessage name="password" component="div" />
+                  <ErrorMessage
+                    name="password"
+                    component="div"
+                    className="error"
+                  />
                   <Field
                     type="password"
-                    name="password"
+                    name="passwordConfirm"
                     placeholder="Nhập lại mật khẩu"
                   />
-                  <ErrorMessage name="password" component="div" />
+                  <ErrorMessage
+                    name="passwordConfirm"
+                    component="div"
+                    className="error"
+                  />
                   <button type="submit">Đăng ký</button>
                   <div className="form-conversion">
                     Bạn đã có tài khoản?{" "}
@@ -156,13 +198,21 @@ const Login_Logout = () => {
                   </div>
                   <span>hoặc sử dụng tài khoản của bạn</span>
                   <Field type="email" name="email" placeholder="Email" />
-                  <ErrorMessage name="email" component="div" />
+                  <ErrorMessage
+                    name="email"
+                    component="div"
+                    className="error"
+                  />
                   <Field
                     type="password"
                     name="password"
                     placeholder="Mật khẩu"
                   />
-                  <ErrorMessage name="password" component="div" />
+                  <ErrorMessage
+                    name="password"
+                    component="div"
+                    className="error"
+                  />
                   <a href="#">Quên mật khẩu?</a>
                   <button type="submit">Đăng nhập</button>
                   <div className="form-conversion">
@@ -178,7 +228,8 @@ const Login_Logout = () => {
                   </div>
                 </div>
               </div>
-              <div className="overlay-container">
+
+              <div className="overlay-container d-sm-none d-md-block">
                 <div className="overlay">
                   <div className="overlay-panel overlay-left">
                     <h4>WELCOME TO</h4>
@@ -195,23 +246,6 @@ const Login_Logout = () => {
           )}
         </Formik>
       </div>
-
-      <footer>
-        <p>
-          Created with <i className="fa fa-heart"></i> by
-          <a target="_blank" href="https://florin-pop.com">
-            Florin Pop
-          </a>
-          - Read how I created this and how you can join the challenge
-          <a
-            target="_blank"
-            href="https://www.florin-pop.com/blog/2019/03/double-slider-sign-in-up-form/"
-          >
-            here
-          </a>
-          .
-        </p>
-      </footer>
     </Fragment>
   );
 };

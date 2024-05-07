@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
 import * as React from "react";
 import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
@@ -10,6 +10,7 @@ import ListItem from "@mui/material/ListItem";
 import Modal from "@mui/material/Modal";
 import "../style/sass/home-page-scss/_search-bar-on-nav.scss";
 import { auth } from "../pages/log-firebase/Firebase";
+import "../style/sass/home-page-scss/_nav-bar.scss";
 
 interface Hotel {
   sn: number;
@@ -29,12 +30,11 @@ interface District {
 
 const style = {
   position: "absolute" as "absolute",
-  top: "40%",
+  top: "5%",
   left: "50%",
   transform: "translate(-50%, -50%)",
   width: 400,
   bgcolor: "background.paper",
-  border: "1px solid #ccc",
   boxShadow: 24,
   p: 3,
 };
@@ -47,10 +47,8 @@ const NavBar = () => {
   const [selectedCity, setSelectedCity] = useState<number | null>(null);
   const [selectedDistrict, setSelectedDistrict] = useState<string | null>(null);
   const [openModal, setOpenModal] = React.useState(false);
-  const handleClose = () => setOpenModal(false);
   const [hotelList, setHotelList] = useState<Hotel[]>([]);
   const [open, setOpen] = React.useState(false);
-
   const [user, setUser] = useState<any>({});
 
   useEffect(() => {
@@ -69,7 +67,36 @@ const NavBar = () => {
     }
   }
 
-  const handleOpen = () => setOpenModal(true);
+  const handleOpen = () => {
+    setOpenModal(true);
+    const modalSearch: Element | null = document.querySelector(".modal_search");
+    const searchBar = document.querySelector(".search_on_navbar");
+    if (modalSearch) {
+      modalSearch.classList.remove("fade-out-modal"); // Remove fade-out class
+      modalSearch.classList.add("fade-in-modal"); // Add fade-in class
+    }
+    if (searchBar) {
+      searchBar.classList.add("fade-out-nav");
+      searchBar.classList.remove("fade-in-nav");
+    }
+  };
+
+  const handleClose = () => {
+    const modalSearch: Element | null = document.querySelector(".modal_search");
+    const searchBar = document.querySelector(".search_on_navbar");
+    if (modalSearch) {
+      modalSearch.classList.remove("fade-in-modal"); // Remove fade-in class
+      modalSearch.classList.add("fade-out-modal"); // Add fade-out class
+    }
+    if (searchBar) {
+      searchBar.classList.add("fade-in-nav");
+      searchBar.classList.remove("fade-out-nav");
+    }
+    setTimeout(() => {
+      setOpenModal(false);
+    }, 350);
+  };
+
   const toggleDrawer = (newOpen: boolean) => () => {
     setOpen(newOpen);
   };
@@ -214,23 +241,25 @@ const NavBar = () => {
     navigate(`/hotel-list?district_name=${location}`);
   };
 
+  const checkURL = useLocation();
+  // console.log("checkURL: ", checkURL);
+  const [isHome, setIsHome] = useState(checkURL.pathname === "/home");
+
   const handleScroll = () => {
-    const searchBar = document.querySelector(".search_on_navbar");
-    if (searchBar) {
-      let scrollPosition;
-      if (window.innerWidth >= 992) {
-        scrollPosition = document.documentElement.scrollTop;
-        if (scrollPosition > 300) {
-          searchBar.classList.add("fade-in-nav");
-          searchBar.classList.remove("fade-out-nav");
+    if (checkURL.pathname === "/home") {
+      // Check if the user is on the "/home" page
+      const searchBar = document.querySelector(".search_on_navbar");
+      if (searchBar) {
+        let scrollPosition;
+        if (window.innerWidth >= 992) {
+          scrollPosition = document.documentElement.scrollTop;
         } else {
-          searchBar.classList.remove("fade-in-nav");
-          searchBar.classList.add("fade-out-nav");
+          scrollPosition =
+            document.documentElement.scrollTop || document.body.scrollTop;
         }
-      } else {
-        scrollPosition =
-          document.documentElement.scrollTop || document.body.scrollTop;
-        if (scrollPosition > 100) {
+        // Simplifying the code by removing duplication
+        if (scrollPosition > (window.innerWidth >= 992 ? 300 : 100)) {
+          searchBar.classList.add("d-flex");
           searchBar.classList.add("fade-in-nav");
           searchBar.classList.remove("fade-out-nav");
         } else {
@@ -242,11 +271,21 @@ const NavBar = () => {
   };
 
   useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
+    setIsHome(checkURL.pathname === "/home");
+
+    if (isHome) {
+      window.addEventListener("scroll", handleScroll);
+
+      return () => {
+        window.removeEventListener("scroll", handleScroll);
+      };
+    } else {
+      const searchBar = document.querySelector(".search_on_navbar");
+      if (searchBar) {
+        searchBar.classList.add("d-flex");
+      }
+    }
+  }, [checkURL.pathname, isHome]); // Add checkURL.pathname and isHome to the dependency array to re-run the effect when they change
 
   return (
     <nav className="fixed-top bg-white shadow">
@@ -263,30 +302,36 @@ const NavBar = () => {
               className="mr-0 mr-lg-3"
             />
           </Link>
-          <div className="d-lg-flex d-md-none d-sm-none d-none">
+          <div className="d-lg-flex d-md-none d-sm-none d-none ml-3">
             <Link
               to="discount"
               className="mx-2 text-dark text-decoration-none d-flex align-items-center"
               style={{
                 fontSize: "14px",
                 cursor: "pointer",
+                color: "#003c43",
+                fontWeight: "600",
               }}
             >
               <i className="fas fa-gift mr-2"></i>
               Ưu đãi
             </Link>
+
             <div className="dropdown">
               <button
-                className="btn dropdown-toggle"
+                className="btn dropdown"
                 type="button"
                 data-toggle="dropdown"
                 aria-expanded="false"
                 style={{
                   fontSize: "14px",
                   letterSpacing: "0",
+                  color: "#003c43",
+                  fontWeight: "600",
                 }}
               >
-                Danh mục khách sạn
+                <span>Danh mục khách sạn </span>{" "}
+                <i className="fa-solid fa-chevron-down"></i>
               </button>
               <div className="dropdown-menu shadow px-2">
                 {hotelList.map((hotel) => (
@@ -305,7 +350,9 @@ const NavBar = () => {
         </div>
 
         <div
-          className="search_on_navbar align-items-center d-flex d-sm-flex border rounded-pill p-2 pl-3"
+          className={`search_on_navbar ${
+            isHome ? "" : "fixed"
+          } align-items-center d-none border rounded-pill p-2 pl-3`}
           onClick={handleOpen}
         >
           Bạn muốn đi đâu?
@@ -323,19 +370,22 @@ const NavBar = () => {
         </div>
 
         <div className="align-items-center d-none d-sm-none d-md-none d-lg-flex">
-          <div className="dropdown">
+          <div className="dropdown mr-3">
             <button
               className="btn text-capitalize d-flex align-items-center"
               type="button"
               data-toggle="dropdown"
               aria-expanded="false"
-              style={{ fontSize: "14px", letterSpacing: "0" }}
+              style={{
+                fontSize: "14px",
+                letterSpacing: "0",
+                fontWeight: "500",
+              }}
             >
-              <img
-                src="https://go2joy.vn/_nuxt/vn-flag.98e62614.svg"
-                alt="vietnam_flag"
-                style={{ marginRight: "6px" }}
-              />
+              <i
+                className="fa-solid fa-language"
+                style={{ fontSize: "16px", marginRight: "5px" }}
+              ></i>
               Tiếng việt
             </button>
             <div className="dropdown-menu mt-2">
@@ -367,7 +417,7 @@ const NavBar = () => {
                     backgroundColor: "#003c43",
                   }}
                 >
-                  N
+                  <i className="fa-regular fa-user"></i>
                 </div>
               </button>
               <ul className="dropdown-menu mt-2">
@@ -375,7 +425,7 @@ const NavBar = () => {
                   className="dropdown-item"
                   style={{ borderBottom: "1px solid gray" }}
                 >
-                  <h6>Nguyễn Văn A</h6>
+                  <h6>User name</h6>
                   <i className="fa-solid fa-phone"></i>(+84) 818512944
                 </li>
                 <li>
@@ -408,7 +458,16 @@ const NavBar = () => {
               </ul>
             </div>
           ) : (
-            <a href="/login_logout">Đăng nhập</a>
+            <a
+              href="/login_logout"
+              style={{ color: "#003c43", fontWeight: "600", fontSize: "15px" }}
+            >
+              <i
+                className="fa-regular fa-user"
+                style={{ marginRight: "2px", fontWeight: "400" }}
+              ></i>{" "}
+              Đăng nhập
+            </a>
           )}
         </div>
 
@@ -435,8 +494,13 @@ const NavBar = () => {
           aria-labelledby="modal-modal-title"
           aria-describedby="modal-modal-description"
         >
-          <Box sx={style}>
-            <div className="d-flex flex-column d-sm-flex d-md-none bg-white rounded">
+          <Box
+            sx={style}
+            className={`modal_search ${
+              openModal ? "fade-in-modal" : "fade-out-modal"
+            }`}
+          >
+            <div className={`d-flex flex-column d-sm-flex  bg-white rounded`}>
               <div className="d-flex p-lg-0 mb-3 mr-lg-3">
                 <div
                   className="d-flex align-items-center px-1 py-2 justify-content-center text-white rounded-left w-100"
@@ -502,7 +566,10 @@ const NavBar = () => {
                   textWrap: "nowrap",
                   fontSize: "16px",
                 }}
-                onClick={() => handleShow(location)}
+                onClick={() => {
+                  handleShow(location);
+                  handleClose();
+                }}
               >
                 <i className="fa-solid fa-magnifying-glass mr-2"></i>Tìm kiếm
               </button>

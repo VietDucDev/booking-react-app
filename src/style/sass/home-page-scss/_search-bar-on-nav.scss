@@ -1,7 +1,7 @@
 .search_on_navbar {
   position: fixed;
   left: 50%;
-  top: 0;
+  top: 5px;
   transform: translate(-50%);
 }
 
@@ -21,20 +21,30 @@
   from {
     opacity: 1;
     transform: translate(-50%, 10%) scale(1);
+    top: 0px;
   }
   to {
     opacity: 0;
-    transform: translate(-50%, 110%) scale(1.8);
+    transform: translate(-50%, 110%) scale(1.5);
+    top: 0px;
   }
 }
 
 @keyframes fade-in-nav {
   from {
     opacity: 0;
-    transform: translate(-50%, 180%) scale(1.8);
+    transform: translate(-50%, 180%) scale(1.5);
+    top: 0px;
   }
   to {
     opacity: 1;
     transform: translate(-50%, 10%) scale(1);
+    top: 0px;
+  }
+}
+
+@media (max-width: 500px) {
+  .search_on_navbar {
+    font-size: 14px;
   }
 }

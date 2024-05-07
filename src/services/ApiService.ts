@@ -1,28 +1,29 @@
 import axios, { AxiosResponse } from "axios";
 
 class ApiServices {
-  browerInfo = navigator.userAgent;
+  browserInfo = navigator.userAgent;
 
-  constructor() {
-    axios.interceptors.request.use((request) => {
-      if (this.browerInfo) {
-        request.headers["Browser-Info"] = this.browerInfo;
-      }
-      return request;
-    });
+  // constructor() {
+  //   axios.interceptors.request.use((request) => {
+  //     if (this.browserInfo) {
+  //       request.headers["Browser-Info"] = this.browserInfo;
+  //     }
+  //     return request;
+  //   });
 
-    axios.interceptors.response.use(
-      (res) => res,
-      (err) => {
-        const { config, res } = err;
-        if (res.status === 404) {
-          alert("Error with code 404");
-        }
-      }
-    );
-  }
+  //   axios.interceptors.request.use(
+  //     (response) => response,
+  //     (error) => {
+  //       const { config, response } = error;
+  //       if (response.status === 404) {
+  //         alert("Error with code 404");
+  //       }
+  //     }
+  //   );
+  // }
 
   getRequest(url: string): Promise<AxiosResponse> {
+    console.log("url: ", url);
     return axios.get(url);
   }
 
@@ -40,5 +41,4 @@ class ApiServices {
 }
 
 const ApiService = new ApiServices();
-
 export default ApiService;

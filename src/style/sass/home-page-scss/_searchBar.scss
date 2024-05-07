@@ -38,3 +38,13 @@
     transform: translate(-50%, 50%) scale(1);
   }
 }
+
+@media (max-width: 500px) {
+  .search_bar {
+    position: absolute;
+    top: -30%;
+    left: 35%;
+    height: fit-content;
+    scale: 0.7;
+  }
+}

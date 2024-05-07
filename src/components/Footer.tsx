@@ -1,27 +1,30 @@
+// import "../style/sass/_footer.scss";
 const Footer = () => {
   return (
     <div
-      className="mx-5 pt-5 px-3"
+      className="mx-0 mx-sm-5 pt-5 px-3"
       style={{ backgroundColor: "#003C43", color: "white" }}
     >
-      <div className="d-flex">
-        <div className="d-flex col-6">
-          <div className="col-6 mr-5">
+      <div className="d-flex flex-column flex-lg-row pb-4">
+        <div className="d-flex flex-column flex-sm-row col-12 col-lg-6 mb-3 mb-lg-0">
+          <div className="col-12 col-sm-6 col-lg-8">
             <h6 style={{ marginBottom: "20px", fontSize: "18px" }}>Hỗ trợ</h6>
-            <p style={{ fontSize: "14px", color: "#BEBEBE" }}>
-              <i className="fa-solid fa-phone"></i> Hotline: 0931 836 836
-            </p>
-            <p style={{ fontSize: "14px", color: "#BEBEBE" }}>
-              Hỗ trợ khách hàng: cskh@go2joy.vn
-            </p>
-            <p style={{ fontSize: "14px", color: "#BEBEBE" }}>
-              Liên hệ hợp tác: support@go2joy.vn
-            </p>
-            <p style={{ fontSize: "14px", color: "#BEBEBE" }}>
-              Cơ chế giải quyết tranh chấp, khiếu nại
-            </p>
+            <div className="d-flex flex-column">
+              <p style={{ fontSize: "14px", color: "#BEBEBE" }}>
+                <i className="fa-solid fa-phone"></i> Hotline: 0931 836 836
+              </p>
+              <p style={{ fontSize: "14px", color: "#BEBEBE" }}>
+                Hỗ trợ khách hàng: cskh@go2joy.vn
+              </p>
+              <p style={{ fontSize: "14px", color: "#BEBEBE" }}>
+                Liên hệ hợp tác: support@go2joy.vn
+              </p>
+              <p style={{ fontSize: "14px", color: "#BEBEBE" }}>
+                Cơ chế giải quyết tranh chấp, khiếu nại
+              </p>
+            </div>
           </div>
-          <div className="col-6">
+          <div className="col-12 col-sm-6 col-lg-4">
             <h6 style={{ marginBottom: "20px", fontSize: "18px" }}>
               Giới thiệu
             </h6>
@@ -38,8 +41,9 @@ const Footer = () => {
             </p>
           </div>
         </div>
-        <div className="col-6 d-flex">
-          <div className="col-6">
+
+        <div className="d-flex flex-column flex-sm-row col-12 col-lg-6">
+          <div className="col-12 col-sm-6 mb-3 mb-md-0">
             <h6 style={{ marginBottom: "20px", fontSize: "18px" }}>
               Đối tác thanh toán
             </h6>
@@ -75,7 +79,7 @@ const Footer = () => {
               />
             </div>
           </div>
-          <div className="col-6">
+          <div className="col-12 col-sm-6">
             <h6 style={{ marginBottom: "20px", fontSize: "18px" }}>
               Mạng xã hội
             </h6>
@@ -104,6 +108,8 @@ const Footer = () => {
           </div>
         </div>
       </div>
+
+      {/* FOOTER */}
       <div
         className="py-4 px-4 d-flex flex-column flex-md-row justify-content-between align-items-center text-center"
         style={{

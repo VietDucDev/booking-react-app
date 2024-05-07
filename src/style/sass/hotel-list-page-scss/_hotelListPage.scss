@@ -4,6 +4,7 @@
   height: 100vh;
   background-image: url("../../../../public/images/crs_2.jpg");
   background-size: cover;
+  position: sticky;
 }
 
 .main_container {
@@ -12,10 +13,6 @@
   background-color: #f3f3f3;
   position: relative;
   box-sizing: border-box;
-
-  .filter_bar_container {
-    // border: 1px solid rgb(204, 160, 129);
-  }
 
   @media screen and (min-width: 768px) {
     .option_wrapper {
@@ -32,10 +29,6 @@
       .quick_option_wrapper {
         // border: 1px solid blue;
         padding: 0;
-      }
-
-      .detail_options_wrapper {
-        //   border: 1px solid blue;
       }
     }
 
@@ -98,6 +91,11 @@
       margin-top: 0;
       margin-bottom: 0;
 
+      h3 {
+        font-size: 1.3rem;
+        font-weight: 600;
+      }
+
       .other_info_wrapper {
         // border: 1px solid red;
         margin-top: 80px;
@@ -145,10 +143,6 @@
     .quick_option_wrapper {
       // border: 1px solid blue;
       padding: 0;
-    }
-
-    .detail_options_wrapper {
-      //   border: 1px solid blue;
     }
   }
 }

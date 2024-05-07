@@ -3,20 +3,34 @@ import { RootState } from "../app/store";
 import { useNavigate } from "react-router-dom";
 import { cancelRoom } from "../reducers/HotelsSlice";
 import { BookRoomProps } from "./RoomPage/RoomPage";
+import Swal from "sweetalert2";
+import noResultImage from "../../public/images/No_result_img.gif";
+import CheckoutHotelService from "../sever-interaction/CheckoutHotelService";
+import { Button } from "@mui/material";
 
 const MyReservation = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { bookedHotels } = useSelector((state: RootState) => state.bookedRooms);
-  console.table(bookedHotels);
+
   const handleShowRoomDetail = (id: string) => {
     navigate(`/roomPage/${id}`);
   };
 
-  const handleCancleBooking = (hotel: BookRoomProps) => {
-    const confirmation = window.confirm("Bạn có chắc chắn muốn hủy đặt phòng?");
-
-    if (confirmation) {
+  const handleCancleBooking = async (hotel: BookRoomProps) => {
+    const confirmResult = await Swal.fire({
+      title: "Bạn có chắc chắn muốn hủy đặt phòng?",
+      text: "Bấm OK để xác nhận.",
+      icon: "question",
+      iconColor: "#04413C",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      cancelButtonText: "Hủy bỏ",
+      confirmButtonText: "OK",
+      color: "#04413C",
+    });
+    if (confirmResult.isConfirmed) {
       dispatch(cancelRoom(hotel));
     }
   };
@@ -27,12 +41,20 @@ const MyReservation = () => {
 
   // ------
 
-  bookedHotels.map((hotel) => {
-    console.log("Hotel: ", hotel);
-  });
+  // bookedHotels.map((hotel) => {});
   //-------
 
-  // return <div>aaaa</div>;
+  const handleDelete = async (id: number) => {
+    try {
+      // Thực hiện gọi phương thức deleteCheckoutHotel từ service
+      const response = await CheckoutHotelService.deleteCheckoutHotel(id);
+      // Xử lý kết quả trả về (nếu cần)
+      console.log("Delete successful", response);
+    } catch (error) {
+      // Xử lý lỗi (nếu có)
+      console.error("Error deleting hotel", error);
+    }
+  };
 
   return (
     <>
@@ -42,12 +64,14 @@ const MyReservation = () => {
       >
         <div className="my-4">
           <div className="d-flex align-items-center flex-wrap">
-            <button
+            <Button
               className="btn btn-primary col-12 col-lg-6"
               onClick={handleBackToHomePage}
+              variant="contained"
             >
               <i className="fa-solid fa-arrow-left"></i> Quay về trang chủ
-            </button>
+            </Button>
+
             <h2 className="col-12 col-lg-6 my-4 text-center font-weight-bold">
               Đặt phòng của tôi
             </h2>
@@ -55,19 +79,16 @@ const MyReservation = () => {
 
           <div className="container px-0">
             {bookedHotels.length === 0 ? (
-              <div className="mt-5">
+              <div className="mt-5 text-center">
                 <img
-                  src="https://go2joy.vn/_nuxt/search-not-found.47b1f6f6.png"
+                  src={noResultImage}
                   alt=""
+                  style={{ width: "300px", textAlign: "center" }}
                 />
                 <h4>Bạn chưa có đặt phòng</h4>
-                <p className="text-secondary">Hãy đặt phòng để tận hưởng nhé</p>
-                <button
-                  className="btn btn-primary"
-                  onClick={handleBackToHomePage}
-                >
-                  <i className="fa-solid fa-arrow-left"></i> Quay về trang chủ
-                </button>
+                <p className="text-secondary">
+                  Hãy đặt phòng để tận hưởng nhé!
+                </p>
               </div>
             ) : (
               <div>
@@ -75,7 +96,11 @@ const MyReservation = () => {
                   <div
                     className="mb-4"
                     key={index}
-                    style={{ border: "1px solid gray", borderRadius: "7px" }}
+                    style={{
+                      border: "1px solid #DDDDDD",
+                      borderRadius: "7px",
+                      boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
+                    }}
                   >
                     <div className="d-flex justify-content-between p-3 align-items-center">
                       <p
@@ -96,8 +121,8 @@ const MyReservation = () => {
                     <div
                       className="d-flex justify-content-between align-items-center p-3"
                       style={{
-                        borderTop: "1px solid gray",
-                        borderBottom: "1px solid gray",
+                        borderTop: "1px solid #DDDDDD",
+                        borderBottom: "1px solid #DDDDDD",
                       }}
                     >
                       <div className="d-flex flex-column flex-md-row">
@@ -130,7 +155,10 @@ const MyReservation = () => {
                           </p>
                           <button
                             className="btn btn-danger mt-4"
-                            onClick={() => handleCancleBooking(hotel)}
+                            onClick={() => {
+                              handleCancleBooking(hotel);
+                              handleDelete(hotel.roomId);
+                            }}
                           >
                             Hủy đặt phòng
                           </button>

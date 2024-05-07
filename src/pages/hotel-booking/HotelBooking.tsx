@@ -1,21 +1,93 @@
 import { Fragment, useEffect, useState } from "react";
-import "./HotelBooking.scss";
+import "../../style/sass/hotel-booking-scss/HotelBooking.scss";
 import { auth } from "../log-firebase/Firebase";
+import { useNavigate } from "react-router-dom";
+import { BookRoomProps, Room } from "../RoomPage/RoomPage";
+import { useSelector } from "react-redux";
+import { selectSelectedRoom } from "../../reducers/bookingSlice";
+import { useDispatch } from "react-redux";
+import { bookRoom } from "../../reducers/HotelsSlice";
+import CheckoutHotelService from "../../sever-interaction/CheckoutHotelService";
+import { DateRange } from "react-date-range";
+
+import format from "date-fns/format";
+import { addDays } from "date-fns";
+
+import "react-date-range/dist/styles.css";
+import "react-date-range/dist/theme/default.css";
+
+import Backdrop from "@mui/material/Backdrop";
+import Box from "@mui/material/Box";
+import Modal from "@mui/material/Modal";
+import Fade from "@mui/material/Fade";
+
+const style = {
+  position: "absolute" as "absolute",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
+  bgcolor: "background.paper",
+  border: "2px solid #000",
+  boxShadow: 24,
+  p: 4,
+};
 
 const HotelBooking = () => {
-  const [user, setUser] = useState();
+  const navigate = useNavigate();
+  const [user, setUser] = useState<any>();
+  const selectedRoom = useSelector(selectSelectedRoom);
+  const dispatch = useDispatch();
+
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
+  const [range, setRange] = useState([
+    {
+      startDate: new Date(),
+      endDate: addDays(new Date(), 7),
+      key: "selection",
+    },
+  ]);
+
   useEffect(() => {
     auth.onAuthStateChanged((user) => {
       setUser(user);
     });
   });
+
+  const handleBackToHomePage = () => {
+    navigate("/home");
+  };
+
+  const handleBookRoom = (dataBookRoom: BookRoomProps) => {
+    dispatch(bookRoom(dataBookRoom));
+    navigate("/hotelBooking");
+  };
+
+  const handleBookingSendApi = async (dataBookRoom: BookRoomProps) => {
+    try {
+      // Thực hiện gọi phương thức postCheckoutHotel từ service
+
+      const response = await CheckoutHotelService.postCheckoutHotel(
+        dataBookRoom
+      );
+      // Xử lý kết quả trả về (nếu cần)
+      console.log("Buy successful", response);
+    } catch (error) {
+      // Xử lý lỗi (nếu có)
+      console.error("Error buying hotel", error);
+    }
+  };
+  console.log(format(range[0].startDate, "dd/MM/yyyy"));
+
   return (
     <Fragment>
       {user ? (
         <div id="hotel-booking">
-          <div id="header">
-            <i className="fa-solid fa-arrow-left"></i>
-            <p>Xác nhận thanh toán</p>
+          <div id="header" onClick={handleBackToHomePage}>
+            <i className="fa-solid fa-arrow-left mr-2"></i>
+            <p>Quay về trang chủ</p>
           </div>
           <div id="order">
             <p className="mb-2 fz20">
@@ -25,29 +97,44 @@ const HotelBooking = () => {
               <div className="hotel-selected">
                 <div className="img">
                   <img
-                    src="/public/images/hotel-booking/hotel-booking.jpg"
+                    src={selectedRoom.roomData.roomImages[0]}
                     alt="booking-hotel"
                   />
                 </div>
                 <div className="content">
-                  <p>Yên Hoa Hotel 2</p>
-                  <strong>STANDARD ROOM</strong>
-                  <p>địa chỉ cụ thể</p>
+                  <p>{selectedRoom.hotelName}</p>
+                  <strong>{selectedRoom.roomData.roomName}</strong>
+                  <p>{selectedRoom.hotelAddress}</p>
                 </div>
               </div>
 
               <div className="hotel-time">
                 <div className="img">
                   <img
-                    src="/public/images/hotel-booking/hotel-booking.jpg"
+                    src={selectedRoom.roomData.roomImages[1]}
                     alt="booking-hotel"
                   />
                 </div>
                 <div className="content">
                   <p>Nhận phòng</p>
-                  <strong>22:00 - 17/04/2024</strong>
+                  <input
+                    type="text"
+                    className="date"
+                    readOnly
+                    onClick={handleOpen}
+                    value={`22:00 - ${format(
+                      range[0].startDate,
+                      "dd/MM/yyyy"
+                    )}`}
+                  />
                   <p>Trả phòng</p>
-                  <strong>12:00 - 18/04/2024</strong>
+                  <input
+                    type="text"
+                    className="date"
+                    readOnly
+                    onClick={handleOpen}
+                    value={`22:00 - ${format(range[0].endDate, "dd/MM/yyyy")}`}
+                  />
                 </div>
               </div>
             </div>
@@ -60,8 +147,8 @@ const HotelBooking = () => {
             <div className="checkout-box">
               <div className="checkout-info">
                 <div className="info-box">
-                  <p>Họ và tên</p>
-                  <strong>Tạ Văn Đức</strong>
+                  <p>Email</p>
+                  <strong>{user.email}</strong>
                 </div>
                 <div className="info-box">
                   <p>Số điện thoại</p>
@@ -71,49 +158,43 @@ const HotelBooking = () => {
               <div className="checkout-total">
                 <div className="total-box">
                   <p>Giá phòng</p>
-                  <p>200.000</p>
+                  <p>{selectedRoom.roomData.price.toLocaleString("vi-VN")} đ</p>
                 </div>
                 <div className="total-box">
                   <p>Giảm giá</p>
-                  <p>50.000</p>
+                  <p>0</p>
                 </div>
                 <hr />
                 <div className="total-box">
                   <strong>Tổng thanh toán</strong>
-                  <strong>150.000</strong>
+                  <strong>
+                    {selectedRoom.roomData.price.toLocaleString("vi-VN")} đ
+                  </strong>
                 </div>
                 <div className="dropdown">
-                  <button
-                    className="btn dropdown-toggle"
-                    type="button"
-                    id="dropdownMenuButton1"
-                    data-bs-toggle="dropdown"
-                    aria-expanded="false"
-                  >
-                    Chọn phương thức thanh toán
-                  </button>
-                  <ul
-                    className="dropdown-menu"
-                    aria-labelledby="dropdownMenuButton1"
-                  >
-                    <li>
-                      <a className="dropdown-item" href="#">
-                        Thanh toán trực tiếp
-                      </a>
-                    </li>
-                    <li>
-                      <a className="dropdown-item" href="#">
-                        Chuyển khoản
-                      </a>
-                    </li>
-                    <li>
-                      <a className="dropdown-item" href="#">
-                        Visa/Master card
-                      </a>
-                    </li>
-                  </ul>
+                  <p>Thanh toán trực tiếp</p>
                 </div>
-                <button className="total-submit">Đặt phòng</button>
+                <button
+                  onClick={() => {
+                    handleBookRoom({
+                      hotelId: selectedRoom.hotelId,
+                      hotelName: selectedRoom.hotelName,
+                      hotelAddress: selectedRoom.hotelAddress,
+                      roomId: selectedRoom.roomId,
+                      roomData: selectedRoom.roomData,
+                    });
+                    handleBookingSendApi({
+                      hotelId: selectedRoom.hotelId,
+                      hotelName: selectedRoom.hotelName,
+                      hotelAddress: selectedRoom.hotelAddress,
+                      roomId: selectedRoom.roomId,
+                      roomData: selectedRoom.roomData,
+                    });
+                  }}
+                  className="total-submit"
+                >
+                  Đặt phòng
+                </button>
               </div>
             </div>
           </div>
@@ -121,6 +202,34 @@ const HotelBooking = () => {
       ) : (
         "must login"
       )}
+
+      <Modal
+        aria-labelledby="transition-modal-title"
+        aria-describedby="transition-modal-description"
+        open={open}
+        onClose={handleClose}
+        closeAfterTransition
+        slots={{ backdrop: Backdrop }}
+        slotProps={{
+          backdrop: {
+            timeout: 500,
+          },
+        }}
+      >
+        <Fade in={open}>
+          <Box sx={style}>
+            <DateRange
+              onChange={(item) => setRange([item.selection])}
+              editableDateInputs={true}
+              moveRangeOnFirstSelection={false}
+              ranges={range}
+              months={2}
+              direction="horizontal"
+              className="calendarElement"
+            />
+          </Box>
+        </Fade>
+      </Modal>
     </Fragment>
   );
 };
