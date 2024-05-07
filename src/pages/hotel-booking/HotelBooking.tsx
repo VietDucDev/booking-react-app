@@ -79,7 +79,16 @@ const HotelBooking = () => {
       console.error("Error buying hotel", error);
     }
   };
-  console.log(format(range[0].startDate, "dd/MM/yyyy"));
+
+  const calculateDays = (): number => {
+    const { startDate, endDate } = range[0];
+    if (startDate && endDate) {
+      const diffTime = Math.abs(endDate.getTime() - startDate.getTime());
+      const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+      return diffDays + 1;
+    }
+    return 0;
+  };
 
   return (
     <Fragment>
@@ -161,14 +170,23 @@ const HotelBooking = () => {
                   <p>{selectedRoom.roomData.price.toLocaleString("vi-VN")} đ</p>
                 </div>
                 <div className="total-box">
+                  <p>Số ngày thuê</p>
+                  <p>{calculateDays()} ngày</p>
+                </div>
+                <div className="total-box">
                   <p>Giảm giá</p>
-                  <p>0</p>
+                  <p>10%</p>
                 </div>
                 <hr />
                 <div className="total-box">
                   <strong>Tổng thanh toán</strong>
                   <strong>
-                    {selectedRoom.roomData.price.toLocaleString("vi-VN")} đ
+                    {(
+                      selectedRoom.roomData.price *
+                      calculateDays() *
+                      0.9
+                    ).toLocaleString("vi-VN")}{" "}
+                    đ
                   </strong>
                 </div>
                 <div className="dropdown">
@@ -226,6 +244,7 @@ const HotelBooking = () => {
               months={2}
               direction="horizontal"
               className="calendarElement"
+              minDate={new Date()}
             />
           </Box>
         </Fade>
