@@ -2,12 +2,13 @@ import { Fragment, useEffect, useState } from "react";
 import "../../style/sass/hotel-booking-scss/HotelBooking.scss";
 import { auth } from "../log-firebase/Firebase";
 import { useNavigate } from "react-router-dom";
-import { BookRoomProps, Room } from "../RoomPage/RoomPage";
+import { BookRoomProps, Room } from "../room-page/RoomPage";
 import { useSelector } from "react-redux";
 import { selectSelectedRoom } from "../../reducers/bookingSlice";
 import { useDispatch } from "react-redux";
 import { bookRoom } from "../../reducers/HotelsSlice";
 import CheckoutHotelService from "../../sever-interaction/CheckoutHotelService";
+import { Button } from "@mui/material";
 
 const HotelBooking = () => {
   const navigate = useNavigate();
@@ -123,7 +124,9 @@ const HotelBooking = () => {
                 <div className="dropdown">
                   <p>Thanh toán trực tiếp</p>
                 </div>
-                <button
+                <Button
+                  className="total-submit"
+                  variant="contained"
                   onClick={() => {
                     handleBookRoom({
                       hotelId: selectedRoom.hotelId,
@@ -140,10 +143,9 @@ const HotelBooking = () => {
                       roomData: selectedRoom.roomData,
                     });
                   }}
-                  className="total-submit"
                 >
                   Đặt phòng
-                </button>
+                </Button>
               </div>
             </div>
           </div>

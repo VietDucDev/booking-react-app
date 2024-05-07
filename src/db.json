@@ -18604,6 +18604,23 @@
           "https://s3.go2joy.vn/1000w/hotel/17906/4479_1705905015_65ae0b77e74aa.jpg"
         ]
       }
+    },
+    {
+      "id": "c1bf",
+      "hotelId": "27",
+      "hotelName": "LOOVE HOTEL 2",
+      "hotelAddress": "18 Đường Phạm Công Trứ, Phường Thạnh Mỹ Lợi, Quận 2, Thành phố Hồ Chí Minh, Việt Nam",
+      "roomId": 0,
+      "roomData": {
+        "roomName": "VIP ROOM 1(101, 201, 301)",
+        "price": 180000,
+        "area": null,
+        "roomImages": [
+          "https://s3.go2joy.vn/1000w/hotel/3470/4479_1702258067_65766593a275e.jpg",
+          "https://s3.go2joy.vn/1000w/hotel/3470/4479_1702258067_65766593dc357.jpg",
+          "https://s3.go2joy.vn/1000w/hotel/3470/4479_1702258068_657665940a781.JPG"
+        ]
+      }
     }
   ]
 }

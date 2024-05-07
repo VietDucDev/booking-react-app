@@ -2,10 +2,10 @@
 const Footer = () => {
   return (
     <div
-      className="mx-0 mx-sm-5 pt-5 px-3"
+      className="mx-0 pt-5 px-3"
       style={{ backgroundColor: "#003C43", color: "white" }}
     >
-      <div className="d-flex flex-column flex-lg-row pb-4">
+      <div className="d-flex flex-column flex-lg-row p-4">
         <div className="d-flex flex-column flex-sm-row col-12 col-lg-6 mb-3 mb-lg-0">
           <div className="col-12 col-sm-6 col-lg-8">
             <h6 style={{ marginBottom: "20px", fontSize: "18px" }}>Hỗ trợ</h6>
@@ -86,23 +86,23 @@ const Footer = () => {
             <div>
               <i
                 className="fa-brands fa-facebook mr-3"
-                style={{ color: "white", fontSize: "22px" }}
+                style={{ color: "white", fontSize: "22px", cursor: "pointer" }}
               ></i>
               <i
                 className="fa-brands fa-instagram mr-3"
-                style={{ color: "white", fontSize: "22px" }}
+                style={{ color: "white", fontSize: "22px", cursor: "pointer" }}
               ></i>
               <i
                 className="fa-brands fa-twitter mr-3"
-                style={{ color: "white", fontSize: "22px" }}
+                style={{ color: "white", fontSize: "22px", cursor: "pointer" }}
               ></i>
               <i
                 className="fa-brands fa-linkedin mr-3"
-                style={{ color: "white", fontSize: "22px" }}
+                style={{ color: "white", fontSize: "22px", cursor: "pointer" }}
               ></i>
               <i
                 className="fa-brands fa-hive"
-                style={{ color: "white", fontSize: "22px" }}
+                style={{ color: "white", fontSize: "22px", cursor: "pointer" }}
               ></i>
             </div>
           </div>

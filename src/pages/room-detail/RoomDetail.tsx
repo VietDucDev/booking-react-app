@@ -13,9 +13,9 @@ import AddIcon from "@mui/icons-material/Add";
 import Typography from "@mui/material/Typography";
 import IconButton from "@mui/material/IconButton";
 import { blue } from "@mui/material/colors";
-import Carousel_RoomPage_Img from "../RoomPage/Carousel_RoomPage_Img";
+import Carousel_RoomPage_Img from "../room-page/Carousel_RoomPage_Img";
 import "../../style/sass/room-detail-scss/RoomDetail.scss";
-import { DataProps, Room } from "../RoomPage/RoomPage";
+import { DataProps, Room } from "../room-page/RoomPage";
 
 const emails = ["username@gmail.com", "user02@gmail.com"];
 
