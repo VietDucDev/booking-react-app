@@ -1,61 +1,64 @@
 .css-1t1j96h-MuiPaper-root-MuiDialog-paper {
-    max-width: 100% !important;
+  max-width: 100% !important;
+}
+
+.room-detail {
+  margin-top: 200px;
+}
+.room-detail-box {
+  h2,
+  p {
+    margin: 0;
+    padding: 0;
   }
-  
-  .room-detail {
-    margin-top: 200px;
-  }
-  .room-detail-box {
-    h2,
-    p {
-      margin: 0;
-      padding: 0;
-    }
-    display: flex;
-    .room-detail-left {
-      width: 70%;
-      .custom-gallery-container {
-        width: auto;
+  display: flex;
+  .room-detail-left {
+    width: 90%;
+    .custom-gallery-container {
+      width: auto;
+
+      .image-gallery-image {
+        object-fit: cover;
       }
+    }
+  }
+  .room-detail-right {
+    width: 30%;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    flex-wrap: wrap;
+    i {
+      color: black;
+    }
+    .right-info {
+      width: 100%;
+      align-self: flex-start;
+    }
+    .right-checkout {
+      width: 100%;
+      align-self: flex-end;
+      button {
+        border: none;
+        border-radius: 12px;
+        width: 100%;
+        padding: 12px 0;
+        background-color: orange;
+        color: #fff;
+      }
+    }
+  }
+}
+
+@media (max-width: 700px) {
+  .room-detail-box {
+    flex-wrap: wrap;
+    .room-detail-left {
+      width: 100%;
     }
     .room-detail-right {
-      width: 30%;
-      padding: 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: start;
-      flex-wrap: wrap;
-      i {
-        color: black;
-      }
-      .right-info {
-        width: 100%;
-        align-self: flex-start;
-      }
-      .right-checkout {
-        width: 100%;
-        align-self: flex-end;
-        button {
-          border: none;
-          border-radius: 12px;
-          width: 100%;
-          padding: 12px 0;
-          background-color: orange;
-          color: #fff;
-        }
-      }
+      width: 100%;
     }
   }
-  
-  @media (max-width: 700px) {
-    .room-detail-box {
-      flex-wrap: wrap;
-      .room-detail-left {
-        width: 100%;
-      }
-      .room-detail-right {
-        width: 100%;
-      }
-    }
-  }
-  
+}

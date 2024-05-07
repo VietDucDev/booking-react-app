@@ -236,12 +236,13 @@ const RoomPage = () => {
                             {room.area}m<sup>2</sup>
                           </span>
                         </div>
-                        <div className="room-details-btn">
+                        <div className="room-details-btn ">
                           <button
                             onClick={() => {
                               setDataRoomItem(room);
                               handleOpen();
                             }}
+                            style={{ position: "absolute", bottom: "0px" }}
                           >
                             Xem chi tiết phòng
                             <svg

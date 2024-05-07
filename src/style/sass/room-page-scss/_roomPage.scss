@@ -179,7 +179,7 @@
 
     .image-gallery-image {
       object-fit: cover;
-      height: 500px;
+      max-height: 500px;
       box-shadow: $primary-light-shadow;
     }
     .image-gallery-left-nav {
