@@ -1,6 +1,6 @@
 import { toast, ToastOptions } from "react-toastify";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { BookRoomProps } from "../pages/RoomPage/RoomPage";
+import { BookRoomProps } from "../pages/room-page/RoomPage";
 
 interface HotelState {
   bookedHotels: BookRoomProps[];

@@ -2,7 +2,7 @@ import { Fragment, useEffect, useState } from "react";
 import "../../style/sass/hotel-booking-scss/HotelBooking.scss";
 import { auth } from "../log-firebase/Firebase";
 import { useNavigate } from "react-router-dom";
-import { BookRoomProps, Room } from "../RoomPage/RoomPage";
+import { BookRoomProps } from "../room-page/RoomPage";
 import { useSelector } from "react-redux";
 import { selectSelectedRoom } from "../../reducers/bookingSlice";
 import { useDispatch } from "react-redux";
@@ -20,6 +20,7 @@ import Backdrop from "@mui/material/Backdrop";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import Fade from "@mui/material/Fade";
+import { Button } from "@mui/material";
 
 const style = {
   position: "absolute" as "absolute",
@@ -192,7 +193,9 @@ const HotelBooking = () => {
                 <div className="dropdown">
                   <p>Thanh toán trực tiếp</p>
                 </div>
-                <button
+                <Button
+                  className="total-submit"
+                  variant="contained"
                   onClick={() => {
                     handleBookRoom({
                       hotelId: selectedRoom.hotelId,
@@ -209,10 +212,9 @@ const HotelBooking = () => {
                       roomData: selectedRoom.roomData,
                     });
                   }}
-                  className="total-submit"
                 >
                   Đặt phòng
-                </button>
+                </Button>
               </div>
             </div>
           </div>
