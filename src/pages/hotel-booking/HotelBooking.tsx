@@ -2,19 +2,53 @@ import { Fragment, useEffect, useState } from "react";
 import "../../style/sass/hotel-booking-scss/HotelBooking.scss";
 import { auth } from "../log-firebase/Firebase";
 import { useNavigate } from "react-router-dom";
-import { BookRoomProps, Room } from "../room-page/RoomPage";
+import { BookRoomProps, Room } from "../RoomPage/RoomPage";
 import { useSelector } from "react-redux";
 import { selectSelectedRoom } from "../../reducers/bookingSlice";
 import { useDispatch } from "react-redux";
 import { bookRoom } from "../../reducers/HotelsSlice";
 import CheckoutHotelService from "../../sever-interaction/CheckoutHotelService";
-import { Button } from "@mui/material";
+import { DateRange } from "react-date-range";
+
+import format from "date-fns/format";
+import { addDays } from "date-fns";
+
+import "react-date-range/dist/styles.css";
+import "react-date-range/dist/theme/default.css";
+
+import Backdrop from "@mui/material/Backdrop";
+import Box from "@mui/material/Box";
+import Modal from "@mui/material/Modal";
+import Fade from "@mui/material/Fade";
+
+const style = {
+  position: "absolute" as "absolute",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
+  bgcolor: "background.paper",
+  border: "2px solid #000",
+  boxShadow: 24,
+  p: 4,
+};
 
 const HotelBooking = () => {
   const navigate = useNavigate();
   const [user, setUser] = useState<any>();
   const selectedRoom = useSelector(selectSelectedRoom);
   const dispatch = useDispatch();
+
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
+  const [range, setRange] = useState([
+    {
+      startDate: new Date(),
+      endDate: addDays(new Date(), 7),
+      key: "selection",
+    },
+  ]);
 
   useEffect(() => {
     auth.onAuthStateChanged((user) => {
@@ -45,6 +79,7 @@ const HotelBooking = () => {
       console.error("Error buying hotel", error);
     }
   };
+  console.log(format(range[0].startDate, "dd/MM/yyyy"));
 
   return (
     <Fragment>
@@ -82,9 +117,24 @@ const HotelBooking = () => {
                 </div>
                 <div className="content">
                   <p>Nhận phòng</p>
-                  <strong>22:00 - 17/04/2024</strong>
+                  <input
+                    type="text"
+                    className="date"
+                    readOnly
+                    onClick={handleOpen}
+                    value={`22:00 - ${format(
+                      range[0].startDate,
+                      "dd/MM/yyyy"
+                    )}`}
+                  />
                   <p>Trả phòng</p>
-                  <strong>12:00 - 18/04/2024</strong>
+                  <input
+                    type="text"
+                    className="date"
+                    readOnly
+                    onClick={handleOpen}
+                    value={`22:00 - ${format(range[0].endDate, "dd/MM/yyyy")}`}
+                  />
                 </div>
               </div>
             </div>
@@ -153,6 +203,34 @@ const HotelBooking = () => {
       ) : (
         "must login"
       )}
+
+      <Modal
+        aria-labelledby="transition-modal-title"
+        aria-describedby="transition-modal-description"
+        open={open}
+        onClose={handleClose}
+        closeAfterTransition
+        slots={{ backdrop: Backdrop }}
+        slotProps={{
+          backdrop: {
+            timeout: 500,
+          },
+        }}
+      >
+        <Fade in={open}>
+          <Box sx={style}>
+            <DateRange
+              onChange={(item) => setRange([item.selection])}
+              editableDateInputs={true}
+              moveRangeOnFirstSelection={false}
+              ranges={range}
+              months={2}
+              direction="horizontal"
+              className="calendarElement"
+            />
+          </Box>
+        </Fade>
+      </Modal>
     </Fragment>
   );
 };

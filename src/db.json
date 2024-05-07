@@ -18606,19 +18606,20 @@
       }
     },
     {
-      "id": "c1bf",
-      "hotelId": "27",
-      "hotelName": "LOOVE HOTEL 2",
-      "hotelAddress": "18 Đường Phạm Công Trứ, Phường Thạnh Mỹ Lợi, Quận 2, Thành phố Hồ Chí Minh, Việt Nam",
-      "roomId": 0,
+      "id": "5638",
+      "hotelId": "05",
+      "hotelName": "THE ODYS HOTEL",
+      "hotelAddress": "65 - 67- 69 Nguyễn Thái Bình, Phường Nguyễn Thái Bình, Quận 1, Hồ Chí Minh",
+      "roomId": 2,
       "roomData": {
-        "roomName": "VIP ROOM 1(101, 201, 301)",
-        "price": 180000,
-        "area": null,
+        "roomName": "Junior Deluxe Double Room",
+        "price": 600000,
+        "area": 50,
         "roomImages": [
-          "https://s3.go2joy.vn/1000w/hotel/3470/4479_1702258067_65766593a275e.jpg",
-          "https://s3.go2joy.vn/1000w/hotel/3470/4479_1702258067_65766593dc357.jpg",
-          "https://s3.go2joy.vn/1000w/hotel/3470/4479_1702258068_657665940a781.JPG"
+          "https://s3.go2joy.vn/1000w/hotel/1177_1564627228225/78e87cd1ab419c49416cfacda08df9ba.jpg",
+          "https://s3.go2joy.vn/1000w/hotel/1177_1564627228225/ee0c32d95ebc886e55cd3d94e3dd849f.jpg",
+          "https://s3.go2joy.vn/1000w/hotel/1177_1564627228225/18b6d5d365ffe7d734ae05c7bf41f717.jpg",
+          "https://s3.go2joy.vn/1000w/hotel/1177_1564627228225/3a875c8c71ffaf8d254a63769ee23e9c.jpg"
         ]
       }
     }
