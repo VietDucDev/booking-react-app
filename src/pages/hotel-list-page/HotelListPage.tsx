@@ -336,7 +336,7 @@ const HotelListPage: React.FC<Hotel | {}> = () => {
             </div>
           </div>
 
-          <div className="hotel_list_map_container row">
+          <div className="hotel_list_map_container container-md  row">
             {hotelList.length === 0 ? (
               <p
                 className="hotel_quantity_available mb-1 col-12"
