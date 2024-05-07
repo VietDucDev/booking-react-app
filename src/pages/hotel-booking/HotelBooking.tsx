@@ -2,7 +2,7 @@ import { Fragment, useEffect, useState } from "react";
 import "../../style/sass/hotel-booking-scss/HotelBooking.scss";
 import { auth } from "../log-firebase/Firebase";
 import { useNavigate } from "react-router-dom";
-import { BookRoomProps, Room } from "../RoomPage/RoomPage";
+import { BookRoomProps } from "../room-page/RoomPage";
 import { useSelector } from "react-redux";
 import { selectSelectedRoom } from "../../reducers/bookingSlice";
 import { useDispatch } from "react-redux";
@@ -20,6 +20,7 @@ import Backdrop from "@mui/material/Backdrop";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import Fade from "@mui/material/Fade";
+import { Button } from "@mui/material";
 
 const style = {
   position: "absolute" as "absolute",
