@@ -1,8 +1,12 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "../../style/sass/home-page-scss/_searchBar.scss";
 import CitiesServices from "../../sever-interaction/CitiesServices";
+import InputLabel from "@mui/material/InputLabel";
+import MenuItem from "@mui/material/MenuItem";
+import FormControl from "@mui/material/FormControl";
+import Select, { SelectChangeEvent } from "@mui/material/Select";
+import DistrictsServices from "../../sever-interaction/DistrictsServices";
 
 interface City {
   id: number;
@@ -20,20 +24,8 @@ const Hero = () => {
   const [location, setLocation] = useState("");
   const [cities, setCities] = useState<City[]>([]);
   const [districts, setDistricts] = useState<District[]>([]);
-  const [selectedCity, setSelectedCity] = useState<number | null>(null);
+  const [selectedCity, setSelectedCity] = useState<string | null>(null);
   const [selectedDistrict, setSelectedDistrict] = useState<string | null>(null);
-
-  // useEffect(() => {
-  //   axios
-  //     .get("http://localhost:3000/cities")
-  //     .then((response) => {
-  //       const citiesData: City[] = response.data;
-  //       setCities(citiesData);
-  //     })
-  //     .catch((error) => {
-  //       console.error("Error fetching cities:", error);
-  //     });
-  // }, []);
 
   useEffect(() => {
     const fetchCities = async () => {
@@ -48,24 +40,23 @@ const Hero = () => {
     fetchCities();
   }, []);
 
-  const handleCityChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    const cityId = parseInt(event.target.value);
+  const handleCityChange = (event: SelectChangeEvent) => {
+    const cityId: any = parseInt(event.target.value);
     setSelectedCity(cityId);
     setDistricts([]);
-    axios
-      .get(`http://localhost:3000/districts?cityId=${cityId}`)
-      .then((response) => {
-        const districtsData: District[] = response.data;
-        setDistricts(districtsData);
-      })
-      .catch((error) => {
+    const fetchDistrict = async () => {
+      try {
+        const districtData = await DistrictsServices.getDistricts(cityId);
+        setDistricts(districtData);
+      } catch (error) {
         console.error("Error fetching districts:", error);
-      });
+      }
+    };
+
+    fetchDistrict();
   };
 
-  const handleDistrictChange = (
-    event: React.ChangeEvent<HTMLSelectElement>
-  ) => {
+  const handleDistrictChange = (event: SelectChangeEvent) => {
     const districtName = event.target.value;
     setSelectedDistrict(districtName);
     setLocation(districtName);
@@ -129,19 +120,24 @@ const Hero = () => {
             ></i>
             Bạn muốn đi đâu?
           </div>
-          <select
-            id="city"
-            value={selectedCity !== null ? selectedCity : ""}
-            onChange={handleCityChange}
-            className="pl-2"
-          >
-            <option value="">Tỉnh/Thành phố</option>
-            {cities.map((city) => (
-              <option key={city.id} value={city.id}>
-                {city.name}
-              </option>
-            ))}
-          </select>
+          <FormControl variant="filled" sx={{ m: 0, minWidth: 120 }}>
+            <InputLabel id="demo-simple-select-filled-label">
+              Thành Phố
+            </InputLabel>
+            <Select
+              id="city"
+              value={selectedCity !== null ? selectedCity : ""}
+              onChange={handleCityChange}
+              className="pl-2"
+              style={{ width: "150px", borderRadius: "5px" }}
+            >
+              {cities.map((city) => (
+                <MenuItem key={city.id} value={city.id}>
+                  {city.name}
+                </MenuItem>
+              ))}
+            </Select>
+          </FormControl>
         </div>
 
         <div className="d-flex mb-3 mb-lg-0 mr-lg-3">
@@ -155,21 +151,28 @@ const Hero = () => {
             ></i>
             Khu vực:
           </div>
-          <select
-            id="district"
-            value={selectedDistrict !== null ? selectedDistrict : ""}
-            onChange={handleDistrictChange}
-            disabled={!selectedCity}
-            className="pl-2"
-            style={{ width: "154px" }}
-          >
-            <option value="">Quận/Huyện</option>
-            {districts.map((district) => (
-              <option key={district.districtId} value={district.districtName}>
-                {district.districtName}
-              </option>
-            ))}
-          </select>
+          <FormControl variant="filled" sx={{ m: 0, minWidth: 120 }}>
+            <InputLabel id="demo-simple-select-filled-label">
+              Quận/huyện
+            </InputLabel>
+            <Select
+              id="district"
+              value={selectedDistrict !== null ? selectedDistrict : ""}
+              onChange={handleDistrictChange}
+              disabled={!selectedCity}
+              className="pl-2"
+              style={{ width: "150px", borderRadius: "5px" }}
+            >
+              {districts.map((district) => (
+                <MenuItem
+                  key={district.districtId}
+                  value={district.districtName}
+                >
+                  {district.districtName}
+                </MenuItem>
+              ))}
+            </Select>
+          </FormControl>
         </div>
 
         <button

@@ -262,7 +262,6 @@ const HotelListPage: React.FC<Hotel | {}> = () => {
                     }}
                     color="primary"
                     value="27"
-                    // aria-label="left aligned"
                   >
                     Thang máy
                   </ToggleButton>
@@ -276,7 +275,6 @@ const HotelListPage: React.FC<Hotel | {}> = () => {
                     }}
                     color="primary"
                     value="123"
-                    // aria-label="left aligned"
                   >
                     Bồn tắm
                   </ToggleButton>
@@ -290,7 +288,6 @@ const HotelListPage: React.FC<Hotel | {}> = () => {
                     }}
                     color="primary"
                     value="97"
-                    // aria-label="left aligned"
                   >
                     Smart TV
                   </ToggleButton>
@@ -304,7 +301,6 @@ const HotelListPage: React.FC<Hotel | {}> = () => {
                     }}
                     color="primary"
                     value="169"
-                    // aria-label="left aligned"
                   >
                     Cửa sổ thông thoáng
                   </ToggleButton>
@@ -346,10 +342,27 @@ const HotelListPage: React.FC<Hotel | {}> = () => {
               </p>
             ) : (
               <p
-                className="hotel_quantity_available mb-1 col-12"
+                className="hotel_quantity_available mb-1 col-11 row d-flex"
                 style={{ marginTop: "5px" }}
               >
-                Có <strong>{hotelList.length}</strong> khách sạn phù hợp với bạn
+                <span className="col-md-6 col-12">
+                  <i className="fa-solid fa-house-circle-check"></i>
+                  Có <strong>{hotelList.length}</strong> khách sạn phù hợp với
+                  bạn
+                </span>
+                <span className="col-md-6 col-12">
+                  {districtSearchParams ? (
+                    <>
+                      <i className="fa-solid fa-magnifying-glass-location"></i>
+                      Khu vực tìm kiếm: <strong>{districtSearchParams}</strong>
+                    </>
+                  ) : (
+                    <>
+                      <i className="fa-solid fa-magnifying-glass-location"></i>
+                      Chủ đề tìm kiếm: <strong>{hotelTypeSearchParams}</strong>
+                    </>
+                  )}
+                </span>
               </p>
             )}
 

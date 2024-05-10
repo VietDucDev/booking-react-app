@@ -7,6 +7,7 @@ import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth, db } from "./log-firebase/Firebase";
 import { setDoc, doc } from "firebase/firestore";
 import { toast } from "react-toastify";
+import LoadingButton from "@mui/lab/LoadingButton";
 
 interface FormValues {
   fname?: string;
@@ -18,6 +19,7 @@ interface FormValues {
 
 const Login_Logout = () => {
   const [isSignIn, setIsSignIn] = useState(true);
+  const [isButtonDisabled, setIsButtonDisabled] = useState(false); // State to manage button's disabled state
 
   const toggleForm = () => {
     setIsSignIn(!isSignIn);
@@ -34,19 +36,25 @@ const Login_Logout = () => {
   // const [email, setEmail] = useState("");
   // const [password, setPassword] = useState("");
 
-  const handleSubmit = async (value: FormValues) => {
-    console.log(value);
+  const handleSubmit = async (values: FormValues) => {
+    setIsButtonDisabled(true); // Disable the button on click
 
-    try {
-      await signInWithEmailAndPassword(auth, value.email, value.password);
-      console.log("User logged in Successfully");
-      window.location.href = "/home";
-    } catch (error: any) {
-      alert(error.message);
-    }
+    // Delay the sign-in process by 2.5 seconds
+    setTimeout(async () => {
+      try {
+        await signInWithEmailAndPassword(auth, values.email, values.password);
+        console.log("User logged in Successfully");
+        window.location.href = "/home";
+      } catch (error: any) {
+        alert(error.message);
+      } finally {
+        setIsButtonDisabled(false); // Re-enable the button after the timeout
+      }
+    }, 2000);
   };
 
   const handleRegister = async (value: FormValues) => {
+    setIsButtonDisabled(true); // Disable the button on click
     console.log(value);
 
     try {
@@ -166,7 +174,13 @@ const Login_Logout = () => {
                     component="div"
                     className="error"
                   />
-                  <button type="submit">Đăng ký</button>
+                  <LoadingButton
+                    variant="contained"
+                    loading={isButtonDisabled}
+                    type="submit"
+                  >
+                    Đăng ký
+                  </LoadingButton>
                   <div className="form-conversion">
                     Bạn đã có tài khoản?{" "}
                     <strong
@@ -214,7 +228,13 @@ const Login_Logout = () => {
                     className="error"
                   />
                   <a href="#">Quên mật khẩu?</a>
-                  <button type="submit">Đăng nhập</button>
+                  <LoadingButton
+                    type="submit"
+                    loading={isButtonDisabled}
+                    variant="contained"
+                  >
+                    <span>Đăng nhập</span>
+                  </LoadingButton>
                   <div className="form-conversion">
                     Bạn chưa có tài khoản?{" "}
                     <strong

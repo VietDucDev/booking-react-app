@@ -11,13 +11,13 @@ const Footer = () => {
             <h6 style={{ marginBottom: "20px", fontSize: "18px" }}>Hỗ trợ</h6>
             <div className="d-flex flex-column">
               <p style={{ fontSize: "14px", color: "#BEBEBE" }}>
-                <i className="fa-solid fa-phone"></i> Hotline: 0931 836 836
+                <i className="fa-solid fa-phone"></i> Hotline: 0909 969 969
               </p>
               <p style={{ fontSize: "14px", color: "#BEBEBE" }}>
-                Hỗ trợ khách hàng: cskh@go2joy.vn
+                Hỗ trợ khách hàng: cskh@9room.vn
               </p>
               <p style={{ fontSize: "14px", color: "#BEBEBE" }}>
-                Liên hệ hợp tác: support@go2joy.vn
+                Liên hệ hợp tác: support@9room.vn
               </p>
               <p style={{ fontSize: "14px", color: "#BEBEBE" }}>
                 Cơ chế giải quyết tranh chấp, khiếu nại

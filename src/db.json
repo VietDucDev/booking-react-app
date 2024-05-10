@@ -230,7 +230,7 @@
   "hotelCollection": [
     {
       "sn": 76,
-      "title": "Go2Joy Room",
+      "title": "9ROOM - NiceRoom",
       "id": "3700"
     },
     {
@@ -19248,6 +19248,24 @@
           "https://s3.go2joy.vn/1000w/hotel/15916/9002_1693461958_64f02dc6b2e39.jpg",
           "https://s3.go2joy.vn/1000w/hotel/15916/9002_1693461958_64f02dc6dbeaa.jpg",
           "https://s3.go2joy.vn/1000w/hotel/15916/9002_1693461959_64f02dc70fbd7.jpg"
+        ]
+      }
+    },
+    {
+      "id": "1f41",
+      "hotelId": "17",
+      "hotelName": "BÌNH AN HOTEL",
+      "hotelAddress": "96-98 Đường số 20, Phường Bình An, Quận 2, Hồ Chí Minh",
+      "roomId": 0,
+      "roomData": {
+        "roomName": "QUEEN",
+        "price": 517500,
+        "area": 30,
+        "roomImages": [
+          "https://s3.go2joy.vn/1000w/hotel/3044/118_1622967105_60bc83414e96f.jpg",
+          "https://s3.go2joy.vn/1000w/hotel/3044/118_1622967105_60bc8341807ce.jpg",
+          "https://s3.go2joy.vn/1000w/hotel/3044/118_1622967105_60bc83419d8e1.jpg",
+          "https://s3.go2joy.vn/1000w/hotel/3044/118_1622967105_60bc8341bba38.jpg"
         ]
       }
     }
