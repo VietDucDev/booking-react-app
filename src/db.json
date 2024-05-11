@@ -18641,9 +18641,6 @@
       }
     },
     {
-<<<<<<< HEAD
-      "id": "d232",
-=======
       "id": "4bd6",
       "hotelId": "30",
       "hotelName": "868 HOTEL - PHÁT LỘC PHÁT QUẬN 2",
@@ -18951,7 +18948,6 @@
     },
     {
       "id": "3244",
->>>>>>> ab91c8bc88eebef3219a3b7113538ab4a00b5302
       "hotelId": "01",
       "hotelName": "DAZI SIGNATURE HOTEL",
       "hotelAddress": "23 Trương Định, Phường Bến Thành, Quận 1, Thành phố Hồ Chí Minh",
@@ -18969,9 +18965,6 @@
       }
     },
     {
-<<<<<<< HEAD
-      "id": "0e01",
-=======
       "id": "b20d",
       "hotelId": "23",
       "hotelName": "ABC HOTEL",
@@ -19225,7 +19218,6 @@
     },
     {
       "id": "15c1",
->>>>>>> ab91c8bc88eebef3219a3b7113538ab4a00b5302
       "hotelId": "01",
       "hotelName": "DAZI SIGNATURE HOTEL",
       "hotelAddress": "23 Trương Định, Phường Bến Thành, Quận 1, Thành phố Hồ Chí Minh",
@@ -19241,8 +19233,6 @@
           "https://s3.go2joy.vn/1000w/hotel/13047/2848_1700550166_655c561647a73.JPG"
         ]
       }
-<<<<<<< HEAD
-=======
     },
     {
       "id": "02d7",
@@ -19278,7 +19268,6 @@
           "https://s3.go2joy.vn/1000w/hotel/3044/118_1622967105_60bc8341bba38.jpg"
         ]
       }
->>>>>>> ab91c8bc88eebef3219a3b7113538ab4a00b5302
     }
   ]
 }
