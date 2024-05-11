@@ -1,3 +1,5 @@
+@import "../variable";
+
 .modal_search {
   position: fixed;
   transform: translate(-50%);
@@ -36,5 +38,102 @@
     opacity: 0;
     transform: translate(-50%, -50%) scale(0.5);
     border-radius: 100px;
+  }
+}
+
+.dropdown-menua {
+  position: absolute;
+  background-color: white;
+  border-radius: 10px;
+  padding: 10px;
+  width: 250px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 1);
+  top: 55px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.fade-in-drop {
+  animation: fade-in-drop 0.25s ease-in-out forwards;
+}
+
+.hide-out-drop {
+  animation: fade-out-drop 0.2s ease-in-out forwards;
+}
+
+@keyframes fade-in-drop {
+  from {
+    opacity: 0;
+    height: 0px;
+    top: 40px;
+  }
+  to {
+    opacity: 1;
+    height: 350px;
+    top: 55px;
+  }
+}
+
+@keyframes fade-out-drop {
+  from {
+    opacity: 1;
+    height: 350px;
+    top: 55px;
+  }
+  to {
+    opacity: 0;
+    height: 0px;
+    top: 40px;
+  }
+}
+
+.fa-chevron-down {
+  transition: 0.3s ease-in-out;
+}
+
+// .rotate-down {
+//   transform: rotate(180deg);
+// }
+
+// .rotate-up {
+//   transform: rotate(0deg);
+// }
+
+.rotate-down {
+  transform: rotateX(180deg);
+}
+
+.rotate-up {
+  transform: rotateX(0deg);
+}
+
+.fade-in-drop-item {
+  animation: fade-in-drop-item 0.3s ease-in-out;
+}
+
+.hide-out-drop-item {
+  animation: fade-out-drop-item 0.2s ease-in-out;
+  display: none;
+}
+
+@keyframes fade-in-drop-item {
+  from {
+    opacity: 0;
+    transform: translateY(-50%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}
+
+@keyframes fade-out-drop-item {
+  from {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-50%);
   }
 }

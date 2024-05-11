@@ -179,7 +179,8 @@
 
     .image-gallery-image {
       object-fit: cover;
-      height: 500px;
+      max-height: 500px;
+      box-shadow: $primary-light-shadow;
     }
     .image-gallery-left-nav {
       background-color: #135d66;
@@ -232,6 +233,8 @@
     .image-gallery-thumbnail-image {
       height: 62px;
       object-fit: cover;
+      border-radius: 5px;
+      box-shadow: $primary-light-shadow;
     }
   }
 

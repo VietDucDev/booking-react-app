@@ -29,6 +29,7 @@ import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import Fade from "@mui/material/Fade";
 import { Button } from "@mui/material";
+import Swal from "sweetalert2";
 
 const style = {
   position: "absolute" as "absolute",
@@ -40,6 +41,12 @@ const style = {
   boxShadow: 24,
   p: 4,
 };
+
+// interface RangeProps {
+//   startDate: Date | number;
+//   endDate: Date;
+//   key: string;
+// }
 
 const HotelBooking = () => {
   const navigate = useNavigate();
@@ -73,23 +80,34 @@ const HotelBooking = () => {
     navigate("/home");
   };
 
-  const handleBookRoom = (dataBookRoom: BookRoomProps) => {
-    dispatch(bookRoom(dataBookRoom));
-    navigate("/hotelBooking");
-  };
-
   const handleBookingSendApi = async (dataBookRoom: BookRoomProps) => {
     try {
-      // Thực hiện gọi phương thức postCheckoutHotel từ service
+      const confirmResult = await Swal.fire({
+        title: "Xác nhận đặt phòng ?",
+        text: "Kiểm tra chính xác thông tin trước khi đặt phòng bạn nhé!",
+        icon: "success",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        cancelButtonText: "Hủy bỏ",
+        confirmButtonText: "Xác nhận",
+      });
 
-      const response = await CheckoutHotelService.postCheckoutHotel(
-        dataBookRoom
-      );
-      // Xử lý kết quả trả về (nếu cần)
-      console.log("Buy successful", response);
+      if (confirmResult.isConfirmed) {
+        const response = await CheckoutHotelService.postCheckoutHotel(
+          dataBookRoom
+        );
+        dispatch(bookRoom(dataBookRoom));
+        navigate("/hotelBooking");
+        console.log("Booked successful", response);
+      }
     } catch (error) {
-      // Xử lý lỗi (nếu có)
       console.error("Error buying hotel", error);
+      Swal.fire({
+        icon: "error",
+        title: "Checkout Failed",
+        text: "An error occurred during checkout. Please try again later.",
+      });
     }
   };
 
@@ -280,13 +298,6 @@ const HotelBooking = () => {
                   className="total-submit"
                   variant="contained"
                   onClick={() => {
-                    handleBookRoom({
-                      hotelId: selectedRoom.hotelId,
-                      hotelName: selectedRoom.hotelName,
-                      hotelAddress: selectedRoom.hotelAddress,
-                      roomId: selectedRoom.roomId,
-                      roomData: selectedRoom.roomData,
-                    });
                     handleBookingSendApi({
                       hotelId: selectedRoom.hotelId,
                       hotelName: selectedRoom.hotelName,

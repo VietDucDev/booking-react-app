@@ -88,11 +88,6 @@ const RoomPage = () => {
     console.log("Bạn đã nhấp vào liên kết");
   };
 
-  const handleBookRoom = (dataBookRoom: BookRoomProps) => {
-    dispatch(bookRoom(dataBookRoom));
-    navigate("/hotelBooking");
-  };
-
   const handleBookRoomFail = async () => {
     const confirmResult = await Swal.fire({
       title: "Bạn cần đăng nhập để dùng chức năng đặt phòng!",
@@ -125,7 +120,7 @@ const RoomPage = () => {
           <div className="col">
             <div className="row">
               <div className="col">
-                <div className="row d-flex justify-content-between px-3 mt-3">
+                <div className="row d-flex justify-content-between px-3 mt-3 mb-2">
                   <div>
                     <p className="hotel-name mb-1">{data?.name}</p>
                     <div>
@@ -171,13 +166,13 @@ const RoomPage = () => {
                   <div className="my-4">
                     <p>
                       Tọa lạc tại con đường&nbsp;sầm uất,&nbsp;hiện đại,{" "}
-                      <strong>GO2JOY&nbsp; - BẠN TÔI ROOM</strong> là khách
+                      <strong>9ROOM&nbsp; - NICE ROOM</strong> là khách
                       sạn&nbsp;của sự{" "}
                       <strong>thoải mái&nbsp;và tiện nghi</strong> trên cả tuyệt
-                      vời. Từ <strong>GO2JOY&nbsp; - BẠN TÔI ROOM</strong>&nbsp;
-                      Quý khách có thể dễ dàng đi chuyển đến{" "}
+                      vời. Từ <strong>9ROOM&nbsp; - NICE ROOM</strong>, quý
+                      khách có thể dễ dàng đi chuyển đến{" "}
                       <strong>đường Nguyễn Trãi sầm uất</strong>&nbsp;bậc nhất
-                      về đêm tại&nbsp;Quận 5, Trung tâm thương mại
+                      về đêm tại&nbsp;Quận 5, Trung tâm Thương mại
                       <strong> </strong>hay&nbsp;<strong>Chợ Bến Thành</strong>{" "}
                       với khoảng cách không xa
                     </p>
@@ -241,12 +236,13 @@ const RoomPage = () => {
                             {room.area}m<sup>2</sup>
                           </span>
                         </div>
-                        <div className="room-details-btn">
+                        <div className="room-details-btn ">
                           <button
                             onClick={() => {
                               setDataRoomItem(room);
                               handleOpen();
                             }}
+                            style={{ position: "absolute", bottom: "0px" }}
                           >
                             Xem chi tiết phòng
                             <svg
