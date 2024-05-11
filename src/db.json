@@ -18639,6 +18639,42 @@
           "https://s3.go2joy.vn/1000w/hotel/13047/2848_1700550166_655c561647a73.JPG"
         ]
       }
+    },
+    {
+      "id": "d232",
+      "hotelId": "01",
+      "hotelName": "DAZI SIGNATURE HOTEL",
+      "hotelAddress": "23 Trương Định, Phường Bến Thành, Quận 1, Thành phố Hồ Chí Minh",
+      "roomId": 0,
+      "roomData": {
+        "roomName": "PRESIDENT ROOM - TEXAS",
+        "price": 1600000,
+        "area": 40,
+        "roomImages": [
+          "https://s3.go2joy.vn/1000w/hotel/13047/2848_1700550365_655c56dd09012.jpg",
+          "https://s3.go2joy.vn/1000w/hotel/13047/2848_1700550166_655c5616133a8.JPG",
+          "https://s3.go2joy.vn/1000w/hotel/13047/2848_1700550166_655c56162ddea.JPG",
+          "https://s3.go2joy.vn/1000w/hotel/13047/2848_1700550166_655c561647a73.JPG"
+        ]
+      }
+    },
+    {
+      "id": "0e01",
+      "hotelId": "01",
+      "hotelName": "DAZI SIGNATURE HOTEL",
+      "hotelAddress": "23 Trương Định, Phường Bến Thành, Quận 1, Thành phố Hồ Chí Minh",
+      "roomId": 0,
+      "roomData": {
+        "roomName": "PRESIDENT ROOM - TEXAS",
+        "price": 1600000,
+        "area": 40,
+        "roomImages": [
+          "https://s3.go2joy.vn/1000w/hotel/13047/2848_1700550365_655c56dd09012.jpg",
+          "https://s3.go2joy.vn/1000w/hotel/13047/2848_1700550166_655c5616133a8.JPG",
+          "https://s3.go2joy.vn/1000w/hotel/13047/2848_1700550166_655c56162ddea.JPG",
+          "https://s3.go2joy.vn/1000w/hotel/13047/2848_1700550166_655c561647a73.JPG"
+        ]
+      }
     }
   ]
 }

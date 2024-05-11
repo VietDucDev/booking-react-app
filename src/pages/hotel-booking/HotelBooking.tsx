@@ -8,6 +8,14 @@ import { selectSelectedRoom } from "../../reducers/bookingSlice";
 import { useDispatch } from "react-redux";
 import { bookRoom } from "../../reducers/HotelsSlice";
 import CheckoutHotelService from "../../sever-interaction/CheckoutHotelService";
+
+import dayjs, { Dayjs } from "dayjs";
+import duration from "dayjs/plugin/duration"; // Import plugin
+
+dayjs.extend(duration); // Kích hoạt plugin
+import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import { TimePicker } from "@mui/x-date-pickers/TimePicker";
 import { DateRange } from "react-date-range";
 
 import format from "date-fns/format";
@@ -42,6 +50,10 @@ const HotelBooking = () => {
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+  const [isDate, setIsDate] = useState(true);
+
+  const [checkInTime, setCheckInTime] = useState<Dayjs | null>(dayjs());
+  const [checkOutTime, setCheckOutTime] = useState<Dayjs | null>(dayjs());
 
   const [range, setRange] = useState([
     {
@@ -91,6 +103,29 @@ const HotelBooking = () => {
     return 0;
   };
 
+  const formatTime = (time: Dayjs | null): string => {
+    return time ? time.format("HH:mm DD-MM-YYYY") : "";
+  };
+
+  // Hàm tính thời gian giữa hai thời điểm
+  const calculateDuration = (
+    checkInTime: Dayjs | null,
+    checkOutTime: Dayjs | null
+  ): string | null => {
+    // Kiểm tra xem có đủ thông tin không
+    if (!checkInTime || !checkOutTime) return null;
+
+    // Tính khoảng thời gian giữa hai thời điểm
+    const duration = dayjs.duration(checkOutTime.diff(checkInTime));
+
+    // Trả về thời gian trong định dạng phù hợp (vd: giờ:phút)
+    return `${duration.hours()} giờ ${duration.minutes()} phút`;
+  };
+
+  const duration: string | null = calculateDuration(checkInTime, checkOutTime);
+
+  console.log(duration);
+
   return (
     <Fragment>
       {user ? (
@@ -100,9 +135,25 @@ const HotelBooking = () => {
             <p>Quay về trang chủ</p>
           </div>
           <div id="order">
-            <p className="mb-2 fz20">
-              <strong>Lựa chọn của bạn</strong>
-            </p>
+            <div className="d-flex justify-content-between">
+              <p className="mb-2 fz20">
+                <strong>Lựa chọn của bạn</strong>
+              </p>
+              <div>
+                <button
+                  className={isDate ? "btn" : "btn pickTimeBtn"}
+                  onClick={() => setIsDate(false)}
+                >
+                  Theo giờ
+                </button>
+                <button
+                  className={isDate ? "btn pickTimeBtn" : "btn"}
+                  onClick={() => setIsDate(true)}
+                >
+                  Theo ngày
+                </button>
+              </div>
+            </div>
             <div className="booking-info">
               <div className="hotel-selected">
                 <div className="img">
@@ -126,25 +177,48 @@ const HotelBooking = () => {
                   />
                 </div>
                 <div className="content">
-                  <p>Nhận phòng</p>
-                  <input
-                    type="text"
-                    className="date"
-                    readOnly
-                    onClick={handleOpen}
-                    value={`22:00 - ${format(
-                      range[0].startDate,
-                      "dd/MM/yyyy"
-                    )}`}
-                  />
-                  <p>Trả phòng</p>
-                  <input
-                    type="text"
-                    className="date"
-                    readOnly
-                    onClick={handleOpen}
-                    value={`22:00 - ${format(range[0].endDate, "dd/MM/yyyy")}`}
-                  />
+                  <p className="mb-2">Nhận phòng</p>
+                  {isDate ? (
+                    <input
+                      type="text"
+                      className="date"
+                      readOnly
+                      onClick={handleOpen}
+                      value={`22:00 - ${format(
+                        range[0].startDate,
+                        "dd/MM/yyyy"
+                      )}`}
+                    />
+                  ) : (
+                    <LocalizationProvider dateAdapter={AdapterDayjs}>
+                      <TimePicker
+                        // label="Giờ nhận phòng"
+                        // value={value}
+                        onChange={(newValue) => setCheckInTime(newValue)}
+                      />
+                    </LocalizationProvider>
+                  )}
+                  <p className="mb-2">Trả phòng</p>
+                  {isDate ? (
+                    <input
+                      type="text"
+                      className="date"
+                      readOnly
+                      onClick={handleOpen}
+                      value={`10:00 - ${format(
+                        range[0].endDate,
+                        "dd/MM/yyyy"
+                      )}`}
+                    />
+                  ) : (
+                    <LocalizationProvider dateAdapter={AdapterDayjs}>
+                      <TimePicker
+                        // label="Giờ trả phòng"
+                        value={checkInTime}
+                        onChange={(newValue) => setCheckOutTime(newValue)}
+                      />
+                    </LocalizationProvider>
+                  )}
                 </div>
               </div>
             </div>
@@ -171,8 +245,17 @@ const HotelBooking = () => {
                   <p>{selectedRoom.roomData.price.toLocaleString("vi-VN")} đ</p>
                 </div>
                 <div className="total-box">
-                  <p>Số ngày thuê</p>
-                  <p>{calculateDays()} ngày</p>
+                  {isDate ? (
+                    <Fragment>
+                      <p>Số ngày thuê</p>
+                      <p>{calculateDays()} ngày</p>
+                    </Fragment>
+                  ) : (
+                    <Fragment>
+                      <p>Số giờ thuê</p>
+                      <p>{duration}</p>
+                    </Fragment>
+                  )}
                 </div>
                 <div className="total-box">
                   <p>Giảm giá</p>
