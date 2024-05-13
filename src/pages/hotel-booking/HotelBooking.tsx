@@ -4,11 +4,8 @@ import { auth } from "../log-firebase/Firebase";
 import { useNavigate } from "react-router-dom";
 import { BookRoomProps } from "../room-page/RoomPage";
 import { useSelector } from "react-redux";
-import { selectSelectedRoom } from "../../reducers/bookingSlice";
 import { useDispatch } from "react-redux";
 import { bookRoom } from "../../reducers/HotelsSlice";
-import CheckoutHotelService from "../../sever-interaction/CheckoutHotelService";
-
 import dayjs, { Dayjs } from "dayjs";
 import duration from "dayjs/plugin/duration"; // Import plugin
 
@@ -17,14 +14,10 @@ import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import { TimePicker } from "@mui/x-date-pickers/TimePicker";
 import { DateRange } from "react-date-range";
-
 import format from "date-fns/format";
 import { addDays } from "date-fns";
-
 import "react-date-range/dist/styles.css";
 import "react-date-range/dist/theme/default.css";
-
-import Backdrop from "@mui/material/Backdrop";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import Fade from "@mui/material/Fade";
@@ -43,16 +36,17 @@ const style = {
 };
 
 const HotelBooking = () => {
+  const selectedRoom = useSelector(
+    (state: BookRoomProps) => state.booking.selectedRoom
+  );
+
   const navigate = useNavigate();
-  const [user, setUser] = useState<any>();
-  const selectedRoom = useSelector(selectSelectedRoom);
   const dispatch = useDispatch();
 
-  console.log(selectedRoom);
-
-  const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
+  const [user, setUser] = useState<any>();
+  const [open, setOpen] = useState(false);
   const [isDate, setIsDate] = useState(true);
 
   const [checkInTime, setCheckInTime] = useState<Dayjs | null>(dayjs());
@@ -70,10 +64,10 @@ const HotelBooking = () => {
     auth.onAuthStateChanged((user) => {
       setUser(user);
     });
-  });
+  }, []);
 
   const handleBackToHomePage = () => {
-    navigate("/home");
+    navigate(`/roomPage/${selectedRoom.hotelId}`);
   };
 
   const handleBookingSendApi = async (dataBookRoom: BookRoomProps) => {
@@ -90,12 +84,8 @@ const HotelBooking = () => {
       });
 
       if (confirmResult.isConfirmed) {
-        const response = await CheckoutHotelService.postCheckoutHotel(
-          dataBookRoom
-        );
         dispatch(bookRoom(dataBookRoom));
         navigate("/hotelBooking");
-        console.log(response);
       }
     } catch (error) {
       console.error("Error buying hotel", error);
@@ -107,6 +97,16 @@ const HotelBooking = () => {
     }
   };
 
+  const date = new Date();
+
+  const hours = date.getHours();
+  const minutes = date.getMinutes();
+  const day = date.getDate();
+  const month = date.getMonth() + 1;
+  const year = date.getFullYear();
+
+  const formattedDate = `${hours}h${minutes} ngày ${day}/${month}/${year}`;
+
   const calculateDays = (): number => {
     const { startDate, endDate } = range[0];
     if (startDate && endDate) {
@@ -117,22 +117,19 @@ const HotelBooking = () => {
     return 0;
   };
 
-  // Hàm tính thời gian giữa hai thời điểm
-  const calculateDuration = (
+  const calculateHours = (
     checkInTime: Dayjs | null,
     checkOutTime: Dayjs | null
-  ): string | null => {
-    // Kiểm tra xem có đủ thông tin không
-    if (!checkInTime || !checkOutTime) return null;
+  ): number => {
+    if (!checkInTime || !checkOutTime) return 0;
 
-    // Tính khoảng thời gian giữa hai thời điểm
     const duration = dayjs.duration(checkOutTime.diff(checkInTime));
-
-    // Trả về thời gian trong định dạng phù hợp (vd: giờ:phút)
-    return `${duration.hours()} giờ ${duration.minutes()} phút`;
+    const hours = duration.hours();
+    const minutes = duration.minutes();
+    const time = hours + minutes / 60;
+    return parseFloat(time.toFixed(2));
   };
 
-  const duration: string | null = calculateDuration(checkInTime, checkOutTime);
   return (
     <Fragment>
       {user ? (
@@ -192,14 +189,19 @@ const HotelBooking = () => {
                 </div>
 
                 <div>
-                  <p className="mb-2 font-italic">Nhận phòng</p>
+                  <p
+                    className="mb-2 font-italic"
+                    style={{ fontWeight: "bold" }}
+                  >
+                    Nhận phòng
+                  </p>
                   {isDate ? (
                     <input
                       type="text"
                       className="date"
                       readOnly
                       onClick={handleOpen}
-                      value={`22:00 - ${format(
+                      value={`14:00 - ${format(
                         range[0].startDate,
                         "dd/MM/yyyy"
                       )}`}
@@ -211,22 +213,32 @@ const HotelBooking = () => {
                       />
                     </LocalizationProvider>
                   )}
-                  <p className="my-2 font-italic">Trả phòng</p>
+                  <p
+                    className="my-2 font-italic"
+                    style={{ fontWeight: "bold" }}
+                  >
+                    Trả phòng
+                  </p>
                   {isDate ? (
-                    <input
-                      type="text"
-                      className="date"
-                      readOnly
-                      onClick={handleOpen}
-                      value={`10:00 - ${format(
-                        range[0].endDate,
-                        "dd/MM/yyyy"
-                      )}`}
-                    />
+                    <>
+                      <input
+                        type="text"
+                        className="date"
+                        readOnly
+                        onClick={handleOpen}
+                        value={`12:00 - ${format(
+                          range[0].endDate,
+                          "dd/MM/yyyy"
+                        )}`}
+                      />
+                      <p style={{ marginTop: "20px" }}>
+                        (Để đặt phòng theo ngày, quý khách vui lòng liên hệ trực
+                        tiếp khách sạn để chọn giờ phù hợp)
+                      </p>
+                    </>
                   ) : (
                     <LocalizationProvider dateAdapter={AdapterDayjs}>
                       <TimePicker
-                        // label="Giờ trả phòng"
                         value={checkInTime}
                         onChange={(newValue) => setCheckOutTime(newValue)}
                       />
@@ -276,7 +288,12 @@ const HotelBooking = () => {
                       </span>
                     </p>
                   ) : (
-                    <p>Số giờ thuê: {duration}</p>
+                    <p>
+                      Số giờ thuê:{" "}
+                      <strong>
+                        {calculateHours(checkInTime, checkOutTime)} giờ
+                      </strong>
+                    </p>
                   )}
                 </div>
                 <p>
@@ -285,11 +302,15 @@ const HotelBooking = () => {
                 <hr />
                 <div className="font-weight-bold">
                   <span className="text-uppercase">Tổng:</span>{" "}
-                  {(
-                    selectedRoom.roomData.price *
-                    calculateDays() *
-                    0.9
-                  ).toLocaleString("vi-VN")}{" "}
+                  {isDate
+                    ? selectedRoom.roomData.price * calculateDays() * 0.9
+                    : // Adjusted calculation based on calculateHours
+                      (calculateHours(checkInTime, checkOutTime) <= 2
+                        ? selectedRoom.roomData.price
+                        : selectedRoom.roomData.price *
+                          calculateHours(checkInTime, checkOutTime) *
+                          0.9
+                      ).toLocaleString("vi-VN")}{" "}
                   đ - Thanh toán trực tiếp
                 </div>
                 <div className="dropdown">
@@ -305,6 +326,7 @@ const HotelBooking = () => {
                       hotelAddress: selectedRoom.hotelAddress,
                       roomId: selectedRoom.roomId,
                       roomData: selectedRoom.roomData,
+                      bookedTime: formattedDate,
                     });
                   }}
                 >
@@ -324,17 +346,11 @@ const HotelBooking = () => {
         open={open}
         onClose={handleClose}
         closeAfterTransition
-        slots={{ backdrop: Backdrop }}
-        slotProps={{
-          backdrop: {
-            timeout: 500,
-          },
-        }}
       >
         <Fade in={open}>
           <Box sx={style}>
             <DateRange
-              onChange={(item) => setRange([item.selection])}
+              onChange={(item) => setRange([item.selection as any])}
               editableDateInputs={true}
               moveRangeOnFirstSelection={false}
               ranges={range}

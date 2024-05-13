@@ -49,6 +49,8 @@ export interface BookRoomProps {
   hotelAddress: string;
   roomId: number;
   roomData: Room;
+  bookedTime?: string;
+  booking?: any;
 }
 
 const RoomPage = () => {
@@ -217,7 +219,7 @@ const RoomPage = () => {
                       </div>
 
                       <div className="room-info-box col-12 col-md-3">
-                        <div className="room-info d-flex flex-column">
+                        <div className="room-info">
                           <p style={{ fontWeight: "500" }} className="my-1">
                             Thông tin phòng
                           </p>
@@ -231,11 +233,11 @@ const RoomPage = () => {
                           >
                             {room.roomName}
                           </p>
-                          <span>
+                          <p className="mb-4">
                             {room.area}m<sup>2</sup>
-                          </span>
+                          </p>
                         </div>
-                        <div className="room-details-btn ">
+                        <div className="room-details-btn mb-2">
                           <button
                             onClick={() => {
                               setDataRoomItem(room);

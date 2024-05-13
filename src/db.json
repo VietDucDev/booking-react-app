@@ -19268,6 +19268,42 @@
           "https://s3.go2joy.vn/1000w/hotel/3044/118_1622967105_60bc8341bba38.jpg"
         ]
       }
+    },
+    {
+      "id": "c345",
+      "hotelId": "138",
+      "hotelName": "YR HOTEL & APARTMENT",
+      "hotelAddress": "Số 42 ngõ 260 đội cấn, phố Đội Cấn, Phường Liễu Giai, Quận Ba Đình, Thành phố Hà Nội",
+      "roomId": 0,
+      "roomData": {
+        "roomName": "Studio deluxe with balcony",
+        "price": 300000,
+        "area": 22,
+        "roomImages": [
+          "https://s3.go2joy.vn/1000w/hotel/10718/3901_1649129310_624bb75e0502e.JPG",
+          "https://s3.go2joy.vn/1000w/hotel/10718/3901_1646641195_6225c02b42748.jpg",
+          "https://s3.go2joy.vn/1000w/hotel/10718/6128_1645776458_62188e4a08dcd.jpg",
+          "https://s3.go2joy.vn/1000w/hotel/10718/3901_1646641195_6225c02b6dd8a.jpg"
+        ]
+      }
+    },
+    {
+      "id": "fd97",
+      "hotelId": "138",
+      "hotelName": "YR HOTEL & APARTMENT",
+      "hotelAddress": "Số 42 ngõ 260 đội cấn, phố Đội Cấn, Phường Liễu Giai, Quận Ba Đình, Thành phố Hà Nội",
+      "roomId": 0,
+      "roomData": {
+        "roomName": "Studio deluxe with balcony",
+        "price": 300000,
+        "area": 22,
+        "roomImages": [
+          "https://s3.go2joy.vn/1000w/hotel/10718/3901_1649129310_624bb75e0502e.JPG",
+          "https://s3.go2joy.vn/1000w/hotel/10718/3901_1646641195_6225c02b42748.jpg",
+          "https://s3.go2joy.vn/1000w/hotel/10718/6128_1645776458_62188e4a08dcd.jpg",
+          "https://s3.go2joy.vn/1000w/hotel/10718/3901_1646641195_6225c02b6dd8a.jpg"
+        ]
+      }
     }
   ]
 }
