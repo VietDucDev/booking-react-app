@@ -23,6 +23,7 @@ const bookingSlice = createSlice({
 });
 
 export const { selectRoom } = bookingSlice.actions;
-export const selectSelectedRoom = (state) => state.booking.selectedRoom;
+export const selectSelectedRoom = (state: BookRoomProps) =>
+  state.booking.selectedRoom;
 
 export default bookingSlice.reducer;
