@@ -303,7 +303,11 @@ const HotelBooking = () => {
                 <div className="font-weight-bold">
                   <span className="text-uppercase">Tổng:</span>{" "}
                   {isDate
-                    ? selectedRoom.roomData.price * calculateDays() * 0.9
+                    ? (
+                        selectedRoom.roomData.price *
+                        calculateDays() *
+                        0.9
+                      ).toLocaleString("vi-VN")
                     : // Adjusted calculation based on calculateHours
                       (calculateHours(checkInTime, checkOutTime) <= 2
                         ? selectedRoom.roomData.price

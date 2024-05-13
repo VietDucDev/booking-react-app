@@ -3,8 +3,8 @@ import { useNavigate } from "react-router-dom";
 const hotelCollection = [
   {
     id: 1,
-    title: "Go2Joy Room",
-    sub: "Những căn phòng đặc biệt nhất dành cho Joyer",
+    title: "9ROOM - NiceRoom",
+    sub: "Những căn phòng đặc biệt nhất dành cho Roomer",
     thumbnail: "./public/images/9ROOM Room.jpg",
   },
   {

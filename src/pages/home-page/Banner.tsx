@@ -23,7 +23,7 @@ const Banner = () => {
       <Link to="/discount">
         <div className="card border-0">
           <img
-            src="./public/images/banner_pic_1.jpg"
+            src="/images/banner_pic_1.jpg"
             alt="banner_1"
             className="mx-2"
             style={{ borderRadius: "15px" }}
@@ -33,7 +33,7 @@ const Banner = () => {
       <Link to="/discount">
         <div className="card border-0">
           <img
-            src="./public/images/banner_pic_2.jpg"
+            src="/images/banner_pic_2.jpg"
             alt="banner_2"
             className="mx-2"
             style={{ borderRadius: "15px" }}
@@ -43,7 +43,7 @@ const Banner = () => {
       <Link to="/discount">
         <div className="card border-0">
           <img
-            src="./public/images/banner_pic_3.gif"
+            src="/images/banner_pic_3.gif"
             alt="banner_3"
             className="mx-2"
             style={{ borderRadius: "15px" }}
@@ -53,7 +53,7 @@ const Banner = () => {
       <Link to="/discount">
         <div className="card border-0">
           <img
-            src="./public/images/banner_pic_1.jpg"
+            src="/images/banner_pic_1.jpg"
             alt="banner_1"
             className="mx-2"
             style={{ borderRadius: "15px" }}
@@ -63,7 +63,7 @@ const Banner = () => {
       <Link to="/discount">
         <div className="card border-0">
           <img
-            src="./public/images/banner_pic_2.jpg"
+            src="/images/banner_pic_2.jpg"
             alt="banner_2"
             className="mx-2"
             style={{ borderRadius: "15px" }}
@@ -73,7 +73,7 @@ const Banner = () => {
       <Link to="/discount">
         <div className="card border-0">
           <img
-            src="./public/images/banner_pic_3.gif"
+            src="/images/banner_pic_3.gif"
             alt="banner_3"
             className="mx-2"
             style={{ borderRadius: "15px" }}
@@ -83,7 +83,7 @@ const Banner = () => {
       <Link to="/discount">
         <div className="card border-0">
           <img
-            src="./public/images/banner_pic_1.jpg"
+            src="/images/banner_pic_1.jpg"
             alt="banner_1"
             className="mx-2"
             style={{ borderRadius: "15px" }}
@@ -93,7 +93,7 @@ const Banner = () => {
       <Link to="/discount">
         <div className="card border-0">
           <img
-            src="./public/images/banner_pic_2.jpg"
+            src="/images/banner_pic_2.jpg"
             alt="banner_2"
             className="mx-2"
             style={{ borderRadius: "15px" }}
@@ -103,7 +103,7 @@ const Banner = () => {
       <Link to="/discount">
         <div className="card border-0">
           <img
-            src="./public/images/banner_pic_3.gif"
+            src="/images/banner_pic_3.gif"
             alt="banner_3"
             className="mx-2"
             style={{ borderRadius: "15px" }}

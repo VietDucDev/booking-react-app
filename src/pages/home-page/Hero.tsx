@@ -104,7 +104,7 @@ const Hero = () => {
 
   return (
     <div className="position-relative" style={{ marginTop: "65px" }}>
-      <img src="./public/images/hero.jpg" alt="hero" className="w-100" />
+      <img src="/images/hero.jpg" alt="hero" className="w-100" />
 
       <div
         className={`search_bar d-flex justify-content-between bg-white shadow py-3 px-3 rounded flex-column flex-lg-row`}

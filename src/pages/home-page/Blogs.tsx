@@ -4,7 +4,7 @@ const Blogs = () => {
   return (
     <div style={{ marginTop: "80px" }} className="position-relative">
       <img
-        src="./public/images/Blog_image.jpg"
+        src="/images/Blog_image.jpg"
         alt="blogs_posts"
         className="img-fluid w-100 px-2"
         style={{ borderRadius: "25px", height: "600px", objectFit: "cover" }}

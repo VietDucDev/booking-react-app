@@ -6,7 +6,6 @@ import HomePage from "./pages/home-page/HomePage";
 import Login_Logout from "./pages/Login_Logout";
 import NavBar from "./components/NavBar";
 import { ToastContainer } from "react-toastify";
-import Registration from "./pages/Login";
 import PromotionList from "./pages/PromotionList";
 import { auth } from "./pages/log-firebase/Firebase";
 import RoomPage from "./pages/room-page/RoomPage";
@@ -29,7 +28,6 @@ function App() {
       <Routes>
         <Route path="/home" element={<HomePage />} />
         {/* <Route path="/login" element={<Login />} /> */}
-        <Route path="/register" element={<Registration />} />
         <Route path="/discount" element={<PromotionList />} />
         <Route path="/hotel-list" element={<HotelListPage />} />
         <Route path="/roomPage/:id" element={<RoomPage />} />
