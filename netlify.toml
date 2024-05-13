@@ -1,0 +1,8 @@
+# netlify.toml
+
+[[plugins]]
+  package = "@netlify/plugin-json-server" # Sử dụng plugin json-server
+
+[dev]
+  command = "cd src && npx json-server db.json" # Lệnh để chạy json-server trong môi trường phát triển
+  port = 3000 # Cổng mặc định mà json-server sẽ chạy trên Netlify Dev
