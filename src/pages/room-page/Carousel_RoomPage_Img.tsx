@@ -1,6 +1,5 @@
-import React from "react";
+import React, { memo } from "react";
 import ImageGallery, { ReactImageGalleryItem } from "react-image-gallery";
-// import "../../style/sass/Gallery.scss";
 import "react-image-gallery/styles/css/image-gallery.css";
 
 interface Props {
@@ -45,6 +44,9 @@ const Carousel_RoomPage_Img: React.FC<Props> = ({
       </button>
     );
   };
+
+  console.log("component re-render");
+
   return (
     <div className="custom-gallery-container mx-auto">
       <ImageGallery
@@ -65,4 +67,4 @@ const Carousel_RoomPage_Img: React.FC<Props> = ({
   );
 };
 
-export default Carousel_RoomPage_Img;
+export default memo(Carousel_RoomPage_Img);

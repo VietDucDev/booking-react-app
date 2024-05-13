@@ -42,17 +42,13 @@ const style = {
   p: 4,
 };
 
-// interface RangeProps {
-//   startDate: Date | number;
-//   endDate: Date;
-//   key: string;
-// }
-
 const HotelBooking = () => {
   const navigate = useNavigate();
   const [user, setUser] = useState<any>();
   const selectedRoom = useSelector(selectSelectedRoom);
   const dispatch = useDispatch();
+
+  console.log(selectedRoom);
 
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
@@ -99,7 +95,7 @@ const HotelBooking = () => {
         );
         dispatch(bookRoom(dataBookRoom));
         navigate("/hotelBooking");
-        console.log("Booked successful", response);
+        console.log(response);
       }
     } catch (error) {
       console.error("Error buying hotel", error);
@@ -121,10 +117,6 @@ const HotelBooking = () => {
     return 0;
   };
 
-  const formatTime = (time: Dayjs | null): string => {
-    return time ? time.format("HH:mm DD-MM-YYYY") : "";
-  };
-
   // Hàm tính thời gian giữa hai thời điểm
   const calculateDuration = (
     checkInTime: Dayjs | null,
@@ -141,61 +133,66 @@ const HotelBooking = () => {
   };
 
   const duration: string | null = calculateDuration(checkInTime, checkOutTime);
-
-  console.log(duration);
-
   return (
     <Fragment>
       {user ? (
-        <div id="hotel-booking">
+        <div id="hotel-booking" className="container col-11 col-md-10">
           <div id="header" onClick={handleBackToHomePage}>
             <i className="fa-solid fa-arrow-left mr-2"></i>
-            <p>Quay về trang chủ</p>
+            <span>Quay về</span>
           </div>
+
           <div id="order">
-            <div className="d-flex justify-content-between">
-              <p className="mb-2 fz20">
-                <strong>Lựa chọn của bạn</strong>
-              </p>
+            <div className="d-flex flex-column flex-lg-row justify-content-between align-items-center mb-3 px-2">
+              <h4 className="font-weight-bold mb-3 mb-lg-0">
+                Lựa chọn của bạn
+              </h4>
               <div>
                 <button
-                  className={isDate ? "btn" : "btn pickTimeBtn"}
+                  className={
+                    isDate ? "btn btn-outline-info mr-3" : "btn btn-info mr-3"
+                  }
                   onClick={() => setIsDate(false)}
                 >
                   Theo giờ
                 </button>
                 <button
-                  className={isDate ? "btn pickTimeBtn" : "btn"}
+                  className={isDate ? "btn btn-info" : "btn btn-outline-info"}
                   onClick={() => setIsDate(true)}
                 >
                   Theo ngày
                 </button>
               </div>
             </div>
-            <div className="booking-info">
-              <div className="hotel-selected">
-                <div className="img">
-                  <img
-                    src={selectedRoom.roomData.roomImages[0]}
-                    alt="booking-hotel"
-                  />
-                </div>
-                <div className="content">
-                  <p>{selectedRoom.hotelName}</p>
-                  <strong>{selectedRoom.roomData.roomName}</strong>
-                  <p>{selectedRoom.hotelAddress}</p>
-                </div>
+
+            {/* BOOKING */}
+            <div className="d-flex flex-column flex-md-row">
+              <div className="col-12 col-md-5 mb-3 mb-md-0 px-0 mr-0 mr-md-3">
+                <img
+                  src={selectedRoom.roomData.roomImages[0]}
+                  alt="booking-hotel"
+                  className="img-fluid rounded h-100"
+                />
               </div>
 
-              <div className="hotel-time">
-                <div className="img">
-                  <img
-                    src={selectedRoom.roomData.roomImages[1]}
-                    alt="booking-hotel"
-                  />
+              <div className="col-12 col-md-7 px-0">
+                <div>
+                  <h4 className="font-weight-bold">{selectedRoom.hotelName}</h4>
+                  <p
+                    style={{
+                      fontSize: "18px",
+                      fontWeight: "600",
+                      color: "#003c43",
+                      textTransform: "uppercase",
+                    }}
+                  >
+                    {selectedRoom.roomData.roomName}
+                  </p>
+                  <p>{selectedRoom.hotelAddress}</p>
                 </div>
-                <div className="content">
-                  <p className="mb-2">Nhận phòng</p>
+
+                <div>
+                  <p className="mb-2 font-italic">Nhận phòng</p>
                   {isDate ? (
                     <input
                       type="text"
@@ -210,13 +207,11 @@ const HotelBooking = () => {
                   ) : (
                     <LocalizationProvider dateAdapter={AdapterDayjs}>
                       <TimePicker
-                        // label="Giờ nhận phòng"
-                        // value={value}
                         onChange={(newValue) => setCheckInTime(newValue)}
                       />
                     </LocalizationProvider>
                   )}
-                  <p className="mb-2">Trả phòng</p>
+                  <p className="my-2 font-italic">Trả phòng</p>
                   {isDate ? (
                     <input
                       type="text"
@@ -242,57 +237,63 @@ const HotelBooking = () => {
             </div>
           </div>
 
-          <div id="checkout">
-            <p className="mb-2 fz20">
-              <strong>Chi tiết thanh toán</strong>
+          <div
+            className="p-3 mt-4"
+            style={{ borderRadius: "12px", border: "1px solid #ccc" }}
+          >
+            <p
+              className="mb-2 font-weight-bold text-center text-uppercase"
+              style={{ fontSize: "25px", color: "#003c43" }}
+            >
+              Chi tiết thanh toán
             </p>
-            <div className="checkout-box">
-              <div className="checkout-info">
-                <div className="info-box">
-                  <p>Email</p>
-                  <strong>{user.email}</strong>
-                </div>
-                <div className="info-box">
-                  <p>Số điện thoại</p>
-                  <strong>0987654321</strong>
-                </div>
+
+            <div className="d-flex flex-column flex-md-row">
+              <div className="col-12 col-md-6">
+                <p>
+                  Email: <strong>{user.email}</strong>
+                </p>
+                <p className="mb-3">
+                  Số điện thoại: <strong>0987654321</strong>
+                </p>
               </div>
-              <div className="checkout-total">
-                <div className="total-box">
-                  <p>Giá phòng</p>
-                  <p>{selectedRoom.roomData.price.toLocaleString("vi-VN")} đ</p>
+
+              <div className="col-12 col-md-6">
+                <div>
+                  <p>
+                    Giá phòng:{" "}
+                    <span className="font-weight-bold">
+                      {selectedRoom.roomData.price.toLocaleString("vi-VN")} đ
+                    </span>
+                  </p>
                 </div>
-                <div className="total-box">
+                <div>
                   {isDate ? (
-                    <Fragment>
-                      <p>Số ngày thuê</p>
-                      <p>{calculateDays()} ngày</p>
-                    </Fragment>
+                    <p>
+                      Số ngày thuê:{" "}
+                      <span className="font-weight-bold">
+                        {calculateDays()} ngày
+                      </span>
+                    </p>
                   ) : (
-                    <Fragment>
-                      <p>Số giờ thuê</p>
-                      <p>{duration}</p>
-                    </Fragment>
+                    <p>Số giờ thuê: {duration}</p>
                   )}
                 </div>
-                <div className="total-box">
-                  <p>Giảm giá</p>
-                  <p>10%</p>
-                </div>
+                <p>
+                  Giảm giá: <span className="font-weight-bold">10%</span>
+                </p>
                 <hr />
-                <div className="total-box">
-                  <strong>Tổng thanh toán</strong>
-                  <strong>
-                    {(
-                      selectedRoom.roomData.price *
-                      calculateDays() *
-                      0.9
-                    ).toLocaleString("vi-VN")}{" "}
-                    đ
-                  </strong>
+                <div className="font-weight-bold">
+                  <span className="text-uppercase">Tổng:</span>{" "}
+                  {(
+                    selectedRoom.roomData.price *
+                    calculateDays() *
+                    0.9
+                  ).toLocaleString("vi-VN")}{" "}
+                  đ - Thanh toán trực tiếp
                 </div>
                 <div className="dropdown">
-                  <p>Thanh toán trực tiếp</p>
+                  <p></p>
                 </div>
                 <Button
                   className="total-submit"

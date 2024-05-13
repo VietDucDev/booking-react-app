@@ -333,7 +333,7 @@ const NavBar = () => {
         <div className="d-flex align-items-center">
           <Link to="home">
             <img
-              src="./public/images/logo.png"
+              src="./images/logo.png"
               alt="logo"
               width={70}
               className="mr-0 mr-lg-3"

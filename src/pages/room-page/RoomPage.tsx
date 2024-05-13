@@ -6,7 +6,6 @@ import "../../style/sass/room-page-scss/_roomPage.scss";
 import Footer from "../../components/Footer";
 import { useNavigate, useParams } from "react-router-dom";
 import { auth } from "../log-firebase/Firebase";
-import { bookRoom } from "../../reducers/HotelsSlice";
 import SimpleDialog from "../room-detail/RoomDetail";
 import HotelsServices from "../../sever-interaction/HotelsServices";
 import { selectRoom } from "../../reducers/bookingSlice";
