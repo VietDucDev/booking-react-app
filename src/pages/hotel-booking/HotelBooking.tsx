@@ -58,7 +58,7 @@ const HotelBooking = () => {
   const [checkInTime, setCheckInTime] = useState<Dayjs | null>(dayjs());
   const [checkOutTime, setCheckOutTime] = useState<Dayjs | null>(dayjs());
 
-  const [range, setRange] = useState([
+  const [range, setRange] = useState<any>([
     {
       startDate: new Date(),
       endDate: addDays(new Date(), 7),
@@ -133,6 +133,23 @@ const HotelBooking = () => {
   };
 
   const duration: string | null = calculateDuration(checkInTime, checkOutTime);
+
+  const durationInt = duration ? parseInt(duration.substring(0, 2)) : 0;
+
+  const prepareTheBill = (price: number) => {
+    switch (true) {
+      case durationInt >= 0 && durationInt < 2:
+        return price * 2;
+      case durationInt >= 2 && durationInt < 4:
+        return price * 3;
+      case durationInt >= 4 && durationInt < 6:
+        return price * 4;
+      case durationInt >= 6 && durationInt < 24:
+        return price * 5;
+      default:
+        return price * 0;
+    }
+  };
   return (
     <Fragment>
       {user ? (
@@ -199,7 +216,7 @@ const HotelBooking = () => {
                       className="date"
                       readOnly
                       onClick={handleOpen}
-                      value={`22:00 - ${format(
+                      value={`20:00 - ${format(
                         range[0].startDate,
                         "dd/MM/yyyy"
                       )}`}
@@ -207,6 +224,7 @@ const HotelBooking = () => {
                   ) : (
                     <LocalizationProvider dateAdapter={AdapterDayjs}>
                       <TimePicker
+                        value={dayjs().startOf("day").hour(0)}
                         onChange={(newValue) => setCheckInTime(newValue)}
                       />
                     </LocalizationProvider>
@@ -226,7 +244,6 @@ const HotelBooking = () => {
                   ) : (
                     <LocalizationProvider dateAdapter={AdapterDayjs}>
                       <TimePicker
-                        // label="Giờ trả phòng"
                         value={checkInTime}
                         onChange={(newValue) => setCheckOutTime(newValue)}
                       />
@@ -276,22 +293,38 @@ const HotelBooking = () => {
                       </span>
                     </p>
                   ) : (
-                    <p>Số giờ thuê: {duration}</p>
+                    <p>
+                      Số giờ thuê:{" "}
+                      <span className="font-weight-bold">
+                        {durationInt} giờ
+                      </span>
+                    </p>
                   )}
                 </div>
                 <p>
                   Giảm giá: <span className="font-weight-bold">10%</span>
                 </p>
                 <hr />
-                <div className="font-weight-bold">
-                  <span className="text-uppercase">Tổng:</span>{" "}
-                  {(
-                    selectedRoom.roomData.price *
-                    calculateDays() *
-                    0.9
-                  ).toLocaleString("vi-VN")}{" "}
-                  đ - Thanh toán trực tiếp
-                </div>
+                {isDate ? (
+                  <div className="font-weight-bold">
+                    <span className="text-uppercase">Tổng:</span>{" "}
+                    {(
+                      selectedRoom.roomData.price *
+                      5 *
+                      calculateDays() *
+                      0.9
+                    ).toLocaleString("vi-VN")}{" "}
+                    đ - Thanh toán trực tiếp
+                  </div>
+                ) : (
+                  <div className="font-weight-bold">
+                    <span className="text-uppercase">Tổng:</span>{" "}
+                    {(
+                      prepareTheBill(selectedRoom.roomData.price) * 0.9
+                    ).toLocaleString("vi-VN")}{" "}
+                    đ - Thanh toán trực tiếp
+                  </div>
+                )}
                 <div className="dropdown">
                   <p></p>
                 </div>

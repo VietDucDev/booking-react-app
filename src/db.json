@@ -19268,6 +19268,24 @@
           "https://s3.go2joy.vn/1000w/hotel/3044/118_1622967105_60bc8341bba38.jpg"
         ]
       }
+    },
+    {
+      "id": "99d1",
+      "hotelId": "18",
+      "hotelName": "A IN HOTEL GLAMOUR",
+      "hotelAddress": "63/1-63/3 Đường số 19, Phường Bình An, Quận 2, Thành phố Hồ Chí Minh",
+      "roomId": 0,
+      "roomData": {
+        "roomName": "Standard Room",
+        "price": 220000,
+        "area": 15,
+        "roomImages": [
+          "https://s3.go2joy.vn/1000w/hotel/910/9368_1709366687_65e2dd9f5e7e1.jpg",
+          "https://s3.go2joy.vn/1000w/hotel/910/9368_1709366687_65e2dd9f99b69.jpg",
+          "https://s3.go2joy.vn/1000w/hotel/910/9368_1709366687_65e2dd9fb1977.jpeg",
+          "https://s3.go2joy.vn/1000w/hotel/910/9368_1709366687_65e2dd9fc9108.jpeg"
+        ]
+      }
     }
   ]
 }
