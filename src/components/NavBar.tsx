@@ -1,4 +1,3 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import * as React from "react";
@@ -19,6 +18,7 @@ import Select, { SelectChangeEvent } from "@mui/material/Select/Select";
 import CitiesServices from "../sever-interaction/CitiesServices";
 import DistrictsServices from "../sever-interaction/DistrictsServices";
 import { doc, getDoc } from "firebase/firestore";
+import HotelCollectionServices from "../sever-interaction/HotelCollectionServices";
 
 export interface Hotel {
   sn: number;
@@ -49,6 +49,7 @@ const style = {
 
 const NavBar = () => {
   const navigate = useNavigate();
+
   const [location, setLocation] = useState("");
   const [cities, setCities] = useState<City[]>([]);
   const [districts, setDistricts] = useState<District[]>([]);
@@ -69,7 +70,6 @@ const NavBar = () => {
     try {
       await auth.signOut();
       window.location.href = "/home";
-      console.log("User logged out successfully!");
     } catch (error: any) {
       console.error("Error logging out:", error.message);
     }
@@ -80,8 +80,8 @@ const NavBar = () => {
     const modalSearch: Element | null = document.querySelector(".modal_search");
     const searchBar = document.querySelector(".search_on_navbar");
     if (modalSearch) {
-      modalSearch.classList.remove("fade-out-modal"); // Remove fade-out class
-      modalSearch.classList.add("fade-in-modal"); // Add fade-in class
+      modalSearch.classList.remove("fade-out-modal");
+      modalSearch.classList.add("fade-in-modal");
     }
     if (searchBar) {
       searchBar.classList.add("fade-out-nav");
@@ -93,8 +93,8 @@ const NavBar = () => {
     const modalSearch: Element | null = document.querySelector(".modal_search");
     const searchBar = document.querySelector(".search_on_navbar");
     if (modalSearch) {
-      modalSearch.classList.remove("fade-in-modal"); // Remove fade-in class
-      modalSearch.classList.add("fade-out-modal"); // Add fade-out class
+      modalSearch.classList.remove("fade-in-modal");
+      modalSearch.classList.add("fade-out-modal");
     }
     if (searchBar) {
       searchBar.classList.add("fade-in-nav");
@@ -109,6 +109,132 @@ const NavBar = () => {
     setOpen(newOpen);
   };
 
+  useEffect(() => {
+    const fetchHotelCollection = async () => {
+      try {
+        const hotelCollection =
+          await HotelCollectionServices.getHotelCollection();
+        setHotelList(hotelCollection);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchHotelCollection();
+  }, []);
+
+  const showAllHotels = (hotelType: string) => {
+    navigate(`/hotel-list?hotel_type=${hotelType}`);
+  };
+
+  useEffect(() => {
+    const fetchCities = async () => {
+      try {
+        const citiesData = await CitiesServices.getCities();
+        setCities(citiesData);
+      } catch (error) {
+        console.error("Error fetching cities:", error);
+      }
+    };
+
+    fetchCities();
+  }, []);
+
+  const handleCityChange = (event: SelectChangeEvent) => {
+    const cityId: any = parseInt(event.target.value);
+    setSelectedCity(cityId);
+    setDistricts([]);
+    const fetchDistrict = async () => {
+      try {
+        const districtData = await DistrictsServices.getDistricts(cityId);
+        setDistricts(districtData);
+      } catch (error) {
+        console.error("Error fetching districts:", error);
+      }
+    };
+
+    fetchDistrict();
+  };
+
+  const handleDistrictChange = (event: SelectChangeEvent) => {
+    const districtName = event.target.value;
+    setSelectedDistrict(districtName);
+    setLocation(districtName);
+  };
+
+  const handleShow = (location: string) => {
+    navigate(`/hotel-list?district_name=${location}`);
+  };
+
+  const checkURL = useLocation();
+  const [isHome, setIsHome] = useState(checkURL.pathname === "/home");
+
+  const handleScroll = () => {
+    if (checkURL.pathname === "/home") {
+      const searchBar = document.querySelector(".search_on_navbar");
+      setSelectedCity(null);
+      setSelectedDistrict(null);
+      if (searchBar) {
+        let scrollPosition;
+        if (window.innerWidth >= 992) {
+          scrollPosition = document.documentElement.scrollTop;
+        } else {
+          scrollPosition =
+            document.documentElement.scrollTop || document.body.scrollTop;
+        }
+        if (scrollPosition > (window.innerWidth >= 992 ? 300 : 100)) {
+          searchBar.classList.add("d-flex");
+          searchBar.classList.add("fade-in-nav");
+          searchBar.classList.remove("fade-out-nav");
+        } else {
+          searchBar.classList.remove("fade-in-nav");
+          searchBar.classList.add("fade-out-nav");
+        }
+      }
+    }
+  };
+
+  useEffect(() => {
+    setIsHome(checkURL.pathname === "/home");
+
+    if (isHome) {
+      window.addEventListener("scroll", handleScroll);
+
+      return () => {
+        window.removeEventListener("scroll", handleScroll);
+      };
+    } else {
+      const searchBar = document.querySelector(".search_on_navbar");
+      if (searchBar) {
+        searchBar.classList.add("d-flex");
+      }
+    }
+  }, [checkURL.pathname, isHome]);
+
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+
+  const fetchUserData = async () => {
+    try {
+      const user = auth.currentUser;
+      if (user) {
+        const docRef = doc(db, "Users", user.uid);
+        const docSnap = await getDoc(docRef);
+        if (docSnap.exists()) {
+          const userData = docSnap.data();
+          setFirstName(userData.firstName);
+          setLastName(userData.lastName);
+          setEmail(userData.email);
+        }
+      }
+    } catch (error) {
+      console.error("Error fetching user data:", error);
+    }
+  };
+
+  fetchUserData();
+
   const DrawerList = (
     <Box sx={{ width: 350 }} role="presentation" onClick={toggleDrawer(false)}>
       <List sx={{ marginLeft: "5px" }}>
@@ -121,7 +247,19 @@ const NavBar = () => {
               backgroundColor: "#003c43",
             }}
           >
-            N
+            {firstName.charAt(0).toUpperCase()}
+          </div>
+        </ListItem>
+
+        <ListItem>
+          <div>
+            <h6>
+              Xin chào{" "}
+              <strong>
+                {firstName} {lastName}
+              </strong>
+            </h6>
+            <span>{email}</span>
           </div>
         </ListItem>
 
@@ -190,140 +328,6 @@ const NavBar = () => {
     </Box>
   );
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const res = await axios.get<Hotel[]>(
-          "http://localhost:3000/hotelCollection"
-        );
-        const data = res.data;
-        setHotelList(data);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    };
-
-    fetchData();
-  }, []);
-
-  const showAllHotels = (hotelType: string) => {
-    navigate(`/hotel-list?hotel_type=${hotelType}`);
-  };
-
-  useEffect(() => {
-    const fetchCities = async () => {
-      try {
-        const citiesData = await CitiesServices.getCities();
-        setCities(citiesData);
-      } catch (error) {
-        console.error("Error fetching cities:", error);
-      }
-    };
-
-    fetchCities();
-  }, []);
-
-  const handleCityChange = (event: SelectChangeEvent) => {
-    const cityId: any = parseInt(event.target.value);
-    setSelectedCity(cityId);
-    setDistricts([]);
-    const fetchDistrict = async () => {
-      try {
-        const districtData = await DistrictsServices.getDistricts(cityId);
-        setDistricts(districtData);
-      } catch (error) {
-        console.error("Error fetching districts:", error);
-      }
-    };
-
-    fetchDistrict();
-  };
-
-  const handleDistrictChange = (event: SelectChangeEvent) => {
-    const districtName = event.target.value;
-    setSelectedDistrict(districtName);
-    setLocation(districtName);
-  };
-
-  const handleShow = (location: string) => {
-    navigate(`/hotel-list?district_name=${location}`);
-  };
-
-  const checkURL = useLocation();
-  // console.log("checkURL: ", checkURL);
-  const [isHome, setIsHome] = useState(checkURL.pathname === "/home");
-
-  const handleScroll = () => {
-    if (checkURL.pathname === "/home") {
-      // Check if the user is on the "/home" page
-      const searchBar = document.querySelector(".search_on_navbar");
-      setSelectedCity(null);
-      setSelectedDistrict(null);
-      if (searchBar) {
-        let scrollPosition;
-        if (window.innerWidth >= 992) {
-          scrollPosition = document.documentElement.scrollTop;
-        } else {
-          scrollPosition =
-            document.documentElement.scrollTop || document.body.scrollTop;
-        }
-        // Simplifying the code by removing duplication
-        if (scrollPosition > (window.innerWidth >= 992 ? 300 : 100)) {
-          searchBar.classList.add("d-flex");
-          searchBar.classList.add("fade-in-nav");
-          searchBar.classList.remove("fade-out-nav");
-        } else {
-          searchBar.classList.remove("fade-in-nav");
-          searchBar.classList.add("fade-out-nav");
-        }
-      }
-    }
-  };
-
-  useEffect(() => {
-    setIsHome(checkURL.pathname === "/home");
-
-    if (isHome) {
-      window.addEventListener("scroll", handleScroll);
-
-      return () => {
-        window.removeEventListener("scroll", handleScroll);
-      };
-    } else {
-      const searchBar = document.querySelector(".search_on_navbar");
-      if (searchBar) {
-        searchBar.classList.add("d-flex");
-      }
-    }
-  }, [checkURL.pathname, isHome]);
-
-  // get info of user from firebase
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [email, setEmail] = useState("");
-
-  const fetchUserData = async () => {
-    try {
-      const user = auth.currentUser;
-      if (user) {
-        const docRef = doc(db, "Users", user.uid);
-        const docSnap = await getDoc(docRef);
-        if (docSnap.exists()) {
-          const userData = docSnap.data();
-          setFirstName(userData.firstName);
-          setLastName(userData.lastName);
-          setEmail(userData.email);
-        }
-      }
-    } catch (error) {
-      console.error("Error fetching user data:", error);
-    }
-  };
-
-  fetchUserData();
-
-  console.log(firstName, lastName, email);
-
   return (
     <nav className="fixed-top bg-white shadow">
       <div
@@ -333,7 +337,7 @@ const NavBar = () => {
         <div className="d-flex align-items-center">
           <Link to="home">
             <img
-              src="./images/logo.png"
+              src="/public/images/logo.png"
               alt="logo"
               width={70}
               className="mr-0 mr-lg-3"
