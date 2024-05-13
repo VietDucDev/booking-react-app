@@ -276,13 +276,13 @@ const FilterBox: React.FC<FilterBoxProps> = ({ onCloseFilterBox }) => {
 
   const handleMinValueChange = (event: any) => {
     // Remove dots from the input value before parsing
-    const parsedValue = parseInt(event.target.value.replace(/\./g, ""));
+    const parsedValue = parseInt(event.target.value.toLocaleString("vi-VN"));
     setPriceValue([parsedValue, priceValue[1]]);
   };
 
   const handleMaxValueChange = (event: any) => {
     // Remove dots from the input value before parsing
-    const parsedValue = parseInt(event.target.value.replace(/\./g, ""));
+    const parsedValue = parseInt(event.target.value.toLocaleString("vi-VN"));
     setPriceValue([priceValue[0], parsedValue]);
   };
 

@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../app/store";
 import { useNavigate } from "react-router-dom";
 import { cancelRoom } from "../reducers/HotelsSlice";
-import { BookRoomProps } from "./RoomPage/RoomPage";
+import { BookRoomProps } from "./room-page/RoomPage";
 import Swal from "sweetalert2";
 import noResultImage from "../../public/images/No_result_img.gif";
 import CheckoutHotelService from "../sever-interaction/CheckoutHotelService";
@@ -39,19 +39,11 @@ const MyReservation = () => {
     navigate("/home");
   };
 
-  // ------
-
-  // bookedHotels.map((hotel) => {});
-  //-------
-
   const handleDelete = async (id: number) => {
     try {
-      // Thực hiện gọi phương thức deleteCheckoutHotel từ service
       const response = await CheckoutHotelService.deleteCheckoutHotel(id);
-      // Xử lý kết quả trả về (nếu cần)
       console.log("Delete successful", response);
     } catch (error) {
-      // Xử lý lỗi (nếu có)
       console.error("Error deleting hotel", error);
     }
   };
@@ -129,7 +121,6 @@ const MyReservation = () => {
                         <div className="col-12 col-md-6 px-0 mb-3 mb-md-0 mr-0 mr-md-3 mr-lg-4">
                           <img
                             src={hotel.roomData?.roomImages[0]}
-                            // alt={hotel.name}
                             className="img-fluid h-100"
                             style={{ borderRadius: "5px" }}
                           />
@@ -139,6 +130,10 @@ const MyReservation = () => {
                           className="col-12 col-md-6 px-0"
                           style={{ fontSize: "20px" }}
                         >
+                          <p>
+                            Thời gian đặt phòng:{" "}
+                            <strong>{hotel.bookedTime}</strong>
+                          </p>
                           <p className="m-0 mb-3">
                             <strong>2</strong> giờ đầu
                           </p>

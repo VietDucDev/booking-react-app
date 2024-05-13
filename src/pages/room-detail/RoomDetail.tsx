@@ -1,23 +1,7 @@
-import * as React from "react";
-import Button from "@mui/material/Button";
-import Avatar from "@mui/material/Avatar";
-import List from "@mui/material/List";
-import ListItem from "@mui/material/ListItem";
-import ListItemAvatar from "@mui/material/ListItemAvatar";
-import ListItemButton from "@mui/material/ListItemButton";
-import ListItemText from "@mui/material/ListItemText";
-import DialogTitle from "@mui/material/DialogTitle";
 import Dialog from "@mui/material/Dialog";
-import PersonIcon from "@mui/icons-material/Person";
-import AddIcon from "@mui/icons-material/Add";
-import Typography from "@mui/material/Typography";
 import IconButton from "@mui/material/IconButton";
-import { blue } from "@mui/material/colors";
-import Carousel_RoomPage_Img from "../RoomPage/Carousel_RoomPage_Img";
+import Carousel_RoomPage_Img from "../room-page/Carousel_RoomPage_Img";
 import "../../style/sass/room-detail-scss/RoomDetail.scss";
-import { DataProps, Room } from "../RoomPage/RoomPage";
-
-const emails = ["username@gmail.com", "user02@gmail.com"];
 
 export interface SimpleDialogProps {
   open: boolean;
@@ -60,9 +44,11 @@ export default function SimpleDialog(props: SimpleDialogProps) {
             </IconButton>
           </div>
           <div className="right-checkout">
-            <p>{data?.firstHours} giờ giờ</p>
-            <p>{dataRoomItem?.price.toLocaleString("vi-VN")} đ</p>
-            <button>Đặt Phòng</button>
+            <p>{data?.firstHours} giờ</p>
+            <p style={{ marginBottom: "10px", fontWeight: "bold" }}>
+              {dataRoomItem?.price.toLocaleString("vi-VN")} đ
+            </p>
+            <button style={{ backgroundColor: "#003c43" }}>Đặt Phòng</button>
           </div>
         </div>
       </div>

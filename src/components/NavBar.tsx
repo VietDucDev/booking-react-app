@@ -1,6 +1,5 @@
-import axios from "axios";
 import { useEffect, useState } from "react";
-import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import * as React from "react";
 import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
@@ -9,10 +8,19 @@ import Divider from "@mui/material/Divider";
 import ListItem from "@mui/material/ListItem";
 import Modal from "@mui/material/Modal";
 import "../style/sass/home-page-scss/_search-bar-on-nav.scss";
-import { auth } from "../pages/log-firebase/Firebase";
+import { auth, db } from "../pages/log-firebase/Firebase";
 import "../style/sass/home-page-scss/_nav-bar.scss";
+import DropdownHotelCollection from "../pages/home-page/DropdownHotelCollection";
+import InputLabel from "@mui/material/InputLabel";
+import MenuItem from "@mui/material/MenuItem";
+import FormControl from "@mui/material/FormControl";
+import Select, { SelectChangeEvent } from "@mui/material/Select/Select";
+import CitiesServices from "../sever-interaction/CitiesServices";
+import DistrictsServices from "../sever-interaction/DistrictsServices";
+import { doc, getDoc } from "firebase/firestore";
+import HotelCollectionServices from "../sever-interaction/HotelCollectionServices";
 
-interface Hotel {
+export interface Hotel {
   sn: number;
   title: string;
 }
@@ -41,10 +49,11 @@ const style = {
 
 const NavBar = () => {
   const navigate = useNavigate();
+
   const [location, setLocation] = useState("");
   const [cities, setCities] = useState<City[]>([]);
   const [districts, setDistricts] = useState<District[]>([]);
-  const [selectedCity, setSelectedCity] = useState<number | null>(null);
+  const [selectedCity, setSelectedCity] = useState<string | null>(null);
   const [selectedDistrict, setSelectedDistrict] = useState<string | null>(null);
   const [openModal, setOpenModal] = React.useState(false);
   const [hotelList, setHotelList] = useState<Hotel[]>([]);
@@ -61,7 +70,6 @@ const NavBar = () => {
     try {
       await auth.signOut();
       window.location.href = "/home";
-      console.log("User logged out successfully!");
     } catch (error: any) {
       console.error("Error logging out:", error.message);
     }
@@ -72,8 +80,8 @@ const NavBar = () => {
     const modalSearch: Element | null = document.querySelector(".modal_search");
     const searchBar = document.querySelector(".search_on_navbar");
     if (modalSearch) {
-      modalSearch.classList.remove("fade-out-modal"); // Remove fade-out class
-      modalSearch.classList.add("fade-in-modal"); // Add fade-in class
+      modalSearch.classList.remove("fade-out-modal");
+      modalSearch.classList.add("fade-in-modal");
     }
     if (searchBar) {
       searchBar.classList.add("fade-out-nav");
@@ -85,8 +93,8 @@ const NavBar = () => {
     const modalSearch: Element | null = document.querySelector(".modal_search");
     const searchBar = document.querySelector(".search_on_navbar");
     if (modalSearch) {
-      modalSearch.classList.remove("fade-in-modal"); // Remove fade-in class
-      modalSearch.classList.add("fade-out-modal"); // Add fade-out class
+      modalSearch.classList.remove("fade-in-modal");
+      modalSearch.classList.add("fade-out-modal");
     }
     if (searchBar) {
       searchBar.classList.add("fade-in-nav");
@@ -94,12 +102,138 @@ const NavBar = () => {
     }
     setTimeout(() => {
       setOpenModal(false);
-    }, 350);
+    }, 250);
   };
 
   const toggleDrawer = (newOpen: boolean) => () => {
     setOpen(newOpen);
   };
+
+  useEffect(() => {
+    const fetchHotelCollection = async () => {
+      try {
+        const hotelCollection =
+          await HotelCollectionServices.getHotelCollection();
+        setHotelList(hotelCollection);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+
+    fetchHotelCollection();
+  }, []);
+
+  const showAllHotels = (hotelType: string) => {
+    navigate(`/hotel-list?hotel_type=${hotelType}`);
+  };
+
+  useEffect(() => {
+    const fetchCities = async () => {
+      try {
+        const citiesData = await CitiesServices.getCities();
+        setCities(citiesData);
+      } catch (error) {
+        console.error("Error fetching cities:", error);
+      }
+    };
+
+    fetchCities();
+  }, []);
+
+  const handleCityChange = (event: SelectChangeEvent) => {
+    const cityId: any = parseInt(event.target.value);
+    setSelectedCity(cityId);
+    setDistricts([]);
+    const fetchDistrict = async () => {
+      try {
+        const districtData = await DistrictsServices.getDistricts(cityId);
+        setDistricts(districtData);
+      } catch (error) {
+        console.error("Error fetching districts:", error);
+      }
+    };
+
+    fetchDistrict();
+  };
+
+  const handleDistrictChange = (event: SelectChangeEvent) => {
+    const districtName = event.target.value;
+    setSelectedDistrict(districtName);
+    setLocation(districtName);
+  };
+
+  const handleShow = (location: string) => {
+    navigate(`/hotel-list?district_name=${location}`);
+  };
+
+  const checkURL = useLocation();
+  const [isHome, setIsHome] = useState(checkURL.pathname === "/home");
+
+  const handleScroll = () => {
+    if (checkURL.pathname === "/home") {
+      const searchBar = document.querySelector(".search_on_navbar");
+      setSelectedCity(null);
+      setSelectedDistrict(null);
+      if (searchBar) {
+        let scrollPosition;
+        if (window.innerWidth >= 992) {
+          scrollPosition = document.documentElement.scrollTop;
+        } else {
+          scrollPosition =
+            document.documentElement.scrollTop || document.body.scrollTop;
+        }
+        if (scrollPosition > (window.innerWidth >= 992 ? 300 : 100)) {
+          searchBar.classList.add("d-flex");
+          searchBar.classList.add("fade-in-nav");
+          searchBar.classList.remove("fade-out-nav");
+        } else {
+          searchBar.classList.remove("fade-in-nav");
+          searchBar.classList.add("fade-out-nav");
+        }
+      }
+    }
+  };
+
+  useEffect(() => {
+    setIsHome(checkURL.pathname === "/home");
+
+    if (isHome) {
+      window.addEventListener("scroll", handleScroll);
+
+      return () => {
+        window.removeEventListener("scroll", handleScroll);
+      };
+    } else {
+      const searchBar = document.querySelector(".search_on_navbar");
+      if (searchBar) {
+        searchBar.classList.add("d-flex");
+      }
+    }
+  }, [checkURL.pathname, isHome]);
+
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+
+  const fetchUserData = async () => {
+    try {
+      const user = auth.currentUser;
+      if (user) {
+        const docRef = doc(db, "Users", user.uid);
+        const docSnap = await getDoc(docRef);
+        if (docSnap.exists()) {
+          const userData = docSnap.data();
+          setFirstName(userData.firstName);
+          setLastName(userData.lastName);
+          setEmail(userData.email);
+        }
+      }
+    } catch (error) {
+      console.error("Error fetching user data:", error);
+    }
+  };
+
+  fetchUserData();
 
   const DrawerList = (
     <Box sx={{ width: 350 }} role="presentation" onClick={toggleDrawer(false)}>
@@ -113,7 +247,19 @@ const NavBar = () => {
               backgroundColor: "#003c43",
             }}
           >
-            N
+            {firstName.charAt(0).toUpperCase()}
+          </div>
+        </ListItem>
+
+        <ListItem>
+          <div>
+            <h6>
+              Xin chào{" "}
+              <strong>
+                {firstName} {lastName}
+              </strong>
+            </h6>
+            <span>{email}</span>
           </div>
         </ListItem>
 
@@ -182,111 +328,6 @@ const NavBar = () => {
     </Box>
   );
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const res = await axios.get<Hotel[]>(
-          "http://localhost:3000/hotelCollection"
-        );
-        const data = res.data;
-        setHotelList(data);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    };
-
-    fetchData();
-  }, []);
-
-  const showAllHotels = (hotelType: string) => {
-    navigate(`/hotel-list?hotel_type=${hotelType}`);
-  };
-
-  useEffect(() => {
-    axios
-      .get("http://localhost:3000/cities")
-      .then((response) => {
-        const citiesData: City[] = response.data;
-        setCities(citiesData);
-      })
-      .catch((error) => {
-        console.error("Error fetching cities:", error);
-      });
-  }, []);
-
-  const handleCityChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    const cityId = parseInt(event.target.value);
-    setSelectedCity(cityId);
-    setDistricts([]);
-    axios
-      .get(`http://localhost:3000/districts?cityId=${cityId}`)
-      .then((response) => {
-        const districtsData: District[] = response.data;
-        setDistricts(districtsData);
-      })
-      .catch((error) => {
-        console.error("Error fetching districts:", error);
-      });
-  };
-
-  const handleDistrictChange = (
-    event: React.ChangeEvent<HTMLSelectElement>
-  ) => {
-    const districtName = event.target.value;
-    setSelectedDistrict(districtName);
-    setLocation(districtName);
-  };
-
-  const handleShow = (location: string) => {
-    navigate(`/hotel-list?district_name=${location}`);
-  };
-
-  const checkURL = useLocation();
-  // console.log("checkURL: ", checkURL);
-  const [isHome, setIsHome] = useState(checkURL.pathname === "/home");
-
-  const handleScroll = () => {
-    if (checkURL.pathname === "/home") {
-      // Check if the user is on the "/home" page
-      const searchBar = document.querySelector(".search_on_navbar");
-      if (searchBar) {
-        let scrollPosition;
-        if (window.innerWidth >= 992) {
-          scrollPosition = document.documentElement.scrollTop;
-        } else {
-          scrollPosition =
-            document.documentElement.scrollTop || document.body.scrollTop;
-        }
-        // Simplifying the code by removing duplication
-        if (scrollPosition > (window.innerWidth >= 992 ? 300 : 100)) {
-          searchBar.classList.add("d-flex");
-          searchBar.classList.add("fade-in-nav");
-          searchBar.classList.remove("fade-out-nav");
-        } else {
-          searchBar.classList.remove("fade-in-nav");
-          searchBar.classList.add("fade-out-nav");
-        }
-      }
-    }
-  };
-
-  useEffect(() => {
-    setIsHome(checkURL.pathname === "/home");
-
-    if (isHome) {
-      window.addEventListener("scroll", handleScroll);
-
-      return () => {
-        window.removeEventListener("scroll", handleScroll);
-      };
-    } else {
-      const searchBar = document.querySelector(".search_on_navbar");
-      if (searchBar) {
-        searchBar.classList.add("d-flex");
-      }
-    }
-  }, [checkURL.pathname, isHome]); // Add checkURL.pathname and isHome to the dependency array to re-run the effect when they change
-
   return (
     <nav className="fixed-top bg-white shadow">
       <div
@@ -296,7 +337,7 @@ const NavBar = () => {
         <div className="d-flex align-items-center">
           <Link to="home">
             <img
-              src="./public/images/logo.png"
+              src="/public/images/logo.png"
               alt="logo"
               width={70}
               className="mr-0 mr-lg-3"
@@ -316,36 +357,11 @@ const NavBar = () => {
               <i className="fas fa-gift mr-2"></i>
               Ưu đãi
             </Link>
-
-            <div className="dropdown">
-              <button
-                className="btn dropdown"
-                type="button"
-                data-toggle="dropdown"
-                aria-expanded="false"
-                style={{
-                  fontSize: "14px",
-                  letterSpacing: "0",
-                  color: "#003c43",
-                  fontWeight: "600",
-                }}
-              >
-                <span>Danh mục khách sạn </span>{" "}
-                <i className="fa-solid fa-chevron-down"></i>
-              </button>
-              <div className="dropdown-menu shadow px-2">
-                {hotelList.map((hotel) => (
-                  <div
-                    className="dropdown-item py-2 rounded mb-1"
-                    key={hotel.sn}
-                    style={{ fontSize: "14px", cursor: "pointer" }}
-                    onClick={() => showAllHotels(hotel.title)}
-                  >
-                    {hotel.title}
-                  </div>
-                ))}
-              </div>
-            </div>
+            {/* drop down */}
+            <DropdownHotelCollection
+              hotelList={hotelList}
+              showAllHotels={showAllHotels}
+            />
           </div>
         </div>
 
@@ -355,7 +371,8 @@ const NavBar = () => {
           } align-items-center d-none border rounded-pill p-2 pl-3`}
           onClick={handleOpen}
         >
-          Bạn muốn đi đâu?
+          {/* Bạn muốn đi đâu? */}
+          {selectedCity ? selectedDistrict : "Bạn muốn đi đâu?"}
           <div
             className="text-white rounded-circle d-flex align-items-center justify-content-center ml-3"
             style={{
@@ -425,8 +442,13 @@ const NavBar = () => {
                   className="dropdown-item"
                   style={{ borderBottom: "1px solid gray" }}
                 >
-                  <h6>User name</h6>
-                  <i className="fa-solid fa-phone"></i>(+84) 818512944
+                  <h6>
+                    Xin chào{" "}
+                    <strong>
+                      {firstName} {lastName}
+                    </strong>
+                  </h6>
+                  <p>{email}</p>
                 </li>
                 <li>
                   <a className="dropdown-item py-2 my-2" href="">
@@ -512,19 +534,24 @@ const NavBar = () => {
                   ></i>
                   Bạn muốn đi đâu?
                 </div>
-                <select
-                  id="city"
-                  value={selectedCity !== null ? selectedCity : ""}
-                  onChange={handleCityChange}
-                  className="pl-2"
-                >
-                  <option value="">Tỉnh/Thành phố</option>
-                  {cities.map((city) => (
-                    <option key={city.id} value={city.id}>
-                      {city.name}
-                    </option>
-                  ))}
-                </select>
+                <FormControl variant="filled" sx={{ m: 0, minWidth: 120 }}>
+                  <InputLabel id="demo-simple-select-filled-label">
+                    Thành Phố
+                  </InputLabel>
+                  <Select
+                    id="city"
+                    value={selectedCity !== null ? selectedCity : ""}
+                    onChange={handleCityChange}
+                    className="pl-2"
+                    style={{ width: "150px", borderRadius: "5px" }}
+                  >
+                    {cities.map((city) => (
+                      <MenuItem key={city.id} value={city.id}>
+                        {city.name}
+                      </MenuItem>
+                    ))}
+                  </Select>
+                </FormControl>
               </div>
 
               <div className="d-flex mb-3 mr-lg-3">
@@ -538,24 +565,28 @@ const NavBar = () => {
                   ></i>
                   Khu vực:
                 </div>
-                <select
-                  id="district"
-                  value={selectedDistrict !== null ? selectedDistrict : ""}
-                  onChange={handleDistrictChange}
-                  disabled={!selectedCity}
-                  className="pl-2"
-                  style={{ width: "170px" }}
-                >
-                  <option value="">Quận/Huyện</option>
-                  {districts.map((district) => (
-                    <option
-                      key={district.districtId}
-                      value={district.districtName}
-                    >
-                      {district.districtName}
-                    </option>
-                  ))}
-                </select>
+                <FormControl variant="filled" sx={{ m: 0, minWidth: 120 }}>
+                  <InputLabel id="demo-simple-select-filled-label">
+                    Quận/huyện
+                  </InputLabel>
+                  <Select
+                    id="district"
+                    value={selectedDistrict !== null ? selectedDistrict : ""}
+                    onChange={handleDistrictChange}
+                    disabled={!selectedCity}
+                    className="pl-2"
+                    style={{ width: "150px", borderRadius: "5px" }}
+                  >
+                    {districts.map((district) => (
+                      <MenuItem
+                        key={district.districtId}
+                        value={district.districtName}
+                      >
+                        {district.districtName}
+                      </MenuItem>
+                    ))}
+                  </Select>
+                </FormControl>
               </div>
 
               <button

@@ -230,7 +230,7 @@
   "hotelCollection": [
     {
       "sn": 76,
-      "title": "Go2Joy Room",
+      "title": "9ROOM - NiceRoom",
       "id": "3700"
     },
     {
@@ -1688,7 +1688,7 @@
       "originPrice": 200000,
       "discountPrice": 180000,
       "averageMark": 4.7,
-      "hotelType": "Go2Joy Room",
+      "hotelType": "9ROOM - NiceRoom",
       "totalReview": 4300,
       "districtName": "Quận 2",
       "firstHours": 2,
@@ -2219,7 +2219,7 @@
       "originPrice": 120000,
       "discountPrice": 102000,
       "averageMark": 4.8,
-      "hotelType": "Go2Joy Room",
+      "hotelType": "9ROOM - NiceRoom",
       "totalReview": 851,
       "districtName": "Quận 2",
       "firstHours": 2,
@@ -2487,7 +2487,7 @@
       "originPrice": 210000,
       "discountPrice": 210000,
       "averageMark": 4.9,
-      "hotelType": "Go2Joy Room",
+      "hotelType": "9ROOM - NiceRoom",
       "totalReview": 1954,
       "districtName": "Quận 3",
       "firstHours": 1,
@@ -3173,7 +3173,7 @@
       "originPrice": 150000,
       "discountPrice": 150000,
       "averageMark": 4.5,
-      "hotelType": "Go2Joy Room",
+      "hotelType": "9ROOM - NiceRoom",
       "totalReview": 111,
       "districtName": "Quận 3",
       "firstHours": 1,
@@ -3295,7 +3295,7 @@
       "originPrice": 327000,
       "discountPrice": 327000,
       "averageMark": 4.2,
-      "hotelType": "Go2Joy Room",
+      "hotelType": "9ROOM - NiceRoom",
       "totalReview": 58,
       "districtName": "Quận 3",
       "firstHours": 2,
@@ -4468,7 +4468,7 @@
       "originPrice": 140000,
       "discountPrice": 140000,
       "averageMark": 4.4,
-      "hotelType": "Go2Joy Room",
+      "hotelType": "9ROOM - NiceRoom",
       "totalReview": 28,
       "districtName": "Quận 5",
       "firstHours": 1,
@@ -4642,7 +4642,7 @@
       "originPrice": 450000,
       "discountPrice": 450000,
       "averageMark": 5,
-      "hotelType": "Go2Joy Room",
+      "hotelType": "9ROOM - NiceRoom",
       "totalReview": 14,
       "districtName": "Quận 5",
       "firstHours": 3,
@@ -5288,7 +5288,7 @@
       "originPrice": 230000,
       "discountPrice": 230000,
       "averageMark": 4.7,
-      "hotelType": "Go2Joy Room",
+      "hotelType": "9ROOM - NiceRoom",
       "totalReview": 139,
       "districtName": "Quận 7",
       "firstHours": 2,
@@ -5945,7 +5945,7 @@
       "originPrice": 260000,
       "discountPrice": 260000,
       "averageMark": 4.9,
-      "hotelType": "Go2Joy Room",
+      "hotelType": "9ROOM - NiceRoom",
       "totalReview": 820,
       "districtName": "Quận 7",
       "firstHours": 2,
@@ -6714,7 +6714,7 @@
       "originPrice": 140000,
       "discountPrice": 140000,
       "averageMark": 4.8,
-      "hotelType": "Go2Joy Room",
+      "hotelType": "9ROOM - NiceRoom",
       "totalReview": 2975,
       "districtName": "Bình Thạnh",
       "firstHours": 1,
@@ -7813,7 +7813,7 @@
       "originPrice": 100000,
       "discountPrice": 100000,
       "averageMark": 4.7,
-      "hotelType": "Go2Joy Room",
+      "hotelType": "9ROOM - NiceRoom",
       "totalReview": 122,
       "districtName": "Tân Bình",
       "firstHours": 1,
@@ -8801,7 +8801,7 @@
       "originPrice": 400000,
       "discountPrice": 400000,
       "averageMark": 4.8,
-      "hotelType": "Go2Joy Room",
+      "hotelType": "9ROOM - NiceRoom",
       "totalReview": 69,
       "districtName": "Hoàn Kiếm",
       "firstHours": 2,
@@ -8862,7 +8862,7 @@
       "originPrice": 275000,
       "discountPrice": 275000,
       "averageMark": 4.7,
-      "hotelType": "Go2Joy Room",
+      "hotelType": "9ROOM - NiceRoom",
       "totalReview": 84,
       "districtName": "Hoàn Kiếm",
       "firstHours": 2,
@@ -9369,7 +9369,7 @@
       "originPrice": 300000,
       "discountPrice": 300000,
       "averageMark": 4.9,
-      "hotelType": "Go2Joy Room",
+      "hotelType": "9ROOM - NiceRoom",
       "totalReview": 290,
       "districtName": "Ba Đình",
       "firstHours": 2,
@@ -9900,7 +9900,7 @@
       "originPrice": 230000,
       "discountPrice": 230000,
       "averageMark": 4.8,
-      "hotelType": "Go2Joy Room",
+      "hotelType": "9ROOM - NiceRoom",
       "totalReview": 230,
       "districtName": "Ba Đình",
       "firstHours": 2,
@@ -9949,7 +9949,7 @@
       "originPrice": 300000,
       "discountPrice": 300000,
       "averageMark": 4.8,
-      "hotelType": "Go2Joy Room",
+      "hotelType": "9ROOM - NiceRoom",
       "totalReview": 228,
       "districtName": "Ba Đình",
       "firstHours": 2,
@@ -10660,7 +10660,7 @@
       "originPrice": 700000,
       "discountPrice": 700000,
       "averageMark": 0,
-      "hotelType": "Go2Joy Room",
+      "hotelType": "9ROOM - NiceRoom",
       "totalReview": 0,
       "districtName": "Nam Từ Liêm",
       "firstHours": 1,
@@ -11323,7 +11323,7 @@
       "originPrice": 359000,
       "discountPrice": 359000,
       "averageMark": 5,
-      "hotelType": "Go2Joy Room",
+      "hotelType": "9ROOM - NiceRoom",
       "totalReview": 80,
       "districtName": "Nam Từ Liêm",
       "firstHours": 2,
@@ -11642,7 +11642,7 @@
       "originPrice": 270000,
       "discountPrice": 270000,
       "averageMark": 4.9,
-      "hotelType": "Go2Joy Room",
+      "hotelType": "9ROOM - NiceRoom",
       "totalReview": 10806,
       "districtName": "Cầu Giấy",
       "firstHours": 2,
@@ -12185,7 +12185,7 @@
       "originPrice": 200000,
       "discountPrice": 180000,
       "averageMark": 4.9,
-      "hotelType": "Go2Joy Room",
+      "hotelType": "9ROOM - NiceRoom",
       "totalReview": 823,
       "districtName": "Cầu Giấy",
       "firstHours": 2,
@@ -12975,7 +12975,7 @@
       "originPrice": 220000,
       "discountPrice": 220000,
       "averageMark": 4.6,
-      "hotelType": "Go2Joy Room",
+      "hotelType": "9ROOM - NiceRoom",
       "totalReview": 297,
       "districtName": "Tây Hồ",
       "firstHours": 2,
@@ -13572,7 +13572,7 @@
       "originPrice": 550000,
       "discountPrice": 550000,
       "averageMark": 4.5,
-      "hotelType": "Go2Joy Room",
+      "hotelType": "9ROOM - NiceRoom",
       "totalReview": 19,
       "districtName": "Tây Hồ",
       "firstHours": 4,
@@ -13872,7 +13872,7 @@
       "originPrice": 280000,
       "discountPrice": 220000,
       "averageMark": 5,
-      "hotelType": "Go2Joy Room",
+      "hotelType": "9ROOM - NiceRoom",
       "totalReview": 245,
       "districtName": "Hai Bà Trưng",
       "firstHours": 2,
@@ -13946,7 +13946,7 @@
       "originPrice": 200000,
       "discountPrice": 200000,
       "averageMark": 4.9,
-      "hotelType": "Go2Joy Room",
+      "hotelType": "9ROOM - NiceRoom",
       "totalReview": 163,
       "districtName": "Hai Bà Trưng",
       "firstHours": 2,
@@ -14579,7 +14579,7 @@
       "originPrice": 190000,
       "discountPrice": 190000,
       "averageMark": 4.7,
-      "hotelType": "Go2Joy Room",
+      "hotelType": "9ROOM - NiceRoom",
       "totalReview": 1231,
       "districtName": "Hai Bà Trưng",
       "firstHours": 2,
@@ -15463,7 +15463,7 @@
       "originPrice": 220000,
       "discountPrice": 220000,
       "averageMark": 4.9,
-      "hotelType": "Go2Joy Room",
+      "hotelType": "9ROOM - NiceRoom",
       "totalReview": 103,
       "districtName": "Đống Đa",
       "firstHours": 2,
@@ -15519,7 +15519,7 @@
       "originPrice": 180000,
       "discountPrice": 180000,
       "averageMark": 4.8,
-      "hotelType": "Go2Joy Room",
+      "hotelType": "9ROOM - NiceRoom",
       "totalReview": 1573,
       "districtName": "Đống Đa",
       "firstHours": 2,
@@ -16651,7 +16651,7 @@
       "originPrice": 250000,
       "discountPrice": 250000,
       "averageMark": 4.8,
-      "hotelType": "Go2Joy Room",
+      "hotelType": "9ROOM - NiceRoom",
       "totalReview": 285,
       "districtName": "Thanh Xuân",
       "firstHours": 2,
@@ -17151,7 +17151,7 @@
       "originPrice": 300000,
       "discountPrice": 300000,
       "averageMark": 4.9,
-      "hotelType": "Go2Joy Room",
+      "hotelType": "9ROOM - NiceRoom",
       "totalReview": 19,
       "districtName": "Thanh Xuân",
       "firstHours": 2,
@@ -17387,7 +17387,7 @@
       "originPrice": 130000,
       "discountPrice": 130000,
       "averageMark": 4.8,
-      "hotelType": "Go2Joy Room",
+      "hotelType": "9ROOM - NiceRoom",
       "totalReview": 111,
       "districtName": "Hà Đông",
       "firstHours": 2,
@@ -17465,7 +17465,7 @@
       "originPrice": 300000,
       "discountPrice": 300000,
       "averageMark": 4.9,
-      "hotelType": "Go2Joy Room",
+      "hotelType": "9ROOM - NiceRoom",
       "totalReview": 99,
       "districtName": "Hà Đông",
       "firstHours": 2,
@@ -18050,7 +18050,7 @@
       "originPrice": 300000,
       "discountPrice": 199000,
       "averageMark": 4.9,
-      "hotelType": "Go2Joy Room",
+      "hotelType": "9ROOM - NiceRoom",
       "totalReview": 1058,
       "districtName": "Hà Đông",
       "firstHours": 2,
@@ -18606,20 +18606,702 @@
       }
     },
     {
-      "id": "5638",
+      "id": "c1bf",
+      "hotelId": "27",
+      "hotelName": "LOOVE HOTEL 2",
+      "hotelAddress": "18 Đường Phạm Công Trứ, Phường Thạnh Mỹ Lợi, Quận 2, Thành phố Hồ Chí Minh, Việt Nam",
+      "roomId": 0,
+      "roomData": {
+        "roomName": "VIP ROOM 1(101, 201, 301)",
+        "price": 180000,
+        "area": null,
+        "roomImages": [
+          "https://s3.go2joy.vn/1000w/hotel/3470/4479_1702258067_65766593a275e.jpg",
+          "https://s3.go2joy.vn/1000w/hotel/3470/4479_1702258067_65766593dc357.jpg",
+          "https://s3.go2joy.vn/1000w/hotel/3470/4479_1702258068_657665940a781.JPG"
+        ]
+      }
+    },
+    {
+      "id": "b531",
+      "hotelId": "01",
+      "hotelName": "DAZI SIGNATURE HOTEL",
+      "hotelAddress": "23 Trương Định, Phường Bến Thành, Quận 1, Thành phố Hồ Chí Minh",
+      "roomId": 0,
+      "roomData": {
+        "roomName": "PRESIDENT ROOM - TEXAS",
+        "price": 1600000,
+        "area": 40,
+        "roomImages": [
+          "https://s3.go2joy.vn/1000w/hotel/13047/2848_1700550365_655c56dd09012.jpg",
+          "https://s3.go2joy.vn/1000w/hotel/13047/2848_1700550166_655c5616133a8.JPG",
+          "https://s3.go2joy.vn/1000w/hotel/13047/2848_1700550166_655c56162ddea.JPG",
+          "https://s3.go2joy.vn/1000w/hotel/13047/2848_1700550166_655c561647a73.JPG"
+        ]
+      }
+    },
+    {
+      "id": "4bd6",
+      "hotelId": "30",
+      "hotelName": "868 HOTEL - PHÁT LỘC PHÁT QUẬN 2",
+      "hotelAddress": "213 Phan Anh, Phường Bình Trị Đông, Bình Tân, Thành phố Hồ Chí Minh",
+      "roomId": 0,
+      "roomData": {
+        "roomName": "PHÒNG VIP",
+        "price": 130000,
+        "area": 30,
+        "roomImages": [
+          "https://s3.go2joy.vn/1000w/hotel/3581_1616332343451/c1e6390b08dd1a456da7d156c13ea3d8.jpg",
+          "https://s3.go2joy.vn/1000w/hotel/3581_1616332343451/e7b0af3e85a7192a23fa0be29f022fd4.jpg",
+          "https://s3.go2joy.vn/1000w/hotel/3581_1616332343451/9a2ff8d417ea63919bdbf270696a4405.jpg",
+          "https://s3.go2joy.vn/1000w/hotel/3581_1616332343451/485d758fb5c6bcb79fbff0826b66162e.jpg"
+        ]
+      }
+    },
+    {
+      "id": "a282",
+      "hotelId": "30",
+      "hotelName": "868 HOTEL - PHÁT LỘC PHÁT QUẬN 2",
+      "hotelAddress": "213 Phan Anh, Phường Bình Trị Đông, Bình Tân, Thành phố Hồ Chí Minh",
+      "roomId": 0,
+      "roomData": {
+        "roomName": "PHÒNG VIP",
+        "price": 130000,
+        "area": 30,
+        "roomImages": [
+          "https://s3.go2joy.vn/1000w/hotel/3581_1616332343451/c1e6390b08dd1a456da7d156c13ea3d8.jpg",
+          "https://s3.go2joy.vn/1000w/hotel/3581_1616332343451/e7b0af3e85a7192a23fa0be29f022fd4.jpg",
+          "https://s3.go2joy.vn/1000w/hotel/3581_1616332343451/9a2ff8d417ea63919bdbf270696a4405.jpg",
+          "https://s3.go2joy.vn/1000w/hotel/3581_1616332343451/485d758fb5c6bcb79fbff0826b66162e.jpg"
+        ]
+      }
+    },
+    {
+      "id": "726e",
+      "hotelId": "20",
+      "hotelName": "SAIGON RIVER HOTEL",
+      "hotelAddress": "35/8 Đường số 19, Phường Bình An, Quận 2, Hồ Chí Minh",
+      "roomId": 0,
+      "roomData": {
+        "roomName": "PHÒNG SUPERIOR",
+        "price": 145000,
+        "area": 20,
+        "roomImages": [
+          "https://s3.go2joy.vn/1000w/hotel/859_1533282197605/e73b53bdd635db929f3aa5e436c9a8c1.jpg",
+          "https://s3.go2joy.vn/1000w/hotel/859_1533282197605/3344074471befd9ab153298d7c70fa12.jpg",
+          "https://s3.go2joy.vn/1000w/hotel/859_1533282197605/2d79d1ea2cde3d7f3e3d5c7615f00961.jpg",
+          "https://s3.go2joy.vn/1000w/hotel/859_1533282197605/d3f319d78e76330749f49599fb081b96.jpg"
+        ]
+      }
+    },
+    {
+      "id": "0db2",
+      "hotelId": "20",
+      "hotelName": "SAIGON RIVER HOTEL",
+      "hotelAddress": "35/8 Đường số 19, Phường Bình An, Quận 2, Hồ Chí Minh",
+      "roomId": 0,
+      "roomData": {
+        "roomName": "PHÒNG SUPERIOR",
+        "price": 145000,
+        "area": 20,
+        "roomImages": [
+          "https://s3.go2joy.vn/1000w/hotel/859_1533282197605/e73b53bdd635db929f3aa5e436c9a8c1.jpg",
+          "https://s3.go2joy.vn/1000w/hotel/859_1533282197605/3344074471befd9ab153298d7c70fa12.jpg",
+          "https://s3.go2joy.vn/1000w/hotel/859_1533282197605/2d79d1ea2cde3d7f3e3d5c7615f00961.jpg",
+          "https://s3.go2joy.vn/1000w/hotel/859_1533282197605/d3f319d78e76330749f49599fb081b96.jpg"
+        ]
+      }
+    },
+    {
+      "id": "9b16",
+      "hotelId": "20",
+      "hotelName": "SAIGON RIVER HOTEL",
+      "hotelAddress": "35/8 Đường số 19, Phường Bình An, Quận 2, Hồ Chí Minh",
+      "roomId": 0,
+      "roomData": {
+        "roomName": "PHÒNG SUPERIOR",
+        "price": 145000,
+        "area": 20,
+        "roomImages": [
+          "https://s3.go2joy.vn/1000w/hotel/859_1533282197605/e73b53bdd635db929f3aa5e436c9a8c1.jpg",
+          "https://s3.go2joy.vn/1000w/hotel/859_1533282197605/3344074471befd9ab153298d7c70fa12.jpg",
+          "https://s3.go2joy.vn/1000w/hotel/859_1533282197605/2d79d1ea2cde3d7f3e3d5c7615f00961.jpg",
+          "https://s3.go2joy.vn/1000w/hotel/859_1533282197605/d3f319d78e76330749f49599fb081b96.jpg"
+        ]
+      }
+    },
+    {
+      "id": "88db",
+      "hotelId": "20",
+      "hotelName": "SAIGON RIVER HOTEL",
+      "hotelAddress": "35/8 Đường số 19, Phường Bình An, Quận 2, Hồ Chí Minh",
+      "roomId": 0,
+      "roomData": {
+        "roomName": "PHÒNG SUPERIOR",
+        "price": 145000,
+        "area": 20,
+        "roomImages": [
+          "https://s3.go2joy.vn/1000w/hotel/859_1533282197605/e73b53bdd635db929f3aa5e436c9a8c1.jpg",
+          "https://s3.go2joy.vn/1000w/hotel/859_1533282197605/3344074471befd9ab153298d7c70fa12.jpg",
+          "https://s3.go2joy.vn/1000w/hotel/859_1533282197605/2d79d1ea2cde3d7f3e3d5c7615f00961.jpg",
+          "https://s3.go2joy.vn/1000w/hotel/859_1533282197605/d3f319d78e76330749f49599fb081b96.jpg"
+        ]
+      }
+    },
+    {
+      "id": "318b",
+      "hotelId": "20",
+      "hotelName": "SAIGON RIVER HOTEL",
+      "hotelAddress": "35/8 Đường số 19, Phường Bình An, Quận 2, Hồ Chí Minh",
+      "roomId": 0,
+      "roomData": {
+        "roomName": "PHÒNG SUPERIOR",
+        "price": 145000,
+        "area": 20,
+        "roomImages": [
+          "https://s3.go2joy.vn/1000w/hotel/859_1533282197605/e73b53bdd635db929f3aa5e436c9a8c1.jpg",
+          "https://s3.go2joy.vn/1000w/hotel/859_1533282197605/3344074471befd9ab153298d7c70fa12.jpg",
+          "https://s3.go2joy.vn/1000w/hotel/859_1533282197605/2d79d1ea2cde3d7f3e3d5c7615f00961.jpg",
+          "https://s3.go2joy.vn/1000w/hotel/859_1533282197605/d3f319d78e76330749f49599fb081b96.jpg"
+        ]
+      }
+    },
+    {
+      "id": "8ac2",
+      "hotelId": "20",
+      "hotelName": "SAIGON RIVER HOTEL",
+      "hotelAddress": "35/8 Đường số 19, Phường Bình An, Quận 2, Hồ Chí Minh",
+      "roomId": 0,
+      "roomData": {
+        "roomName": "PHÒNG SUPERIOR",
+        "price": 145000,
+        "area": 20,
+        "roomImages": [
+          "https://s3.go2joy.vn/1000w/hotel/859_1533282197605/e73b53bdd635db929f3aa5e436c9a8c1.jpg",
+          "https://s3.go2joy.vn/1000w/hotel/859_1533282197605/3344074471befd9ab153298d7c70fa12.jpg",
+          "https://s3.go2joy.vn/1000w/hotel/859_1533282197605/2d79d1ea2cde3d7f3e3d5c7615f00961.jpg",
+          "https://s3.go2joy.vn/1000w/hotel/859_1533282197605/d3f319d78e76330749f49599fb081b96.jpg"
+        ]
+      }
+    },
+    {
+      "id": "0aea",
+      "hotelId": "20",
+      "hotelName": "SAIGON RIVER HOTEL",
+      "hotelAddress": "35/8 Đường số 19, Phường Bình An, Quận 2, Hồ Chí Minh",
+      "roomId": 0,
+      "roomData": {
+        "roomName": "PHÒNG SUPERIOR",
+        "price": 145000,
+        "area": 20,
+        "roomImages": [
+          "https://s3.go2joy.vn/1000w/hotel/859_1533282197605/e73b53bdd635db929f3aa5e436c9a8c1.jpg",
+          "https://s3.go2joy.vn/1000w/hotel/859_1533282197605/3344074471befd9ab153298d7c70fa12.jpg",
+          "https://s3.go2joy.vn/1000w/hotel/859_1533282197605/2d79d1ea2cde3d7f3e3d5c7615f00961.jpg",
+          "https://s3.go2joy.vn/1000w/hotel/859_1533282197605/d3f319d78e76330749f49599fb081b96.jpg"
+        ]
+      }
+    },
+    {
+      "id": "b70e",
+      "hotelId": "20",
+      "hotelName": "SAIGON RIVER HOTEL",
+      "hotelAddress": "35/8 Đường số 19, Phường Bình An, Quận 2, Hồ Chí Minh",
+      "roomId": 0,
+      "roomData": {
+        "roomName": "PHÒNG SUPERIOR",
+        "price": 145000,
+        "area": 20,
+        "roomImages": [
+          "https://s3.go2joy.vn/1000w/hotel/859_1533282197605/e73b53bdd635db929f3aa5e436c9a8c1.jpg",
+          "https://s3.go2joy.vn/1000w/hotel/859_1533282197605/3344074471befd9ab153298d7c70fa12.jpg",
+          "https://s3.go2joy.vn/1000w/hotel/859_1533282197605/2d79d1ea2cde3d7f3e3d5c7615f00961.jpg",
+          "https://s3.go2joy.vn/1000w/hotel/859_1533282197605/d3f319d78e76330749f49599fb081b96.jpg"
+        ]
+      }
+    },
+    {
+      "id": "21f9",
+      "hotelId": "20",
+      "hotelName": "SAIGON RIVER HOTEL",
+      "hotelAddress": "35/8 Đường số 19, Phường Bình An, Quận 2, Hồ Chí Minh",
+      "roomId": 0,
+      "roomData": {
+        "roomName": "PHÒNG SUPERIOR",
+        "price": 145000,
+        "area": 20,
+        "roomImages": [
+          "https://s3.go2joy.vn/1000w/hotel/859_1533282197605/e73b53bdd635db929f3aa5e436c9a8c1.jpg",
+          "https://s3.go2joy.vn/1000w/hotel/859_1533282197605/3344074471befd9ab153298d7c70fa12.jpg",
+          "https://s3.go2joy.vn/1000w/hotel/859_1533282197605/2d79d1ea2cde3d7f3e3d5c7615f00961.jpg",
+          "https://s3.go2joy.vn/1000w/hotel/859_1533282197605/d3f319d78e76330749f49599fb081b96.jpg"
+        ]
+      }
+    },
+    {
+      "id": "d589",
+      "hotelId": "20",
+      "hotelName": "SAIGON RIVER HOTEL",
+      "hotelAddress": "35/8 Đường số 19, Phường Bình An, Quận 2, Hồ Chí Minh",
+      "roomId": 0,
+      "roomData": {
+        "roomName": "PHÒNG SUPERIOR",
+        "price": 145000,
+        "area": 20,
+        "roomImages": [
+          "https://s3.go2joy.vn/1000w/hotel/859_1533282197605/e73b53bdd635db929f3aa5e436c9a8c1.jpg",
+          "https://s3.go2joy.vn/1000w/hotel/859_1533282197605/3344074471befd9ab153298d7c70fa12.jpg",
+          "https://s3.go2joy.vn/1000w/hotel/859_1533282197605/2d79d1ea2cde3d7f3e3d5c7615f00961.jpg",
+          "https://s3.go2joy.vn/1000w/hotel/859_1533282197605/d3f319d78e76330749f49599fb081b96.jpg"
+        ]
+      }
+    },
+    {
+      "id": "9d16",
+      "hotelId": "23",
+      "hotelName": "ABC HOTEL",
+      "hotelAddress": "36 Đ. 47-BTT, Phường Bình Trưng Tây, Quận 2, Hồ Chí Minh 70000, Vietnam",
+      "roomId": 0,
+      "roomData": {
+        "roomName": "Phòng loại 1",
+        "price": 125000,
+        "area": 18,
+        "roomImages": [
+          "https://s3.go2joy.vn/1000w/hotel/359_1477303195764/ea6f2df6d62cffdbe9b2a90e2e03d02b.jpg",
+          "https://s3.go2joy.vn/1000w/hotel/359_1477303195764/eb4d635923fc0d9b0bc04b1abbcf3dc5.jpg",
+          "https://s3.go2joy.vn/1000w/hotel/359_1477303195764/c4ffe5fac4fb9cad1989dc183a759794.jpg",
+          "https://s3.go2joy.vn/1000w/hotel/359_1477303195764/c68c05de0c0e7d9acb66fe58703161c2.jpg"
+        ]
+      }
+    },
+    {
+      "id": "acf3",
+      "hotelId": "15",
+      "hotelName": "ME GUSTAS - LOVE HOTEL",
+      "hotelAddress": "4 Đặng Trần Côn, Phường Bến Thành, Quận 1, Thành phố Hồ Chí Minh, Vietnam",
+      "roomId": 0,
+      "roomData": {
+        "roomName": "La Nina",
+        "price": 405000,
+        "area": 40,
+        "roomImages": [
+          "https://s3.go2joy.vn/1000w/hotel/2765_1596680384535/bd1e4a88f93b500ec8bd74329946efd5.jpg",
+          "https://s3.go2joy.vn/1000w/hotel/2765_1596680384535/a74faa34579a642e3d9f7885e227e6f0.jpg",
+          "https://s3.go2joy.vn/1000w/hotel/2765_1596680384535/d23b9a29b685be21ee31b81684b60dcc.jpg",
+          "https://s3.go2joy.vn/1000w/hotel/2765_1596680384535/e898f32a2bd517e5fee58bca18de1724.jpg"
+        ]
+      }
+    },
+    {
+      "id": "2de4",
+      "hotelId": "138",
+      "hotelName": "YR HOTEL & APARTMENT",
+      "hotelAddress": "Số 42 ngõ 260 đội cấn, phố Đội Cấn, Phường Liễu Giai, Quận Ba Đình, Thành phố Hà Nội",
+      "roomId": 0,
+      "roomData": {
+        "roomName": "Studio deluxe with balcony",
+        "price": 300000,
+        "area": 22,
+        "roomImages": [
+          "https://s3.go2joy.vn/1000w/hotel/10718/3901_1649129310_624bb75e0502e.JPG",
+          "https://s3.go2joy.vn/1000w/hotel/10718/3901_1646641195_6225c02b42748.jpg",
+          "https://s3.go2joy.vn/1000w/hotel/10718/6128_1645776458_62188e4a08dcd.jpg",
+          "https://s3.go2joy.vn/1000w/hotel/10718/3901_1646641195_6225c02b6dd8a.jpg"
+        ]
+      }
+    },
+    {
+      "id": "0c30",
+      "hotelId": "169",
+      "hotelName": "LE GRAND HANOI HOTEL - THE ORIENTAL",
+      "hotelAddress": "6 Ngõ 80 Trần Duy Hưng, Trung Hoà, Cầu Giấy, Hà Nội, Việt Nam",
+      "roomId": 0,
+      "roomData": {
+        "roomName": "PHÒNG HẠNG A",
+        "price": 270000,
+        "area": 22,
+        "roomImages": [
+          "https://s3.go2joy.vn/1000w/hotel/660_1490934698325/2c0181bb9379a496236a384170435195.jpg",
+          "https://s3.go2joy.vn/1000w/hotel/660_1490934698325/5f2478768a1effedec8f09a6a53d8748.jpg",
+          "https://s3.go2joy.vn/1000w/hotel/660_1490934698325/9d359a9debff1b12e245f8832a4aec09.jpg",
+          "https://s3.go2joy.vn/1000w/hotel/660_1490934698325/beb9ceaf8e7cfc89ba28332ce1616c2a.jpg"
+        ]
+      }
+    },
+    {
+      "id": "22fa",
+      "hotelId": "18",
+      "hotelName": "A IN HOTEL GLAMOUR",
+      "hotelAddress": "63/1-63/3 Đường số 19, Phường Bình An, Quận 2, Thành phố Hồ Chí Minh",
+      "roomId": 1,
+      "roomData": {
+        "roomName": "Superior Room",
+        "price": 275000,
+        "area": 18,
+        "roomImages": [
+          "https://s3.go2joy.vn/1000w/hotel/910/9368_1709368502_65e2e4b697969.jpg",
+          "https://s3.go2joy.vn/1000w/hotel/910/9368_1709368502_65e2e4b6cd625.jpg",
+          "https://s3.go2joy.vn/1000w/hotel/910/9368_1709368502_65e2e4b6ed19d.jpg",
+          "https://s3.go2joy.vn/1000w/hotel/910/9368_1709368502_65e2e4b6ed19d.jpg"
+        ]
+      }
+    },
+    {
+      "id": "3244",
+      "hotelId": "01",
+      "hotelName": "DAZI SIGNATURE HOTEL",
+      "hotelAddress": "23 Trương Định, Phường Bến Thành, Quận 1, Thành phố Hồ Chí Minh",
+      "roomId": 0,
+      "roomData": {
+        "roomName": "PRESIDENT ROOM - TEXAS",
+        "price": 1600000,
+        "area": 40,
+        "roomImages": [
+          "https://s3.go2joy.vn/1000w/hotel/13047/2848_1700550365_655c56dd09012.jpg",
+          "https://s3.go2joy.vn/1000w/hotel/13047/2848_1700550166_655c5616133a8.JPG",
+          "https://s3.go2joy.vn/1000w/hotel/13047/2848_1700550166_655c56162ddea.JPG",
+          "https://s3.go2joy.vn/1000w/hotel/13047/2848_1700550166_655c561647a73.JPG"
+        ]
+      }
+    },
+    {
+      "id": "b20d",
+      "hotelId": "23",
+      "hotelName": "ABC HOTEL",
+      "hotelAddress": "36 Đ. 47-BTT, Phường Bình Trưng Tây, Quận 2, Hồ Chí Minh 70000, Vietnam",
+      "roomId": 0,
+      "roomData": {
+        "roomName": "Phòng loại 1",
+        "price": 125000,
+        "area": 18,
+        "roomImages": [
+          "https://s3.go2joy.vn/1000w/hotel/359_1477303195764/ea6f2df6d62cffdbe9b2a90e2e03d02b.jpg",
+          "https://s3.go2joy.vn/1000w/hotel/359_1477303195764/eb4d635923fc0d9b0bc04b1abbcf3dc5.jpg",
+          "https://s3.go2joy.vn/1000w/hotel/359_1477303195764/c4ffe5fac4fb9cad1989dc183a759794.jpg",
+          "https://s3.go2joy.vn/1000w/hotel/359_1477303195764/c68c05de0c0e7d9acb66fe58703161c2.jpg"
+        ]
+      }
+    },
+    {
+      "id": "161d",
+      "hotelId": "02",
+      "hotelName": "CUPID HOTEL NAM QUỐC CANG",
+      "hotelAddress": "2Bis Nam Quốc Cang, Phường Phạm Ngũ Lão, Quận 1, Hồ Chí Minh",
+      "roomId": 0,
+      "roomData": {
+        "roomName": "SUITE ROOM CINEMA",
+        "price": 525000,
+        "area": 40,
+        "roomImages": [
+          "https://s3.go2joy.vn/1000w/hotel/758/4479_1698983889_65446fd19f7b2.jpg",
+          "https://s3.go2joy.vn/1000w/hotel/758/4479_1698983889_65446fd1d6432.jpg",
+          "https://s3.go2joy.vn/1000w/hotel/758/4479_1698983890_65446fd21ce5e.jpg",
+          "https://s3.go2joy.vn/1000w/hotel/758/4479_1698983890_65446fd24285b.jpg"
+        ]
+      }
+    },
+    {
+      "id": "d1c9",
+      "hotelId": "15",
+      "hotelName": "ME GUSTAS - LOVE HOTEL",
+      "hotelAddress": "4 Đặng Trần Côn, Phường Bến Thành, Quận 1, Thành phố Hồ Chí Minh, Vietnam",
+      "roomId": 1,
+      "roomData": {
+        "roomName": "Tsim Sha Tsui",
+        "price": 405000,
+        "area": 40,
+        "roomImages": [
+          "https://s3.go2joy.vn/1000w/hotel/2765_1596680384535/59e8c5b15f966974885f0cd9d3b1ed3f.jpg",
+          "https://s3.go2joy.vn/1000w/hotel/2765_1596680384535/d97fbb97b63a90c635bd9c5adc4ca6d9.jpg",
+          "https://s3.go2joy.vn/1000w/hotel/2765_1596680384535/cb9107fb5794d406981b0928be9aeb57.jpg",
+          "https://s3.go2joy.vn/1000w/hotel/2765_1596680384535/76fa7d1c8baff59c02f6f69a81a967fc.jpg"
+        ]
+      }
+    },
+    {
+      "id": "2f3e",
+      "hotelId": "15",
+      "hotelName": "ME GUSTAS - LOVE HOTEL",
+      "hotelAddress": "4 Đặng Trần Côn, Phường Bến Thành, Quận 1, Thành phố Hồ Chí Minh, Vietnam",
+      "roomId": 1,
+      "roomData": {
+        "roomName": "Tsim Sha Tsui",
+        "price": 405000,
+        "area": 40,
+        "roomImages": [
+          "https://s3.go2joy.vn/1000w/hotel/2765_1596680384535/59e8c5b15f966974885f0cd9d3b1ed3f.jpg",
+          "https://s3.go2joy.vn/1000w/hotel/2765_1596680384535/d97fbb97b63a90c635bd9c5adc4ca6d9.jpg",
+          "https://s3.go2joy.vn/1000w/hotel/2765_1596680384535/cb9107fb5794d406981b0928be9aeb57.jpg",
+          "https://s3.go2joy.vn/1000w/hotel/2765_1596680384535/76fa7d1c8baff59c02f6f69a81a967fc.jpg"
+        ]
+      }
+    },
+    {
+      "id": "8982",
+      "hotelId": "15",
+      "hotelName": "ME GUSTAS - LOVE HOTEL",
+      "hotelAddress": "4 Đặng Trần Côn, Phường Bến Thành, Quận 1, Thành phố Hồ Chí Minh, Vietnam",
+      "roomId": 1,
+      "roomData": {
+        "roomName": "Tsim Sha Tsui",
+        "price": 405000,
+        "area": 40,
+        "roomImages": [
+          "https://s3.go2joy.vn/1000w/hotel/2765_1596680384535/59e8c5b15f966974885f0cd9d3b1ed3f.jpg",
+          "https://s3.go2joy.vn/1000w/hotel/2765_1596680384535/d97fbb97b63a90c635bd9c5adc4ca6d9.jpg",
+          "https://s3.go2joy.vn/1000w/hotel/2765_1596680384535/cb9107fb5794d406981b0928be9aeb57.jpg",
+          "https://s3.go2joy.vn/1000w/hotel/2765_1596680384535/76fa7d1c8baff59c02f6f69a81a967fc.jpg"
+        ]
+      }
+    },
+    {
+      "id": "e1e2",
+      "hotelId": "15",
+      "hotelName": "ME GUSTAS - LOVE HOTEL",
+      "hotelAddress": "4 Đặng Trần Côn, Phường Bến Thành, Quận 1, Thành phố Hồ Chí Minh, Vietnam",
+      "roomId": 1,
+      "roomData": {
+        "roomName": "Tsim Sha Tsui",
+        "price": 405000,
+        "area": 40,
+        "roomImages": [
+          "https://s3.go2joy.vn/1000w/hotel/2765_1596680384535/59e8c5b15f966974885f0cd9d3b1ed3f.jpg",
+          "https://s3.go2joy.vn/1000w/hotel/2765_1596680384535/d97fbb97b63a90c635bd9c5adc4ca6d9.jpg",
+          "https://s3.go2joy.vn/1000w/hotel/2765_1596680384535/cb9107fb5794d406981b0928be9aeb57.jpg",
+          "https://s3.go2joy.vn/1000w/hotel/2765_1596680384535/76fa7d1c8baff59c02f6f69a81a967fc.jpg"
+        ]
+      }
+    },
+    {
+      "id": "28a0",
+      "hotelId": "15",
+      "hotelName": "ME GUSTAS - LOVE HOTEL",
+      "hotelAddress": "4 Đặng Trần Côn, Phường Bến Thành, Quận 1, Thành phố Hồ Chí Minh, Vietnam",
+      "roomId": 1,
+      "roomData": {
+        "roomName": "Tsim Sha Tsui",
+        "price": 405000,
+        "area": 40,
+        "roomImages": [
+          "https://s3.go2joy.vn/1000w/hotel/2765_1596680384535/59e8c5b15f966974885f0cd9d3b1ed3f.jpg",
+          "https://s3.go2joy.vn/1000w/hotel/2765_1596680384535/d97fbb97b63a90c635bd9c5adc4ca6d9.jpg",
+          "https://s3.go2joy.vn/1000w/hotel/2765_1596680384535/cb9107fb5794d406981b0928be9aeb57.jpg",
+          "https://s3.go2joy.vn/1000w/hotel/2765_1596680384535/76fa7d1c8baff59c02f6f69a81a967fc.jpg"
+        ]
+      }
+    },
+    {
+      "id": "3e2c",
+      "hotelId": "15",
+      "hotelName": "ME GUSTAS - LOVE HOTEL",
+      "hotelAddress": "4 Đặng Trần Côn, Phường Bến Thành, Quận 1, Thành phố Hồ Chí Minh, Vietnam",
+      "roomId": 1,
+      "roomData": {
+        "roomName": "Tsim Sha Tsui",
+        "price": 405000,
+        "area": 40,
+        "roomImages": [
+          "https://s3.go2joy.vn/1000w/hotel/2765_1596680384535/59e8c5b15f966974885f0cd9d3b1ed3f.jpg",
+          "https://s3.go2joy.vn/1000w/hotel/2765_1596680384535/d97fbb97b63a90c635bd9c5adc4ca6d9.jpg",
+          "https://s3.go2joy.vn/1000w/hotel/2765_1596680384535/cb9107fb5794d406981b0928be9aeb57.jpg",
+          "https://s3.go2joy.vn/1000w/hotel/2765_1596680384535/76fa7d1c8baff59c02f6f69a81a967fc.jpg"
+        ]
+      }
+    },
+    {
+      "id": "d64c",
+      "hotelId": "169",
+      "hotelName": "LE GRAND HANOI HOTEL - THE ORIENTAL",
+      "hotelAddress": "6 Ngõ 80 Trần Duy Hưng, Trung Hoà, Cầu Giấy, Hà Nội, Việt Nam",
+      "roomId": 0,
+      "roomData": {
+        "roomName": "PHÒNG HẠNG A",
+        "price": 270000,
+        "area": 22,
+        "roomImages": [
+          "https://s3.go2joy.vn/1000w/hotel/660_1490934698325/2c0181bb9379a496236a384170435195.jpg",
+          "https://s3.go2joy.vn/1000w/hotel/660_1490934698325/5f2478768a1effedec8f09a6a53d8748.jpg",
+          "https://s3.go2joy.vn/1000w/hotel/660_1490934698325/9d359a9debff1b12e245f8832a4aec09.jpg",
+          "https://s3.go2joy.vn/1000w/hotel/660_1490934698325/beb9ceaf8e7cfc89ba28332ce1616c2a.jpg"
+        ]
+      }
+    },
+    {
+      "id": "8e48",
       "hotelId": "05",
       "hotelName": "THE ODYS HOTEL",
       "hotelAddress": "65 - 67- 69 Nguyễn Thái Bình, Phường Nguyễn Thái Bình, Quận 1, Hồ Chí Minh",
-      "roomId": 2,
+      "roomId": 0,
       "roomData": {
-        "roomName": "Junior Deluxe Double Room",
-        "price": 600000,
+        "roomName": "Deluxe Double/Twin Room",
+        "price": 750000,
+        "area": 60,
+        "roomImages": [
+          "https://s3.go2joy.vn/1000w/hotel/1177_1564627228225/31319ca3405c26657f6d2887e7667c9e.jpg",
+          "https://s3.go2joy.vn/1000w/hotel/1177_1564627228225/c5100e05fd84edb4c70db080e0f5a34c.jpg",
+          "https://s3.go2joy.vn/1000w/hotel/1177/405_1637544605_619af29ddd467.jpg",
+          "https://s3.go2joy.vn/1000w/hotel/1177_1564627228225/0b05058daf8fe99e37dbbfc7aa85474a.jpg"
+        ]
+      }
+    },
+    {
+      "id": "1316",
+      "hotelId": "01",
+      "hotelName": "DAZI SIGNATURE HOTEL",
+      "hotelAddress": "23 Trương Định, Phường Bến Thành, Quận 1, Thành phố Hồ Chí Minh",
+      "roomId": 1,
+      "roomData": {
+        "roomName": "VIP ROOM - HÀ NỘI 1980",
+        "price": 800000,
         "area": 50,
         "roomImages": [
-          "https://s3.go2joy.vn/1000w/hotel/1177_1564627228225/78e87cd1ab419c49416cfacda08df9ba.jpg",
-          "https://s3.go2joy.vn/1000w/hotel/1177_1564627228225/ee0c32d95ebc886e55cd3d94e3dd849f.jpg",
-          "https://s3.go2joy.vn/1000w/hotel/1177_1564627228225/18b6d5d365ffe7d734ae05c7bf41f717.jpg",
-          "https://s3.go2joy.vn/1000w/hotel/1177_1564627228225/3a875c8c71ffaf8d254a63769ee23e9c.jpg"
+          "https://s3.go2joy.vn/1000w/hotel/13047/2848_1698909752_65434e381c50e.JPG",
+          "https://s3.go2joy.vn/1000w/hotel/13047/2848_1698909752_65434e383fd8d.JPG",
+          "https://s3.go2joy.vn/1000w/hotel/13047/2848_1698909752_65434e3855d35.JPG",
+          "https://s3.go2joy.vn/1000w/hotel/13047/2848_1698909752_65434e3868b4b.JPG"
+        ]
+      }
+    },
+    {
+      "id": "b2fa",
+      "hotelId": "01",
+      "hotelName": "DAZI SIGNATURE HOTEL",
+      "hotelAddress": "23 Trương Định, Phường Bến Thành, Quận 1, Thành phố Hồ Chí Minh",
+      "roomId": 1,
+      "roomData": {
+        "roomName": "VIP ROOM - HÀ NỘI 1980",
+        "price": 800000,
+        "area": 50,
+        "roomImages": [
+          "https://s3.go2joy.vn/1000w/hotel/13047/2848_1698909752_65434e381c50e.JPG",
+          "https://s3.go2joy.vn/1000w/hotel/13047/2848_1698909752_65434e383fd8d.JPG",
+          "https://s3.go2joy.vn/1000w/hotel/13047/2848_1698909752_65434e3855d35.JPG",
+          "https://s3.go2joy.vn/1000w/hotel/13047/2848_1698909752_65434e3868b4b.JPG"
+        ]
+      }
+    },
+    {
+      "id": "b89e",
+      "hotelId": "29",
+      "hotelName": "HẢI ĐĂNG HOTEL Q2",
+      "hotelAddress": "70/7 Đường 56, Phường Bình Trưng Đông, Quận 2, Thành phố Hồ Chí Minh",
+      "roomId": 0,
+      "roomData": {
+        "roomName": "PHÒNG ĐƠN",
+        "price": 90000,
+        "area": 15,
+        "roomImages": [
+          "https://s3.go2joy.vn/1000w/hotel/3070/2848_1649128548_624bb46437530.jpg",
+          "https://s3.go2joy.vn/1000w/hotel/3070/2848_1649128548_624bb46467fef.jpg",
+          "https://s3.go2joy.vn/1000w/hotel/3070/2848_1649128548_624bb464862d6.jpg",
+          "https://s3.go2joy.vn/1000w/hotel/3070/2848_1649128548_624bb464a88f3.jpg"
+        ]
+      }
+    },
+    {
+      "id": "eb95",
+      "hotelId": "29",
+      "hotelName": "HẢI ĐĂNG HOTEL Q2",
+      "hotelAddress": "70/7 Đường 56, Phường Bình Trưng Đông, Quận 2, Thành phố Hồ Chí Minh",
+      "roomId": 0,
+      "roomData": {
+        "roomName": "PHÒNG ĐƠN",
+        "price": 90000,
+        "area": 15,
+        "roomImages": [
+          "https://s3.go2joy.vn/1000w/hotel/3070/2848_1649128548_624bb46437530.jpg",
+          "https://s3.go2joy.vn/1000w/hotel/3070/2848_1649128548_624bb46467fef.jpg",
+          "https://s3.go2joy.vn/1000w/hotel/3070/2848_1649128548_624bb464862d6.jpg",
+          "https://s3.go2joy.vn/1000w/hotel/3070/2848_1649128548_624bb464a88f3.jpg"
+        ]
+      }
+    },
+    {
+      "id": "15c1",
+      "hotelId": "01",
+      "hotelName": "DAZI SIGNATURE HOTEL",
+      "hotelAddress": "23 Trương Định, Phường Bến Thành, Quận 1, Thành phố Hồ Chí Minh",
+      "roomId": 0,
+      "roomData": {
+        "roomName": "PRESIDENT ROOM - TEXAS",
+        "price": 1600000,
+        "area": 40,
+        "roomImages": [
+          "https://s3.go2joy.vn/1000w/hotel/13047/2848_1700550365_655c56dd09012.jpg",
+          "https://s3.go2joy.vn/1000w/hotel/13047/2848_1700550166_655c5616133a8.JPG",
+          "https://s3.go2joy.vn/1000w/hotel/13047/2848_1700550166_655c56162ddea.JPG",
+          "https://s3.go2joy.vn/1000w/hotel/13047/2848_1700550166_655c561647a73.JPG"
+        ]
+      }
+    },
+    {
+      "id": "02d7",
+      "hotelId": "38",
+      "hotelName": "KISS HOTEL RẠCH BÙNG BINH Q3",
+      "hotelAddress": "77 Nguyễn Thông, Phường 9, Quận 3, Thành phố Hồ Chí Minh, Vietnam",
+      "roomId": 0,
+      "roomData": {
+        "roomName": "SUPERIOR ROOM",
+        "price": 126000,
+        "area": 20,
+        "roomImages": [
+          "https://s3.go2joy.vn/1000w/hotel/15916/9002_1693461958_64f02dc6b2e39.jpg",
+          "https://s3.go2joy.vn/1000w/hotel/15916/9002_1693461958_64f02dc6dbeaa.jpg",
+          "https://s3.go2joy.vn/1000w/hotel/15916/9002_1693461959_64f02dc70fbd7.jpg"
+        ]
+      }
+    },
+    {
+      "id": "1f41",
+      "hotelId": "17",
+      "hotelName": "BÌNH AN HOTEL",
+      "hotelAddress": "96-98 Đường số 20, Phường Bình An, Quận 2, Hồ Chí Minh",
+      "roomId": 0,
+      "roomData": {
+        "roomName": "QUEEN",
+        "price": 517500,
+        "area": 30,
+        "roomImages": [
+          "https://s3.go2joy.vn/1000w/hotel/3044/118_1622967105_60bc83414e96f.jpg",
+          "https://s3.go2joy.vn/1000w/hotel/3044/118_1622967105_60bc8341807ce.jpg",
+          "https://s3.go2joy.vn/1000w/hotel/3044/118_1622967105_60bc83419d8e1.jpg",
+          "https://s3.go2joy.vn/1000w/hotel/3044/118_1622967105_60bc8341bba38.jpg"
+        ]
+      }
+    },
+    {
+      "id": "c345",
+      "hotelId": "138",
+      "hotelName": "YR HOTEL & APARTMENT",
+      "hotelAddress": "Số 42 ngõ 260 đội cấn, phố Đội Cấn, Phường Liễu Giai, Quận Ba Đình, Thành phố Hà Nội",
+      "roomId": 0,
+      "roomData": {
+        "roomName": "Studio deluxe with balcony",
+        "price": 300000,
+        "area": 22,
+        "roomImages": [
+          "https://s3.go2joy.vn/1000w/hotel/10718/3901_1649129310_624bb75e0502e.JPG",
+          "https://s3.go2joy.vn/1000w/hotel/10718/3901_1646641195_6225c02b42748.jpg",
+          "https://s3.go2joy.vn/1000w/hotel/10718/6128_1645776458_62188e4a08dcd.jpg",
+          "https://s3.go2joy.vn/1000w/hotel/10718/3901_1646641195_6225c02b6dd8a.jpg"
+        ]
+      }
+    },
+    {
+      "id": "fd97",
+      "hotelId": "138",
+      "hotelName": "YR HOTEL & APARTMENT",
+      "hotelAddress": "Số 42 ngõ 260 đội cấn, phố Đội Cấn, Phường Liễu Giai, Quận Ba Đình, Thành phố Hà Nội",
+      "roomId": 0,
+      "roomData": {
+        "roomName": "Studio deluxe with balcony",
+        "price": 300000,
+        "area": 22,
+        "roomImages": [
+          "https://s3.go2joy.vn/1000w/hotel/10718/3901_1649129310_624bb75e0502e.JPG",
+          "https://s3.go2joy.vn/1000w/hotel/10718/3901_1646641195_6225c02b42748.jpg",
+          "https://s3.go2joy.vn/1000w/hotel/10718/6128_1645776458_62188e4a08dcd.jpg",
+          "https://s3.go2joy.vn/1000w/hotel/10718/3901_1646641195_6225c02b6dd8a.jpg"
         ]
       }
     }

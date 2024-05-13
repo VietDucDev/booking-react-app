@@ -1,6 +1,6 @@
 // features/bookingSlice.js
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
-import { BookRoomProps } from "../pages/RoomPage/RoomPage";
+import { BookRoomProps } from "../pages/room-page/RoomPage";
 
 interface BookingState {
   selectedRoom: BookRoomProps;

@@ -1,10 +1,11 @@
 @import "../variable";
 
 .background {
-  height: 100vh;
+  height: calc(100vh - 65px);
   background-image: url("../../../../public/images/crs_2.jpg");
   background-size: cover;
-  position: sticky;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .main_container {
@@ -35,11 +36,9 @@
     .hotel_list_map_container {
       // border: 1px solid blue;
       background-color: #f3f3f3;
-      // overflow-y: scroll;
-      // height: 93vh;
+      box-shadow: $primary-light-shadow;
       padding: 10px;
-      position: absolute;
-      width: 100%;
+      position: fixed;
       padding-bottom: 30px;
       border-radius: 10px;
       margin-top: 80px;

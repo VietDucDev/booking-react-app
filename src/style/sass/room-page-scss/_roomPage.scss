@@ -8,61 +8,6 @@
     overflow: hidden;
   }
 
-  .con-like {
-    --red: rgb(255, 50, 50);
-    position: relative;
-    width: 30px;
-    height: 30px;
-  }
-
-  .con-like .like {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    opacity: 0;
-    z-index: 20;
-    cursor: pointer;
-  }
-
-  .con-like .checkmark {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .con-like .outline,
-  .con-like .filled {
-    fill: var(--red);
-    position: absolute;
-  }
-
-  .con-like .filled {
-    animation: kfr-filled 0.5s;
-    display: none;
-  }
-
-  .con-like .celebrate {
-    position: absolute;
-    animation: kfr-celebrate 0.5s;
-    animation-fill-mode: forwards;
-    display: none;
-  }
-
-  .con-like .poly {
-    stroke: var(--red);
-    fill: var(--red);
-  }
-
-  .con-like .like:checked ~ .checkmark .filled {
-    display: block;
-  }
-
-  .con-like .like:checked ~ .checkmark .celebrate {
-    display: block;
-  }
-
   @keyframes kfr-filled {
     0% {
       opacity: 0;
@@ -102,30 +47,21 @@
 
   .room-details-btn {
     width: 100%;
-    bottom: 0px;
+    // bottom: 0px;
     button {
       padding: 0;
       margin: 0;
       border: none;
       background: none;
-      cursor: pointer;
     }
 
     button {
-      --primary-color: #111;
-      --hovered-color: #c84747;
-      display: flex;
-      width: 100%;
+      --primary-color: #005e69;
+      --hovered-color: #003c43;
       font-weight: 600;
-      font-size: 14px;
+      font-size: 16px;
       gap: 0.5rem;
       align-items: center;
-    }
-
-    button p {
-      margin: 0;
-      font-size: 20px;
-      color: var(--primary-color);
     }
 
     button::after {
@@ -141,8 +77,6 @@
 
     button p::before {
       position: absolute;
-      /*   box-sizing: border-box; */
-      // content: "Xemchitiếtphòng";
       width: 0%;
       inset: 0;
       color: var(--hovered-color);
@@ -179,7 +113,8 @@
 
     .image-gallery-image {
       object-fit: cover;
-      height: 500px;
+      max-height: 500px;
+      box-shadow: $primary-light-shadow;
     }
     .image-gallery-left-nav {
       background-color: #135d66;
@@ -232,6 +167,8 @@
     .image-gallery-thumbnail-image {
       height: 62px;
       object-fit: cover;
+      border-radius: 5px;
+      box-shadow: $primary-light-shadow;
     }
   }
 
@@ -311,7 +248,7 @@
   }
 
   .custom-review {
-    font-size: 40px;
+    font-size: 35px;
   }
 
   @media (max-width: 700px) {
