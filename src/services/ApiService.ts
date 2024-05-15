@@ -23,7 +23,7 @@ class ApiServices {
   // }
 
   getRequest(url: string): Promise<AxiosResponse> {
-    console.log("url: ", url);
+    // console.log("url: ", url);
     return axios.get(url);
   }
 

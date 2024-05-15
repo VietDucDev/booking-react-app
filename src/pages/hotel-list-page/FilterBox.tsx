@@ -40,14 +40,7 @@ function valuetext(value: number) {
 }
 
 const FilterBox: React.FC<FilterBoxProps> = ({ onCloseFilterBox }) => {
-  // const dispatch = useDispatch();
-  //get data API from store
-  // const { hotelsList } = useSelector((state) => state.hotelsList);
-
-  // console.log("hotelsList from store - filter box: ", hotelsList);
-
   const [priceValue, setPriceValue] = useState<number[]>([20000, 2000000]);
-  console.log("value money: ", priceValue);
 
   const handleChange = (_event: Event, newValue: number | number[]) => {
     setPriceValue(newValue as number[]);
@@ -56,7 +49,6 @@ const FilterBox: React.FC<FilterBoxProps> = ({ onCloseFilterBox }) => {
   //select hotel type (tat ca, giam gia, uu dai...)
 
   const [selectedRadioValues, setSelectRadioValues] = useState("0");
-  console.log("selectedRadio", selectedRadioValues);
   const [checkedRadio, setCheckedRadio] = useState<CheckRadioState>({
     "0": true,
     "5": false,
@@ -66,13 +58,10 @@ const FilterBox: React.FC<FilterBoxProps> = ({ onCloseFilterBox }) => {
   });
 
   const [chooseTypeHotel, setChoosTypeHotel] = useState("");
-  console.log("chooseTypeHotel: ", chooseTypeHotel);
 
   const [seacrhParams, setSearchParams] = useSearchParams();
   const districtSearchParams = seacrhParams.get("district_name");
   const hotelTypeSearchParams = seacrhParams.get("hotel_type");
-
-  console.log("seacrhParams after choose: ", seacrhParams);
 
   const [selectedCheckboxValues, setSelectedCheckboxValues] = useState<
     string[]
@@ -87,8 +76,6 @@ const FilterBox: React.FC<FilterBoxProps> = ({ onCloseFilterBox }) => {
     "67": false,
     "123": false,
   });
-
-  console.log("checkboxes", JSON.stringify(checkboxes));
 
   //get value from local storage
   useEffect(() => {
@@ -197,7 +184,6 @@ const FilterBox: React.FC<FilterBoxProps> = ({ onCloseFilterBox }) => {
 
         hotel_type: hotelTypeSearchParams,
       };
-      // console.log("chooseTypeHotel in filterBox: ", chooseTypeHotel);
       setSearchParams({ ...seacrhParams, ...filterParams });
     } else if (hotelTypeSearchParams) {
       const filterParams = {
@@ -243,7 +229,6 @@ const FilterBox: React.FC<FilterBoxProps> = ({ onCloseFilterBox }) => {
       );
     }
   };
-  console.log("selectedCheckboxValues:", selectedCheckboxValues);
 
   const handleResetFilter = () => {
     const updateCheckboxes: CheckboxState = {};
@@ -257,7 +242,6 @@ const FilterBox: React.FC<FilterBoxProps> = ({ onCloseFilterBox }) => {
       updateCheckRadios[key] = false;
     });
     updateCheckRadios["0"] = true;
-    console.log("updateCheckRadios", updateCheckRadios);
     setCheckedRadio(updateCheckRadios);
 
     setSelectedCheckboxValues([]);

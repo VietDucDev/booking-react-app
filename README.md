@@ -1,4 +1,4 @@
-npm install
-npm run server
-npm run dev
+New Terminal: npm install <br>
+New Terminal: npm run server <br>
+New Terminal: npm run dev <br> <br> <br>
 ![Logo](./public/images/project-img.PNG)
