@@ -30,12 +30,9 @@ const SortBox: React.FC<SortBoxProps> = ({ onCloseSortBox }) => {
     newSortValue: string
   ) => {
     setChosenSortValue(newSortValue);
-    console.log("newSortValue", newSortValue);
 
     if (districtSearchParams || hotelTypeSearchParams) {
       const updatedSearchParams = new URLSearchParams(seacrhParams); // Create a copy SearchParams
-      console.log("updatedSearchParams", updatedSearchParams);
-      console.log("seacrhParams:", seacrhParams);
       if (newSortValue !== null) {
         updatedSearchParams.set("sort", newSortValue);
       } else {
@@ -46,8 +43,6 @@ const SortBox: React.FC<SortBoxProps> = ({ onCloseSortBox }) => {
 
     setTimeout(onCloseSortBox, 300);
   };
-
-  console.log("sortValue: ", chosenSortValue);
 
   return (
     <Fragment>

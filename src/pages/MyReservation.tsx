@@ -42,7 +42,7 @@ const MyReservation = () => {
   const handleDelete = async (id: number) => {
     try {
       const response = await CheckoutHotelService.deleteCheckoutHotel(id);
-      console.log("Delete successful", response);
+      // console.log("Delete successful", response);
     } catch (error) {
       console.error("Error deleting hotel", error);
     }

@@ -43,7 +43,7 @@ const Login_Logout = () => {
     setTimeout(async () => {
       try {
         await signInWithEmailAndPassword(auth, values.email, values.password);
-        console.log("User logged in Successfully");
+        // console.log("User logged in Successfully");
         window.location.href = "/home";
       } catch (error: any) {
         alert(error.message);
@@ -55,12 +55,10 @@ const Login_Logout = () => {
 
   const handleRegister = async (value: FormValues) => {
     setIsButtonDisabled(true); // Disable the button on click
-    console.log(value);
 
     try {
       await createUserWithEmailAndPassword(auth, value.email, value.password);
       const user = auth.currentUser;
-      console.log(user);
       if (user) {
         await setDoc(doc(db, "Users", user.uid), {
           email: user.email,
